@@ -1,2 +1,2 @@
-# -yeah-its-me-Aman
+# yeahitsmeAman
 this is my work portfolio
