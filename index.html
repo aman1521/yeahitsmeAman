@@ -602,8 +602,23 @@
       transform: translateY(0);
     }
 
+    /* Contact Specifics */
+    .contact-card {
+      grid-column: span 6;
+    }
+
+    .contact-detail-card {
+      overflow-wrap: break-word;
+      word-break: break-all;
+      hyphens: auto;
+    }
+
     /* Responsive */
     @media (max-width: 980px) {
+      .contact-card {
+        grid-column: span 12;
+      }
+
       .hero-grid {
         grid-template-columns: 1fr;
       }
@@ -2032,7 +2047,7 @@
                 </div>
 
                 <div class="grid">
-                  <div class="card reveal" style="grid-column: span 6; border-radius: var(--radius);">
+                  <div class="card reveal contact-card" style="border-radius: var(--radius);">
                     <h3 style="margin:0 0 8px;">Let’s Work Together</h3>
                     <p style="margin:0 0 14px; color:var(--muted); line-height:1.6;">
                       If you're looking for a marketer who can handle <b>strategy + execution + results</b>,
@@ -2044,18 +2059,18 @@
                     </div>
                   </div>
 
-                  <div class="card reveal" style="grid-column: span 6; border-radius: var(--radius);">
+                  <div class="card reveal contact-card" style="border-radius: var(--radius);">
                     <h3 style="margin:0 0 8px;">Contact Details</h3>
                     <p style="margin:0 0 14px; color:var(--muted); line-height:1.6;">Reach me directly:</p>
 
                     <div style="display:grid; gap:10px;">
-                      <div class="card" style="padding:12px 14px;">
+                      <div class="card contact-detail-card" style="padding:12px 14px;">
                         <b>Email:</b> <a href="mailto:amanchouhan1217@gmail.com">amanchouhan1217@gmail.com</a>
                       </div>
-                      <div class="card" style="padding:12px 14px;">
+                      <div class="card contact-detail-card" style="padding:12px 14px;">
                         <b>Phone:</b> <a href="tel:+919115437107">+91 9115437107</a>
                       </div>
-                      <div class="card" style="padding:12px 14px;">
+                      <div class="card contact-detail-card" style="padding:12px 14px;">
                         <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/aman-marketing-expert"
                           target="_blank">View
                           Profile</a>
