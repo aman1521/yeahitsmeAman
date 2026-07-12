@@ -4,72 +4,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aman Kumar | Marketing Expert & Performance Marketing Lead</title>
+  <title>Aman Kumar | Growth Architect & Mentor</title>
   <meta name="description"
-    content="Aman Kumar - Marketing Expert | Performance Marketing Lead. Google Ads, Meta Ads, SEO, GA4, Growth Strategy, AI automation." />
+    content="Aman Kumar - Growth Architect & Mentor. I build predictable growth systems combining marketing, AI, psychology, automation, and strategy to help brands scale." />
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     :root {
-      --bg: #070B14;
-      --text: #EAF0FF;
-      --muted: rgba(234, 240, 255, .70);
-      --muted2: rgba(234, 240, 255, .50);
-
-      --accent: #22E3B6;
-      --accent2: #3B82F6;
-
-      --shadow: 0 20px 60px rgba(0, 0, 0, .35);
-      --radius: 22px;
-      --radius2: 16px;
-
-      --max: 1320px;
+      --bg: #FFFFFF;
+      --bg-alt: #F8FAFC;
+      --text: #0F172A;
+      --text-muted: #475569;
+      --text-muted2: #64748B;
+      --muted: var(--text-muted);
+      --muted2: var(--text-muted2);
+      --border: #E2E8F0;
+      --border-focus: #2563EB;
+      
+      --accent: #2563EB; /* Royal Blue */
+      --accent-hover: #1D4ED8;
+      --cta: #EA580C; /* Vibrant Orange */
+      --cta-hover: #C2410C;
+      
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+      --shadow-hover: 0 20px 40px rgba(15, 23, 42, 0.08), 0 1px 5px rgba(15, 23, 42, 0.03);
+      --radius: 20px;
+      --radius2: 14px;
+      --max: 1200px;
     }
 
     * {
-      box-sizing: border-box
+      box-sizing: border-box;
     }
 
     html {
-      scroll-behavior: smooth
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(1200px 600px at 15% 10%, rgba(34, 227, 182, .18), transparent 55%),
-        radial-gradient(900px 520px at 85% 20%, rgba(59, 130, 246, .16), transparent 55%),
-        radial-gradient(800px 600px at 50% 100%, rgba(34, 227, 182, .08), transparent 60%),
-        var(--bg);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text-muted);
+      background-color: var(--bg);
       overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      line-height: 1.25;
+      margin: 0 0 10px;
     }
 
     a {
-      color: inherit;
-      text-decoration: none
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
     }
 
     img {
       max-width: 100%;
-      display: block
+      display: block;
+      height: auto;
     }
 
     .container {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 0 16px;
+      padding: 0 24px;
     }
 
     @media (max-width: 640px) {
       .container {
-        padding: 0 12px;
+        padding: 0 16px;
       }
     }
 
@@ -79,15 +98,15 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(16px);
-      background: rgba(7, 11, 20, .55);
-      border-bottom: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(255, 255, 255, 0.85);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 0;
+      padding: 16px 0;
       gap: 14px;
     }
 
@@ -96,34 +115,26 @@
       align-items: center;
       gap: 12px;
       font-weight: 800;
-      letter-spacing: .2px;
-    }
-
-    .logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(34, 227, 182, 1), rgba(59, 130, 246, 1));
-      box-shadow: 0 10px 28px rgba(34, 227, 182, .18);
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
-      color: var(--muted);
+      gap: 8px;
+      color: var(--text-muted);
       font-weight: 600;
       font-size: 14px;
       align-items: center;
     }
 
     .nav-links a {
-      padding: 10px 12px;
-      border-radius: 12px;
-      transition: .2s ease;
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      transition: all .2s ease;
     }
 
     .nav-links a:hover {
-      background: rgba(255, 255, 255, .06);
+      background: var(--bg-alt);
       color: var(--text);
     }
 
@@ -138,140 +149,153 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 11px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, .14);
-      background: rgba(255, 255, 255, .06);
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
       color: var(--text);
-      font-weight: 700;
+      font-weight: 600;
       font-size: 14px;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      transition: all 0.2s ease;
       cursor: pointer;
       user-select: none;
       white-space: nowrap;
     }
 
     .btn:hover {
-      transform: translateY(-1px);
-      background: rgba(255, 255, 255, .09);
-      border-color: rgba(255, 255, 255, .22);
+      background: var(--bg-alt);
+      border-color: var(--text-muted2);
     }
 
     .btn.primary {
-      border: none;
-      background: linear-gradient(135deg, rgba(34, 227, 182, 1), rgba(59, 130, 246, 1));
-      box-shadow: 0 20px 40px rgba(59, 130, 246, .18);
+      border: 1px solid var(--cta);
+      background: var(--cta);
+      color: #FFFFFF;
+    }
+
+    .btn.primary:hover {
+      background: var(--cta-hover);
+      border-color: var(--cta-hover);
+    }
+    
+    .btn.blue {
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #FFFFFF;
+    }
+
+    .btn.blue:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
     }
 
     /* HERO */
     header.hero {
-      padding: 46px 0 24px;
+      padding: 60px 0 40px;
+      background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 18px;
-      align-items: center;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: flex-start;
     }
 
     .hero-card {
-      border-radius: var(--radius);
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
-      box-shadow: var(--shadow);
-      padding: 28px;
-      position: relative;
-      overflow: hidden;
-      min-height: 420px;
-      padding: 85px 20px;
+      padding: 0;
     }
 
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, .14);
-      background: rgba(255, 255, 255, .05);
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 13px;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 12px;
+      margin-bottom: 16px;
     }
 
     .dot {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       border-radius: 99px;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(34, 227, 182, .12);
+      background: #10B981;
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, .2);
     }
 
     h1 {
-      margin: 14px 0 10px;
-      font-size: 44px;
-      line-height: 1.05;
-      letter-spacing: -1px;
+      font-size: 40px;
+      letter-spacing: -0.8px;
+      margin-bottom: 16px;
     }
 
     .subtitle {
-      color: var(--muted);
+      color: var(--text-muted);
       font-size: 16px;
       line-height: 1.6;
-      max-width: 62ch;
-      margin-bottom: 18px;
+      margin-bottom: 24px;
     }
 
     .hero-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 10px;
+      margin-bottom: 24px;
     }
 
     .mini {
-      margin-top: 18px;
-      color: var(--muted2);
+      color: var(--text-muted2);
       font-size: 13px;
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
+    .mini-kpis {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
     .chip {
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .05);
-      border: 1px solid rgba(255, 255, 255, .10);
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 99px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-weight: 500;
       font-size: 13px;
+      white-space: nowrap;
     }
 
     /* HERO PHOTO */
     .hero-photo {
       border-radius: var(--radius);
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border);
+      background: var(--bg);
       box-shadow: var(--shadow);
-      padding: 18px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
       gap: 14px;
       align-items: center;
-      justify-content: center;
-      min-height: 420px;
     }
 
     .hero-photo img {
       width: 100%;
-      height: 100%;
-      max-height: 520px;
+      border-radius: var(--radius2);
+      border: 1px solid var(--border);
       object-fit: cover;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: white;
+      max-height: 360px;
     }
 
     .hero-photo-actions {
@@ -281,75 +305,89 @@
     }
 
     .hero-photo-actions .btn {
-      width: 100%;
+      flex: 1;
     }
 
     /* Sections */
     section {
-      padding: 34px 0;
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    section:nth-of-type(even) {
+      background-color: var(--bg-alt);
     }
 
     .section-title {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      gap: 14px;
-      margin-bottom: 18px;
+      gap: 24px;
+      margin-bottom: 32px;
     }
 
     .section-title h2 {
-      margin: 0;
-      font-size: 22px;
-      letter-spacing: -0.2px;
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: -0.5px;
     }
 
     .section-title p {
       margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-      max-width: 90ch;
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 700px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
+      gap: 20px;
     }
+
+    /* Column Spans */
+    .col-2 { grid-column: span 2; }
+    .col-4 { grid-column: span 4; }
+    .col-5 { grid-column: span 5; }
+    .col-7 { grid-column: span 7; }
+    .col-8 { grid-column: span 8; }
+    .col-12 { grid-column: span 12; }
 
     .card {
       border-radius: var(--radius2);
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(255, 255, 255, .04);
-      padding: 14px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, .20);
-      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: all 0.25s ease;
     }
 
     .card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(34, 227, 182, .35);
-      background: rgba(255, 255, 255, .06);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent);
     }
 
     /* KPIs */
     .kpi {
       grid-column: span 3;
+      text-align: center;
     }
 
     .kpi .label {
-      color: var(--muted2);
-      font-weight: 700;
-      font-size: 12px;
+      color: var(--text-muted2);
+      font-weight: 600;
+      font-size: 13px;
       margin-bottom: 8px;
       text-transform: uppercase;
-      letter-spacing: .8px;
+      letter-spacing: .5px;
     }
 
     .kpi .value {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: -0.3px;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.5px;
     }
 
     /* Case Studies */
@@ -357,10 +395,11 @@
       grid-column: span 6;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .case .top {
+    .case .top,
+    .automation-header {
       display: flex;
       justify-content: space-between;
       gap: 10px;
@@ -368,33 +407,26 @@
     }
 
     .case .title {
-      font-weight: 900;
-      font-size: 16px;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text);
     }
 
     .tag {
-      font-size: 12px;
-      color: var(--muted2);
+      font-size: 11px;
+      color: var(--accent);
       font-weight: 700;
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(255, 255, 255, .04);
-      padding: 6px 10px;
-      border-radius: 999px;
+      border: 1px solid rgba(37, 99, 235, 0.15);
+      background: rgba(37, 99, 235, 0.05);
+      padding: 4px 10px;
+      border-radius: 99px;
       white-space: nowrap;
     }
 
     .case .desc {
-      color: var(--muted);
+      color: var(--text-muted);
       font-size: 14px;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .mini-kpis {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 6px;
+      margin: 8px 0 0;
     }
 
     /* Services */
@@ -403,36 +435,46 @@
     }
 
     .service h3 {
-      margin: 6px 0 6px;
-      font-size: 16px;
+      font-size: 18px;
+      margin: 12px 0 8px;
     }
 
     .service p {
-      margin: 0;
-      color: var(--muted);
+      margin: 0 0 12px;
+      color: var(--text-muted);
       font-size: 14px;
-      line-height: 1.6;
     }
 
     .icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, rgba(34, 227, 182, .18), rgba(59, 130, 246, .18));
-      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(37, 99, 235, 0.05);
+      border: 1px solid rgba(37, 99, 235, 0.1);
+      color: var(--accent);
+      font-size: 20px;
+    }
+
+    .icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--accent);
+      stroke-width: 2px;
+      fill: none;
     }
 
     /* Proofs */
     .proof-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
+      gap: 20px;
     }
 
-    .report-card {
+    .report-card,
+    .gallery-card {
       grid-column: span 6;
     }
 
@@ -440,30 +482,28 @@
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 10px;
+      gap: 12px;
+      margin-bottom: 14px;
     }
 
     .report-title {
-      font-weight: 900;
-      font-size: 15px;
-      letter-spacing: -0.2px;
+      font-weight: 700;
+      font-size: 16px;
     }
 
     .report-sub {
-      color: var(--muted);
+      color: var(--text-muted);
       font-size: 13px;
       margin-top: 4px;
-      line-height: 1.5;
     }
 
     .pdf-frame {
       width: 100%;
       height: 440px;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, .10);
+      border-radius: var(--radius2);
+      border: 1px solid var(--border);
       overflow: hidden;
-      background: rgba(0, 0, 0, .15);
+      background: var(--bg-alt);
     }
 
     .pdf-frame iframe {
@@ -472,71 +512,66 @@
       border: 0;
     }
 
-    .gallery-card {
-      grid-column: span 12;
-    }
-
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 10px;
+      gap: 16px;
+      margin-top: 14px;
     }
 
     .thumb {
-      border-radius: 16px;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius2);
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border);
+      background: var(--bg-alt);
       cursor: pointer;
       position: relative;
-      transition: transform .15s ease, border-color .15s ease;
+      transition: all 0.2s ease;
     }
 
     .thumb:hover {
       transform: translateY(-2px);
-      border-color: rgba(34, 227, 182, .35);
+      border-color: var(--accent);
     }
 
     .thumb img {
       width: 100%;
-      height: 200px;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
 
     .thumb:after {
-      content: "Click to View";
+      content: "View Proof";
       position: absolute;
-      bottom: 10px;
-      left: 10px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, .55);
-      border: 1px solid rgba(255, 255, 255, .14);
-      color: var(--text);
-      font-size: 12px;
-      font-weight: 800;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
       opacity: 0;
-      transform: translateY(6px);
-      transition: .2s ease;
+      transition: opacity 0.2s ease;
     }
 
     .thumb:hover:after {
       opacity: 1;
-      transform: translateY(0);
     }
 
     /* Lightbox */
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, .72);
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 999;
-      padding: 20px;
+      padding: 24px;
     }
 
     .lightbox.show {
@@ -544,12 +579,12 @@
     }
 
     .lightbox-inner {
-      max-width: 1000px;
+      max-width: 900px;
       width: 100%;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, .16);
-      background: rgba(10, 15, 28, .85);
-      box-shadow: 0 40px 120px rgba(0, 0, 0, .55);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--bg);
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
       overflow: hidden;
       position: relative;
     }
@@ -558,43 +593,382 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 14px;
-      border-bottom: 1px solid rgba(255, 255, 255, .10);
-      color: var(--muted);
-      font-weight: 800;
-      font-size: 13px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 700;
     }
 
     .close-btn {
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .14);
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
       color: var(--text);
-      border-radius: 12px;
-      padding: 8px 12px;
+      border-radius: 8px;
+      padding: 6px 12px;
       cursor: pointer;
-      font-weight: 900;
+      font-weight: 600;
+      font-size: 13px;
     }
 
     .lightbox-img {
       width: 100%;
-      max-height: 75vh;
+      max-height: 70vh;
       object-fit: contain;
-      background: rgba(0, 0, 0, .2);
+      background: var(--bg-alt);
       display: block;
     }
 
-    footer {
-      padding: 26px 0 34px;
-      color: var(--muted2);
+    /* LEAD GEN FORM */
+    .lead-card {
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    
+    .lead-card h3 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    
+    .lead-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    
+    .form-group {
+      margin-bottom: 12px;
+    }
+    
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    
+    .lead-success {
+      text-align: center;
+      padding: 24px 12px;
+    }
+    
+    .lead-success h4 {
+      color: #10B981;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    
+    .lead-success p {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    /* MENTOR SECTION */
+    .mentor-full-gallery {
+      grid-column: span 12;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    
+
+    
+    .video-card {
+      border-radius: var(--radius2);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: #000000;
+      position: relative;
+      aspect-ratio: 16/9;
+    }
+    
+    .video-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .photo-card {
+      border-radius: var(--radius2);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      transition: transform .2s ease;
+      padding: 0;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-2px);
+    }
+    
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* SEO Portfolio Excel-Style Table */
+    .seo-table-wrap {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--bg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .seo-table-title {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: var(--bg-alt);
+    }
+
+    .seo-table-title h3 {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
+
+    .seo-table-title p {
+      margin: 0;
+      color: var(--text-muted);
       font-size: 13px;
-      border-top: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .seo-table-scroll {
+      overflow-x: auto;
+      width: 100%;
+    }
+
+    .seo-excel {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      min-width: 980px;
+    }
+
+    .seo-excel thead th {
+      background: var(--bg-alt);
+      color: var(--text);
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .seo-excel tbody td {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .seo-site,
+    .seo-brand {
+      font-weight: 700;
+      min-width: 180px;
+    }
+
+    .seo-excel a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    
+    .seo-excel a:hover {
+      text-decoration: underline;
+    }
+
+    .seo-rank {
+      font-weight: 700;
+      text-align: center;
+      width: 80px;
+      color: var(--text);
+    }
+
+    .rank-good {
+      background-color: #DCFCE7 !important;
+      color: #15803D !important;
+    }
+    .rank-mid {
+      background-color: #FEF3C7 !important;
+      color: #B45309 !important;
+    }
+    .rank-bad {
+      background-color: #FEE2E2 !important;
+      color: #B91C1C !important;
+    }
+    .rank-na {
+      background-color: #F1F5F9 !important;
+      color: #64748B !important;
+      font-style: italic;
+    }
+
+    /* Alternating blocks - subtle light theme */
+    .block-green td {
+      background: #F0FDF4; /* Light Emerald Green */
+    }
+
+    .block-pink td {
+      background: #FFF1F2; /* Light Rose Pink */
+    }
+
+    .block-green .seo-site,
+    .block-green .seo-brand {
+      color: #15803D;
+    }
+
+    .block-pink .seo-site,
+    .block-pink .seo-brand {
+      color: #BE185D;
+    }
+
+    /* ARTICLES SECTION */
+    .article-card {
+      grid-column: span 4;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .article-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background: var(--bg-alt);
+      color: var(--text-muted2);
+      font-weight: 600;
+      font-size: 11px;
+      width: fit-content;
+    }
+
+    .article-title {
+      font-weight: 700;
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .article-desc {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .article-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding-top: 10px;
+    }
+
+    .read-btn {
+      width: 100%;
+    }
+
+    /* CERTIFICATE DISPLAY CARDS */
+    .cert-grid-card {
+      grid-column: span 6;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cert-preview {
+      width: 100%;
+      height: 240px;
+      border-radius: var(--radius2);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-alt);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .cert-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .2s ease;
+    }
+
+    .cert-preview:hover img {
+      transform: scale(1.02);
+    }
+
+    .cert-overlay {
+      position: absolute;
+      inset: auto 12px 12px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cert-chip {
+      padding: 6px 10px;
+      border-radius: 99px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 11px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .cert-meta h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .cert-meta p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .cert-actions .btn {
+      width: 100%;
+    }
+
+    footer {
+      padding: 40px 0;
+      color: var(--text-muted2);
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+      background: var(--bg-alt);
+      text-align: center;
     }
 
     /* Reveal */
     .reveal {
       opacity: 0;
-      transform: translateY(10px);
-      transition: opacity .6s ease, transform .6s ease;
+      transform: translateY(12px);
+      transition: opacity .5s ease, transform .5s ease;
     }
 
     .reveal.show {
@@ -602,27 +976,33 @@
       transform: translateY(0);
     }
 
-    /* Contact Specifics */
     .contact-card {
-      grid-column: span 6;
+      grid-column: span 4;
+    }
+
+    .contact-photo-card {
+      grid-column: span 4;
+      border-radius: var(--radius);
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .contact-detail-card {
       overflow-wrap: break-word;
       word-break: break-all;
-      hyphens: auto;
     }
 
     .mobile-menu-btn {
       display: none;
       background: none;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 12px;
-      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 10px;
       color: var(--text);
       cursor: pointer;
-      font-size: 22px;
-      line-height: 1;
+      font-size: 20px;
     }
 
     .mobile-side-menu {
@@ -631,16 +1011,16 @@
       right: -100%;
       width: 280px;
       height: 100vh;
-      background: rgba(10, 15, 28, 0.96);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(16px);
-      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      border-left: 1px solid var(--border);
       z-index: 9999;
       padding: 24px;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      transition: right 0.35s ease;
-      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.7);
+      transition: right 0.3s ease;
+      box-shadow: -10px 0 40px rgba(15, 23, 42, 0.1);
       overflow-y: auto;
     }
 
@@ -650,37 +1030,51 @@
 
     .mobile-side-menu .mobile-close-btn {
       align-self: flex-end;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
       color: var(--text);
-      border-radius: 12px;
-      padding: 8px 12px;
+      border-radius: 8px;
+      padding: 6px 12px;
       cursor: pointer;
-      font-weight: 900;
+      font-weight: 600;
       margin-bottom: 12px;
     }
 
     .mobile-side-menu a.menu-item {
-      color: var(--text);
-      font-size: 16px;
-      font-weight: 700;
+      color: var(--text-muted);
+      font-size: 15px;
+      font-weight: 600;
       padding: 10px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .mobile-side-menu a.menu-item:hover {
+      color: var(--accent);
     }
 
     /* Responsive */
     @media (max-width: 980px) {
-      .contact-card {
+      .col-2 {
+        grid-column: span 6;
+      }
+      .col-4, .col-5, .col-7, .col-8 {
+        grid-column: span 12;
+      }
+      .mentor-full-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-card,
+      .contact-photo-card {
         grid-column: span 12;
       }
 
       .hero-grid {
         grid-template-columns: 1fr;
+        gap: 24px;
       }
 
       h1 {
-        font-size: 36px;
+        font-size: 32px;
       }
 
       .kpi {
@@ -704,7 +1098,8 @@
         display: block;
       }
 
-      .report-card {
+      .report-card,
+      .gallery-card {
         grid-column: span 12;
       }
 
@@ -713,61 +1108,38 @@
       }
 
       .thumb img {
-        height: 160px;
-      }
-
-      .hero-photo-actions {
-        flex-direction: column;
+        height: 150px;
       }
     }
 
     @media (max-width: 640px) {
+      .col-2 {
+        grid-column: span 12;
+      }
+      .case .top,
+      .automation-header {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 8px;
+      }
       h1 {
-        font-size: 28px;
+        font-size: 26px;
       }
 
       h2 {
-        font-size: 22px;
-      }
-
-      h3 {
-        font-size: 16px;
+        font-size: 20px;
       }
 
       header.hero {
-        padding: 32px 0 16px;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-photo {
-        min-height: 320px;
-        padding: 12px;
-      }
-
-      .hero-photo img {
-        max-height: 380px;
+        padding: 40px 0 24px;
       }
 
       .kpi {
         grid-column: span 12;
       }
 
-      .case {
-        grid-column: span 12;
-      }
-
-      .service {
-        grid-column: span 12;
-      }
-
-      .report-card {
-        grid-column: span 12;
-      }
-
-      .gallery-grid {
+      .gallery-grid,
+      .mentor-full-gallery {
         grid-template-columns: 1fr;
       }
 
@@ -783,323 +1155,35 @@
       .cert-preview {
         height: 180px;
       }
-
-      .btn {
-        font-size: 13px;
-        padding: 10px 12px;
-      }
-
-      .nav-inner {
-        padding: 10px 0;
-      }
-
-      .brand {
-        font-size: 14px;
-      }
-
-      .logo {
-        width: 36px;
-        height: 36px;
-      }
-
-      .pdf-frame {
-        height: 320px;
-      }
-
-      .nav-cta {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .nav-cta .btn {
-        width: 100%;
-      }
-
-      .hero-photo-actions {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .hero-photo-actions .btn {
-        width: 100%;
-        font-size: 13px;
-      }
-    }
-
-    /* ===== SEO Portfolio Excel-Style Table ===== */
-    .seo-table-wrap {
-      border-radius: var(--radius);
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(255, 255, 255, .03);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .seo-table-title {
-      padding: 14px 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, .08);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .seo-table-title h3 {
-      margin: 0;
-      font-size: 16px;
-      font-weight: 900;
-    }
-
-    .seo-table-title p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .seo-table-scroll {
-      overflow-x: auto;
-      width: 100%;
-    }
-
-    .seo-excel {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      min-width: 980px;
-    }
-
-    .seo-excel thead th {
-      background: #FFD400;
-      color: #111;
-      padding: 10px 10px;
-      border: 1px solid rgba(0, 0, 0, .25);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .7px;
-    }
-
-    .seo-excel tbody td {
-      padding: 10px 10px;
-      border: 1px solid rgba(0, 0, 0, .20);
-      vertical-align: top;
-      color: #111;
-      font-weight: 600;
-    }
-
-    .seo-site,
-    .seo-brand {
-      font-weight: 900;
-      text-align: center;
-      min-width: 180px;
-    }
-
-    .seo-excel a {
-      color: #0f2fff;
-      text-decoration: underline;
-      font-weight: 900;
-    }
-
-    .seo-rank {
-      font-weight: 900;
-      text-align: center;
-      width: 80px;
-    }
-
-    /* Alternating blocks like Excel */
-    .block-green td {
-      background: #DCECC6;
-    }
-
-    .block-pink td {
-      background: #F3D8D8;
-    }
-
-    .block-green .seo-site,
-    .block-green .seo-brand {
-      background: #DCECC6;
-    }
-
-    .block-pink .seo-site,
-    .block-pink .seo-brand {
-      background: #F3D8D8;
-    }
-
-    /* ===== ARTICLES SECTION ===== */
-    .article-card {
-      grid-column: span 4;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .article-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, .12);
-      background: rgba(255, 255, 255, .04);
-      color: var(--muted);
-      font-weight: 800;
-      font-size: 12px;
-      width: fit-content;
-    }
-
-    .article-title {
-      font-weight: 900;
-      font-size: 16px;
-      line-height: 1.25;
-      margin: 0;
-    }
-
-    .article-desc {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .article-footer {
-      margin-top: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .read-btn {
-      width: 100%;
-    }
-
-    @media (max-width: 980px) {
-      .article-card {
-        grid-column: span 12;
-      }
-
-      .read-btn {
-        width: 100%;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .article-card {
-        grid-column: span 12;
-      }
-
-      .read-btn {
-        width: 100%;
-        font-size: 13px;
-      }
-    }
-
-    /* ===== CERTIFICATE DISPLAY CARDS ===== */
-    .cert-grid-card {
-      grid-column: span 6;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .cert-preview {
-      width: 100%;
-      height: 240px;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(255, 255, 255, .03);
-      cursor: pointer;
-      position: relative;
-    }
-
-    .cert-preview img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .2s ease;
-    }
-
-    .cert-preview:hover img {
-      transform: scale(1.03);
-    }
-
-    .cert-overlay {
-      position: absolute;
-      inset: auto 12px 12px 12px;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .cert-chip {
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, .55);
-      border: 1px solid rgba(255, 255, 255, .16);
-      font-size: 12px;
-      font-weight: 900;
-      color: var(--text);
-    }
-
-    .cert-meta h3 {
-      margin: 0;
-      font-size: 16px;
-      font-weight: 900;
-    }
-
-    .cert-meta p {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .cert-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .cert-actions .btn {
-      width: 100%;
-    }
-
-    @media(max-width:980px) {
-      .cert-grid-card {
-        grid-column: span 12;
-      }
-
-      .cert-preview {
-        height: 220px;
-      }
-    }
-
-    @media(max-width:640px) {
-      .cert-grid-card {
-        grid-column: span 12;
-      }
-
-      .cert-preview {
-        height: 180px;
-      }
-
-      .cert-actions {
-        gap: 8px;
-      }
-
-      .cert-actions .btn {
-        font-size: 13px;
-        padding: 10px 12px;
+      
+      .mentor-gallery {
+        grid-template-columns: 1fr;
       }
     }
   </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZ23TJWG25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MZ23TJWG25');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W7JH95Q');</script>
+<!-- End Google Tag Manager -->
 </head>
 
 <body>
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7JH95Q"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <!-- NAV -->
   <div class="nav">
     <div class="container">
@@ -1110,17 +1194,15 @@
         </div>
 
         <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">What I Do</a>
           <a href="#results">Results</a>
           <a href="#case-studies">Case Studies</a>
-          <a href="#certifications">Certifications</a>
+          <a href="#mentor">Mentor</a>
           <a href="#seo-portfolio">SEO Portfolio</a>
-          <a href="#proofs">Proofs & Reports</a>
-          <a href="#seo-reports">SEO Reports</a>
+          <a href="#proofs">Reports</a>
           <a href="#articles">Articles</a>
-          <a href="#services">Services</a>
-          <a href="#automation">AI Automation</a>
           <a href="#contact">Contact</a>
-
         </div>
 
         <div class="nav-cta">
@@ -1138,15 +1220,14 @@
   <!-- MOBILE MENU -->
   <div class="mobile-side-menu" id="mobileMenu">
     <button class="mobile-close-btn" onclick="toggleMobileMenu()">Close ✕</button>
+    <a class="menu-item" href="#about" onclick="toggleMobileMenu()">About</a>
+    <a class="menu-item" href="#services" onclick="toggleMobileMenu()">What I Do</a>
     <a class="menu-item" href="#results" onclick="toggleMobileMenu()">Results</a>
     <a class="menu-item" href="#case-studies" onclick="toggleMobileMenu()">Case Studies</a>
-    <a class="menu-item" href="#certifications" onclick="toggleMobileMenu()">Certifications</a>
+    <a class="menu-item" href="#mentor" onclick="toggleMobileMenu()">Mentor</a>
     <a class="menu-item" href="#seo-portfolio" onclick="toggleMobileMenu()">SEO Portfolio</a>
-    <a class="menu-item" href="#proofs" onclick="toggleMobileMenu()">Proofs & Reports</a>
-    <a class="menu-item" href="#seo-reports" onclick="toggleMobileMenu()">SEO Reports</a>
+    <a class="menu-item" href="#proofs" onclick="toggleMobileMenu()">Reports</a>
     <a class="menu-item" href="#articles" onclick="toggleMobileMenu()">Articles</a>
-    <a class="menu-item" href="#services" onclick="toggleMobileMenu()">Services</a>
-    <a class="menu-item" href="#automation" onclick="toggleMobileMenu()">AI Automation</a>
     <a class="menu-item" href="#contact" onclick="toggleMobileMenu()">Contact</a>
 
     <div style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
@@ -1165,39 +1246,71 @@
         <div class="hero-card reveal">
           <div class="badge">
             <span class="dot"></span>
-            Available for Freelance / Job Opportunities
+            Growth Architect & Mentor
           </div>
 
           <h1>
-            Aman Kumar<br />
-            Marketing Expert | Performance Marketing Lead
+            I Build Businesses<br />
+            That Scale.
           </h1>
 
+          <p class="subtitle" style="font-weight: 600; font-size: 18px; color: var(--text);">
+            I don't just run marketing campaigns. I build growth systems that combine marketing, AI, psychology, automation, product thinking, and business strategy to help brands grow predictably.
+          </p>
+          
           <p class="subtitle">
-            I help brands scale faster using <b>Google Ads</b>, <b>Meta Ads</b>, <b>SEO</b>, and <b>Analytics</b> —
-            focused on real results like leads, purchases, and revenue growth.
+            Whether it's increasing organic traffic, scaling paid ads, improving conversion rates, or automating operations with AI, I focus on one thing: <b>Building businesses that last.</b>
           </p>
 
           <div class="hero-actions">
-            <a class="btn primary" href="#case-studies">View Case Studies</a>
-            <a class="btn" href="#proofs">View Proofs</a>
+            <a class="btn primary" href="#leadForm">Work With Me</a>
+            <a class="btn" href="#case-studies">View Portfolio</a>
           </div>
 
           <div class="mini">
             <div class="chip">Google Ads</div>
             <div class="chip">Meta Ads</div>
-            <div class="chip">GA4</div>
+            <div class="chip">AI Marketing</div>
             <div class="chip">SEO</div>
-            <div class="chip">Lead Gen</div>
-            <div class="chip">Ecommerce</div>
+            <div class="chip">Lead Generation</div>
+            <div class="chip">Mentorship</div>
           </div>
         </div>
 
-        <div class="hero-photo reveal">
-          <img src="assets/image.jpg" alt="Aman Kumar Photo" fetchpriority="high" decoding="async" />
-          <div class="hero-photo-actions">
-            <a class="btn primary" href="mailto:amanchouhan1217@gmail.com">Email Me</a>
-            <a class="btn" href="https://wa.me/919115437107" target="_blank" rel="noreferrer">WhatsApp</a>
+        <div class="reveal" style="display:flex; flex-direction:column; gap:20px;">
+          <!-- Lead Gen Form Card -->
+          <div class="card lead-card">
+            <h3>Get a Free Marketing Audit</h3>
+            <p class="lead-desc">Request a custom performance audit for your Google/Meta campaigns & SEO.</p>
+            <form id="leadForm" onsubmit="handleLeadSubmit(event)">
+              <div class="form-group">
+                <input type="text" id="leadName" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <input type="email" id="leadEmail" placeholder="Your Email" required />
+              </div>
+              <div class="form-group">
+                <input type="url" id="leadUrl" placeholder="Website URL (e.g. https://yoursite.com)" required />
+              </div>
+              <div class="form-group">
+                <input type="tel" id="leadPhone" placeholder="WhatsApp / Phone Number" required />
+              </div>
+              <div class="form-group">
+                <select id="leadRole" required>
+                  <option value="" disabled selected>Who are you? (Select Role)</option>
+                  <option value="Agency">Agency</option>
+                  <option value="Student">Student</option>
+                  <option value="Business Owner">Business Owner</option>
+                </select>
+              </div>
+              <button type="submit" class="btn primary" style="width: 100%; justify-content: center; margin-top: 6px;">
+                Claim Free Audit
+              </button>
+            </form>
+            <div id="leadSuccess" class="lead-success" style="display: none;">
+              <h4>✓ Request Received!</h4>
+              <p>Aman will audit your site and contact you shortly.</p>
+            </div>
           </div>
         </div>
 
@@ -1205,33 +1318,168 @@
     </div>
   </header>
 
+  <!-- ABOUT ME -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title reveal">
+        <div>
+          <h2>About Me</h2>
+          <p>Growth Strategist, Performance Marketer, and Entrepreneur.</p>
+        </div>
+      </div>
+
+      <div class="grid reveal">
+        <div class="card col-8" style="border-radius: var(--radius);">
+          <h3 style="margin-top: 0;">Hi, I'm Aman Kumar.</h3>
+          <p style="font-size: 16px; line-height: 1.7;">
+            I'm a <b>Growth Architect</b>, Performance Marketer, SEO Specialist, AI Automation Consultant, and Entrepreneur.
+          </p>
+          <p style="font-size: 15px; line-height: 1.7;">
+            Over the past few years, I've worked with businesses across eCommerce, SaaS, Healthcare, Education, Home Services, and Local Businesses to solve real growth challenges.
+          </p>
+          <p style="font-size: 15px; line-height: 1.7; font-weight: 600; color: var(--accent);">
+            But I don't believe these are separate skills. They're all parts of the same growth engine.
+          </p>
+        </div>
+
+        <div class="card col-4" style="border-radius: var(--radius);">
+          <h3 style="margin-top: 0;">My Expertise Spans</h3>
+          <ul style="padding-left: 20px; margin: 0; display: flex; flex-direction: column; gap: 8px; font-weight: 600; font-size: 14px;">
+            <li>Search Engine Optimization (SEO & GEO)</li>
+            <li>Performance Marketing (Google & Meta Ads)</li>
+            <li>AI Automation Workflows</li>
+            <li>CRO & Analytics Tracking</li>
+            <li>Brand Strategy & Positioning</li>
+            <li>Website Development</li>
+            <li>Marketing Psychology</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MY PHILOSOPHY -->
+  <section id="philosophy">
+    <div class="container">
+      <div class="section-title reveal">
+        <div>
+          <h2>My Philosophy</h2>
+          <p>Combining marketing, tech, intent, and attention into a single growth system.</p>
+        </div>
+      </div>
+
+      <div class="grid reveal">
+        <div class="card col-12" style="border-radius: var(--radius); text-align: center; padding: 40px 24px; background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);">
+          <h3 style="font-size: 24px; margin-bottom: 20px;">Marketing Is Not About Running Ads.</h3>
+          
+          <div class="grid" style="margin-top: 30px;">
+            <div class="card col-2" style="padding: 16px 12px; box-shadow: none;">
+              <div style="margin-bottom: 8px; color: var(--accent); display: inline-flex; justify-content: center; align-items: center;"><i data-lucide="brain" style="width: 28px; height: 28px;"></i></div>
+              <h4 style="margin: 0 0 4px; font-size: 15px;">Marketing</h4>
+              <p style="margin: 0; font-size: 13px; color: var(--text-muted2);">Understanding people.</p>
+            </div>
+            
+            <div class="card col-2" style="padding: 16px 12px; box-shadow: none;">
+              <div style="margin-bottom: 8px; color: var(--accent); display: inline-flex; justify-content: center; align-items: center;"><i data-lucide="search" style="width: 28px; height: 28px;"></i></div>
+              <h4 style="margin: 0 0 4px; font-size: 15px;">SEO</h4>
+              <p style="margin: 0; font-size: 13px; color: var(--text-muted2);">Understanding intent.</p>
+            </div>
+
+            <div class="card col-2" style="padding: 16px 12px; box-shadow: none;">
+              <div style="margin-bottom: 8px; color: var(--accent); display: inline-flex; justify-content: center; align-items: center;"><i data-lucide="palette" style="width: 28px; height: 28px;"></i></div>
+              <h4 style="margin: 0 0 4px; font-size: 15px;">Design</h4>
+              <p style="margin: 0; font-size: 13px; color: var(--text-muted2);">Understanding attention.</p>
+            </div>
+
+            <div class="card col-2" style="padding: 16px 12px; box-shadow: none;">
+              <div style="margin-bottom: 8px; color: var(--accent); display: inline-flex; justify-content: center; align-items: center;"><i data-lucide="zap" style="width: 28px; height: 28px;"></i></div>
+              <h4 style="margin: 0 0 4px; font-size: 15px;">AI</h4>
+              <p style="margin: 0; font-size: 13px; color: var(--text-muted2);">Understanding leverage.</p>
+            </div>
+
+            <div class="card col-4" style="padding: 16px 12px; box-shadow: none;">
+              <div style="margin-bottom: 8px; color: var(--accent); display: inline-flex; justify-content: center; align-items: center;"><i data-lucide="git-branch" style="width: 28px; height: 28px;"></i></div>
+              <h4 style="margin: 0 0 4px; font-size: 15px;">Business Systems</h4>
+              <p style="margin: 0; font-size: 13px; color: var(--text-muted2);">Understanding scale.</p>
+            </div>
+          </div>
+
+          <p style="font-size: 16px; font-weight: 600; margin-top: 30px; color: var(--text);">
+            When you combine these disciplines, you don't just get better campaigns. <b>You build companies that scale.</b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- RESULTS -->
   <section id="results">
     <div class="container">
       <div class="section-title reveal">
         <div>
-          <h2>Growth Highlights</h2>
-          <p>Real campaign outcomes across ecommerce, lead generation, and paid media optimization.</p>
+          <h2>Growth Highlights & Outcomes</h2>
+          <p>Demonstrated history of driving measurable revenue growth and campaign efficiency.</p>
         </div>
       </div>
 
-      <div class="grid">
-        <div class="card kpi reveal">
-          <div class="label">Total Sales</div>
-          <div class="value">A$30K+</div>
+      <div class="grid reveal">
+        <!-- Outcomes Checklist -->
+        <div class="card col-7" style="border-radius: var(--radius); display: flex; flex-direction: column; justify-content: center; gap: 14px;">
+          <h3 style="margin-top: 0; font-size: 18px;">Key Performance Milestones</h3>
+          <ul style="padding-left: 20px; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px; line-height: 1.6;">
+            <li><b>Managed multi-platform advertising campaigns</b> across Meta, Google, and TikTok Ads.</li>
+            <li><b>Generated millions in attributed revenue</b> for clients across Google and Meta.</li>
+            <li><b>Improved campaign ROAS</b> while systematically lowering customer acquisition costs (CPA/CPL).</li>
+            <li><b>Ranked competitive keywords</b> across international search markets (US, Canada, India).</li>
+            <li><b>Built AI-powered automated workflows</b> to streamline reporting, creative production, and bidding.</li>
+            <li><b>Consulted with over 50+ businesses</b> ranging from local shops to venture-backed SaaS.</li>
+          </ul>
         </div>
-        <div class="card kpi reveal">
-          <div class="label">Orders</div>
-          <div class="value">567</div>
+
+        <!-- Metric Badges -->
+        <div class="col-5" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;">
+          <div class="card kpi" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 24px 16px;">
+            <div class="label">Total Revenue</div>
+            <div class="value" style="font-size: 20px;">SGD $48,180</div>
+          </div>
+          <div class="card kpi" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 24px 16px;">
+            <div class="label">Tickets Sold</div>
+            <div class="value" style="font-size: 20px;">264</div>
+          </div>
+          <div class="card kpi" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 24px 16px;">
+            <div class="label">Campaign ROI</div>
+            <div class="value" style="font-size: 20px;">+313.51%</div>
+          </div>
+          <div class="card kpi" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 24px 16px;">
+            <div class="label">Est. ROAS</div>
+            <div class="value" style="font-size: 20px;">4.0x - 4.5x</div>
+          </div>
         </div>
-        <div class="card kpi reveal">
-          <div class="label">Google Ads Conversions</div>
-          <div class="value">65</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES I'VE WORKED WITH -->
+  <section id="industries">
+    <div class="container">
+      <div class="section-title reveal">
+        <div>
+          <h2>Industries I've Worked With</h2>
+          <p>Delivering growth systems tailored to different business models and sectors.</p>
         </div>
-        <div class="card kpi reveal">
-          <div class="label">Meta Ads CPL</div>
-          <div class="value">$9.69</div>
-        </div>
+      </div>
+      
+      <div class="reveal" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-start; margin-top: 24px;">
+        <span class="chip" style="font-size: 14px; padding: 10px 20px; display: inline-flex; align-items: center;"><i data-lucide="shopping-cart" style="width: 14px; height: 14px; margin-right: 6px; stroke-width: 2.5px;"></i> eCommerce</span>
+        <span class="chip" style="font-size: 14px; padding: 10px 20px; display: inline-flex; align-items: center;"><i data-lucide="heart" style="width: 14px; height: 14px; margin-right: 6px; stroke-width: 2.5px;"></i> Healthcare</span>
+        <span class="chip" style="font-size: 14px; padding: 10px 20px; display: inline-flex; align-items: center;"><i data-lucide="sparkles" style="width: 14px; height: 14px; margin-right: 6px; stroke-width: 2.5px;"></i> Cleaning Services</span>
+        <span class="chip" style="font-size: 14px; padding: 10px 20px; display: inline-flex; align-items: center;"><i data-lucide="home" style="width: 14px; height: 14px; margin-right: 6px; stroke-width: 2.5px;"></i> Home Improvement</span>
+        <span class="chip" style="font-size: 14px; padding: 10px 20px; display: inline-flex; align-items: center;"><i data-lucide="graduation-cap" style="width: 14px; height: 14px; margin-right: 6px; stroke-width: 2.5px;"></i> Education</span>
+        <span class="chip" style="font-size: 14px; padding: 10px 20px; display: inline-flex; align-items: center;"><i data-lucide="database" style="width: 14px; height: 14px; margin-right: 6px; stroke-width: 2.5px;"></i> SaaS</span>
+        <span class="chip" style="font-size: 14px; padding: 10px 20px; display: inline-flex; align-items: center;"><i data-lucide="shirt" style="width: 14px; height: 14px; margin-right: 6px; stroke-width: 2.5px;"></i> Fashion</span>
+        <span class="chip" style="font-size: 14px; padding: 10px 20px; display: inline-flex; align-items: center;"><i data-lucide="car" style="width: 14px; height: 14px; margin-right: 6px; stroke-width: 2.5px;"></i> Automotive</span>
+        <span class="chip" style="font-size: 14px; padding: 10px 20px; display: inline-flex; align-items: center;"><i data-lucide="flower2" style="width: 14px; height: 14px; margin-right: 6px; stroke-width: 2.5px;"></i> Lifestyle</span>
+        <span class="chip" style="font-size: 14px; padding: 10px 20px; display: inline-flex; align-items: center;"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 6px; stroke-width: 2.5px;"></i> Local Businesses</span>
       </div>
     </div>
   </section>
@@ -1318,13 +1566,31 @@
       </div>
 
       <div class="grid">
+        <!-- Card 1: SEO Growth -->
         <div class="card case reveal">
           <div class="top">
             <div>
-              <div class="title">Zanzibar Seawalk</div>
+              <div class="title">SEO Growth & Intent Acquisition</div>
               <p class="desc">
-                Google Ads lead generation strategy with campaign structuring, keyword clusters and conversion
-                optimization.
+                Optimizing search crawlability, keyword intent mapping, and content structures to drive high-converting organic traffic.
+              </p>
+            </div>
+            <div class="tag">SEO & GEO</div>
+          </div>
+          <div class="mini-kpis">
+            <div class="chip">Organic Focus</div>
+            <div class="chip">Rankings Optimized</div>
+            <div class="chip">A$30K+ Attributed Sales</div>
+          </div>
+        </div>
+
+        <!-- Card 2: Google Ads Scaling -->
+        <div class="card case reveal">
+          <div class="top">
+            <div>
+              <div class="title">Google Ads & Lead Gen Scaling</div>
+              <p class="desc">
+                Structured search networks, conversion tracking verification, intent-based keywords, and budget reallocation setups.
               </p>
             </div>
             <div class="tag">Google Ads</div>
@@ -1336,55 +1602,162 @@
           </div>
         </div>
 
+        <!-- Card 3: Meta Ads Performance -->
         <div class="card case reveal">
           <div class="top">
             <div>
-              <div class="title">Chicago’s Pizza Twist</div>
+              <div class="title">Meta Ads & Event Sales Performance</div>
               <p class="desc">
-                Brand strategy + marketing direction including positioning, messaging, and growth planning.
-              </p>
-            </div>
-            <div class="tag">Brand Strategy</div>
-          </div>
-          <div class="mini-kpis">
-            <div class="chip">Positioning</div>
-            <div class="chip">Campaign Plan</div>
-            <div class="chip">Growth Strategy</div>
-          </div>
-        </div>
-
-        <div class="card case reveal">
-          <div class="top">
-            <div>
-              <div class="title">Ecommerce Growth</div>
-              <p class="desc">
-                Improved performance using analytics tracking, conversion insights and consistent optimization.
-              </p>
-            </div>
-            <div class="tag">Analytics</div>
-          </div>
-          <div class="mini-kpis">
-            <div class="chip">A$30,022 Sales</div>
-            <div class="chip">567 Orders</div>
-            <div class="chip">45,387 Sessions</div>
-          </div>
-        </div>
-
-        <div class="card case reveal">
-          <div class="top">
-            <div>
-              <div class="title">Meta Ads Lead Gen Optimization</div>
-              <p class="desc">
-                Reduced CPL and increased lead volume using creative testing, audience strategy and scaling winners.
+                Paid social scaling utilizing high-converting creatives, retargeting funnels, and optimized landing page templates.
               </p>
             </div>
             <div class="tag">Meta Ads</div>
           </div>
           <div class="mini-kpis">
-            <div class="chip">36 Leads</div>
-            <div class="chip">+300%</div>
-            <div class="chip">$9.69 CPL</div>
+            <div class="chip">SGD $48,180 Sales</div>
+            <div class="chip">264 Tickets Sold</div>
+            <div class="chip">+313.51% ROI</div>
           </div>
+        </div>
+
+        <!-- Card 4: AI Automation -->
+        <div class="card case reveal">
+          <div class="top">
+            <div>
+              <div class="title">AI Automation Workflows</div>
+              <p class="desc">
+                Custom automated pipelines that generate creative variations, monitor ad budget caps, and deliver automated slack reports.
+              </p>
+            </div>
+            <div class="tag">AI Automation</div>
+          </div>
+          <div class="mini-kpis">
+            <div class="chip">Zero Manual Reports</div>
+            <div class="chip">Faster Ad Testing</div>
+            <div class="chip">Operations Optimized</div>
+          </div>
+        </div>
+
+        <!-- Card 5: Website Development -->
+        <div class="card case reveal">
+          <div class="top">
+            <div>
+              <div class="title">High-Converting Landing Pages</div>
+              <p class="desc">
+                Design and development of clean, responsive web platforms optimized for fast loading and maximum visitor conversion.
+              </p>
+            </div>
+            <div class="tag">Web Dev</div>
+          </div>
+          <div class="mini-kpis">
+            <div class="chip">Fluid Layouts</div>
+            <div class="chip">Integrated Forms</div>
+            <div class="chip">Speed Optimized</div>
+          </div>
+        </div>
+
+        <!-- Card 6: Analytics Dashboard -->
+        <div class="card case reveal">
+          <div class="top">
+            <div>
+              <div class="title">Funnels & Analytics Dashboards</div>
+              <p class="desc">
+                Setting up GA4 custom reporting, Google Tag Manager event tracking, heatmaps, and marketing attribution funnels.
+              </p>
+            </div>
+            <div class="tag">Analytics & CRO</div>
+          </div>
+          <div class="mini-kpis">
+            <div class="chip">GA4 & GTM</div>
+            <div class="chip">Funnels Audited</div>
+            <div class="chip">567 Orders Traced</div>
+          </div>
+        </div>
+
+        <!-- Inline CTA Hook -->
+        <div class="card reveal" style="grid-column: span 12; text-align: center; padding: 24px; border-style: dashed; border-color: var(--accent); background: rgba(37, 99, 235, 0.02);">
+          <h3 style="margin: 0 0 6px; font-size: 16px;">Looking for similar growth for your brand?</h3>
+          <p style="margin: 0 0 12px; font-size: 14px; color: var(--text-muted);">Let's collaborate to build a custom marketing and automation system for your business.</p>
+          <a class="btn primary" href="#leadForm">Get in Touch →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKER, TRAINER & MENTOR -->
+  <section id="mentor">
+    <div class="container">
+      <div class="section-title reveal">
+        <div>
+          <h2>Speaker, Trainer & Mentor</h2>
+          <p>Inspiring growth through corporate workshops, hands-on training, and AI marketing mentorship.</p>
+        </div>
+      </div>
+
+      <div class="grid reveal">
+        <!-- Text Bio -->
+        <div class="card col-7" style="border-radius: var(--radius); padding: 32px;">
+          <h3 style="margin-top: 0; font-size: 20px;">Empowering Next-Generation Marketers</h3>
+          <p style="font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
+            As a <b>Growth Architect & Mentor</b>, I bridge the gap between theoretical marketing concepts and real-world execution. I run corporate training bootcamps, interactive workshops, and one-on-one sessions where I train interns and professionals directly on <b>live business projects</b>.
+          </p>
+          <p style="font-size: 15px; line-height: 1.7; margin-bottom: 0;">
+            My sessions cover advanced strategies designed to help teams drive high ROI, automate their daily workflows, and build systems that scale predictably.
+          </p>
+        </div>
+
+        <!-- Workshops List -->
+        <div class="card col-5" style="border-radius: var(--radius); padding: 32px;">
+          <h3 style="margin-top: 0; font-size: 18px;">Focus Areas & Workshops</h3>
+          <ul style="padding-left: 20px; margin: 12px 0 20px 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px; line-height: 1.5;">
+            <li><b>Practical Digital Marketing Training</b>: Running campaigns with real budgets.</li>
+            <li><b>Live Business Projects</b>: Working on active eCommerce, lead-gen, and local brands.</li>
+            <li><b>SEO & GEO Workshops</b>: Optimizing content and ranking in the AI search landscape.</li>
+            <li><b>AI Marketing Sessions</b>: Leveraging custom AI workflows and automation tools.</li>
+            <li><b>WordPress & Landing Page Training</b>: Designing high-converting templates.</li>
+          </ul>
+          <div>
+            <a class="btn primary" href="#contact" style="width: 100%; justify-content: center;">Apply for Mentorship / Training</a>
+          </div>
+        </div>
+
+        <!-- Full-Width Media Gallery Grid (4 columns on desktop, 2 columns on tablet, 1 column on mobile) -->
+        <div class="mentor-full-gallery">
+          <!-- Training Images (First 4 visible) -->
+          <div class="card photo-card" onclick="openLightbox('assets/mentor/Traing.jpeg', 'AI Digital Marketing Training')">
+            <img src="assets/mentor/Traing.jpeg" alt="Marketing Training Session" loading="lazy" />
+          </div>
+          <div class="card photo-card" onclick="openLightbox('assets/mentor/WhatsApp Image 2026-07-10 at 1.58.03 AM.jpeg', 'Mentorship Workshop')">
+            <img src="assets/mentor/WhatsApp Image 2026-07-10 at 1.58.03 AM.jpeg" alt="Mentorship Workshop" loading="lazy" />
+          </div>
+          <div class="card photo-card" onclick="openLightbox('assets/mentor/WhatsApp Image 2026-07-10 at 10.46.11 AM.jpeg', 'Corporate Presentation')">
+            <img src="assets/mentor/WhatsApp Image 2026-07-10 at 10.46.11 AM.jpeg" alt="Corporate Presentation" loading="lazy" />
+          </div>
+          <div class="card photo-card" onclick="openLightbox('assets/mentor/WhatsApp Image 2026-07-10 at 10.46.12 AM.jpeg', 'Speaker Session')">
+            <img src="assets/mentor/WhatsApp Image 2026-07-10 at 10.46.12 AM.jpeg" alt="Speaker Session" loading="lazy" />
+          </div>
+
+          <!-- Training Images (Extra 4 hidden by default) -->
+          <div class="card photo-card extra-photo" style="display: none;" onclick="openLightbox('assets/mentor/WhatsApp Image 2026-07-10 at 10.46.29 AM.jpeg', 'Interactive Q&A Session')">
+            <img src="assets/mentor/WhatsApp Image 2026-07-10 at 10.46.29 AM.jpeg" alt="Interactive Q&A Session" loading="lazy" />
+          </div>
+          <div class="card photo-card extra-photo" style="display: none;" onclick="openLightbox('assets/mentor/WhatsApp Image 2026-07-10 at 10.48.09 AM.jpeg', 'Group Mentorship')">
+            <img src="assets/mentor/WhatsApp Image 2026-07-10 at 10.48.09 AM.jpeg" alt="Group Mentorship" loading="lazy" />
+          </div>
+          <div class="card photo-card extra-photo" style="display: none;" onclick="openLightbox('assets/mentor/WhatsApp Image 2026-07-10 at 10.48.10 AM (1).jpeg', 'AI Tools Demonstration')">
+            <img src="assets/mentor/WhatsApp Image 2026-07-10 at 10.48.10 AM (1).jpeg" alt="AI Tools Demonstration" loading="lazy" />
+          </div>
+          <div class="card photo-card extra-photo" style="display: none;" onclick="openLightbox('assets/mentor/WhatsApp Image 2026-07-10 at 10.48.10 AM (2).jpeg', 'Workshop Group Photo')">
+            <img src="assets/mentor/WhatsApp Image 2026-07-10 at 10.48.10 AM (2).jpeg" alt="Workshop Group Photo" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Collapsible Photos Button -->
+        <div style="grid-column: span 12; text-align: center; margin-top: 24px;">
+          <button id="togglePhotosBtn" class="btn secondary" onclick="toggleMentorPhotos()" style="display: inline-flex; align-items: center; gap: 8px;">
+            <span>See All Photos</span>
+            <i data-lucide="chevron-down" id="togglePhotosIcon" style="width: 16px; height: 16px;"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -1686,6 +2059,39 @@
         <div class="card report-card reveal">
           <div class="report-head">
             <div>
+              <div class="report-title">Paid Media Performance Report – Sagar wali Qawwali</div>
+              <div class="report-sub">Multi-channel campaign performance & sales proof (Meta, Google, TikTok Ads).</div>
+            </div>
+            <a class="btn primary" href="reports/Paid Media Performance Report.pdf" target="_blank">Open PDF</a>
+          </div>
+          <div class="pdf-frame"><iframe src="reports/Paid Media Performance Report.pdf"></iframe></div>
+        </div>
+
+        <div class="card report-card reveal">
+          <div class="report-head">
+            <div>
+              <div class="report-title">E-Com Paid Social Performance Report</div>
+              <div class="report-sub">Comprehensive Meta/Facebook Ads dashboard showcasing reach, conversions, spend & ROAS.</div>
+            </div>
+            <a class="btn primary" href="reports/Paid Social Performance.pdf" target="_blank">Open PDF</a>
+          </div>
+          <div class="pdf-frame"><iframe src="reports/Paid Social Performance.pdf"></iframe></div>
+        </div>
+
+        <div class="card report-card reveal">
+          <div class="report-head">
+            <div>
+              <div class="report-title">E-Com Paid Search Performance Report</div>
+              <div class="report-sub">Paid search and Performance Max (PMax) campaign analytics, revenue, and ROI metrics.</div>
+            </div>
+            <a class="btn primary" href="reports/Paid Search Performance.pdf" target="_blank">Open PDF</a>
+          </div>
+          <div class="pdf-frame"><iframe src="reports/Paid Search Performance.pdf"></iframe></div>
+        </div>
+
+        <div class="card report-card reveal">
+          <div class="report-head">
+            <div>
               <div class="report-title">Google Ads Report – Zanzibar Seawalk</div>
               <div class="report-sub">Google Ads performance report with conversions and CPA insights.</div>
             </div>
@@ -1909,51 +2315,57 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SERVICES (WHAT I DO) -->
   <section id="services">
     <div class="container">
       <div class="section-title reveal">
         <div>
-          <h2>Services</h2>
-          <p>Full-funnel paid marketing, growth strategy and analytics-driven optimization.</p>
+          <h2>What I Do</h2>
+          <p>I build growth systems using a combination of marketing, tech, analytics, and strategy.</p>
         </div>
       </div>
 
       <div class="grid">
         <div class="card service reveal">
-          <div class="icon">📈</div>
+          <div class="icon"><i data-lucide="compass"></i></div>
+          <h3>Growth Strategy</h3>
+          <p>Identify growth opportunities, build full-funnel systems, and drive sustainable revenue scaling.</p>
+          <a href="#leadForm" style="font-size: 13px; font-weight: 700; margin-top: 8px; display: inline-block;">Request service details →</a>
+        </div>
+
+        <div class="card service reveal">
+          <div class="icon"><i data-lucide="trending-up"></i></div>
           <h3>Performance Marketing</h3>
-          <p>Google Ads + Meta Ads campaigns focused on conversions, growth and revenue.</p>
+          <p>End-to-end management of Google Ads, Meta Ads, TikTok Ads, and multi-channel acquisition funnels.</p>
+          <a href="#leadForm" style="font-size: 13px; font-weight: 700; margin-top: 8px; display: inline-block;">Request service details →</a>
         </div>
 
         <div class="card service reveal">
-          <div class="icon">🔎</div>
-          <h3>Google Ads (Lead Gen)</h3>
-          <p>Keyword intent mapping, ad copy testing, conversion tracking and optimization.</p>
+          <div class="icon"><i data-lucide="search"></i></div>
+          <h3>SEO & GEO</h3>
+          <p>Technical SEO, content strategy, AEO (Answer Engine Optimization), GEO, and AI search engine optimization.</p>
+          <a href="#leadForm" style="font-size: 13px; font-weight: 700; margin-top: 8px; display: inline-block;">Request service details →</a>
         </div>
 
         <div class="card service reveal">
-          <div class="icon">📣</div>
-          <h3>Meta Ads (Leads + Sales)</h3>
-          <p>Creative testing, retargeting funnels and scaling winning ad sets.</p>
+          <div class="icon"><i data-lucide="cpu"></i></div>
+          <h3>AI Automation</h3>
+          <p>Custom AI-powered workflows to automate repetitive marketing operations and increase execution speed.</p>
+          <a href="#leadForm" style="font-size: 13px; font-weight: 700; margin-top: 8px; display: inline-block;">Request service details →</a>
         </div>
 
         <div class="card service reveal">
-          <div class="icon">⚡</div>
-          <h3>SEO Growth Strategy</h3>
-          <p>Keyword research, competitor analysis, on-page and off-page improvements.</p>
+          <div class="icon"><i data-lucide="bar-chart-2"></i></div>
+          <h3>Analytics & CRO</h3>
+          <p>GA4, GTM tracking setups, heatmaps, conversion rate optimization, and multi-touch attribution modeling.</p>
+          <a href="#leadForm" style="font-size: 13px; font-weight: 700; margin-top: 8px; display: inline-block;">Request service details →</a>
         </div>
 
         <div class="card service reveal">
-          <div class="icon">📊</div>
-          <h3>Analytics & Reporting</h3>
-          <p>GA4 tracking, weekly reports and performance dashboard insights.</p>
-        </div>
-
-        <div class="card service reveal">
-          <div class="icon">🧠</div>
-          <h3>Marketing Strategy</h3>
-          <p>Brand positioning, funnel planning and performance-driven strategy.</p>
+          <div class="icon"><i data-lucide="laptop"></i></div>
+          <h3>Websites & Landing Pages</h3>
+          <p>High-converting landing pages and clean corporate sites designed to maximize leads and sales.</p>
+          <a href="#leadForm" style="font-size: 13px; font-weight: 700; margin-top: 8px; display: inline-block;">Request service details →</a>
         </div>
       </div>
     </div>
@@ -1971,8 +2383,8 @@
       </div>
 
       <div class="grid">
-        <div class="card reveal" style="grid-column: span 12;">
-          <div style="display:flex; justify-content:space-between; gap:10px; align-items:flex-start;">
+        <div class="card col-12 reveal">
+          <div class="automation-header">
             <div>
               <div style="font-weight:900; font-size:16px;">AI + Automation Workflow for Faster Campaign
                 Scaling</div>
@@ -2010,7 +2422,7 @@
       <div class="grid">
 
         <div class="card article-card reveal">
-          <div class="article-badge">✍️ LinkedIn Article</div>
+          <div class="article-badge"><i data-lucide="edit-3" style="width: 12px; height: 12px; margin-right: 4px; stroke-width: 2.5px;"></i> LinkedIn Article</div>
           <h3 class="article-title">Everything in Marketing: Why you’re selling yourself every single day
           </h3>
           <p class="article-desc">
@@ -2025,7 +2437,7 @@
         </div>
 
         <div class="card article-card reveal">
-          <div class="article-badge">🚀 Marketing Future</div>
+          <div class="article-badge"><i data-lucide="trending-up" style="width: 12px; height: 12px; margin-right: 4px; stroke-width: 2.5px;"></i> Marketing Future</div>
           <h3 class="article-title">From SEO to AEO to GEO: What I’ve learned in 5 years of Digital
             Marketing</h3>
           <p class="article-desc">
@@ -2040,7 +2452,7 @@
         </div>
 
         <div class="card article-card reveal">
-          <div class="article-badge">🔥 Branding</div>
+          <div class="article-badge"><i data-lucide="award" style="width: 12px; height: 12px; margin-right: 4px; stroke-width: 2.5px;"></i> Branding</div>
           <h3 class="article-title">Brand vs Business: The Real Difference</h3>
           <p class="article-desc">
             Why branding is more than visuals — it’s trust, perception, and long-term growth power.
@@ -2054,7 +2466,7 @@
         </div>
 
         <div class="card article-card reveal">
-          <div class="article-badge">💰 Paid Marketing</div>
+          <div class="article-badge"><i data-lucide="dollar-sign" style="width: 12px; height: 12px; margin-right: 4px; stroke-width: 2.5px;"></i> Paid Marketing</div>
           <h3 class="article-title">Why most businesses burn ad budget (Truth of Paid Marketing)</h3>
           <p class="article-desc">
             A clear explanation of why ads fail: bad tracking, bad strategy, wrong funnel and weak
@@ -2069,7 +2481,7 @@
         </div>
 
         <div class="card article-card reveal">
-          <div class="article-badge">📌 Marketing Basics</div>
+          <div class="article-badge"><i data-lucide="book-open" style="width: 12px; height: 12px; margin-right: 4px; stroke-width: 2.5px;"></i> Marketing Basics</div>
           <h3 class="article-title">Digital Marketing vs Marketing: Why there’s a big difference</h3>
           <p class="article-desc">
             Digital marketing is a channel — marketing is a strategy. This article explains the real
@@ -2084,7 +2496,7 @@
         </div>
 
         <div class="card article-card reveal">
-          <div class="article-badge">🤝 Growth Strategy</div>
+          <div class="article-badge"><i data-lucide="users" style="width: 12px; height: 12px; margin-right: 4px; stroke-width: 2.5px;"></i> Growth Strategy</div>
           <h3 class="article-title">Sales vs Marketing Tug of War: Winning Partnership</h3>
           <p class="article-desc">
             How sales and marketing teams should work together for consistent growth and better performance.
@@ -2098,7 +2510,7 @@
         </div>
 
         <div class="card article-card reveal">
-          <div class="article-badge">🧠 Marketing Mindset</div>
+          <div class="article-badge"><i data-lucide="brain" style="width: 12px; height: 12px; margin-right: 4px; stroke-width: 2.5px;"></i> Marketing Mindset</div>
           <h3 class="article-title">Marketing & Sales Secrets</h3>
           <p class="article-desc">
             Key principles that improve conversion, persuasion, communication and customer decision-making.
@@ -2120,21 +2532,21 @@
     <div class="container">
       <div class="section-title reveal">
         <div>
-          <h2>Contact</h2>
-          <p>Let’s connect and scale your business with performance marketing.</p>
+          <h2>Let's Build Something Meaningful</h2>
+          <p>Whether you're looking to scale your business, improve marketing performance, or leverage AI to create smarter systems, I'd love to collaborate.</p>
         </div>
       </div>
 
       <div class="grid">
         <div class="card reveal contact-card" style="border-radius: var(--radius);">
-          <h3 style="margin:0 0 8px;">Let’s Work Together</h3>
+          <h3 style="margin:0 0 8px;">Let's Collaborate</h3>
           <p style="margin:0 0 14px; color:var(--muted); line-height:1.6;">
-            If you're looking for a marketer who can handle <b>strategy + execution + results</b>,
-            I’d love to help you grow.
+            If you're looking for a Growth Architect who can bridge strategy, execution, and automation, let's connect.
           </p>
           <div class="hero-actions">
-            <a class="btn primary" href="mailto:amanchouhan1217@gmail.com">Email Me</a>
-            <a class="btn" href="https://wa.me/919115437107" target="_blank">WhatsApp</a>
+            <a class="btn primary" href="#leadForm">Book a Consultation</a>
+            <a class="btn" href="#case-studies">View Portfolio</a>
+            <a class="btn blue" href="https://wa.me/919115437107" target="_blank">Let's Talk</a>
           </div>
         </div>
 
@@ -2153,6 +2565,15 @@
               <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/aman-marketing-expert" target="_blank">View
                 Profile</a>
             </div>
+          </div>
+        </div>
+
+        <!-- Profile Photo Card -->
+        <div class="card reveal contact-photo-card">
+          <img src="assets/image.jpg" alt="Aman Kumar" style="width: 100%; height: 260px; object-fit: cover; object-position: top; display: block;" />
+          <div style="padding: 16px; display: flex; gap: 8px;">
+            <a class="btn blue" style="flex: 1; justify-content: center; font-size: 13px;" href="mailto:amanchouhan1217@gmail.com">Email Me</a>
+            <a class="btn" style="flex: 1; justify-content: center; font-size: 13px;" href="https://wa.me/919115437107" target="_blank">WhatsApp Chat</a>
           </div>
         </div>
       </div>
@@ -2182,6 +2603,7 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+    lucide.createIcons();
 
     const items = document.querySelectorAll(".reveal");
     const obs = new IntersectionObserver((entries) => {
@@ -2194,6 +2616,34 @@
     }, { threshold: 0.12 });
 
     items.forEach((el) => obs.observe(el));
+
+    function toggleMentorPhotos() {
+      const extraPhotos = document.querySelectorAll('.extra-photo');
+      const btnText = document.querySelector('#togglePhotosBtn span');
+      const btnIcon = document.getElementById('togglePhotosIcon');
+      
+      let isShowing = false;
+      extraPhotos.forEach(photo => {
+        if (photo.style.display === 'none') {
+          photo.style.display = 'block';
+          isShowing = true;
+        } else {
+          photo.style.display = 'none';
+        }
+      });
+
+      if (isShowing) {
+        btnText.textContent = 'See Less Photos';
+        if (btnIcon) btnIcon.setAttribute('data-lucide', 'chevron-up');
+      } else {
+        btnText.textContent = 'See All Photos';
+        if (btnIcon) btnIcon.setAttribute('data-lucide', 'chevron-down');
+      }
+      
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
 
     function openLightbox(src, title) {
       document.getElementById("lightboxImg").src = src;
@@ -2209,6 +2659,40 @@
     function toggleMobileMenu() {
       const menu = document.getElementById("mobileMenu");
       menu.classList.toggle("open");
+    }
+
+    function handleLeadSubmit(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById("leadName").value;
+      const email = document.getElementById("leadEmail").value;
+      const url = document.getElementById("leadUrl").value;
+      const phone = document.getElementById("leadPhone").value;
+      const role = document.getElementById("leadRole").value;
+      
+      // Save details to database via local backend API
+      fetch('/submit-lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, url, phone, role })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Lead saved successfully to leads.db:", data);
+      })
+      .catch(error => {
+        console.error("Error saving lead details to database:", error);
+      });
+      
+      const message = `Hello Aman, my name is ${name} (${role}). I would like to request a free marketing and SEO audit for my website: ${url}. You can reach me at ${email} or this WhatsApp number: ${phone}.`;
+      const whatsappUrl = `https://wa.me/919115437107?text=${encodeURIComponent(message)}`;
+      
+      window.open(whatsappUrl, "_blank");
+      
+      document.getElementById("leadForm").style.display = "none";
+      document.getElementById("leadSuccess").style.display = "block";
     }
 
     function escapeHtml(value) {
