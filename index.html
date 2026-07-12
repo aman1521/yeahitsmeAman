@@ -2681,18 +2681,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       .then(response => response.json())
       .then(data => {
         console.log("Lead saved successfully to leads.db:", data);
+        window.location.href = `thankyou.html?name=${encodeURIComponent(name)}&role=${encodeURIComponent(role)}&url=${encodeURIComponent(url)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}`;
       })
       .catch(error => {
         console.error("Error saving lead details to database:", error);
+        window.location.href = `thankyou.html?name=${encodeURIComponent(name)}&role=${encodeURIComponent(role)}&url=${encodeURIComponent(url)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}`;
       });
-      
-      const message = `Hello Aman, my name is ${name} (${role}). I would like to request a free marketing and SEO audit for my website: ${url}. You can reach me at ${email} or this WhatsApp number: ${phone}.`;
-      const whatsappUrl = `https://wa.me/919115437107?text=${encodeURIComponent(message)}`;
-      
-      window.open(whatsappUrl, "_blank");
-      
-      document.getElementById("leadForm").style.display = "none";
-      document.getElementById("leadSuccess").style.display = "block";
     }
 
     function escapeHtml(value) {
