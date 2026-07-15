@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation Request Received | Siddharth Opticals</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #FCFAF7;
+      --card-bg: #FFFFFF;
+      --text: #1A1A1A;
+      --text-muted: #666666;
+      --border: rgba(0, 0, 0, 0.08);
+      --accent-gold: #C5A059;
+      --accent-emerald: #2B4841;
+      --accent-emerald-hover: #1E332E;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .thankyou-card {
+      background: var(--card-bg);
+      border-top: 4px solid var(--accent-gold);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.03);
+      width: 100%;
+      max-width: 580px;
+      padding: 56px 40px;
+      text-align: center;
+      z-index: 10;
+      position: relative;
+      animation: fadeInUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo-wrapper {
+      display: inline-flex;
+      flex-direction: column;
+      margin-bottom: 36px;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .logo span {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 6px;
+      color: var(--accent-gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: -2px;
+    }
+
+    .success-icon-wrap {
+      width: 72px;
+      height: 72px;
+      background: rgba(197, 160, 89, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      color: var(--accent-gold);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    p.lead-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .info-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 24px;
+      text-align: left;
+      margin-bottom: 36px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .info-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-item i {
+      flex-shrink: 0;
+      color: var(--accent-gold);
+      margin-top: 2px;
+    }
+
+    .info-item strong {
+      color: var(--text);
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn.primary {
+      background: var(--accent-emerald);
+      color: #FFFFFF;
+      border: 1px solid var(--accent-emerald);
+    }
+
+    .btn.primary:hover {
+      background: var(--accent-emerald-hover);
+      border-color: var(--accent-emerald-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(43, 72, 65, 0.15);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .btn.secondary:hover {
+      background: var(--bg);
+      border-color: var(--text);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 640px) {
+      .thankyou-card {
+        padding: 40px 24px;
+      }
+      h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="thankyou-card">
+    <div class="logo-wrapper" style="margin-bottom: 24px;">
+      <img src="../assets/sidharth_logo.png" alt="Siddharth Opticals Logo" style="height: 48px; width: auto; object-fit: contain;">
+    </div>
+
+    <div class="success-icon-wrap">
+      <i data-lucide="check" style="width: 36px; height: 36px; stroke-width: 2.5px;"></i>
+    </div>
+
+    <h1 id="thankYouTitle">Request Received</h1>
+    <p class="lead-text">Thank you for scheduling with us. Your consultation details have been logged in our secure system.</p>
+
+    <div class="info-box">
+      <div class="info-item">
+        <i data-lucide="calendar"></i>
+        <span><strong>Verification</strong>: A boutique assistant will call or message you shortly to confirm your clinical time slot.</span>
+      </div>
+      <div class="info-item">
+        <i data-lucide="message-square"></i>
+        <span><strong>Instant Confirmation</strong>: Click the button below to connect with us directly on WhatsApp.</span>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <a href="#" id="waBtn" class="btn primary">
+        <i data-lucide="message-square" style="width: 18px; height: 18px;"></i>
+        <span>Confirm via WhatsApp</span>
+      </a>
+      <a href="index.html" class="btn secondary">Return to Salon</a>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Parse URL query parameters to personalize the page
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    const location = params.get('role') || '';
+    const service = params.get('url') || '';
+    const email = params.get('email') || '';
+    const phone = params.get('phone') || '';
+
+    if (name) {
+      document.getElementById('thankYouTitle').innerText = `Thank You, ${decodeURIComponent(name)}`;
+    }
+
+    // Set up WhatsApp redirect URL
+    if (name && phone && service) {
+      const message = `Hello Siddharth Opticals, my name is ${decodeURIComponent(name)}. I would like to confirm my booking slot for a "${decodeURIComponent(service)}" at your boutique: "${decodeURIComponent(location)}". My details are: Email: ${decodeURIComponent(email)}, WhatsApp: ${decodeURIComponent(phone)}.`;
+      const whatsappUrl = `https://wa.me/919115437107?text=${encodeURIComponent(message)}`;
+      document.getElementById('waBtn').href = whatsappUrl;
+      
+      // Auto-redirect to WhatsApp in a new tab after 2.5 seconds for convenience
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+      }, 2500);
+    } else {
+      document.getElementById('waBtn').href = 'https://wa.me/919115437107';
+    }
+  </script>
+</body>
+</html>
