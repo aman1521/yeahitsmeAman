@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Request Received | Siddhartha Phaco Eye Care Centre</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #F4F7FA;
+      --card-bg: #FFFFFF;
+      --text: #1E293B;
+      --text-muted: #64748B;
+      --border: rgba(0, 0, 0, 0.06);
+      --accent-gold: #C5A059;
+      --accent-navy: #0A1D37;
+      --accent-navy-hover: #071D3A;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .thankyou-card {
+      background: var(--card-bg);
+      border-top: 4px solid var(--accent-gold);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 24px 60px rgba(10, 29, 55, 0.04);
+      width: 100%;
+      max-width: 580px;
+      padding: 56px 40px;
+      text-align: center;
+      z-index: 10;
+      position: relative;
+      border-radius: 8px;
+      animation: fadeInUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo-wrapper {
+      display: inline-flex;
+      flex-direction: column;
+      margin-bottom: 36px;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--accent-navy);
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 4px;
+      color: var(--accent-gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: -2px;
+    }
+
+    .success-icon-wrap {
+      width: 72px;
+      height: 72px;
+      background: rgba(197, 160, 89, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      color: var(--accent-gold);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    p.lead-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .info-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 24px;
+      text-align: left;
+      margin-bottom: 36px;
+      border-radius: 4px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .info-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-item i {
+      flex-shrink: 0;
+      color: var(--accent-gold);
+      margin-top: 2px;
+    }
+
+    .info-item strong {
+      color: var(--text);
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn.primary {
+      background: var(--accent-navy);
+      color: #FFFFFF;
+      border: 1px solid var(--accent-navy);
+    }
+
+    .btn.primary:hover {
+      background: var(--accent-navy-hover);
+      border-color: var(--accent-navy-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(10, 29, 55, 0.15);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .btn.secondary:hover {
+      background: var(--bg);
+      border-color: var(--text);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 640px) {
+      .thankyou-card {
+        padding: 40px 24px;
+      }
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="thankyou-card">
+    <div class="logo-wrapper">
+      <div class="logo">Siddhartha</div>
+      <span>Phaco Eye Care Centre</span>
+    </div>
+
+    <div class="success-icon-wrap">
+      <i data-lucide="check" style="width: 36px; height: 36px; stroke-width: 2.5px;"></i>
+    </div>
+
+    <h1 id="thankYouTitle">Request Logged</h1>
+    <p class="lead-text">Your appointment inquiry has been registered in the Siddhartha Phaco Eye Care Centre clinical leads list.</p>
+
+    <div class="info-box">
+      <div class="info-item">
+        <i data-lucide="calendar"></i>
+        <span><strong>Triage Check</strong>: Our clinical receptionist will call or WhatsApp you within the next 2 hours to confirm your consultation timing.</span>
+      </div>
+      <div class="info-item">
+        <i data-lucide="message-square"></i>
+        <span><strong>Verification Hotline</strong>: Click below to confirm details directly with our clinic WhatsApp desk.</span>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <a href="#" id="waBtn" class="btn primary">
+        <i data-lucide="message-square" style="width: 18px; height: 18px;"></i>
+        <span>Confirm on WhatsApp</span>
+      </a>
+      <a href="index.html" class="btn secondary">Back to Clinic Home</a>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Parse URL query parameters
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    const location = params.get('role') || '';
+    const service = params.get('url') || '';
+    const email = params.get('email') || '';
+    const phone = params.get('phone') || '';
+
+    if (name) {
+      document.getElementById('thankYouTitle').innerText = `Thank You, ${decodeURIComponent(name)}`;
+    }
+
+    // Set up WhatsApp redirect URL (+977-9820722333)
+    if (name && phone && service) {
+      const message = `Hello Siddhartha Eye Care, my name is ${decodeURIComponent(name)}. I would like to verify my slot for "${decodeURIComponent(service)}" at your clinic: "${decodeURIComponent(location)}". Email: ${decodeURIComponent(email)}, Phone: ${decodeURIComponent(phone)}.`;
+      const whatsappUrl = `https://wa.me/9779820722333?text=${encodeURIComponent(message)}`;
+      document.getElementById('waBtn').href = whatsappUrl;
+      
+      // Auto-redirect to WhatsApp in a new tab after 2.5 seconds
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+      }, 2500);
+    } else {
+      document.getElementById('waBtn').href = 'https://wa.me/9779820722333';
+    }
+  </script>
+</body>
+</html>
