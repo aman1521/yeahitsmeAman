@@ -1,391 +1,408 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Siddhartha Phaco Eye Care Centre | Advanced Ophthalmology Nepal</title>
-  <meta name="description" content="Pioneering micro-incision cataract surgery (Phacoemulsification), corneal transplants, and glaucoma treatments in Nepal under Dr. Sanjay K. Singh. Visit our Biratnagar clinic.">
-  
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="clinic.css">
-  
-  <!-- Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Siddhartha Phaco Eye Care Centre | Advanced Ophthalmology Nepal</title>
+<meta content="Pioneering micro-incision cataract surgery (Phacoemulsification), corneal transplants, and glaucoma treatments in Nepal under Dr. Sanjay K. Singh. Visit our Biratnagar clinic." name="description">
+<!-- Open Graph / Facebook -->
+<meta content="business.business" property="og:type">
+<meta content="Siddhartha Phaco Eye Care Centre | Advanced Ophthalmology Nepal" property="og:title">
+<meta content="Pioneering micro-incision cataract surgery (Phacoemulsification), corneal transplants, and glaucoma treatments in Nepal under Dr. Sanjay K. Singh. Visit our Biratnagar clinic." property="og:description">
+<meta content="https://yeahitsmeaman.netlify.app/sidharthopticals-np/" property="og:url">
+<meta content="https://yeahitsmeaman.netlify.app/assets/cataract_surgery.jpg" property="og:image">
+<meta content="Rani - 13, Near Biratnagar Eye Hospital" property="business:contact_data:street_address">
+<meta content="Biratnagar" property="business:contact_data:locality">
+<meta content="Morang" property="business:contact_data:region">
+<meta content="Nepal" property="business:contact_data:country_name">
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card">
+<meta content="Siddhartha Phaco Eye Care Centre | Advanced Ophthalmology Nepal" property="twitter:title">
+<meta content="Pioneering micro-incision cataract surgery (Phacoemulsification), corneal transplants, and glaucoma treatments in Nepal under Dr. Sanjay K. Singh. Visit our Biratnagar clinic." property="twitter:description">
+<meta content="https://yeahitsmeaman.netlify.app/assets/cataract_surgery.jpg" property="twitter:image">
+<!-- Schema.org JSON-LD (Search & Generative AI Graph) -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Siddhartha Phaco Eye Care Pvt. Ltd.",
+    "image": "https://yeahitsmeaman.netlify.app/assets/cataract_surgery.jpg",
+    "description": "Premium eye care clinic and micro-surgery salon in Biratnagar, Nepal. Pioneering phacoemulsification, Zepto capsulotomies, and corneal transplants led by Dr. Sanjay K. Singh.",
+    "url": "https://yeahitsmeaman.netlify.app/sidharthopticals-np/",
+    "telephone": "+977-9820722333",
+    "email": "siddharthaphacoeyecare@gmail.com",
+    "founder": {
+      "@type": "Person",
+      "name": "Dr. Sanjay K. Singh",
+      "jobTitle": "Consultant Corneal & Phaco Surgeon"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rani - 13, Near Biratnagar Eye Hospital",
+      "addressLocality": "Biratnagar",
+      "addressRegion": "Morang",
+      "addressCountry": "NP"
+    },
+    "department": [
+      {
+        "@type": "MedicalClinic",
+        "name": "Siddhartha Eye Care Pvt. Ltd. - Hospital Chowk Branch",
+        "telephone": "+977-9820722333",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Hospital Chowk, Opposite Koshi Zonal Hospital",
+          "addressLocality": "Biratnagar",
+          "addressRegion": "Morang",
+          "addressCountry": "NP"
+        }
+      }
+    ],
+    "medicalSpecialty": [
+      "Optometry",
+      "Ophthalmology",
+      "Surgery"
+    ]
+  }
+  </script>
+<link href="../favicon.ico" rel="icon" type="image/x-icon">
+<!-- Stylesheet -->
+<link href="clinic.css" rel="stylesheet">
+<!-- Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+</meta></meta></meta></head>
 <body>
-
-  <!-- Header -->
-  <header class="header" id="header">
-    <div class="container header-container">
-      <a href="#" class="logo-wrapper">
-        <div class="logo">Siddhartha</div>
-        <span class="logo-sub">Phaco Eye Care Centre</span>
-      </a>
-      
-      <nav>
-        <ul class="nav-menu" id="nav-menu">
-          <li><a href="#services" class="nav-link">Specialties</a></li>
-          <li><a href="#surgeon" class="nav-link">Our Surgeon</a></li>
-          <li><a href="#technology" class="nav-link">Technology</a></li>
-          <li><a href="#branches" class="nav-link">Clinics</a></li>
-          <li><a href="#booking" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
-      
-      <div class="nav-actions">
-        <button class="btn btn-primary nav-cta-btn" onclick="openBookingModal('General consultation')">Book Consultation</button>
-      </div>
-
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
-        <i data-lucide="menu"></i>
-      </button>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-bg">
-      <img src="../assets/cataract_surgery.jpg" alt="Siddhartha Phaco Eye Care Surgery Microscope">
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="container">
-      <div class="hero-content">
-        <span class="hero-tag">Pioneering Ophthalmology in Nepal</span>
-        <h1 class="hero-title">Restoring Vision. <span>Preserving Clarity.</span></h1>
-        <p class="hero-desc">Experience world-class micro-incision cataract surgery, corneal transplants, and glaucoma management led by Dr. Sanjay K. Singh in Biratnagar.</p>
-        <div class="hero-btn-group">
-          <button class="btn btn-gold" onclick="openBookingModal('General consultation')">Schedule Appointment</button>
-          <a href="#services" class="btn btn-outline-white">Specialty Services</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Specialties Section -->
-  <section class="section" id="services">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Clinical Excellence</span>
-        <h2 class="section-title">Ophthalmology Specialties</h2>
-        <p class="section-desc">Our facility is equipped with state-of-the-art diagnostic and micro-surgical equipment to offer comprehensive visual solutions.</p>
-      </div>
-
-      <div class="services-grid">
-        <!-- Service 1 -->
-        <div class="service-card">
-          <div class="service-icon"><i data-lucide="eye"></i></div>
-          <h3 class="service-title">Micro-Cataract Surgery</h3>
-          <p class="service-desc">Advanced Phacoemulsification (Phaco) and Zepto Capsulotomy procedures for quick recovery, high safety, and optimized post-surgical visual acuity.</p>
-          <a href="#booking" class="service-link" onclick="openBookingModal('Phaco Cataract Surgery')">Book Consultation <i data-lucide="arrow-right" style="width: 14px;"></i></a>
-        </div>
-
-        <!-- Service 2 -->
-        <div class="service-card">
-          <div class="service-icon"><i data-lucide="shield"></i></div>
-          <h3 class="service-title">Corneal & Pterygium</h3>
-          <p class="service-desc">Providing specialized corneal transplants, advanced pterygium excisions, and amniotic membrane grafting to restore structural corneal integrity.</p>
-          <a href="#booking" class="service-link" onclick="openBookingModal('Corneal Transplant')">Book Consultation <i data-lucide="arrow-right" style="width: 14px;"></i></a>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="service-card">
-          <div class="service-icon"><i data-lucide="activity"></i></div>
-          <h3 class="service-title">Glaucoma & Retina</h3>
-          <p class="service-desc">Complete medical screening, pressure mapping, and specialized treatments for glaucoma, diabetic retinopathy, and crosslinking therapies.</p>
-          <a href="#booking" class="service-link" onclick="openBookingModal('Glaucoma/Retina Exam')">Book Consultation <i data-lucide="arrow-right" style="width: 14px;"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Surgeon Section -->
-  <section class="section section-alt" id="surgeon">
-    <div class="container">
-      <div class="doctor-wrapper">
-        <div class="doctor-visual">
-          <div class="doctor-img-wrap">
-            <img src="../assets/clinic_doctor.jpg" alt="Dr. Sanjay K. Singh examining patient" class="doctor-img">
-          </div>
-          <div class="doctor-badge">
-            <span class="badge-big">20+</span>
-            <span class="badge-small">Years of Expertise</span>
-          </div>
-        </div>
-
-        <div class="doctor-content">
-          <span class="section-subtitle">Lead Ophthalmologist</span>
-          <h2 class="doctor-name">Dr. Sanjay K. Singh</h2>
-          <span class="doctor-role">Consultant Corneal & Phaco Surgeon</span>
-          <p class="doctor-quote">"Our mission is to bring state-of-the-art optical engineering and microscopic surgery to Nepal, making premium eye treatments accessible and precise."</p>
-          <p class="doctor-desc">Dr. Sanjay K. Singh is recognized for pioneering advanced surgical techniques in Nepal, including Phacoemulsification, corneal transplants, and Zepto Capsulotomy. His clinical focus merges advanced diagnostic metrics with high-precision microsurgery.</p>
-          
-          <div class="doctor-kpis">
-            <div>
-              <div class="kpi-num">15k+</div>
-              <div class="kpi-label">Successful Surgeries</div>
-            </div>
-            <div>
-              <div class="kpi-num">2</div>
-              <div class="kpi-label">Clinical Salons</div>
-            </div>
-            <div>
-              <div class="kpi-num">100%</div>
-              <div class="kpi-label">Patient Dedication</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Technology Section -->
-  <section class="section section-dark" id="technology">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Cutting-Edge Equipment</span>
-        <h2 class="section-title">Ophthalmic Advancements</h2>
-        <p class="section-desc" style="color: #94A3B8;">We utilize top-tier surgical machinery and tools to deliver micro-incision solutions with high safety indexes.</p>
-      </div>
-
-      <div class="features-container">
-        <!-- Tech 1 -->
-        <div class="feature-card">
-          <i data-lucide="zoom-in" class="feature-icon"></i>
-          <h3 class="feature-title">Microscopic OTs</h3>
-          <p class="feature-desc">Fitted with modern surgical microscopes offering deep stereoscopic magnification of ocular tissues.</p>
-        </div>
-
-        <!-- Tech 2 -->
-        <div class="feature-card">
-          <i data-lucide="zap" class="feature-icon"></i>
-          <h3 class="feature-title">Phacoemulsifiers</h3>
-          <p class="feature-desc">Using ultrasonic frequencies to dissolve and extract cataracts through sub-2mm incisions without stitches.</p>
-        </div>
-
-        <!-- Tech 3 -->
-        <div class="feature-card">
-          <i data-lucide="crosshair" class="feature-icon"></i>
-          <h3 class="feature-title">Zepto Alignment</h3>
-          <p class="feature-desc">Automated capsulotomies matching visual axis, ensuring perfect centering of premium intraocular lenses.</p>
-        </div>
-
-        <!-- Tech 4 -->
-        <div class="feature-card">
-          <i data-lucide="check-circle-2" class="feature-icon"></i>
-          <h3 class="feature-title">Diagnostic Scans</h3>
-          <p class="feature-desc">Auto-refractometers, slit lamps, and non-contact tonometers to measure visual systems precisely.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Branches Section -->
-  <section class="section" id="branches">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Our Locations</span>
-        <h2 class="section-title">Clinical Boutiques</h2>
-        <p class="section-desc">Visit any of our state-of-the-art facilities in Biratnagar, Nepal for routine checkups or specialized surgical evaluations.</p>
-      </div>
-
-      <div class="branch-grid">
-        <!-- Main Branch -->
-        <div class="branch-card">
-          <span class="branch-tag">Main Surgical Center</span>
-          <h3 class="branch-name">Rani Main Branch</h3>
-          <ul class="branch-details">
-            <li><i data-lucide="map-pin"></i> Rani - 13, Near Biratnagar Eye Hospital, Biratnagar, Morang, Nepal</li>
-            <li><i data-lucide="phone"></i> +977-98207 22 333</li>
-            <li><i data-lucide="clock"></i> 10:00 AM - 7:00 PM (Daily)</li>
-          </ul>
-          <div class="branch-actions">
-            <button class="btn btn-primary branch-btn" onclick="openBookingModal('Rani Main Branch')">Request Booking</button>
-            <a href="mailto:siddharthaphacoeyecare@gmail.com" class="btn btn-outline branch-btn"><i data-lucide="mail" style="width: 14px; margin-right: 4px;"></i> Email</a>
-          </div>
-        </div>
-
-        <!-- Branch 2 -->
-        <div class="branch-card">
-          <span class="branch-tag">Outpatient Clinic</span>
-          <h3 class="branch-name">Hospital Chowk Branch</h3>
-          <ul class="branch-details">
-            <li><i data-lucide="map-pin"></i> Hospital Chowk, Opposite Koshi Zonal Hospital, Biratnagar, Morang, Nepal</li>
-            <li><i data-lucide="phone"></i> +977-98207 22 333</li>
-            <li><i data-lucide="clock"></i> 10:00 AM - 7:00 PM (Daily)</li>
-          </ul>
-          <div class="branch-actions">
-            <button class="btn btn-primary branch-btn" onclick="openBookingModal('Hospital Chowk Branch')">Request Booking</button>
-            <a href="mailto:siddharthaphacoeyecare@gmail.com" class="btn btn-outline branch-btn"><i data-lucide="mail" style="width: 14px; margin-right: 4px;"></i> Email</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reservation Section -->
-  <section class="section section-alt" id="booking">
-    <div class="container" style="max-width: 900px;">
-      <div class="booking-form-wrapper">
-        <div class="section-header" style="margin-bottom: 40px;">
-          <span class="section-subtitle">Reserve Slots</span>
-          <h2 class="section-title">Schedule Clinical Consultation</h2>
-          <p class="section-desc">Submit your appointment details. Our triage desk will contact you within 2 hours to confirm your surgeon consultation slot.</p>
-        </div>
-
-        <form id="inline-booking-form" class="booking-form" onsubmit="handleFormSubmit(event, 'inline-booking-form')">
-          <div class="form-group">
-            <label class="form-label" for="inline-name">Patient's Full Name</label>
-            <input type="text" id="inline-name" required class="form-input" placeholder="e.g. Ram Bahadur">
-          </div>
-          
-          <div class="form-group">
-            <label class="form-label" for="inline-email">Email Address</label>
-            <input type="email" id="inline-email" required class="form-input" placeholder="name@example.com">
-          </div>
-          
-          <div class="form-group">
-            <label class="form-label" for="inline-phone">Phone / Mobile Number</label>
-            <input type="tel" id="inline-phone" required class="form-input" placeholder="e.g. +977-9820722333">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="inline-location">Preferred Branch Location</label>
-            <select id="inline-location" required class="form-input form-select">
-              <option value="" disabled selected>Select boutique clinic</option>
-              <option value="Rani Main Branch">Rani Main Branch (Biratnagar)</option>
-              <option value="Hospital Chowk Branch">Hospital Chowk Branch (Biratnagar)</option>
-            </select>
-          </div>
-
-          <div class="form-group form-group-full">
-            <label class="form-label" for="inline-service">Ophthalmology Service Required</label>
-            <select id="inline-service" required class="form-input form-select">
-              <option value="" disabled selected>Select clinical service</option>
-              <option value="Phaco Cataract Surgery">Advanced Phaco Cataract Surgery</option>
-              <option value="Corneal Transplant">Corneal Transplants & Surgery</option>
-              <option value="Glaucoma/Retina Exam">Glaucoma & Diabetic Retina Exam</option>
-              <option value="Routine Eye Exam">Comprehensive Eye Examination</option>
-            </select>
-          </div>
-
-          <button type="submit" class="btn btn-primary submit-btn">Submit Reservation Request</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="#" class="logo-wrapper footer-logo" style="margin-bottom: 12px;">
-            <div class="logo" style="color: white;">Siddhartha</div>
-            <span class="logo-sub" style="color: var(--accent-gold);">Phaco Eye Care Centre</span>
-          </a>
-          <p class="footer-desc">Pioneering microscopic phaco surgeries, corneal transplants, and medical diagnostics in Nepal since establishment. Led by Dr. Sanjay K. Singh.</p>
-          <div class="footer-socials">
-            <a href="https://www.facebook.com/siddharthaeyecare" target="_blank" class="social-link"><i data-lucide="facebook"></i></a>
-            <a href="#" class="social-link"><i data-lucide="linkedin"></i></a>
-            <a href="#" class="social-link"><i data-lucide="youtube"></i></a>
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="footer-title">Clinical Boutiques</h4>
-          <ul class="footer-links">
-            <li><a href="#branches">Rani Main Branch</a></li>
-            <li><a href="#branches">Hospital Chowk Branch</a></li>
-            <li><a href="#branches">Biratnagar Eye Center</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="footer-title">Services</h4>
-          <ul class="footer-links">
-            <li><a href="#services">Phacoemulsification</a></li>
-            <li><a href="#services">Zepto Capsulotomy</a></li>
-            <li><a href="#services">Corneal Transplants</a></li>
-            <li><a href="#services">Glaucoma Assessments</a></li>
-            <li><a href="#services">Diabetic Retinopathy</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="footer-title">Contact Support</h4>
-          <ul class="footer-contact">
-            <li><i data-lucide="phone"></i> +977-98207 22 333</li>
-            <li><i data-lucide="mail"></i> siddharthaphacoeyecare@gmail.com</li>
-            <li><i data-lucide="clock"></i> Triage Hotline: 24 Hours Open</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p class="copyright">&copy; 2026 Siddhartha Phaco Eye Care Pvt. Ltd. All rights reserved. Dr. Sanjay K. Singh Surgery Legacy.</p>
-        <ul class="footer-bottom-links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms & Conditions</a></li>
-          <li><a href="#">Nepal Eye Council Reg.</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Booking Modal -->
-  <div class="modal" id="booking-modal">
-    <div class="modal-container">
-      <button class="modal-close" onclick="closeBookingModal()">
-        <i data-lucide="x"></i>
-      </button>
-      <h3 class="modal-title">Book Surgeon Slot</h3>
-      <p class="modal-subtitle" id="modal-subtitle-text">Request surgical evaluation or diagnostics slots.</p>
-      
-      <form id="modal-booking-form" class="booking-form" onsubmit="handleFormSubmit(event, 'modal-booking-form')" style="grid-template-columns: 1fr; gap: 16px;">
-        <div class="form-group">
-          <label class="form-label" for="modal-name">Patient's Full Name</label>
-          <input type="text" id="modal-name" required class="form-input" placeholder="e.g. Ram Bahadur">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label" for="modal-email">Email Address</label>
-          <input type="email" id="modal-email" required class="form-input" placeholder="name@example.com">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label" for="modal-phone">Phone / Mobile Number</label>
-          <input type="tel" id="modal-phone" required class="form-input" placeholder="e.g. +977-9820722333">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="modal-location">Preferred Branch Location</label>
-          <select id="modal-location" required class="form-input form-select">
-            <option value="" disabled selected>Select boutique clinic</option>
-            <option value="Rani Main Branch">Rani Main Branch (Biratnagar)</option>
-            <option value="Hospital Chowk Branch">Hospital Chowk Branch (Biratnagar)</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="modal-service">Clinical Service Needed</label>
-          <select id="modal-service" required class="form-input form-select">
-            <option value="" disabled selected>Select clinical service</option>
-            <option value="Phaco Cataract Surgery">Advanced Phaco Cataract Surgery</option>
-            <option value="Corneal Transplant">Corneal Transplants & Surgery</option>
-            <option value="Glaucoma/Retina Exam">Glaucoma & Diabetic Retina Exam</option>
-            <option value="Routine Eye Exam">Comprehensive Eye Examination</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary form-btn" style="width: 100%; margin-top: 10px;">Reserve Consultation</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script>
+<!-- Header -->
+<header class="header" id="header">
+<div class="container header-container">
+<a class="logo-wrapper" href="#">
+<div class="logo">Siddhartha</div>
+<span class="logo-sub">Phaco Eye Care Centre</span>
+</a>
+<nav>
+<ul class="nav-menu" id="nav-menu">
+<li><a class="nav-link" href="#services">Specialties</a></li>
+<li><a class="nav-link" href="#surgeon">Our Surgeon</a></li>
+<li><a class="nav-link" href="#technology">Technology</a></li>
+<li><a class="nav-link" href="#branches">Clinics</a></li>
+<li><a class="nav-link" href="#booking">Contact</a></li>
+</ul>
+</nav>
+<div class="nav-actions">
+<button class="btn btn-primary nav-cta-btn" onclick="openBookingModal('General consultation')">Book Consultation</button>
+</div>
+<button aria-label="Toggle menu" class="menu-toggle" id="menu-toggle">
+<i data-lucide="menu"></i>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-bg">
+<img alt="Siddhartha Phaco Eye Care Surgery Microscope" loading="lazy" src="../assets/cataract_surgery.jpg">
+</div>
+<div class="hero-overlay"></div>
+<div class="container">
+<div class="hero-content">
+<span class="hero-tag">Pioneering Ophthalmology in Nepal</span>
+<h1 class="hero-title">Restoring Vision. <span>Preserving Clarity.</span></h1>
+<p class="hero-desc">Experience world-class micro-incision cataract surgery, corneal transplants, and glaucoma management led by Dr. Sanjay K. Singh in Biratnagar.</p>
+<div class="hero-btn-group">
+<button class="btn btn-gold" onclick="openBookingModal('General consultation')">Schedule Appointment</button>
+<a class="btn btn-outline-white" href="#services">Specialty Services</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Specialties Section -->
+<section class="section" id="services">
+<div class="container">
+<div class="section-header">
+<span class="section-subtitle">Clinical Excellence</span>
+<h2 class="section-title">Ophthalmology Specialties</h2>
+<p class="section-desc">Our facility is equipped with state-of-the-art diagnostic and micro-surgical equipment to offer comprehensive visual solutions.</p>
+</div>
+<div class="services-grid">
+<!-- Service 1 -->
+<div class="service-card">
+<div class="service-icon"><i data-lucide="eye"></i></div>
+<h3 class="service-title">Micro-Cataract Surgery</h3>
+<p class="service-desc">Advanced Phacoemulsification (Phaco) and Zepto Capsulotomy procedures for quick recovery, high safety, and optimized post-surgical visual acuity.</p>
+<a class="service-link" href="#booking" onclick="openBookingModal('Phaco Cataract Surgery')">Book Consultation <i data-lucide="arrow-right" style="width: 14px;"></i></a>
+</div>
+<!-- Service 2 -->
+<div class="service-card">
+<div class="service-icon"><i data-lucide="shield"></i></div>
+<h3 class="service-title">Corneal & Pterygium</h3>
+<p class="service-desc">Providing specialized corneal transplants, advanced pterygium excisions, and amniotic membrane grafting to restore structural corneal integrity.</p>
+<a class="service-link" href="#booking" onclick="openBookingModal('Corneal Transplant')">Book Consultation <i data-lucide="arrow-right" style="width: 14px;"></i></a>
+</div>
+<!-- Service 3 -->
+<div class="service-card">
+<div class="service-icon"><i data-lucide="activity"></i></div>
+<h3 class="service-title">Glaucoma & Retina</h3>
+<p class="service-desc">Complete medical screening, pressure mapping, and specialized treatments for glaucoma, diabetic retinopathy, and crosslinking therapies.</p>
+<a class="service-link" href="#booking" onclick="openBookingModal('Glaucoma/Retina Exam')">Book Consultation <i data-lucide="arrow-right" style="width: 14px;"></i></a>
+</div>
+</div>
+</div>
+</section>
+<!-- Surgeon Section -->
+<section class="section section-alt" id="surgeon">
+<div class="container">
+<div class="doctor-wrapper">
+<div class="doctor-visual">
+<div class="doctor-img-wrap">
+<img alt="Dr. Sanjay K. Singh examining patient" class="doctor-img" loading="lazy" src="../assets/clinic_doctor.jpg">
+</div>
+<div class="doctor-badge">
+<span class="badge-big">20+</span>
+<span class="badge-small">Years of Expertise</span>
+</div>
+</div>
+<div class="doctor-content">
+<span class="section-subtitle">Lead Ophthalmologist</span>
+<h2 class="doctor-name">Dr. Sanjay K. Singh</h2>
+<span class="doctor-role">Consultant Corneal & Phaco Surgeon</span>
+<p class="doctor-quote">"Our mission is to bring state-of-the-art optical engineering and microscopic surgery to Nepal, making premium eye treatments accessible and precise."</p>
+<p class="doctor-desc">Dr. Sanjay K. Singh is recognized for pioneering advanced surgical techniques in Nepal, including Phacoemulsification, corneal transplants, and Zepto Capsulotomy. His clinical focus merges advanced diagnostic metrics with high-precision microsurgery.</p>
+<div class="doctor-kpis">
+<div>
+<div class="kpi-num">15k+</div>
+<div class="kpi-label">Successful Surgeries</div>
+</div>
+<div>
+<div class="kpi-num">2</div>
+<div class="kpi-label">Clinical Salons</div>
+</div>
+<div>
+<div class="kpi-num">100%</div>
+<div class="kpi-label">Patient Dedication</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technology Section -->
+<section class="section section-dark" id="technology">
+<div class="container">
+<div class="section-header">
+<span class="section-subtitle">Cutting-Edge Equipment</span>
+<h2 class="section-title">Ophthalmic Advancements</h2>
+<p class="section-desc" style="color: #94A3B8;">We utilize top-tier surgical machinery and tools to deliver micro-incision solutions with high safety indexes.</p>
+</div>
+<div class="features-container">
+<!-- Tech 1 -->
+<div class="feature-card">
+<i class="feature-icon" data-lucide="zoom-in"></i>
+<h3 class="feature-title">Microscopic OTs</h3>
+<p class="feature-desc">Fitted with modern surgical microscopes offering deep stereoscopic magnification of ocular tissues.</p>
+</div>
+<!-- Tech 2 -->
+<div class="feature-card">
+<i class="feature-icon" data-lucide="zap"></i>
+<h3 class="feature-title">Phacoemulsifiers</h3>
+<p class="feature-desc">Using ultrasonic frequencies to dissolve and extract cataracts through sub-2mm incisions without stitches.</p>
+</div>
+<!-- Tech 3 -->
+<div class="feature-card">
+<i class="feature-icon" data-lucide="crosshair"></i>
+<h3 class="feature-title">Zepto Alignment</h3>
+<p class="feature-desc">Automated capsulotomies matching visual axis, ensuring perfect centering of premium intraocular lenses.</p>
+</div>
+<!-- Tech 4 -->
+<div class="feature-card">
+<i class="feature-icon" data-lucide="check-circle-2"></i>
+<h3 class="feature-title">Diagnostic Scans</h3>
+<p class="feature-desc">Auto-refractometers, slit lamps, and non-contact tonometers to measure visual systems precisely.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Branches Section -->
+<section class="section" id="branches">
+<div class="container">
+<div class="section-header">
+<span class="section-subtitle">Our Locations</span>
+<h2 class="section-title">Clinical Boutiques</h2>
+<p class="section-desc">Visit any of our state-of-the-art facilities in Biratnagar, Nepal for routine checkups or specialized surgical evaluations.</p>
+</div>
+<div class="branch-grid">
+<!-- Main Branch -->
+<div class="branch-card">
+<span class="branch-tag">Main Surgical Center</span>
+<h3 class="branch-name">Rani Main Branch</h3>
+<ul class="branch-details">
+<li><i data-lucide="map-pin"></i> Rani - 13, Near Biratnagar Eye Hospital, Biratnagar, Morang, Nepal</li>
+<li><i data-lucide="phone"></i> +977-98207 22 333</li>
+<li><i data-lucide="clock"></i> 10:00 AM - 7:00 PM (Daily)</li>
+</ul>
+<div class="branch-actions">
+<button class="btn btn-primary branch-btn" onclick="openBookingModal('Rani Main Branch')">Request Booking</button>
+<a class="btn btn-outline branch-btn" href="mailto:siddharthaphacoeyecare@gmail.com"><i data-lucide="mail" style="width: 14px; margin-right: 4px;"></i> Email</a>
+</div>
+</div>
+<!-- Branch 2 -->
+<div class="branch-card">
+<span class="branch-tag">Outpatient Clinic</span>
+<h3 class="branch-name">Hospital Chowk Branch</h3>
+<ul class="branch-details">
+<li><i data-lucide="map-pin"></i> Hospital Chowk, Opposite Koshi Zonal Hospital, Biratnagar, Morang, Nepal</li>
+<li><i data-lucide="phone"></i> +977-98207 22 333</li>
+<li><i data-lucide="clock"></i> 10:00 AM - 7:00 PM (Daily)</li>
+</ul>
+<div class="branch-actions">
+<button class="btn btn-primary branch-btn" onclick="openBookingModal('Hospital Chowk Branch')">Request Booking</button>
+<a class="btn btn-outline branch-btn" href="mailto:siddharthaphacoeyecare@gmail.com"><i data-lucide="mail" style="width: 14px; margin-right: 4px;"></i> Email</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reservation Section -->
+<section class="section section-alt" id="booking">
+<div class="container" style="max-width: 900px;">
+<div class="booking-form-wrapper">
+<div class="section-header" style="margin-bottom: 40px;">
+<span class="section-subtitle">Reserve Slots</span>
+<h2 class="section-title">Schedule Clinical Consultation</h2>
+<p class="section-desc">Submit your appointment details. Our triage desk will contact you within 2 hours to confirm your surgeon consultation slot.</p>
+</div>
+<form class="booking-form" id="inline-booking-form" onsubmit="handleFormSubmit(event, 'inline-booking-form')">
+<div class="form-group">
+<label class="form-label" for="inline-name">Patient's Full Name</label>
+<input class="form-input" id="inline-name" placeholder="e.g. Ram Bahadur" required type="text">
+</div>
+<div class="form-group">
+<label class="form-label" for="inline-email">Email Address</label>
+<input class="form-input" id="inline-email" placeholder="name@example.com" required type="email">
+</div>
+<div class="form-group">
+<label class="form-label" for="inline-phone">Phone / Mobile Number</label>
+<input class="form-input" id="inline-phone" placeholder="e.g. +977-9820722333" required type="tel">
+</div>
+<div class="form-group">
+<label class="form-label" for="inline-location">Preferred Branch Location</label>
+<select class="form-input form-select" id="inline-location" required>
+<option disabled selected value>Select boutique clinic</option>
+<option value="Rani Main Branch">Rani Main Branch (Biratnagar)</option>
+<option value="Hospital Chowk Branch">Hospital Chowk Branch (Biratnagar)</option>
+</select>
+</div>
+<div class="form-group form-group-full">
+<label class="form-label" for="inline-service">Ophthalmology Service Required</label>
+<select class="form-input form-select" id="inline-service" required>
+<option disabled selected value>Select clinical service</option>
+<option value="Phaco Cataract Surgery">Advanced Phaco Cataract Surgery</option>
+<option value="Corneal Transplant">Corneal Transplants & Surgery</option>
+<option value="Glaucoma/Retina Exam">Glaucoma & Diabetic Retina Exam</option>
+<option value="Routine Eye Exam">Comprehensive Eye Examination</option>
+</select>
+</div>
+<button class="btn btn-primary submit-btn" type="submit">Submit Reservation Request</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<a class="logo-wrapper footer-logo" href="#" style="margin-bottom: 12px;">
+<div class="logo" style="color: white;">Siddhartha</div>
+<span class="logo-sub" style="color: var(--accent-gold);">Phaco Eye Care Centre</span>
+</a>
+<p class="footer-desc">Pioneering microscopic phaco surgeries, corneal transplants, and medical diagnostics in Nepal since establishment. Led by Dr. Sanjay K. Singh.</p>
+<div class="footer-socials">
+<a class="social-link" href="https://www.facebook.com/siddharthaeyecare" target="_blank"><i data-lucide="facebook"></i></a>
+<a class="social-link" href="#"><i data-lucide="linkedin"></i></a>
+<a class="social-link" href="#"><i data-lucide="youtube"></i></a>
+</div>
+</div>
+<div class="footer-col">
+<h4 class="footer-title">Clinical Boutiques</h4>
+<ul class="footer-links">
+<li><a href="#branches">Rani Main Branch</a></li>
+<li><a href="#branches">Hospital Chowk Branch</a></li>
+<li><a href="#branches">Biratnagar Eye Center</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4 class="footer-title">Services</h4>
+<ul class="footer-links">
+<li><a href="#services">Phacoemulsification</a></li>
+<li><a href="#services">Zepto Capsulotomy</a></li>
+<li><a href="#services">Corneal Transplants</a></li>
+<li><a href="#services">Glaucoma Assessments</a></li>
+<li><a href="#services">Diabetic Retinopathy</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4 class="footer-title">Contact Support</h4>
+<ul class="footer-contact">
+<li><i data-lucide="phone"></i> +977-98207 22 333</li>
+<li><i data-lucide="mail"></i> siddharthaphacoeyecare@gmail.com</li>
+<li><i data-lucide="clock"></i> Triage Hotline: 24 Hours Open</li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p class="copyright">&copy; 2026 Siddhartha Phaco Eye Care Pvt. Ltd. All rights reserved. Dr. Sanjay K. Singh Surgery Legacy.</p>
+<ul class="footer-bottom-links">
+<li><a href="#">Privacy Policy</a></li>
+<li><a href="#">Terms & Conditions</a></li>
+<li><a href="#">Nepal Eye Council Reg.</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<!-- Booking Modal -->
+<div class="modal" id="booking-modal">
+<div class="modal-container">
+<button class="modal-close" onclick="closeBookingModal()">
+<i data-lucide="x"></i>
+</button>
+<h3 class="modal-title">Book Surgeon Slot</h3>
+<p class="modal-subtitle" id="modal-subtitle-text">Request surgical evaluation or diagnostics slots.</p>
+<form class="booking-form" id="modal-booking-form" onsubmit="handleFormSubmit(event, 'modal-booking-form')" style="grid-template-columns: 1fr; gap: 16px;">
+<div class="form-group">
+<label class="form-label" for="modal-name">Patient's Full Name</label>
+<input class="form-input" id="modal-name" placeholder="e.g. Ram Bahadur" required type="text">
+</div>
+<div class="form-group">
+<label class="form-label" for="modal-email">Email Address</label>
+<input class="form-input" id="modal-email" placeholder="name@example.com" required type="email">
+</div>
+<div class="form-group">
+<label class="form-label" for="modal-phone">Phone / Mobile Number</label>
+<input class="form-input" id="modal-phone" placeholder="e.g. +977-9820722333" required type="tel">
+</div>
+<div class="form-group">
+<label class="form-label" for="modal-location">Preferred Branch Location</label>
+<select class="form-input form-select" id="modal-location" required>
+<option disabled selected value>Select boutique clinic</option>
+<option value="Rani Main Branch">Rani Main Branch (Biratnagar)</option>
+<option value="Hospital Chowk Branch">Hospital Chowk Branch (Biratnagar)</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label" for="modal-service">Clinical Service Needed</label>
+<select class="form-input form-select" id="modal-service" required>
+<option disabled selected value>Select clinical service</option>
+<option value="Phaco Cataract Surgery">Advanced Phaco Cataract Surgery</option>
+<option value="Corneal Transplant">Corneal Transplants & Surgery</option>
+<option value="Glaucoma/Retina Exam">Glaucoma & Diabetic Retina Exam</option>
+<option value="Routine Eye Exam">Comprehensive Eye Examination</option>
+</select>
+</div>
+<button class="btn btn-primary form-btn" style="width: 100%; margin-top: 10px;" type="submit">Reserve Consultation</button>
+</form>
+</div>
+</div>
+<!-- Scripts -->
+<script>
     lucide.createIcons();
 
     // Sticky nav
