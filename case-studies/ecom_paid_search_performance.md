@@ -1,8 +1,8 @@
 ---
-title: E-Commerce Paid Search & PMax Performance: Scaling to £17.1M Revenue with 8.23 ROAS
+title: Enterprise E-Commerce Paid Search & PMax Performance: Scaling to £17.1M Revenue with 8.23 ROAS
 description: A data-driven case study detailing the structure, scaling strategy, and conversion metrics of a global e-commerce PPC campaign.
 tags: [marketing, googleads, seo, business]
-published: false
+published: true
 ---
 
 # E-Commerce Paid Search & PMax Performance: Scaling to £17.1M Revenue with 8.23 ROAS
