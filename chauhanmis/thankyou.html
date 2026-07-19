@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>B2B Quote Request Logged | Chauhan MIS</title>
+  <title>B2B Project Consultation Request Received | Chauhan MIS</title>
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="../assets/A-logo.png">
@@ -18,8 +18,8 @@
       --text: #0F172A;
       --text-muted: #475569;
       --border: #E2E8F0;
-      --accent-orange: #EA580C;
-      --bg-dark: #0F172A;
+      --accent-blue: #2563EB;
+      --bg-dark: #0A1731;
     }
 
     * {
@@ -43,7 +43,7 @@
 
     .success-card {
       background: var(--card-bg);
-      border-top: 4px solid var(--accent-orange);
+      border-top: 4px solid var(--accent-blue);
       border-left: 1px solid var(--border);
       border-right: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
@@ -75,7 +75,7 @@
     }
 
     .logo-mark {
-      background: var(--accent-orange);
+      background: linear-gradient(135deg, var(--accent-blue) 0%, #06B6D4 100%);
       color: white;
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
@@ -99,13 +99,13 @@
     .success-icon-wrap {
       width: 72px;
       height: 72px;
-      background: rgba(234, 88, 12, 0.08);
+      background: rgba(37, 99, 235, 0.06);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 28px;
-      color: var(--accent-orange);
+      color: var(--accent-blue);
     }
 
     h1 {
@@ -147,7 +147,7 @@
 
     .info-item i {
       flex-shrink: 0;
-      color: var(--accent-orange);
+      color: var(--accent-blue);
       margin-top: 2px;
     }
 
@@ -179,16 +179,16 @@
     }
 
     .btn.primary {
-      background: var(--accent-orange);
+      background: var(--accent-blue);
       color: #FFFFFF;
-      border: 1px solid var(--accent-orange);
+      border: 1px solid var(--accent-blue);
     }
 
     .btn.primary:hover {
-      background: #C2410C;
-      border-color: #C2410C;
+      background: #1D4ED8;
+      border-color: #1D4ED8;
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(234, 88, 12, 0.2);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2);
     }
 
     .btn.secondary {
@@ -218,7 +218,7 @@
 
   <div class="success-card">
     <div class="logo-wrapper">
-      <div class="logo-mark">CM</div>
+      <div class="logo-mark"><i data-lucide="cpu" style="width: 18px; height: 18px; stroke-width: 2.5px;"></i></div>
       <div class="logo-title">Chauhan MIS</div>
     </div>
 
@@ -226,26 +226,26 @@
       <i data-lucide="check" style="width: 36px; height: 36px; stroke-width: 2.5px;"></i>
     </div>
 
-    <h1 id="thankYouTitle">Quote Request Logged</h1>
-    <p class="lead-text">Your crating dimensions or software specs have been registered in the Chauhan MIS leads pipeline.</p>
+    <h1 id="thankYouTitle">Request Received</h1>
+    <p class="lead-text">Your B2B software specs or consultation inquiry has been registered in the Chauhan MIS leads pipeline.</p>
 
     <div class="info-box">
       <div class="info-item">
-        <i data-lucide="calculator"></i>
-        <span><strong>Engineering Layout</strong>: Our estimating engineer will draft your packaging blueprints and project quote within 4 hours.</span>
+        <i data-lucide="brain"></i>
+        <span><strong>Solutions Scoping</strong>: Our solutions architect is reviewing your business sector requirements and modules specifications.</span>
       </div>
       <div class="info-item">
-        <i data-lucide="message-square"></i>
-        <span><strong>Procurement Chat</strong>: Click below to upload drawings or blueprints directly to our design team.</span>
+        <i data-lucide="calendar"></i>
+        <span><strong>Demo Coordination</strong>: We will call or email you within 4 hours to coordinate a custom software layout demo.</span>
       </div>
     </div>
 
     <div class="btn-group">
       <a href="#" id="waBtn" class="btn primary">
         <i data-lucide="message-square" style="width: 18px; height: 18px;"></i>
-        <span>Confirm on WhatsApp</span>
+        <span>Chat with Architect</span>
       </a>
-      <a href="index.html" class="btn secondary">Back to B2B Home</a>
+      <a href="index.html" class="btn secondary">Back to Home</a>
     </div>
   </div>
 
@@ -264,9 +264,9 @@
       document.getElementById('thankYouTitle').innerText = `Specs Logged for ${decodeURIComponent(name)}`;
     }
 
-    // Set up WhatsApp redirect URL (+91-9876543210 placeholder or custom redirection)
+    // Set up WhatsApp redirect URL
     if (name && phone && service) {
-      const message = `Hello Chauhan MIS, my company is ${decodeURIComponent(name)}. We would like to confirm our request for "${decodeURIComponent(service)}" in the "${decodeURIComponent(sector)}" sector. Details: Email: ${decodeURIComponent(email)}, Phone: ${decodeURIComponent(phone)}.`;
+      const message = `Hello Chauhan MIS, my company is ${decodeURIComponent(name)}. We would like to confirm our request for a demo of "${decodeURIComponent(service)}" for our operations in "${decodeURIComponent(sector)}". Contact: ${decodeURIComponent(email)}, Phone: ${decodeURIComponent(phone)}.`;
       const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
       document.getElementById('waBtn').href = whatsappUrl;
       
