@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chauhan MIS Automation Service | B2B Industrial Packaging & Software</title>
+  <meta name="description" content="Premium B2B export packaging, custom pine wood crating, and advanced factory automation MIS/HRMS software solutions in New Delhi, India.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/A-logo.png">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="chauhan.css">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header-container">
+      <a href="#" class="logo-wrapper">
+        <div class="logo-mark">CM</div>
+        <div class="logo-text">
+          <div class="logo-title">Chauhan MIS</div>
+          <span class="logo-sub">Automation & Packaging</span>
+        </div>
+      </a>
+      
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#solutions" class="nav-link">Solutions</a></li>
+          <li><a href="#tech" class="nav-link">Technology</a></li>
+          <li><a href="#about" class="nav-link">B2B Compliance</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="#contact" class="btn btn-primary" style="padding: 10px 20px; font-size: 11px;">Get B2B Quote</a>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="../assets/industrial_packaging.jpg" alt="Chauhan MIS Industrial Packaging Warehouse">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-tag">B2B Industrial Solutions</span>
+        <h1 class="hero-title">Heavy-Duty Packaging. <br><span>Smart-Line Automation.</span></h1>
+        <p class="hero-desc">We deliver high-integrity cased pine wood crating and export packaging alongside real-time production tracking, HRMS, and factory MIS systems.</p>
+        <div class="hero-btn-group">
+          <a href="#contact" class="btn btn-primary">Request B2B Quote</a>
+          <a href="#solutions" class="btn btn-outline-white">Explore Solutions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Interactive Section -->
+  <section class="section" id="solutions">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Enterprise Portfolio</span>
+        <h2 class="section-title">Industrial Solutions</h2>
+        <p class="section-desc">We bridge the gap between physical cargo logistics protection and digital production line tracking.</p>
+      </div>
+
+      <div class="tabs-container">
+        <ul class="tabs-nav">
+          <li><button class="tab-btn active" onclick="switchTab(event, 'tab-packaging')">Export Crating & Pallets</button></li>
+          <li><button class="tab-btn" onclick="switchTab(event, 'tab-software')">Production & HRMS Software</button></li>
+          <li><button class="tab-btn" onclick="switchTab(event, 'tab-mis')">Custom MIS Systems</button></li>
+        </ul>
+
+        <!-- Tab 1: Export Crating -->
+        <div class="tab-content active" id="tab-packaging">
+          <div class="solution-grid">
+            <div class="solution-visual">
+              <img src="../assets/industrial_packaging.jpg" alt="Custom wooden shipping crating and crates" loading="lazy">
+            </div>
+            <div class="solution-details">
+              <h3 class="solution-title">Industrial & Export Packaging</h3>
+              <p class="solution-desc">Providing certified pine wood cases, heavy-duty cargo pallets, and vacuum packaging to safeguard precision industrial goods during international maritime transits.</p>
+              <ul class="solution-features">
+                <li><i data-lucide="check-circle"></i> Cased Pine Wood Crates</li>
+                <li><i data-lucide="check-circle"></i> Vacuum Sealing & Foaming</li>
+                <li><i data-lucide="check-circle"></i> Heavy-Duty Pallet Bases</li>
+                <li><i data-lucide="check-circle"></i> On-Site Cargo Lashing</li>
+              </ul>
+              <div>
+                <a href="#contact" class="btn btn-secondary" onclick="setSelectService('Custom Industrial Crating')">Quote Crating</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Production Software -->
+        <div class="tab-content" id="tab-software">
+          <div class="solution-grid">
+            <div class="solution-visual">
+              <img src="../assets/factory_automation.jpg" alt="High-tech automated manufacturing packing line" loading="lazy">
+            </div>
+            <div class="solution-details">
+              <h3 class="solution-title">Factory Automation & Tracking</h3>
+              <p class="solution-desc">Deploying real-time production tracking sensors, customized HRMS operators loggers, and agricultural industry conveyor-line synchronization setups.</p>
+              <ul class="solution-features">
+                <li><i data-lucide="check-circle"></i> Real-time Operator Logs</li>
+                <li><i data-lucide="check-circle"></i> Production Line Tracking</li>
+                <li><i data-lucide="check-circle"></i> Factory HRMS Systems</li>
+                <li><i data-lucide="check-circle"></i> Agricultural Automation</li>
+              </ul>
+              <div>
+                <a href="#contact" class="btn btn-secondary" onclick="setSelectService('Factory Automation')">Quote Software</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Custom MIS -->
+        <div class="tab-content" id="tab-mis">
+          <div class="solution-grid">
+            <div class="solution-visual">
+              <img src="../assets/analytics.png" alt="Management Information System Dashboards" loading="lazy">
+            </div>
+            <div class="solution-details">
+              <h3 class="solution-title">Enterprise MIS Integrations</h3>
+              <p class="solution-desc">Custom database integrations and reporting systems aggregating inventory metrics, order dispatches, and material workflows in one centralized web interface.</p>
+              <ul class="solution-features">
+                <li><i data-lucide="check-circle"></i> Custom MIS Development</li>
+                <li><i data-lucide="check-circle"></i> Database Synchronization</li>
+                <li><i data-lucide="check-circle"></i> Inventory Control Modules</li>
+                <li><i data-lucide="check-circle"></i> Production Analysis Reports</li>
+              </ul>
+              <div>
+                <a href="#contact" class="btn btn-secondary" onclick="setSelectService('MIS Software Setup')">Quote MIS System</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Features Section -->
+  <section class="section section-dark" id="tech">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="color: var(--accent-orange);">Heavy-Duty Infrastructure</span>
+        <h2 class="section-title">Technological Precision</h2>
+        <p class="section-desc" style="color: var(--text-muted-light);">We implement top-tier physical crating standards alongside enterprise code-stack reliability.</p>
+      </div>
+
+      <div class="tech-grid">
+        <!-- Feature 1 -->
+        <div class="tech-card">
+          <div class="tech-icon"><i data-lucide="hammer"></i></div>
+          <h3 class="tech-title">ISPM-15 Wood Standards</h3>
+          <p class="tech-desc">All our wooden packing cases and pallets undergo certified heat treatment/fumigation matching international phytosanitary export customs clearance rules.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="tech-card">
+          <div class="tech-icon"><i data-lucide="database"></i></div>
+          <h3 class="tech-title">Local DB Synchronization</h3>
+          <p class="tech-desc">Automated factory-floor databases tracking production lines synchronize in real-time, preventing information lag on dispatch orders.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="tech-card">
+          <div class="tech-icon"><i data-lucide="package-open"></i></div>
+          <h3 class="tech-title">Machinery Crating</h3>
+          <p class="tech-desc">Engineering customized pine bases designed for heavy loads (up to 50 metric tons) with integrated vacuum-foil vapor barrier protection.</p>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">40+</div>
+          <div class="stat-label">Years Legacy</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">10k+</div>
+          <div class="stat-label">Crates Dispatched</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">50+</div>
+          <div class="stat-label">Factories Automated</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">B2B Custom Passing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B Lead Form Section -->
+  <section class="section section-alt" id="contact">
+    <div class="container" style="max-width: 900px;">
+      <div class="form-card">
+        <div class="section-header" style="margin-bottom: 40px;">
+          <span class="section-tag">B2B Integration</span>
+          <h2 class="section-title">Request B2B Service Quote</h2>
+          <p class="section-desc">Submit your packaging dimensions or automation project specs. Our estimating engineer will contact you with a layout breakdown within 4 hours.</p>
+        </div>
+
+        <form id="b2b-quote-form" class="quote-form" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" for="b2b-name">Contact Person / Company</label>
+            <input type="text" id="b2b-name" required class="form-input" placeholder="e.g. Acme Industrial Ltd.">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="b2b-email">Corporate Email Address</label>
+            <input type="email" id="b2b-email" required class="form-input" placeholder="procurement@company.com">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="b2b-phone">Mobile / Contact Phone</label>
+            <input type="tel" id="b2b-phone" required class="form-input" placeholder="e.g. +91-9876543210">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="b2b-sector">Industrial Sector</label>
+            <select id="b2b-sector" required class="form-input form-select">
+              <option value="" disabled selected>Select sector</option>
+              <option value="Heavy Machinery">Heavy Machinery</option>
+              <option value="Agriculture & Food">Agriculture & Food Processors</option>
+              <option value="Electronics & IT">Electronics & Semiconductors</option>
+              <option value="Logistics & Shipping">Logistics & Freight Forwarders</option>
+            </select>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label class="form-label" for="b2b-service">Solution Required</label>
+            <select id="b2b-service" required class="form-input form-select">
+              <option value="" disabled selected>Select solution interest</option>
+              <option value="Custom Industrial Crating">Export Packing & Pine Crating</option>
+              <option value="Factory Automation">Production Line Tracking & Software</option>
+              <option value="MIS Software Setup">Centralized MIS Integration</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit-btn">Submit Quote Specs</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="logo-wrapper" style="margin-bottom: 12px;">
+            <div class="logo-mark" style="background: white; color: var(--bg-dark);">CM</div>
+            <div class="logo-text">
+              <div class="logo-title" style="color: white;">Chauhan MIS</div>
+              <span class="logo-sub" style="color: var(--accent-orange);">Automation & Packaging</span>
+            </div>
+          </a>
+          <p class="footer-desc">Delivering high-integrity packaging systems and custom factory-floor production loggers to maximize manufacturing output in India.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">B2B Solutions</h4>
+          <ul class="footer-links">
+            <li><a href="#solutions">Pine Wood Cases</a></li>
+            <li><a href="#solutions">Heavy Cargo Pallets</a></li>
+            <li><a href="#solutions">Factory HRMS</a></li>
+            <li><a href="#solutions">Agricultural Automation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#about">Custom Clearances</a></li>
+            <li><a href="#tech">Fumigation Licences</a></li>
+            <li><a href="#contact">Request Estimations</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Headquarters</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i> Industrial Area Phase-II, Okhla, New Delhi, 110020, India</li>
+            <li><i data-lucide="phone"></i> +91-11-4654 3210</li>
+            <li><i data-lucide="mail"></i> info@chauhanmis.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 Chauhan MIS Automation Service. All rights reserved. B2B Industrial logistics.</p>
+        <ul class="footer-bottom-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">ISPM-15 Certified</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    lucide.createIcons();
+
+    // Sticky Nav
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile nav drawer
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      const icon = menuToggle.querySelector('i');
+      if (navMenu.classList.contains('active')) {
+        icon.setAttribute('data-lucide', 'x');
+      } else {
+        icon.setAttribute('data-lucide', 'menu');
+      }
+      lucide.createIcons();
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuToggle.querySelector('i').setAttribute('data-lucide', 'menu');
+        lucide.createIcons();
+      });
+    });
+
+    // Solutions Tabs switching
+    function switchTab(event, tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function setSelectService(serviceName) {
+      document.getElementById('b2b-service').value = serviceName;
+    }
+
+    // Submit B2B lead to SQLite backend
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('b2b-name').value;
+      const email = document.getElementById('b2b-email').value;
+      const phone = document.getElementById('b2b-phone').value;
+      const sector = document.getElementById('b2b-sector').value;
+      const service = document.getElementById('b2b-service').value;
+
+      // Map to leads.db layout
+      const payload = {
+        name: name,
+        email: email,
+        url: service,
+        phone: phone,
+        role: sector
+      };
+
+      fetch('/submit-lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        if (response.ok) {
+          const nameParam = encodeURIComponent(name);
+          const emailParam = encodeURIComponent(email);
+          const phoneParam = encodeURIComponent(phone);
+          const sectorParam = encodeURIComponent(sector);
+          const serviceParam = encodeURIComponent(service);
+          window.location.href = `thankyou.html?name=${nameParam}&email=${emailParam}&phone=${phoneParam}&role=${sectorParam}&url=${serviceParam}`;
+        } else {
+          alert('Submission failed. Please audit form details.');
+        }
+      })
+      .catch(error => {
+        console.error('Error submitting specs:', error);
+        alert('Network connection error. Please contact us directly.');
+      });
+    }
+  </script>
+</body>
+</html>
