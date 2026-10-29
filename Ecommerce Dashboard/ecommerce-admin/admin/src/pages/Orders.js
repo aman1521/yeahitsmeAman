@@ -632,7 +632,6 @@ const Orders = () => {
       <div className="card table-container" style={{ 
         position: 'relative', 
         zIndex: 1, 
-        overflow: 'visible',
         background: 'white',
         border: '1px solid #e2e8f0',
         borderRadius: '8px',

@@ -434,7 +434,7 @@ const RewardsAdvanced = () => {
             <div style={{ display: 'grid', gap: '16px' }}>
               {Object.keys(settings).map(key => (
                 <div key={key} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px', background: '#f8fafc', borderRadius: '8px' }}>
-                  <span style={{ fontSize: '14px', fontWeight: '600', color: '#1e293b', textTransform: 'replace', textTransform: 'capitalize' }}>
+                  <span style={{ fontSize: '14px', fontWeight: '600', color: '#1e293b', textTransform: 'capitalize' }}>
                     {key.replace(/_/g, ' ')}
                   </span>
                   <span style={{ fontSize: '14px', color: '#64748b' }}>{settings[key]}</span>
