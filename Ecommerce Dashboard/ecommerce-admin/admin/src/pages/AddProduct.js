@@ -2451,7 +2451,7 @@ const AddProduct = () => {
                     <div style={{ width: '100px', height: '100px', borderRadius: '8px', overflow: 'hidden', border: `1px solid ${isDark ? '#30363d' : '#e2e8f0'}` }}>
                       <img
                         src={productImages[`image${num}`]}
-                        alt={`Product Image ${num}`}
+                        alt={`Product thumbnail ${num}`}
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         onError={(e) => {
                           e.target.style.display = 'none';

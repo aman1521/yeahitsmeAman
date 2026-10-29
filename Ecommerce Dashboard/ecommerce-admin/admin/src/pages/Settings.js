@@ -3514,12 +3514,6 @@ const Settings = () => {
                             e.target.style.opacity = '1';
                             e.target.style.transform = 'translateY(0)';
                           }}
-                          onMouseEnter={(e) => {
-                            e.target.style.opacity = '0.9';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.target.style.opacity = '1';
-                          }}
                         >
                           {(gateway.is_enabled || gateway.status === 'active') ? 'Disable' : 'Enable'}
                         </button>

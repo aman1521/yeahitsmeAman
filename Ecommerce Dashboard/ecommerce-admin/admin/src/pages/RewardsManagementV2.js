@@ -3587,7 +3587,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
     try {
       // Calculate discount from reward points
       const rewardDiscount = rewardPointsToUse * conversionRate;
-      const finalAmount = Math.max(0, orderAmount - rewardDiscount);
+      const estimatedFinalAmount = Math.max(0, orderAmount - rewardDiscount);
 
       // Try to get a real product, or use null for test orders
       let productId = null;
@@ -3604,7 +3604,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
         user_id: selectedUser.id,
         status: 'pending',
         subtotal: orderAmount,
-        total_amount: finalAmount,
+        total_amount: estimatedFinalAmount,
         coupon_code: couponCode || null,
         coupon_discount: 0, // Will be calculated by backend if coupon is valid
         reward_points_used: rewardPointsToUse,
@@ -3624,7 +3624,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
       if (response.data.order_id) {
         // Use coupon_discount from initial response if available, otherwise fetch order
         let couponDiscount = response.data.coupon_discount || 0;
-        let finalAmount = response.data.total_amount || finalAmount;
+        let finalAmount = response.data.total_amount ?? estimatedFinalAmount;
         let pointsGranted = 0;
         let appliedCampaigns = [];
         
@@ -3640,7 +3640,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
           
           // Use fetched values if available
           couponDiscount = createdOrder.coupon_discount || couponDiscount;
-          finalAmount = createdOrder.total_amount || finalAmount;
+          finalAmount = createdOrder.total_amount ?? finalAmount;
           pointsGranted = createdOrder.reward_points_granted || 0;
           appliedCampaigns = createdOrder.applied_campaigns || [];
         } catch (fetchError) {
