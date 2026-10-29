@@ -2384,7 +2384,7 @@ def forgot_password():
         reset_link = f"{frontend_url}/reset-password?token={token}"
         
         # Get store name
-        store_name = 'Rasayana Commerce'
+        store_name = 'Peenakaa Commerce'
         try:
             store_query = text("""
                 SELECT setting_value FROM settings
@@ -2435,7 +2435,7 @@ def forgot_password():
                                         Hello {admin_user.full_name or admin_user.username},
                                     </p>
                                     <p style="margin: 0 0 24px 0; color: #475569; font-size: 15px; line-height: 1.6;">
-                                        You have requested to reset your password for your <strong>Rasayana Commerce Admin</strong> account. Click the button below to reset your password.
+                                        You have requested to reset your password for your <strong>Peenakaa Commerce Admin</strong> account. Click the button below to reset your password.
                                     </p>
                                     <!-- CTA Button -->
                                     <table role="presentation" style="width: 100%; border-collapse: collapse; margin: 32px 0;">
@@ -2471,11 +2471,11 @@ def forgot_password():
                             <tr>
                                 <td style="padding: 24px 40px; background-color: #f8fafc; border-top: 1px solid #e2e8f0; text-align: center;">
                                     <p style="margin: 0; color: #94a3b8; font-size: 12px; line-height: 1.5;">
-                                        This is an automated message from <strong>Rasayana Commerce Admin</strong>.<br>
+                                        This is an automated message from <strong>Peenakaa Commerce Admin</strong>.<br>
                                         Please do not reply to this email.
                                     </p>
                                     <p style="margin: 16px 0 0 0; color: #cbd5e0; font-size: 11px;">
-                                        © {datetime.now(timezone.utc).year} Rasayana Commerce. All rights reserved.
+                                        © {datetime.now(timezone.utc).year} Peenakaa Commerce. All rights reserved.
                                     </p>
                                 </td>
                             </tr>
@@ -2491,7 +2491,7 @@ def forgot_password():
         
         Hello {admin_user.full_name or admin_user.username},
         
-        You have requested to reset your password for your Rasayana Commerce Admin account.
+        You have requested to reset your password for your Peenakaa Commerce Admin account.
         
         Click this link to reset your password:
         {reset_link}
@@ -3787,7 +3787,7 @@ def track_visitor_session():
     Works for both logged-in users and anonymous guests
     IMPORTANT: 
     - Admin sessions are ONLY created during login, not here
-    - Guest sessions are ONLY created from public site (rasayana bio), NOT from admin panel
+    - Guest sessions are ONLY created from public site (peenakaa store), NOT from admin panel
     - This endpoint only UPDATES existing sessions, never creates new admin or guest sessions from admin panel
     """
     if request.method == 'OPTIONS':
@@ -3980,7 +3980,7 @@ def track_visitor_session():
                         pass
             else:
                 # No user_id, no auth token, session_id doesn't match admin pattern, and no existing admin session
-                # This is a legitimate guest session from public site (rasayana bio)
+                # This is a legitimate guest session from public site (peenakaa store)
                 # BUT: Double-check - if has_auth_token was set earlier, we should never reach here
                 # ALSO: Check if request is coming from admin panel URLs - if so, NEVER create guest session
                 # BUT: Allow customer/user sessions from localhost (site backend might be on localhost)
@@ -4281,7 +4281,7 @@ def track_visitor_session():
                         # Log the error but don't fail the request
             else:
                 # Only create guest session if NOT from admin panel (no auth token, no admin session_id pattern)
-                # Guest sessions should only come from public site (rasayana bio), NOT admin panel
+                # Guest sessions should only come from public site (peenakaa store), NOT admin panel
                 # CRITICAL: Multiple checks to prevent false guest sessions:
                 # 1. has_auth_token = False
                 # 2. session_id doesn't start with 'admin_session_'
@@ -14501,13 +14501,13 @@ def send_message():
                 </div>
                 <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 20px 0;">
                 <p style="font-size: 12px; color: #94a3b8;">
-                    This message was sent from Rasayana Commerce Admin Panel by {admin_name}
+                    This message was sent from Peenakaa Commerce Admin Panel by {admin_name}
                 </p>
             </div>
         </body>
         </html>
         """
-        text_body = f"{subject}\n\n{content}\n\n---\nSent from Rasayana Commerce Admin Panel by {admin_name}"
+        text_body = f"{subject}\n\n{content}\n\n---\nSent from Peenakaa Commerce Admin Panel by {admin_name}"
         
         email_sent = send_email(to_email, subject, html_body, text_body)
         
@@ -15502,7 +15502,7 @@ def test_email_settings():
             return jsonify({'error': 'Email address is required'}), 400
         
         # Get store name
-        store_name = 'Rasayana Commerce'
+        store_name = 'Peenakaa Commerce'
         try:
             store_query = text("""
                 SELECT setting_value FROM settings
@@ -19441,7 +19441,7 @@ def check_and_send_revenue_alerts(admin_id=None, is_test=False):
                     except Exception as settings_err:
                         print(f"[Revenue Alerts] Could not read from settings table: {settings_err}")
                     
-                    store_name = store_settings.get('store_name', 'Rasayana Commerce')
+                    store_name = store_settings.get('store_name', 'Peenakaa Commerce')
                     
                     # Prepare email content
                     if is_test:
@@ -20004,7 +20004,7 @@ def check_revenue_alerts_old():
             print(f"[Revenue Alerts] Could not read from settings table: {settings_err}")
         
         # Get store name - from settings table only
-        store_name = store_settings.get('store_name', 'Rasayana Commerce')
+        store_name = store_settings.get('store_name', 'Peenakaa Commerce')
         store_email_from_settings = store_settings.get('store_email', admin_email)
         
         print(f"[Revenue Alerts] Using store_name: {store_name} (from settings table)")

@@ -2476,7 +2476,7 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
                   <div style={{ width: '100px', height: '100px', borderRadius: '8px', overflow: 'hidden', border: '1px solid #e2e8f0' }}>
                     <img
                       src={productImages[`image${num}`]}
-                      alt={`Product Image ${num}`}
+                      alt={`Product preview ${num}`}
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       onError={(e) => {
                         e.target.style.display = 'none';

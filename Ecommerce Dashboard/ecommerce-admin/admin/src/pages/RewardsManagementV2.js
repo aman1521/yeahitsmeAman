@@ -3624,7 +3624,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
       if (response.data.order_id) {
         // Use coupon_discount from initial response if available, otherwise fetch order
         let couponDiscount = response.data.coupon_discount || 0;
-        let finalAmount = response.data.total_amount || finalAmount;
+        let finalAmount = response.data.total_amount || orderAmount;
         let pointsGranted = 0;
         let appliedCampaigns = [];
         
