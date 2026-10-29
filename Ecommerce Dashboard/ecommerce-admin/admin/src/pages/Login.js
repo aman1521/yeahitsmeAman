@@ -24,8 +24,8 @@ const Login = () => {
 
   const handleLogin = async (e, forceDemo = false) => {
     e?.preventDefault();
-    const userToLogin = forceDemo ? (username || 'admin') : username;
-    const passToLogin = forceDemo ? (password || 'admin') : password;
+    const userToLogin = forceDemo ? (username || 'amanchouhan1217@gmail.com') : username;
+    const passToLogin = forceDemo ? (password || 'Legend@15') : password;
     if (!userToLogin || !passToLogin) {
       toast.error('Please enter username and password');
       return;
@@ -128,6 +128,24 @@ const Login = () => {
           </p>
         </div>
 
+        {/* Credentials Info Badge */}
+        <div style={{
+          background: 'rgba(255, 140, 0, 0.08)',
+          border: '1px solid rgba(255, 140, 0, 0.25)',
+          borderRadius: '8px',
+          padding: '10px 12px',
+          marginBottom: '16px',
+          fontSize: '12px',
+          color: '#374151',
+          lineHeight: 1.5
+        }}>
+          <div style={{ fontWeight: 600, color: '#D97706', marginBottom: '2px' }}>
+            🔑 Admin Credentials:
+          </div>
+          <div><strong>Email:</strong> <code style={{ color: '#1F2937' }}>amanchouhan1217@gmail.com</code></div>
+          <div><strong>Password:</strong> <code style={{ color: '#1F2937' }}>Legend@15</code></div>
+        </div>
+
         {/* Login Form */}
         <form onSubmit={handleLogin} className="login-form">
           {/* Username Field */}
@@ -140,7 +158,7 @@ const Login = () => {
               id="username"
               type="text"
               className="form-input"
-              placeholder="Enter your username or email"
+              placeholder="amanchouhan1217@gmail.com"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               onKeyDown={handleKeyDown}
@@ -179,7 +197,7 @@ const Login = () => {
                 id="password"
                 type={showPassword ? 'text' : 'password'}
                 className="form-input"
-                placeholder="Enter your password"
+                placeholder="Legend@15"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown={handleKeyDown}
@@ -245,8 +263,8 @@ const Login = () => {
           <button
             type="button"
             onClick={() => {
-              setUsername('admin');
-              setPassword('admin');
+              setUsername('amanchouhan1217@gmail.com');
+              setPassword('Legend@15');
               handleLogin({ preventDefault: () => {} }, true);
             }}
             style={{
@@ -277,7 +295,7 @@ const Login = () => {
               e.currentTarget.style.background = 'transparent';
             }}
           >
-            ⚡ One-Click Demo Mode (Explore Live)
+            ⚡ Quick Admin Login (amanchouhan1217@gmail.com)
           </button>
         </form>
 
