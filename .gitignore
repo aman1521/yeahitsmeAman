@@ -7,3 +7,6 @@ __pycache__/
 node_modules/
 *.zip
 *.tar.gz
+
+# Local Netlify folder
+.netlify
