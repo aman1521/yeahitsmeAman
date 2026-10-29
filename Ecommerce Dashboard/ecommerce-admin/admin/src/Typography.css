@@ -1,0 +1,90 @@
+/* ============================================================
+   STANDARDIZED TYPOGRAPHY SYSTEM
+   Consistent font sizes across all pages
+   ============================================================ */
+
+/* Base font family - inherited from body (Montserrat) */
+* {
+  font-family: var(--font-family-base, 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif);
+}
+
+/* Typography Scale - Professional sizing */
+.text-xs {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.text-sm {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.text-base {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.text-lg {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.text-xl {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.text-2xl {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.text-3xl {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+/* Font Weights */
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* Standard Text Colors */
+.text-primary {
+  color: #1e293b;
+}
+
+.text-secondary {
+  color: #64748b;
+}
+
+.text-tertiary {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .text-primary {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .text-secondary {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .text-tertiary {
+  color: #94a3b8;
+}
+

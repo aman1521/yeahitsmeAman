@@ -1,0 +1,158 @@
+# ==================== PYTHON ====================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+backend/venv/
+venv/
+env/
+ENV/
+.venv
+
+# Flask
+instance/
+.webassets-cache
+*.db
+*.sqlite3
+
+# Environment variables
+.env
+.env.local
+.env.production
+*.env
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# ==================== NODE.JS / REACT ====================
+# Dependencies
+node_modules/
+admin/node_modules/
+currency-service/node_modules/
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+admin/coverage
+
+# Production build
+admin/build
+build/
+dist/
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==================== IDEs / EDITORS ====================
+# Visual Studio Code
+.vscode/
+.history/
+
+# JetBrains IDEs (PyCharm, WebStorm, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ==================== OPERATING SYSTEMS ====================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ==================== DATABASE ====================
+# SQLite
+*.sqlite
+*.sqlite3
+*.db
+
+# MySQL dumps (optional - keep if you want backups)
+# *.sql
+
+# ==================== TEMPORARY FILES ====================
+# Temporary guide files (delete after setup)
+GIT_PUSH_COMMANDS.txt
+🚀_START_HERE_MULTI_TENANT.txt
+CURRENCY_FIXED.txt
+
+# Backup files
+*.bak
+*.swp
+*.tmp
+*~
+
+# ==================== SECURITY ====================
+# SSH keys
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+
+# SSL certificates
+*.crt
+*.cer
+*.p12
+
+# API keys and secrets
+secrets.json
+credentials.json
+
+# ==================== PROJECT SPECIFIC ====================
+# Large files that shouldn't be in repo
+*.zip
+*.tar.gz
+*.rar
+
+# Cache directories
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Editor directories
+.vscode/settings.json
+.vscode/launch.json
+
+# Package manager lock files (optional - keep if you want)
+# package-lock.json
+# yarn.lock
+
+# ==================== KEEP THESE ====================
+# These files SHOULD be included in the repository:
+# !README.md
+# !requirements.txt
+# !package.json
+# !database/schema.sql
+# !database/MULTI_TENANT_SETUP.sql
+

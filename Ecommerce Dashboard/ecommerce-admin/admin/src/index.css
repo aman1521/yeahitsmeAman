@@ -1,0 +1,349 @@
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html {
+  font-size: 67%; /* 67% of 16px = 10.72px base */
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem; /* Will be 67% of browser default */
+  line-height: 1.4;
+}
+
+/* Force compact sizing on all elements */
+* {
+  font-size: inherit;
+}
+
+/* Global 67% scaling - scale all pixel-based measurements */
+* {
+  box-sizing: border-box;
+}
+
+/* Scale all rem-based measurements (if any) */
+html {
+  font-size: 67% !important;
+}
+
+/* Additional scaling for common pixel values in inline styles using regex-like matching */
+
+/* Comprehensive 67% scaling for ALL inline pixel values */
+/* Font sizes */
+[style*="fontSize: '6px'"], [style*="fontSize: \"6px\""], [style*="fontSize: 6px"] { font-size: 4px !important; }
+[style*="fontSize: '7px'"], [style*="fontSize: \"7px\""], [style*="fontSize: 7px"] { font-size: 5px !important; }
+[style*="fontSize: '8px'"], [style*="fontSize: \"8px\""], [style*="fontSize: 8px"] { font-size: 5px !important; }
+[style*="fontSize: '9px'"], [style*="fontSize: \"9px\""], [style*="fontSize: 9px"] { font-size: 6px !important; }
+[style*="fontSize: '10px'"], [style*="fontSize: \"10px\""], [style*="fontSize: 10px"] { font-size: 7px !important; }
+[style*="fontSize: '12px'"], [style*="fontSize: \"12px\""], [style*="fontSize: 12px"] { font-size: 8px !important; }
+[style*="fontSize: '14px'"], [style*="fontSize: \"14px\""], [style*="fontSize: 14px"] { font-size: 9px !important; }
+[style*="fontSize: '16px'"], [style*="fontSize: \"16px\""], [style*="fontSize: 16px"] { font-size: 11px !important; }
+[style*="fontSize: '18px'"], [style*="fontSize: \"18px\""], [style*="fontSize: 18px"] { font-size: 12px !important; }
+[style*="fontSize: '20px'"], [style*="fontSize: \"20px\""], [style*="fontSize: 20px"] { font-size: 13px !important; }
+[style*="fontSize: '22px'"], [style*="fontSize: \"22px\""], [style*="fontSize: 22px"] { font-size: 15px !important; }
+[style*="fontSize: '24px'"], [style*="fontSize: \"24px\""], [style*="fontSize: 24px"] { font-size: 16px !important; }
+[style*="fontSize: '28px'"], [style*="fontSize: \"28px\""], [style*="fontSize: 28px"] { font-size: 19px !important; }
+[style*="fontSize: '32px'"], [style*="fontSize: \"32px\""], [style*="fontSize: 32px"] { font-size: 21px !important; }
+
+/* Override font scaling for Currency Management page - Higher specificity */
+.currency-management-page [style*="fontSize: '6px'"],
+.currency-management-page [style*="fontSize: \"6px\""],
+.currency-management-page [style*="fontSize: 6px"] { font-size: 6px !important; }
+.currency-management-page [style*="fontSize: '8px'"],
+.currency-management-page [style*="fontSize: \"8px\""],
+.currency-management-page [style*="fontSize: 8px"] { font-size: 8px !important; }
+.currency-management-page [style*="fontSize: '10px'"],
+.currency-management-page [style*="fontSize: \"10px\""],
+.currency-management-page [style*="fontSize: 10px"] { font-size: 10px !important; }
+.currency-management-page [style*="fontSize: '11px'"],
+.currency-management-page [style*="fontSize: \"11px\""],
+.currency-management-page [style*="fontSize: 11px"] { font-size: 11px !important; }
+.currency-management-page [style*="fontSize: '12px'"],
+.currency-management-page [style*="fontSize: \"12px\""],
+.currency-management-page [style*="fontSize: 12px"] { font-size: 12px !important; }
+.currency-management-page [style*="fontSize: '13px'"],
+.currency-management-page [style*="fontSize: \"13px\""],
+.currency-management-page [style*="fontSize: 13px"] { font-size: 13px !important; }
+.currency-management-page [style*="fontSize: '14px'"],
+.currency-management-page [style*="fontSize: \"14px\""],
+.currency-management-page [style*="fontSize: 14px"] { font-size: 14px !important; }
+.currency-management-page [style*="fontSize: '15px'"],
+.currency-management-page [style*="fontSize: \"15px\""],
+.currency-management-page [style*="fontSize: 15px"] { font-size: 15px !important; }
+.currency-management-page [style*="fontSize: '16px'"],
+.currency-management-page [style*="fontSize: \"16px\""],
+.currency-management-page [style*="fontSize: 16px"] { font-size: 16px !important; }
+.currency-management-page [style*="fontSize: '18px'"],
+.currency-management-page [style*="fontSize: \"18px\""],
+.currency-management-page [style*="fontSize: 18px"] { font-size: 18px !important; }
+.currency-management-page [style*="fontSize: '20px'"],
+.currency-management-page [style*="fontSize: \"20px\""],
+.currency-management-page [style*="fontSize: 20px"] { font-size: 20px !important; }
+.currency-management-page [style*="fontSize: '22px'"],
+.currency-management-page [style*="fontSize: \"22px\""],
+.currency-management-page [style*="fontSize: 22px"] { font-size: 22px !important; }
+.currency-management-page [style*="fontSize: '24px'"],
+.currency-management-page [style*="fontSize: \"24px\""],
+.currency-management-page [style*="fontSize: 24px"] { font-size: 24px !important; }
+.currency-management-page [style*="fontSize: '28px'"],
+.currency-management-page [style*="fontSize: \"28px\""],
+.currency-management-page [style*="fontSize: 28px"] { font-size: 28px !important; }
+.currency-management-page [style*="fontSize: '32px'"],
+.currency-management-page [style*="fontSize: \"32px\""],
+.currency-management-page [style*="fontSize: 32px"] { font-size: 32px !important; }
+.currency-management-page [style*="fontSize: '48px'"],
+.currency-management-page [style*="fontSize: \"48px\""],
+.currency-management-page [style*="fontSize: 48px"] { font-size: 48px !important; }
+
+/* Override font scaling for Settings page headings - Force 9px */
+h2[style*="fontSize: '9px'"],
+h2[style*='fontSize: "9px"'],
+h2[style*="fontSize: 9px"],
+h3[style*="fontSize: '9px'"],
+h3[style*='fontSize: "9px"'],
+h3[style*="fontSize: 9px"],
+.card h2[style*="fontSize: '9px'"],
+.card h2[style*='fontSize: "9px"'],
+.card h2[style*="fontSize: 9px"],
+.card h3[style*="fontSize: '9px'"],
+.card h3[style*='fontSize: "9px"'],
+.card h3[style*="fontSize: 9px"],
+h2.card-title[style*="fontSize: '9px'"],
+h2.card-title[style*='fontSize: "9px"'],
+h2.card-title[style*="fontSize: 9px"],
+h3.card-title[style*="fontSize: '9px'"],
+h3.card-title[style*='fontSize: "9px"'],
+h3.card-title[style*="fontSize: 9px"] {
+  font-size: 9px !important;
+}
+
+/* Override font scaling for Dashboard Recent Orders table - Force 6px and 8px */
+.table-container table th[style*="fontSize: '6px'"],
+.table-container table th[style*='fontSize: "6px"'],
+.table-container table th[style*="fontSize: 6px"],
+.table-container table td[style*="fontSize: '6px'"],
+.table-container table td[style*='fontSize: "6px"'],
+.table-container table td[style*="fontSize: 6px"],
+.table-container table th[style*="fontSize: '7px'"],
+.table-container table th[style*='fontSize: "7px"'],
+.table-container table th[style*="fontSize: 7px"],
+.table-container table td[style*="fontSize: '7px'"],
+.table-container table td[style*='fontSize: "7px"'],
+.table-container table td[style*="fontSize: 7px"] {
+  font-size: 6px !important;
+}
+
+/* Override font scaling for Dashboard Recent Orders card header - Force 6px - MUST come after global rule */
+.dashboard-page .card-header .card-title[style*="fontSize: '6px'"],
+.dashboard-page .card-header .card-title[style*='fontSize: "6px"'],
+.dashboard-page .card-header .card-title[style*="fontSize: 6px"],
+.dashboard-page .card-header h3[style*="fontSize: '6px'"],
+.dashboard-page .card-header h3[style*='fontSize: "6px"'],
+.dashboard-page .card-header h3[style*="fontSize: 6px"],
+.dashboard-page .card .card-header .card-title[style*="fontSize: '6px'"],
+.dashboard-page .card .card-header .card-title[style*='fontSize: "6px"'],
+.dashboard-page .card .card-header .card-title[style*="fontSize: 6px"],
+.dashboard-page .card .card-header h3[style*="fontSize: '6px'"],
+.dashboard-page .card .card-header h3[style*='fontSize: "6px"'],
+.dashboard-page .card .card-header h3[style*="fontSize: 6px"],
+.dashboard-page h3.card-title[style*="fontSize: '6px'"],
+.dashboard-page h3.card-title[style*='fontSize: "6px"'],
+.dashboard-page h3.card-title[style*="fontSize: 6px"],
+.dashboard-page div.card-header h3.card-title[style*="fontSize: '6px'"],
+.dashboard-page div.card-header h3.card-title[style*='fontSize: "6px"'],
+.dashboard-page div.card-header h3.card-title[style*="fontSize: 6px"] {
+  font-size: 6px !important;
+  line-height: 1.2 !important;
+}
+
+/* Override font scaling for Dashboard Recent Orders table headers - Force 5px */
+.dashboard-page .table-container table th[style*="fontSize: '5px'"],
+.dashboard-page .table-container table th[style*='fontSize: "5px"'],
+.dashboard-page .table-container table th[style*="fontSize: 5px"] {
+  font-size: 5px !important;
+}
+
+/* Override font scaling for Analytics page card headers - Force 6px */
+.analytics-page .card-header .card-title[style*="fontSize: '6px'"],
+.analytics-page .card-header .card-title[style*='fontSize: "6px"'],
+.analytics-page .card-header .card-title[style*="fontSize: 6px"],
+.analytics-page .card-header h3[style*="fontSize: '6px'"],
+.analytics-page .card-header h3[style*='fontSize: "6px"'],
+.analytics-page .card-header h3[style*="fontSize: 6px"] {
+  font-size: 6px !important;
+  line-height: 1.2 !important;
+}
+
+/* Override font scaling for Products page Filter Products header - Force 6px */
+.filter-panel-header h3[style*="fontSize: '6px'"],
+.filter-panel-header h3[style*='fontSize: "6px"'],
+.filter-panel-header h3[style*="fontSize: 6px"] {
+  font-size: 6px !important;
+  line-height: 1.2 !important;
+}
+
+/* Override font scaling for Chart Titles - Force 9px */
+.chart-title,
+h3.chart-title,
+.chart-container .chart-title,
+.chart-container h3.chart-title,
+.chart-title[style*="fontSize: '9px'"],
+.chart-title[style*='fontSize: "9px"'],
+.chart-title[style*="fontSize: 9px"] {
+  font-size: 9px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+}
+
+/* Override font scaling for Notification Button - Force actual sizes */
+.notification-btn {
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  padding: 3px !important;
+  font-size: 12px !important;
+}
+
+.notification-btn svg {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+.notification-badge {
+  min-width: 12px !important;
+  height: 12px !important;
+  font-size: 7px !important;
+  padding: 0 2px !important;
+  border: 1px solid white !important;
+  top: -2px !important;
+  right: -2px !important;
+}
+
+/* Padding */
+[style*="padding: '4px'"], [style*="padding: \"4px\""], [style*="padding: 4px"] { padding: 3px !important; }
+[style*="padding: '6px'"], [style*="padding: \"6px\""], [style*="padding: 6px"] { padding: 4px !important; }
+[style*="padding: '8px'"], [style*="padding: \"8px\""], [style*="padding: 8px"] { padding: 5px !important; }
+[style*="padding: '10px'"], [style*="padding: \"10px\""], [style*="padding: 10px"] { padding: 7px !important; }
+[style*="padding: '12px'"], [style*="padding: \"12px\""], [style*="padding: 12px"] { padding: 8px !important; }
+[style*="padding: '16px'"], [style*="padding: \"16px\""], [style*="padding: 16px"] { padding: 11px !important; }
+[style*="padding: '20px'"], [style*="padding: \"20px\""], [style*="padding: 20px"] { padding: 13px !important; }
+[style*="padding: '24px'"], [style*="padding: \"24px\""], [style*="padding: 24px"] { padding: 16px !important; }
+
+/* Margin */
+[style*="margin: '4px'"], [style*="margin: \"4px\""], [style*="margin: 4px"] { margin: 3px !important; }
+[style*="margin: '8px'"], [style*="margin: \"8px\""], [style*="margin: 8px"] { margin: 5px !important; }
+[style*="margin: '10px'"], [style*="margin: \"10px\""], [style*="margin: 10px"] { margin: 7px !important; }
+[style*="margin: '12px'"], [style*="margin: \"12px\""], [style*="margin: 12px"] { margin: 8px !important; }
+[style*="margin: '16px'"], [style*="margin: \"16px\""], [style*="margin: 16px"] { margin: 11px !important; }
+[style*="margin: '20px'"], [style*="margin: \"20px\""], [style*="margin: 20px"] { margin: 13px !important; }
+[style*="margin: '24px'"], [style*="margin: \"24px\""], [style*="margin: 24px"] { margin: 16px !important; }
+[style*="marginBottom: '4px'"], [style*="marginBottom: \"4px\""], [style*="marginBottom: 4px"] { margin-bottom: 3px !important; }
+[style*="marginBottom: '8px'"], [style*="marginBottom: \"8px\""], [style*="marginBottom: 8px"] { margin-bottom: 5px !important; }
+[style*="marginBottom: '10px'"], [style*="marginBottom: \"10px\""], [style*="marginBottom: 10px"] { margin-bottom: 7px !important; }
+[style*="marginBottom: '12px'"], [style*="marginBottom: \"12px\""], [style*="marginBottom: 12px"] { margin-bottom: 8px !important; }
+[style*="marginBottom: '15px'"], [style*="marginBottom: \"15px\""], [style*="marginBottom: 15px"] { margin-bottom: 10px !important; }
+[style*="marginBottom: '16px'"], [style*="marginBottom: \"16px\""], [style*="marginBottom: 16px"] { margin-bottom: 11px !important; }
+[style*="marginBottom: '20px'"], [style*="marginBottom: \"20px\""], [style*="marginBottom: 20px"] { margin-bottom: 13px !important; }
+[style*="marginBottom: '24px'"], [style*="marginBottom: \"24px\""], [style*="marginBottom: 24px"] { margin-bottom: 16px !important; }
+[style*="marginTop: '20px'"], [style*="marginTop: \"20px\""], [style*="marginTop: 20px"] { margin-top: 13px !important; }
+[style*="marginTop: '24px'"], [style*="marginTop: \"24px\""], [style*="marginTop: 24px"] { margin-top: 16px !important; }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button {
+  font-family: inherit;
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
+
+/* Force ALL select dropdowns to open downward - ULTRA AGGRESSIVE */
+select,
+select.form-select,
+select[class*="select"],
+select[class*="dropdown"],
+select option {
+  position: relative !important;
+  transform: none !important;
+  top: auto !important;
+  bottom: auto !important;
+  padding-right: 29px; /* 44px * 0.67 = 29px */
+  background-position: right 11px center; /* 16px * 0.67 = 11px */
+}
+
+select:focus,
+select.form-select:focus,
+select[class*="select"]:focus,
+select:active,
+select.form-select:active {
+  position: relative !important;
+  z-index: 99999 !important;
+  transform: none !important;
+  top: auto !important;
+  bottom: auto !important;
+}
+
+/* Prevent select dropdowns from opening upward on ANY screen size */
+@media (max-height: 402px) { /* 600px * 0.67 = 402px */
+  select,
+  select.form-select,
+  select[class*="select"] {
+    position: relative !important;
+    transform: none !important;
+    top: auto !important;
+    bottom: auto !important;
+  }
+}
+
+/* Force all custom dropdown menus to open downward */
+[class*="dropdown"],
+[class*="menu"],
+.dropdown-menu {
+  position: absolute !important;
+  top: 100% !important;
+  bottom: auto !important;
+  transform: none !important;
+}
+
+/* Additional browser-specific fixes */
+@supports (-webkit-appearance: none) {
+  select:focus {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+  }
+}
+
+/* Ensure parent containers don't clip dropdowns */
+body, html, #root {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+/* Only apply overflow visible to specific containers that need it for dropdowns */
+.select-wrapper,
+.form-group:has(select),
+.form-control-wrapper:has(select) {
+  overflow: visible !important;
+}
