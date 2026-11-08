@@ -95,12 +95,28 @@ function ProtectedRoute({ children }) {
   }
   
   // If no user after loading completes, redirect to login
-  // Preserve the intended destination so user can be redirected back after login
   if (!user && !loading) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
   
-  // User is authenticated and session is valid (or cached user while validating)
+  return children;
+}
+
+// Strict Route Guard: Restricts personal portfolio traffic & leads strictly to Aman Kumar
+function PortfolioAdminRoute({ children }) {
+  const { user, isDemoMode, loading } = useAuth();
+  const location = useLocation();
+
+  if (loading && !user) {
+    return null;
+  }
+
+  const isPersonalAdmin = Boolean(!isDemoMode && user && (user.email === 'amanchouhan1217@gmail.com' || user.username === 'amanchouhan1217@gmail.com'));
+
+  if (!isPersonalAdmin) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
   return children;
 }
 
@@ -140,8 +156,8 @@ function App() {
                     <Route index element={<Dashboard />} />
                     <Route path="dashboard" element={<Dashboard />} />
                     <Route path="analytics" element={<Analytics />} />
-                    <Route path="portfolio-traffic" element={<Analytics defaultTab="portfolio" />} />
-                    <Route path="growth-ai" element={<Analytics defaultTab="portfolio" />} />
+                    <Route path="portfolio-traffic" element={<PortfolioAdminRoute><Analytics defaultTab="portfolio" /></PortfolioAdminRoute>} />
+                    <Route path="growth-ai" element={<PortfolioAdminRoute><Analytics defaultTab="portfolio" /></PortfolioAdminRoute>} />
                     <Route path="revenue" element={<RevenueAnalytics />} />
                     <Route path="revenue/analytics" element={<RevenueAnalytics />} />
                     <Route path="revenue/reports" element={<RevenueReports />} />

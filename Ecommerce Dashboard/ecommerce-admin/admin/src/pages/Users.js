@@ -27,8 +27,8 @@ import { REAL_PORTFOLIO_LEADS } from '../services/customerService';
 
 const Users = () => {
   const location = useLocation();
-  const { isDemoMode } = useAuth();
-  const currentDemoMode = isDemoMode !== undefined ? isDemoMode : localStorage.getItem('demo_mode') === 'true';
+  const { user, isDemoMode, isPersonalAdmin } = useAuth();
+  const isActuallyPersonalAdmin = Boolean(isPersonalAdmin || (!isDemoMode && user && (user.email === 'amanchouhan1217@gmail.com' || user.username === 'amanchouhan1217@gmail.com')));
   const [leadSearch, setLeadSearch] = useState('');
   const [leadStatusFilter, setLeadStatusFilter] = useState('all');
   const [users, setUsers] = useState([]);
@@ -390,7 +390,7 @@ const Users = () => {
     );
   };
 
-  if (!currentDemoMode) {
+  if (isActuallyPersonalAdmin) {
     const filteredLeads = REAL_PORTFOLIO_LEADS.filter(lead => {
       const matchesSearch = !leadSearch || 
         lead.name.toLowerCase().includes(leadSearch.toLowerCase()) ||

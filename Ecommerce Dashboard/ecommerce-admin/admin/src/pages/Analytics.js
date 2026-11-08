@@ -19,11 +19,11 @@ import apiClient from '../services/apiClient';
 import PortfolioTrafficView from '../components/PortfolioTrafficView';
 
 const Analytics = ({ defaultTab = 'ecommerce' }) => {
-  const { isDemoMode } = useAuth();
-  const currentDemoMode = isDemoMode !== undefined ? isDemoMode : localStorage.getItem('demo_mode') === 'true';
+  const { user, isDemoMode, isPersonalAdmin } = useAuth();
+  const isActuallyPersonalAdmin = Boolean(isPersonalAdmin || (!isDemoMode && user && (user.email === 'amanchouhan1217@gmail.com' || user.username === 'amanchouhan1217@gmail.com')));
   const { formatAmount, currencySymbol, currencyName, selectedCurrency } = useGlobalCurrency();
   const { isDark } = useTheme();
-  const [analyticsTab, setAnalyticsTab] = useState(() => (!currentDemoMode ? 'portfolio' : defaultTab)); // 'ecommerce' | 'portfolio'
+  const [analyticsTab, setAnalyticsTab] = useState(() => (isActuallyPersonalAdmin ? 'portfolio' : 'ecommerce')); // 'ecommerce' | 'portfolio'
   const RADIAN = Math.PI / 180;
 
   // Custom label renderer for pie chart to prevent overlap - Compact version
@@ -420,7 +420,7 @@ const Analytics = ({ defaultTab = 'ecommerce' }) => {
     </div>
   );
 
-  if (!currentDemoMode || analyticsTab === 'portfolio') {
+  if (isActuallyPersonalAdmin && analyticsTab === 'portfolio') {
     return (
       <div className="analytics-page">
         <div className="page-header" style={{ marginBottom: '20px' }}>
@@ -457,57 +457,59 @@ const Analytics = ({ defaultTab = 'ecommerce' }) => {
           <p className="page-subtitle">Real-time revenue metrics, customer acquisition, and live portfolio web traffic</p>
         </div>
 
-        {/* View Switcher: Ecommerce vs Portfolio GA4 */}
-        <div style={{
-          display: 'flex',
-          background: '#F1F5F9',
-          padding: '4px',
-          borderRadius: '10px',
-          border: '1px solid #CBD5E1',
-          gap: '4px'
-        }}>
-          <button
-            onClick={() => setAnalyticsTab('ecommerce')}
-            style={{
-              padding: '6px 14px',
-              fontSize: '12px',
-              fontWeight: '600',
-              borderRadius: '8px',
-              border: 'none',
-              background: analyticsTab === 'ecommerce' ? '#168CD6' : 'transparent',
-              color: analyticsTab === 'ecommerce' ? '#FFFFFF' : '#475569',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              boxShadow: analyticsTab === 'ecommerce' ? '0 2px 4px rgba(22, 140, 214, 0.25)' : 'none'
-            }}
-          >
-            🛒 Store Revenue
-          </button>
-          <button
-            onClick={() => setAnalyticsTab('portfolio')}
-            style={{
-              padding: '6px 14px',
-              fontSize: '12px',
-              fontWeight: '600',
-              borderRadius: '8px',
-              border: 'none',
-              background: analyticsTab === 'portfolio' ? '#0F828A' : 'transparent',
-              color: analyticsTab === 'portfolio' ? '#FFFFFF' : '#475569',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              boxShadow: analyticsTab === 'portfolio' ? '0 2px 4px rgba(15, 130, 138, 0.25)' : 'none'
-            }}
-          >
-            🌐 Portfolio Web Traffic (GA4)
-          </button>
-        </div>
+        {/* View Switcher: Ecommerce vs Portfolio GA4 - Restricted strictly to Personal Admin */}
+        {isActuallyPersonalAdmin && (
+          <div style={{
+            display: 'flex',
+            background: '#F1F5F9',
+            padding: '4px',
+            borderRadius: '10px',
+            border: '1px solid #CBD5E1',
+            gap: '4px'
+          }}>
+            <button
+              onClick={() => setAnalyticsTab('ecommerce')}
+              style={{
+                padding: '6px 14px',
+                fontSize: '12px',
+                fontWeight: '600',
+                borderRadius: '8px',
+                border: 'none',
+                background: analyticsTab === 'ecommerce' ? '#168CD6' : 'transparent',
+                color: analyticsTab === 'ecommerce' ? '#FFFFFF' : '#475569',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                boxShadow: analyticsTab === 'ecommerce' ? '0 2px 4px rgba(22, 140, 214, 0.25)' : 'none'
+              }}
+            >
+              🛒 Store Revenue
+            </button>
+            <button
+              onClick={() => setAnalyticsTab('portfolio')}
+              style={{
+                padding: '6px 14px',
+                fontSize: '12px',
+                fontWeight: '600',
+                borderRadius: '8px',
+                border: 'none',
+                background: analyticsTab === 'portfolio' ? '#0F828A' : 'transparent',
+                color: analyticsTab === 'portfolio' ? '#FFFFFF' : '#475569',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                boxShadow: analyticsTab === 'portfolio' ? '0 2px 4px rgba(15, 130, 138, 0.25)' : 'none'
+              }}
+            >
+              🌐 Portfolio Web Traffic (GA4)
+            </button>
+          </div>
+        )}
       </div>
 
-      {analyticsTab === 'portfolio' ? (
+      {isActuallyPersonalAdmin && analyticsTab === 'portfolio' ? (
         <PortfolioTrafficView />
       ) : (
         <>

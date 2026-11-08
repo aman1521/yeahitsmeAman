@@ -23,8 +23,8 @@ import { REAL_PORTFOLIO_LEADS } from '../services/customerService';
 const Dashboard = () => {
   const navigate = useNavigate();
   const { isDark } = useTheme();
-  const { isDemoMode } = useAuth();
-  const currentDemoMode = isDemoMode !== undefined ? isDemoMode : localStorage.getItem('demo_mode') === 'true';
+  const { user, isDemoMode, isPersonalAdmin } = useAuth();
+  const isActuallyPersonalAdmin = Boolean(isPersonalAdmin || (!isDemoMode && user && (user.email === 'amanchouhan1217@gmail.com' || user.username === 'amanchouhan1217@gmail.com')));
   const { formatAmount, selectedCurrency, currencySymbol } = useGlobalCurrency();
   // activeSiteId and siteVersion removed - multi-tenancy removed
   const [stats, setStats] = useState({
@@ -432,7 +432,7 @@ const Dashboard = () => {
     ? computedCustomSpan()
     : parseInt(salesChartPeriod, 10));
 
-  if (!currentDemoMode) {
+  if (isActuallyPersonalAdmin) {
     return (
       <div className="dashboard-page" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
         {/* GA4 Real Live Traffic Intelligence */}

@@ -32,21 +32,17 @@ export const AuthProvider = ({ children }) => {
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [isDemoMode, setIsDemoMode] = useState(() => localStorage.getItem('demo_mode') === 'true');
 
+  const isPersonalAdmin = Boolean(!isDemoMode && user && (user.email === 'amanchouhan1217@gmail.com' || user.username === 'amanchouhan1217@gmail.com'));
+
   const switchToDemo = () => {
     localStorage.setItem('demo_mode', 'true');
     setIsDemoMode(true);
-    toast.success('Switched to Ecommerce Demo Mode');
-  };
-
-  const switchToPersonal = () => {
-    localStorage.setItem('demo_mode', 'false');
-    setIsDemoMode(false);
-    toast.success('Switched to Portfolio Admin Workspace');
+    toast.success('Viewing Ecommerce Demo');
   };
 
   const fetchUser = async (preserveUserOnError = false) => {
     const token = localStorage.getItem('token');
-    if (token === 'peenakaa-demo-token' || localStorage.getItem('demo_mode') === 'true') {
+    if (token === 'aman-portfolio-admin-token' || token === 'peenakaa-demo-token' || localStorage.getItem('demo_mode') === 'true') {
       const savedUser = localStorage.getItem('userPayload');
       if (savedUser) {
         try {
@@ -55,7 +51,7 @@ export const AuthProvider = ({ children }) => {
           setLoading(false);
           return { success: true, user: normalized };
         } catch (e) {
-          console.error('[AuthContext] Error parsing demo user:', e);
+          console.error('[AuthContext] Error parsing cached user:', e);
         }
       }
     }
@@ -151,10 +147,18 @@ export const AuthProvider = ({ children }) => {
     setIsLoggingIn(true);
 
     const cleanUsername = (username || '').trim().toLowerCase();
-    const isPersonalUser = cleanUsername === 'amanchouhan1217@gmail.com' || cleanUsername.includes('aman') || (!forceDemo && cleanUsername !== 'demo' && cleanUsername !== 'admin');
-    const isExplicitDemo = forceDemo || (cleanUsername === 'admin' && password === 'admin') || cleanUsername === 'demo';
+    const cleanPassword = (password || '').trim();
 
-    if (isExplicitDemo && !isPersonalUser) {
+    // Check explicit demo request or demo credentials
+    const isExplicitDemo = forceDemo || 
+      (cleanUsername === 'demo' && (cleanPassword === 'demo' || cleanPassword === 'admin')) || 
+      (cleanUsername === 'admin' && (cleanPassword === 'admin' || cleanPassword === 'demo'));
+
+    // Check personal admin credentials (Aman Kumar)
+    const isPersonalUser = cleanUsername === 'amanchouhan1217@gmail.com' || cleanUsername === 'aman';
+    const isPersonalPasswordValid = cleanPassword === 'Legend@15' || cleanPassword === 'admin';
+
+    if (isExplicitDemo) {
       const demoUser = {
         id: 1,
         username: 'admin',
@@ -178,6 +182,31 @@ export const AuthProvider = ({ children }) => {
       return { success: true, isDemo: true };
     }
 
+    if (isPersonalUser && isPersonalPasswordValid) {
+      console.log('[AuthContext] Logging into Personal Portfolio Admin');
+      const personalUser = {
+        id: 1,
+        username: 'amanchouhan1217@gmail.com',
+        full_name: 'Aman Kumar',
+        email: 'amanchouhan1217@gmail.com',
+        role: 'super_admin',
+        is_super_admin: true,
+        is_tenant_admin: true,
+        preferred_currency: 'INR'
+      };
+      const normalized = normalizeUser(personalUser);
+      localStorage.setItem('token', 'aman-portfolio-admin-token');
+      localStorage.setItem('sessionId', 'aman-session-live');
+      localStorage.setItem('userPayload', JSON.stringify(normalized));
+      localStorage.setItem('demo_mode', 'false');
+      setIsDemoMode(false);
+      setUser(normalized);
+      setLoading(false);
+      setIsLoggingIn(false);
+      toast.success('Welcome to Portfolio Admin Workspace');
+      return { success: true, isDemo: false };
+    }
+
     try {
       const response = await apiClient.post('/auth/login', {
         username,
@@ -192,6 +221,8 @@ export const AuthProvider = ({ children }) => {
       if (!access_token) {
         console.error('Login response:', response.data);
         toast.error('Login failed: No token received');
+        setIsLoggingIn(false);
+        setLoading(false);
         return { success: false };
       }
       
@@ -216,60 +247,9 @@ export const AuthProvider = ({ children }) => {
       return { success: true, isDemo: false };
     } catch (error) {
       console.error('Login error:', error);
-      console.error('Error response:', error.response?.data);
+      setIsLoggingIn(false);
+      setLoading(false);
 
-      // If backend is unreachable or not hosted (static hosting), authenticate appropriately
-      const isUnreachable = !error.response || error.code === 'ERR_NETWORK' || error.response?.status === 404;
-      if (isUnreachable) {
-        if (isPersonalUser) {
-          console.log('[AuthContext] Logging into Personal Portfolio Admin');
-          const personalUser = {
-            id: 1,
-            username: 'amanchouhan1217@gmail.com',
-            full_name: 'Aman Kumar',
-            email: 'amanchouhan1217@gmail.com',
-            role: 'super_admin',
-            is_super_admin: true,
-            is_tenant_admin: true,
-            preferred_currency: 'INR'
-          };
-          const normalized = normalizeUser(personalUser);
-          localStorage.setItem('token', 'aman-portfolio-admin-token');
-          localStorage.setItem('sessionId', 'aman-session-live');
-          localStorage.setItem('userPayload', JSON.stringify(normalized));
-          localStorage.setItem('demo_mode', 'false');
-          setIsDemoMode(false);
-          setUser(normalized);
-          setLoading(false);
-          setIsLoggingIn(false);
-          toast.success('Welcome to Portfolio Admin Workspace');
-          return { success: true, isDemo: false };
-        } else {
-          console.warn('[AuthContext] Backend unreachable, launching Peenakaa Demo');
-          const fallbackUser = {
-            id: 1,
-            username: 'admin',
-            full_name: 'Administrator',
-            email: 'admin@peenakaa.com',
-            role: 'super_admin',
-            is_super_admin: true,
-            is_tenant_admin: true,
-            preferred_currency: 'INR'
-          };
-          const normalized = normalizeUser(fallbackUser);
-          localStorage.setItem('token', 'peenakaa-demo-token');
-          localStorage.setItem('sessionId', 'demo-session-fallback');
-          localStorage.setItem('userPayload', JSON.stringify(normalized));
-          localStorage.setItem('demo_mode', 'true');
-          setIsDemoMode(true);
-          setUser(normalized);
-          setLoading(false);
-          setIsLoggingIn(false);
-          toast.success('Signed in to Peenakaa Ecommerce Demo');
-          return { success: true, isDemo: true };
-        }
-      }
-      
       // Handle account locked (423 status)
       if (error.response?.status === 423) {
         const lockoutData = error.response?.data;
@@ -277,31 +257,22 @@ export const AuthProvider = ({ children }) => {
         
         let lockoutMessage = 'Account is temporarily locked due to too many failed login attempts.';
         if (remainingMinutes > 0) {
-          lockoutMessage = `Account is temporarily locked. Please try again in ${remainingMinutes} minute${remainingMinutes !== 1 ? 's' : ''}.`;
+          lockoutMessage += ` Please try again in ${remainingMinutes} minute${remainingMinutes > 1 ? 's' : ''}.`;
         }
-        
-        toast.error(lockoutMessage, { 
-          duration: 10000
-        });
-        
-        return { 
-          success: false, 
-          error: lockoutMessage,
-          locked: true,
-          remaining_minutes: remainingMinutes
-        };
+        toast.error(lockoutMessage, { duration: 6000 });
+        return { success: false, locked: true };
       }
-      
+
       // Handle regular login failures (401)
       if (error.response?.status === 401) {
         const message = error.response?.data?.error || 'Invalid username or password';
         toast.error(message, { duration: 5000 });
         return { success: false, error: message };
       }
-      
-      const message = error.response?.data?.error || error.message || 'Login failed. Please check backend connection.';
-      toast.error(message, { duration: 4000 });
-      return { success: false, error: message };
+
+      // If credentials were invalid and no backend matched
+      toast.error('Invalid username or password. Please check your credentials.');
+      return { success: false };
     } finally {
       setIsLoggingIn(false);
     }
@@ -369,8 +340,8 @@ export const AuthProvider = ({ children }) => {
     fetchUser,  // Expose fetchUser so other contexts can refresh user data
     isDemoMode,
     setIsDemoMode,
-    switchToDemo,
-    switchToPersonal
+    isPersonalAdmin,
+    switchToDemo
   };
 
   return (

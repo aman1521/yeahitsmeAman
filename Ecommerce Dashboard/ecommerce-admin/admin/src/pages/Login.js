@@ -26,12 +26,13 @@ const Login = () => {
     }
   }, [location.search]);
 
-  // Redirect to dashboard or portfolio-traffic if already logged in
+  // Redirect to portfolio-traffic only if already logged in as Personal Admin
   useEffect(() => {
     if (!authLoading && user) {
-      const isDemo = localStorage.getItem('demo_mode') === 'true';
-      const destination = isDemo ? '/dashboard' : '/portfolio-traffic';
-      navigate(destination, { replace: true });
+      const isPersonal = user.email === 'amanchouhan1217@gmail.com' || user.username === 'amanchouhan1217@gmail.com';
+      if (isPersonal && localStorage.getItem('demo_mode') !== 'true') {
+        navigate('/portfolio-traffic', { replace: true });
+      }
     }
   }, [user, authLoading, navigate]);
 

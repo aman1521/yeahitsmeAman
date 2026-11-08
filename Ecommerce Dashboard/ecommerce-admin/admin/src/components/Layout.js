@@ -34,25 +34,19 @@ const Layout = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState({});
-  const { user, logout, isDemoMode, switchToDemo, switchToPersonal } = useAuth();
+  const { user, logout, isDemoMode, isPersonalAdmin, switchToDemo } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
-  const currentDemoMode = isDemoMode !== undefined ? isDemoMode : localStorage.getItem('demo_mode') === 'true';
+  const isActuallyPersonalAdmin = Boolean(isPersonalAdmin || (!isDemoMode && user && (user.email === 'amanchouhan1217@gmail.com' || user.username === 'amanchouhan1217@gmail.com')));
 
   const handleSwitchToDemo = () => {
     if (switchToDemo) switchToDemo();
-    else {
-      localStorage.setItem('demo_mode', 'true');
-    }
     navigate('/dashboard');
   };
 
-  const handleSwitchToPersonal = () => {
-    if (switchToPersonal) switchToPersonal();
-    else {
-      localStorage.setItem('demo_mode', 'false');
-    }
-    navigate('/portfolio-traffic');
+  const handleAdminLogin = () => {
+    logout();
+    navigate('/login');
   };
   const notificationRef = useRef(null);
   const collapsedMenuRef = useRef(null);
@@ -279,8 +273,9 @@ const Layout = () => {
     },
   ];
 
-  // Conditional navigation based on Personal Admin vs Demo Mode
-  const navigation = currentDemoMode ? ecommerceDemoNavItems : portfolioAdminNavItems;
+  // Strictly guard: Only authenticated personal admin (Aman) sees portfolio items.
+  // All demo users strictly see Ecommerce Store Demo items!
+  const navigation = isActuallyPersonalAdmin ? portfolioAdminNavItems : ecommerceDemoNavItems;
 
   const isActive = (href, exactMatch = false) => {
     const path = location.pathname;
@@ -390,16 +385,16 @@ const Layout = () => {
         }}>
           {!sidebarCollapsed && (
             <div className="logo">
-              <div className="logo-icon" style={{ background: currentDemoMode ? '#168CD6' : '#0F828A' }}>
-                {currentDemoMode ? <FiPackage /> : <FiGlobe />}
+              <div className="logo-icon" style={{ background: isActuallyPersonalAdmin ? '#0F828A' : '#168CD6' }}>
+                {isActuallyPersonalAdmin ? <FiGlobe /> : <FiPackage />}
               </div>
-              <span style={{ fontSize: '13px', fontWeight: 700 }}>{currentDemoMode ? 'Peenakaa' : 'Aman Kumar'}</span>
+              <span style={{ fontSize: '13px', fontWeight: 700 }}>{isActuallyPersonalAdmin ? 'Aman Kumar' : 'Peenakaa'}</span>
             </div>
           )}
           {sidebarCollapsed && (
             <div className="logo" style={{ justifyContent: 'center' }}>
-              <div className="logo-icon" style={{ background: currentDemoMode ? '#168CD6' : '#0F828A' }}>
-                {currentDemoMode ? <FiPackage /> : <FiGlobe />}
+              <div className="logo-icon" style={{ background: isActuallyPersonalAdmin ? '#0F828A' : '#168CD6' }}>
+                {isActuallyPersonalAdmin ? <FiGlobe /> : <FiPackage />}
               </div>
             </div>
           )}
@@ -551,24 +546,24 @@ const Layout = () => {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <h1 style={{ margin: 0, fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)' }}>
-                  {currentDemoMode ? '🛍️ Peenakaa Ecommerce Demo' : '🛡️ Portfolio Admin Workspace'}
+                  {isActuallyPersonalAdmin ? '🛡️ Portfolio Admin Workspace' : '🛍️ Peenakaa Ecommerce Demo'}
                 </h1>
                 <span style={{
                   fontSize: '10px',
                   fontWeight: '600',
                   padding: '2px 8px',
                   borderRadius: '12px',
-                  background: currentDemoMode ? 'rgba(22, 140, 214, 0.1)' : 'rgba(15, 130, 138, 0.12)',
-                  color: currentDemoMode ? '#168CD6' : '#0F828A',
-                  border: `1px solid ${currentDemoMode ? 'rgba(22, 140, 214, 0.25)' : 'rgba(15, 130, 138, 0.25)'}`
+                  background: isActuallyPersonalAdmin ? 'rgba(15, 130, 138, 0.12)' : 'rgba(22, 140, 214, 0.1)',
+                  color: isActuallyPersonalAdmin ? '#0F828A' : '#168CD6',
+                  border: `1px solid ${isActuallyPersonalAdmin ? 'rgba(15, 130, 138, 0.25)' : 'rgba(22, 140, 214, 0.25)'}`
                 }}>
-                  {currentDemoMode ? 'Demo Mode' : 'Aman Kumar (Admin)'}
+                  {isActuallyPersonalAdmin ? 'Aman Kumar (Admin)' : 'Visitor Demo Mode'}
                 </span>
               </div>
               <p style={{ margin: '2px 0 0 0', fontSize: '11px', color: 'var(--text-secondary)' }}>
-                {currentDemoMode 
-                  ? 'Showing full demo catalog, orders, and pricing optimizer' 
-                  : 'Live GA4 Traffic & Client Inquiries for Aman Kumar'}
+                {isActuallyPersonalAdmin 
+                  ? 'Private GA4 Traffic & Client Leads for Aman Kumar' 
+                  : 'Showing public demo catalog, orders, and pricing optimizer'}
               </p>
             </div>
 
@@ -583,29 +578,8 @@ const Layout = () => {
 
           <div className="header-right">
             <div className="header-actions" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              {/* Mode Switcher Pill */}
-              {currentDemoMode ? (
-                <button
-                  type="button"
-                  onClick={handleSwitchToPersonal}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '5px',
-                    padding: '5px 12px',
-                    fontSize: '11px',
-                    fontWeight: '600',
-                    background: 'rgba(15, 130, 138, 0.1)',
-                    border: '1px solid rgba(15, 130, 138, 0.35)',
-                    color: '#0F828A',
-                    borderRadius: '16px',
-                    cursor: 'pointer'
-                  }}
-                  title="Switch to your personal portfolio analytics view"
-                >
-                  🛡️ Switch to Portfolio Admin
-                </button>
-              ) : (
+              {/* Only personal admin gets the option to preview the store demo */}
+              {isActuallyPersonalAdmin ? (
                 <button
                   type="button"
                   onClick={handleSwitchToDemo}
@@ -622,20 +596,45 @@ const Layout = () => {
                     borderRadius: '16px',
                     cursor: 'pointer'
                   }}
-                  title="Switch to Ecommerce Demo mode with products and orders"
+                  title="Preview Ecommerce Demo store"
                 >
-                  🛍️ Switch to Ecommerce Demo
+                  🛍️ Preview Store Demo
+                </button>
+              ) : (
+                /* In Demo mode, visitors can ONLY sign in by entering personal admin credentials */
+                <button
+                  type="button"
+                  onClick={handleAdminLogin}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '5px',
+                    padding: '5px 12px',
+                    fontSize: '11px',
+                    fontWeight: '600',
+                    background: 'rgba(15, 130, 138, 0.1)',
+                    border: '1px solid rgba(15, 130, 138, 0.35)',
+                    color: '#0F828A',
+                    borderRadius: '16px',
+                    cursor: 'pointer'
+                  }}
+                  title="Portfolio Admin requires personal login credentials"
+                >
+                  🔐 Portfolio Admin Login
                 </button>
               )}
 
               {/* Currency Switcher (Demo Mode Only) */}
-              {currentDemoMode && <CurrencySwitcher />}
+              {!isActuallyPersonalAdmin && <CurrencySwitcher />}
 
-              {/* Quick Login / Logout */}
+              {/* Logout button */}
               <button
                 className="login-nav-btn"
-                onClick={() => logout()}
-                title="Go back to login screen"
+                onClick={() => {
+                  logout();
+                  navigate('/login');
+                }}
+                title="Sign out / switch account"
                 style={{ fontSize: '11px', padding: '4px 10px' }}
               >
                 Sign Out
