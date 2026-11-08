@@ -359,8 +359,8 @@ const Invoices = () => {
                   textOverflow: 'ellipsis'
                 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = '#FF8C00';
-                  e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                  e.target.style.borderColor = '#168CD6';
+                  e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                 }}
                 onBlur={(e) => {
                   e.target.style.borderColor = isDark ? '#334155' : '#e2e8f0';
@@ -402,8 +402,8 @@ const Invoices = () => {
                   textOverflow: 'ellipsis'
                 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = '#FF8C00';
-                  e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                  e.target.style.borderColor = '#168CD6';
+                  e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                 }}
                 onBlur={(e) => {
                   e.target.style.borderColor = isDark ? '#334155' : '#e2e8f0';
@@ -445,8 +445,8 @@ const Invoices = () => {
                   textOverflow: 'ellipsis'
                 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = '#FF8C00';
-                  e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                  e.target.style.borderColor = '#168CD6';
+                  e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                 }}
                 onBlur={(e) => {
                   e.target.style.borderColor = isDark ? '#334155' : '#e2e8f0';
@@ -504,8 +504,8 @@ const Invoices = () => {
                 }
               }}
               onFocus={(e) => {
-                e.target.style.borderColor = '#FF8C00';
-                e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                e.target.style.borderColor = '#168CD6';
+                e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
               }}
               onBlur={(e) => {
                 e.target.style.borderColor = isDark ? '#334155' : '#e2e8f0';
@@ -587,7 +587,7 @@ const Invoices = () => {
                           : (isDark ? '#0f172a' : '#fafbfc');
                       }}
                     >
-                      <td style={{...tdStyle, fontWeight: '600', color: '#FF8C00', fontSize: '12px'}}>
+                      <td style={{...tdStyle, fontWeight: '600', color: '#168CD6', fontSize: '12px'}}>
                         {invoice.order_number || `INV-${invoice.id}`}
                       </td>
                       <td style={tdStyle}>

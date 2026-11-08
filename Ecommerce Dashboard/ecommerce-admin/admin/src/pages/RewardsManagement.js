@@ -452,7 +452,7 @@ const RewardsManagement = () => {
                       className="rewards-table-row"
                       style={{ 
                         cursor: 'pointer',
-                        background: selectedUser?.id === user.id ? 'rgba(255,189,47,0.12)' : 'transparent'
+                        background: selectedUser?.id === user.id ? 'rgba(22, 140, 214,0.12)' : 'transparent'
                       }}
                     >
                       <td style={{ padding: '16px', fontWeight: '600', color: 'var(--text-primary)' }}>
@@ -464,7 +464,7 @@ const RewardsManagement = () => {
                           fontWeight: '700', 
                           color: 'var(--color-primary-text)',
                           padding: '6px 14px',
-                          background: 'rgba(255,189,47,0.15)',
+                          background: 'rgba(22, 140, 214,0.15)',
                           borderRadius: '20px',
                           fontSize: '13px',
                           display: 'inline-block'

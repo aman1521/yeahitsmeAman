@@ -119,7 +119,7 @@ function App() {
     <ThemeProvider>
       <AuthProvider>
         <GlobalCurrencyProvider>
-          <Router>
+          <Router basename={process.env.PUBLIC_URL || ''}>
             <RouteTracker />
             <div className="App">
               <Toaster position="top-right" />

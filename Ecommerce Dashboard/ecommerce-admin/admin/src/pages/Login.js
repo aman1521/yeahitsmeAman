@@ -101,7 +101,7 @@ const Login = () => {
         {/* Logo and Header */}
         <div className="login-header" style={{ marginBottom: '20px' }}>
           <div className="logo" style={{ justifyContent: 'center', marginBottom: '8px' }}>
-            <h1 style={{ fontSize: '26px', fontWeight: '800', color: '#FF8C00', margin: 0, letterSpacing: '-0.5px' }}>
+            <h1 style={{ fontSize: '26px', fontWeight: '800', color: '#168CD6', margin: 0, letterSpacing: '-0.5px' }}>
               Peenakaa
             </h1>
           </div>
@@ -114,8 +114,8 @@ const Login = () => {
               fontWeight: '600',
               textTransform: 'uppercase',
               letterSpacing: '0.8px',
-              background: 'rgba(255, 140, 0, 0.1)',
-              color: '#FF8C00'
+              background: 'rgba(22, 140, 214, 0.1)',
+              color: '#168CD6'
             }}>
               Ecommerce Dashboard
             </span>
@@ -130,8 +130,8 @@ const Login = () => {
 
         {/* Credentials Info Badge */}
         <div style={{
-          background: 'rgba(255, 140, 0, 0.08)',
-          border: '1px solid rgba(255, 140, 0, 0.25)',
+          background: 'rgba(22, 140, 214, 0.08)',
+          border: '1px solid rgba(22, 140, 214, 0.25)',
           borderRadius: '8px',
           padding: '10px 12px',
           marginBottom: '16px',
@@ -234,7 +234,7 @@ const Login = () => {
               padding: '12px',
               fontSize: '15px',
               fontWeight: '600',
-              background: loading ? '#D1D5DB' : '#FF8C00',
+              background: loading ? '#D1D5DB' : '#168CD6',
               color: '#FFFFFF',
               border: 'none',
               borderRadius: '8px',
@@ -285,9 +285,9 @@ const Login = () => {
               transition: 'all 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = '#FF8C00';
-              e.currentTarget.style.color = '#FF8C00';
-              e.currentTarget.style.background = 'rgba(255, 140, 0, 0.04)';
+              e.currentTarget.style.borderColor = '#168CD6';
+              e.currentTarget.style.color = '#168CD6';
+              e.currentTarget.style.background = 'rgba(22, 140, 214, 0.04)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.borderColor = '#D1D5DB';

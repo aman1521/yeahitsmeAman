@@ -240,7 +240,7 @@ const Coupons = () => {
             className="btn btn-primary"
             onClick={() => setShowAddCouponModal(true)}
             style={{
-              background: '#FF8C00',
+              background: '#168CD6',
               color: 'white',
               padding: '8px 16px',
               borderRadius: '5px',
@@ -251,16 +251,16 @@ const Coupons = () => {
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              boxShadow: '0 4px 6px rgba(255, 140, 0, 0.2)',
+              boxShadow: '0 4px 6px rgba(22, 140, 214, 0.2)',
               transition: 'all 0.2s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#ff9500';
-              e.currentTarget.style.boxShadow = '0 6px 12px rgba(255, 140, 0, 0.3)';
+              e.currentTarget.style.background = '#0F828A';
+              e.currentTarget.style.boxShadow = '0 6px 12px rgba(22, 140, 214, 0.3)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#FF8C00';
-              e.currentTarget.style.boxShadow = '0 4px 6px rgba(255, 140, 0, 0.2)';
+              e.currentTarget.style.background = '#168CD6';
+              e.currentTarget.style.boxShadow = '0 4px 6px rgba(22, 140, 214, 0.2)';
             }}
           >
             <FiPlus />
@@ -605,7 +605,7 @@ const AddCouponModal = ({ onClose, onSuccess, countries, products, isDark }) => 
                 onClick={() => setActiveSection(section.id)}
                 style={{
                   padding: '6px 12px',
-                  background: activeSection === section.id ? '#FF8C00' : 'transparent',
+                  background: activeSection === section.id ? '#168CD6' : 'transparent',
                   color: activeSection === section.id ? 'white' : '#64748b',
                   border: 'none',
                   borderRadius: '6px',
@@ -625,7 +625,7 @@ const AddCouponModal = ({ onClose, onSuccess, countries, products, isDark }) => 
           <div style={{ display: 'grid', gap: '10px' }}>
             {activeSection === 'basic' && (
               <div style={{ padding: '10px 12px', background: '#ffffff', borderRadius: '6px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#FF8C00', lineHeight: '1.3' }}>📝 Coupon Details</h3>
+                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#168CD6', lineHeight: '1.3' }}>📝 Coupon Details</h3>
                 <div style={{ display: 'grid', gap: '8px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '9px', fontWeight: '600', marginBottom: '4px', color: textColor }}>Coupon Code <span style={{ color: '#ef4444' }}>*</span></label>
@@ -638,7 +638,7 @@ const AddCouponModal = ({ onClose, onSuccess, countries, products, isDark }) => 
                         required
                         style={{ flex: 1, padding: '4px 8px', border: `1px solid ${borderColor}`, borderRadius: '5px', fontSize: '9px', background: inputBg, color: textColor, minHeight: '26px' }}
                       />
-                      <button type="button" onClick={generateCouponCode} style={{ padding: '4px 10px', background: '#FF8C00', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: '600', fontSize: '9px', display: 'flex', alignItems: 'center', gap: '4px', minHeight: '26px' }}>
+                      <button type="button" onClick={generateCouponCode} style={{ padding: '4px 10px', background: '#168CD6', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: '600', fontSize: '9px', display: 'flex', alignItems: 'center', gap: '4px', minHeight: '26px' }}>
                         <FiRefreshCw style={{ fontSize: '12px' }} /> Generate
                       </button>
                     </div>
@@ -814,7 +814,7 @@ const AddCouponModal = ({ onClose, onSuccess, countries, products, isDark }) => 
             <button type="button" onClick={onClose} style={{ flex: 1, padding: '6px 12px', background: '#f1f5f9', color: '#64748b', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '10px', minHeight: '28px' }}>
               Cancel
             </button>
-            <button type="submit" disabled={loading} style={{ flex: 1, padding: '6px 12px', background: '#FF8C00', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', minHeight: '28px' }}>
+            <button type="submit" disabled={loading} style={{ flex: 1, padding: '6px 12px', background: '#168CD6', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', minHeight: '28px' }}>
               <FiSave style={{ fontSize: '12px' }} /> {loading ? 'Creating...' : 'Create Coupon'}
             </button>
           </div>
@@ -918,7 +918,7 @@ const EditCouponModal = ({ coupon, onClose, onSuccess, countries, products, isDa
                 onClick={() => setActiveSection(section.id)}
                 style={{
                   padding: '6px 12px',
-                  background: activeSection === section.id ? '#FF8C00' : 'transparent',
+                  background: activeSection === section.id ? '#168CD6' : 'transparent',
                   color: activeSection === section.id ? 'white' : '#64748b',
                   border: 'none',
                   borderRadius: '6px',
@@ -938,7 +938,7 @@ const EditCouponModal = ({ coupon, onClose, onSuccess, countries, products, isDa
           <div style={{ display: 'grid', gap: '10px' }}>
             {activeSection === 'basic' && (
               <div style={{ padding: '10px 12px', background: '#ffffff', borderRadius: '6px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#FF8C00', lineHeight: '1.3' }}>📝 Coupon Details</h3>
+                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#168CD6', lineHeight: '1.3' }}>📝 Coupon Details</h3>
                 <div style={{ display: 'grid', gap: '8px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '9px', fontWeight: '600', marginBottom: '4px', color: textColor }}>Coupon Code <span style={{ color: '#ef4444' }}>*</span></label>
@@ -1108,7 +1108,7 @@ const EditCouponModal = ({ coupon, onClose, onSuccess, countries, products, isDa
             <button type="button" onClick={onClose} style={{ flex: 1, padding: '6px 12px', background: '#f1f5f9', color: '#64748b', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '10px', minHeight: '28px' }}>
               Cancel
             </button>
-            <button type="submit" disabled={loading} style={{ flex: 1, padding: '6px 12px', background: '#FF8C00', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', minHeight: '28px' }}>
+            <button type="submit" disabled={loading} style={{ flex: 1, padding: '6px 12px', background: '#168CD6', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', minHeight: '28px' }}>
               <FiSave style={{ fontSize: '12px' }} /> {loading ? 'Updating...' : 'Update Coupon'}
             </button>
           </div>

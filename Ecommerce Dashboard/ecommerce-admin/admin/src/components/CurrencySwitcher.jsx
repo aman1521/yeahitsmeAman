@@ -146,7 +146,7 @@ export default function CurrencySwitcher() {
             width: '300px',
             maxWidth: '90vw',
             background: '#ffffff',
-            border: '1px solid #FF8C00',
+            border: '1px solid #168CD6',
             borderRadius: '8px',
             boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
             zIndex: 999999,
@@ -186,8 +186,8 @@ export default function CurrencySwitcher() {
                 boxSizing: 'border-box'
               }}
               onFocus={(e) => {
-                e.target.style.borderColor = '#FF8C00';
-                e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                e.target.style.borderColor = '#168CD6';
+                e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
               }}
               onBlur={(e) => {
                 e.target.style.borderColor = 'rgba(148, 163, 184, 0.3)';
@@ -219,7 +219,7 @@ export default function CurrencySwitcher() {
                     padding: '6px 10px',
                     borderRadius: '6px',
                     border: 'none',
-                    background: currency.currency_code === selected ? 'rgba(255, 140, 0, 0.05)' : 'transparent',
+                    background: currency.currency_code === selected ? 'rgba(22, 140, 214, 0.05)' : 'transparent',
                     color: '#1e293b',
                     cursor: 'pointer',
                     textAlign: 'left',
@@ -241,7 +241,7 @@ export default function CurrencySwitcher() {
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: 0 }}>
-                    <span style={{ width: '24px', height: '24px', borderRadius: '6px', background: '#FF8C00', color: '#fff', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', flexShrink: 0 }}>
+                    <span style={{ width: '24px', height: '24px', borderRadius: '6px', background: '#168CD6', color: '#fff', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', flexShrink: 0 }}>
                       {currency.symbol || currency.currency_code?.slice(0, 1) || '$'}
                     </span>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', flex: 1, minWidth: 0, overflow: 'hidden' }}>

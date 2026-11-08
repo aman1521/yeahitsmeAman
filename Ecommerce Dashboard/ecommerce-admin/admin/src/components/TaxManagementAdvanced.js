@@ -375,8 +375,8 @@ function TaxManagementAdvanced() {
                                             transition: 'all 0.2s'
                                         }}
                                         onFocus={(e) => {
-                                            e.target.style.borderColor = '#FF8C00';
-                                            e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                                            e.target.style.borderColor = '#168CD6';
+                                            e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                                         }}
                                         onBlur={(e) => {
                                             e.target.style.borderColor = isDark ? '#334155' : '#e2e8f0';
@@ -415,8 +415,8 @@ function TaxManagementAdvanced() {
                                             transition: 'all 0.2s'
                                         }}
                                         onFocus={(e) => {
-                                            e.target.style.borderColor = '#FF8C00';
-                                            e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                                            e.target.style.borderColor = '#168CD6';
+                                            e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                                         }}
                                         onBlur={(e) => {
                                             e.target.style.borderColor = isDark ? '#334155' : '#e2e8f0';
@@ -455,8 +455,8 @@ function TaxManagementAdvanced() {
                                             transition: 'all 0.2s'
                                         }}
                                         onFocus={(e) => {
-                                            e.target.style.borderColor = '#FF8C00';
-                                            e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                                            e.target.style.borderColor = '#168CD6';
+                                            e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                                         }}
                                         onBlur={(e) => {
                                             e.target.style.borderColor = isDark ? '#334155' : '#e2e8f0';
@@ -496,8 +496,8 @@ function TaxManagementAdvanced() {
                                                 transition: 'all 0.2s'
                                             }}
                                             onFocus={(e) => {
-                                                e.target.style.borderColor = '#FF8C00';
-                                                e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                                                e.target.style.borderColor = '#168CD6';
+                                                e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                                             }}
                                             onBlur={(e) => {
                                                 e.target.style.borderColor = isDark ? '#334155' : '#e2e8f0';
@@ -543,8 +543,8 @@ function TaxManagementAdvanced() {
                                                 transition: 'all 0.2s'
                                             }}
                                             onFocus={(e) => {
-                                                e.target.style.borderColor = '#FF8C00';
-                                                e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                                                e.target.style.borderColor = '#168CD6';
+                                                e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                                             }}
                                             onBlur={(e) => {
                                                 e.target.style.borderColor = isDark ? '#334155' : '#e2e8f0';

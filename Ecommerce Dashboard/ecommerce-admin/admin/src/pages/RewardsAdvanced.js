@@ -206,7 +206,7 @@ const RewardsAdvanced = () => {
               style={{
                 flex: 1,
                 padding: '12px 20px',
-                background: activeTab === tab ? '#FF8C00' : 'transparent',
+                background: activeTab === tab ? '#168CD6' : 'transparent',
                 color: activeTab === tab ? 'white' : '#64748b',
                 border: 'none',
                 borderRadius: '8px',
@@ -229,7 +229,7 @@ const RewardsAdvanced = () => {
           <div style={themeStyles.card}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
               <span style={{ fontSize: '14px', color: '#64748b', fontWeight: '600' }}>Total Points Issued</span>
-              <FiAward style={{ fontSize: '24px', color: '#FF8C00' }} />
+              <FiAward style={{ fontSize: '24px', color: '#168CD6' }} />
             </div>
             <h3 style={{ fontSize: '32px', fontWeight: '700', margin: 0, color: '#1e293b' }}>{stats.totalIssued.toLocaleString()}</h3>
           </div>
@@ -274,7 +274,7 @@ const RewardsAdvanced = () => {
                 alignItems: 'center',
                 gap: '8px',
                 padding: '10px 20px',
-                background: '#FF8C00',
+                background: '#168CD6',
                 color: 'white',
                 border: 'none',
                 borderRadius: '8px',
@@ -346,7 +346,7 @@ const RewardsAdvanced = () => {
                 alignItems: 'center',
                 gap: '8px',
                 padding: '10px 20px',
-                background: '#FF8C00',
+                background: '#168CD6',
                 color: 'white',
                 border: 'none',
                 borderRadius: '8px',
@@ -418,7 +418,7 @@ const RewardsAdvanced = () => {
                 alignItems: 'center',
                 gap: '8px',
                 padding: '10px 20px',
-                background: '#FF8C00',
+                background: '#168CD6',
                 color: 'white',
                 border: 'none',
                 borderRadius: '8px',
@@ -600,7 +600,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
                 onClick={() => setActiveSection(section.id)}
                 style={{
                   padding: '10px 20px',
-                  background: activeSection === section.id ? '#FF8C00' : 'transparent',
+                  background: activeSection === section.id ? '#168CD6' : 'transparent',
                   color: activeSection === section.id ? 'white' : '#64748b',
                   border: 'none',
                   borderRadius: '8px',
@@ -625,7 +625,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
                 borderRadius: '12px',
                 border: `1px solid ${borderColor}`
               }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#FF8C00' }}>📝 Tier Details</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#168CD6' }}>📝 Tier Details</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: textColor }}>Tier Name <span style={{ color: '#ef4444' }}>*</span></label>
@@ -715,7 +715,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
                         placeholder="Add a perk (e.g., Free Shipping)"
                         style={{ flex: 1, padding: '12px 16px', border: `2px solid ${borderColor}`, borderRadius: '8px', fontSize: '14px', background: inputBg, color: textColor }}
                       />
-                      <button type="button" onClick={addPerk} style={{ padding: '12px 20px', background: '#FF8C00', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>
+                      <button type="button" onClick={addPerk} style={{ padding: '12px 20px', background: '#168CD6', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>
                         Add
                       </button>
                     </div>
@@ -796,7 +796,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
             <button type="button" onClick={onClose} style={{ flex: 1, padding: '12px', background: '#f1f5f9', color: '#64748b', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>
               Cancel
             </button>
-            <button type="submit" disabled={saving} style={{ flex: 1, padding: '12px', background: '#FF8C00', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+            <button type="submit" disabled={saving} style={{ flex: 1, padding: '12px', background: '#168CD6', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
               <FiSave /> {saving ? 'Saving...' : (tier ? 'Update Tier' : 'Create Tier')}
             </button>
           </div>
@@ -912,7 +912,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
                 onClick={() => setActiveSection(section.id)}
                 style={{
                   padding: '6px 12px',
-                  background: activeSection === section.id ? '#FF8C00' : 'transparent',
+                  background: activeSection === section.id ? '#168CD6' : 'transparent',
                   color: activeSection === section.id ? 'white' : '#64748b',
                   border: 'none',
                   borderRadius: '6px',
@@ -932,7 +932,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
           <div style={{ display: 'grid', gap: '24px' }}>
             {activeSection === 'basic' && (
               <div style={{ padding: '20px', background: '#ffffff', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#FF8C00' }}>📝 Campaign Details</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#168CD6' }}>📝 Campaign Details</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: textColor }}>Campaign Name <span style={{ color: '#ef4444' }}>*</span></label>
@@ -1064,8 +1064,8 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
                         {['bronze', 'silver', 'gold', 'platinum'].map(tier => {
                           const isSelected = formData.applicable_tiers.includes(tier);
                           return (
-                            <label key={tier} style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', padding: '12px 20px', borderRadius: '10px', background: '#ffffff', border: `2px solid ${isSelected ? '#FF8C00' : borderColor}`, textTransform: 'capitalize', fontWeight: isSelected ? '700' : '600' }}>
-                              <input type="checkbox" checked={isSelected} onChange={() => toggleTier(tier)} style={{ width: '18px', height: '18px', cursor: 'pointer', accentColor: '#FF8C00' }} />
+                            <label key={tier} style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', padding: '12px 20px', borderRadius: '10px', background: '#ffffff', border: `2px solid ${isSelected ? '#168CD6' : borderColor}`, textTransform: 'capitalize', fontWeight: isSelected ? '700' : '600' }}>
+                              <input type="checkbox" checked={isSelected} onChange={() => toggleTier(tier)} style={{ width: '18px', height: '18px', cursor: 'pointer', accentColor: '#168CD6' }} />
                               <span style={{ fontSize: '14px', color: textColor }}>{tier.charAt(0).toUpperCase() + tier.slice(1)}</span>
                             </label>
                           );
@@ -1121,8 +1121,8 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
                         <input type="checkbox" checked={formData.stackable} onChange={(e) => setFormData(prev => ({ ...prev, stackable: e.target.checked }))} style={{ width: '20px', height: '20px', cursor: 'pointer', accentColor: '#8b5cf6' }} />
                         <span style={{ fontSize: '14px', fontWeight: '600', color: textColor }}>Stackable (can combine with other campaigns)</span>
                       </label>
-                      <label style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', padding: '12px', borderRadius: '8px', background: '#ffffff', border: `1px solid ${formData.auto_apply ? '#FF8C00' : borderColor}` }}>
-                        <input type="checkbox" checked={formData.auto_apply} onChange={(e) => setFormData(prev => ({ ...prev, auto_apply: e.target.checked }))} style={{ width: '20px', height: '20px', cursor: 'pointer', accentColor: '#FF8C00' }} />
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', padding: '12px', borderRadius: '8px', background: '#ffffff', border: `1px solid ${formData.auto_apply ? '#168CD6' : borderColor}` }}>
+                        <input type="checkbox" checked={formData.auto_apply} onChange={(e) => setFormData(prev => ({ ...prev, auto_apply: e.target.checked }))} style={{ width: '20px', height: '20px', cursor: 'pointer', accentColor: '#168CD6' }} />
                         <span style={{ fontSize: '14px', fontWeight: '600', color: textColor }}>Auto-Apply (automatically applied when conditions are met)</span>
                       </label>
                     </div>
@@ -1136,7 +1136,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
             <button type="button" onClick={onClose} style={{ flex: 1, padding: '12px', background: '#f1f5f9', color: '#64748b', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>
               Cancel
             </button>
-            <button type="submit" disabled={saving} style={{ flex: 1, padding: '12px', background: '#FF8C00', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+            <button type="submit" disabled={saving} style={{ flex: 1, padding: '12px', background: '#168CD6', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
               <FiSave /> {saving ? 'Saving...' : (campaign ? 'Update Campaign' : 'Create Campaign')}
             </button>
           </div>
@@ -1177,7 +1177,7 @@ const SettingsModal = ({ settings, setSettings, onClose, onSave, isDark }) => {
           <button onClick={onClose} style={{ flex: 1, padding: '6px 12px', background: '#f1f5f9', color: '#64748b', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '10px' }}>
             Cancel
           </button>
-          <button onClick={onSave} style={{ flex: 1, padding: '12px', background: '#FF8C00', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+          <button onClick={onSave} style={{ flex: 1, padding: '12px', background: '#168CD6', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
             <FiSave /> Save Settings
           </button>
         </div>

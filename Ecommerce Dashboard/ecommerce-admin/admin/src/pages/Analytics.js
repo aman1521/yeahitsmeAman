@@ -591,10 +591,10 @@ const Analytics = () => {
                   <Line 
                     type="monotone" 
                     dataKey="revenue" 
-                    stroke="#FF8C00" 
+                    stroke="#168CD6" 
                     strokeWidth={2}
                     name={`Revenue (${currencySymbol})`}
-                    dot={{ fill: '#FF8C00', r: 3 }}
+                    dot={{ fill: '#168CD6', r: 3 }}
                     activeDot={{ r: 4 }}
                   />
                 </LineChart>
@@ -725,7 +725,7 @@ const Analytics = () => {
                     }}
                     formatter={(value) => [`Count: ${value} customers`, '']}
                   />
-                  <Bar dataKey="value" fill="#FF8C00" radius={[5, 5, 0, 0]} />
+                  <Bar dataKey="value" fill="#168CD6" radius={[5, 5, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             ) : (

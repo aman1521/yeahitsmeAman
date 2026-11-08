@@ -1893,8 +1893,8 @@ const Settings = () => {
                         boxSizing: 'border-box'
                       }}
                       onFocus={(e) => {
-                        e.target.style.borderColor = '#FF8C00';
-                        e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                        e.target.style.borderColor = '#168CD6';
+                        e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                       }}
                       onBlur={(e) => {
                         e.target.style.borderColor = '#e2e8f0';
@@ -1922,8 +1922,8 @@ const Settings = () => {
                           boxSizing: 'border-box'
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = '#FF8C00';
-                          e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                          e.target.style.borderColor = '#168CD6';
+                          e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                         }}
                         onBlur={(e) => {
                           e.target.style.borderColor = '#e2e8f0';
@@ -1950,8 +1950,8 @@ const Settings = () => {
                           boxSizing: 'border-box'
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = '#FF8C00';
-                          e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                          e.target.style.borderColor = '#168CD6';
+                          e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                         }}
                         onBlur={(e) => {
                           e.target.style.borderColor = '#e2e8f0';
@@ -1985,8 +1985,8 @@ const Settings = () => {
                         boxSizing: 'border-box'
                       }}
                       onFocus={(e) => {
-                        e.target.style.borderColor = '#FF8C00';
-                        e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                        e.target.style.borderColor = '#168CD6';
+                        e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                       }}
                       onBlur={(e) => {
                         e.target.style.borderColor = '#e2e8f0';
@@ -2015,8 +2015,8 @@ const Settings = () => {
                         boxSizing: 'border-box'
                       }}
                       onFocus={(e) => {
-                        e.target.style.borderColor = '#FF8C00';
-                        e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                        e.target.style.borderColor = '#168CD6';
+                        e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                       }}
                       onBlur={(e) => {
                         e.target.style.borderColor = '#e2e8f0';
@@ -2052,8 +2052,8 @@ const Settings = () => {
                         boxSizing: 'border-box'
                       }}
                       onFocus={(e) => {
-                        e.target.style.borderColor = '#FF8C00';
-                        e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                        e.target.style.borderColor = '#168CD6';
+                        e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                       }}
                       onBlur={(e) => {
                         e.target.style.borderColor = '#e2e8f0';
@@ -2083,8 +2083,8 @@ const Settings = () => {
                         boxSizing: 'border-box'
                       }}
                       onFocus={(e) => {
-                        e.target.style.borderColor = '#FF8C00';
-                        e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                        e.target.style.borderColor = '#168CD6';
+                        e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                       }}
                       onBlur={(e) => {
                         e.target.style.borderColor = '#e2e8f0';
@@ -2115,8 +2115,8 @@ const Settings = () => {
                           boxSizing: 'border-box'
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = '#FF8C00';
-                          e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                          e.target.style.borderColor = '#168CD6';
+                          e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                         }}
                         onBlur={(e) => {
                           e.target.style.borderColor = '#e2e8f0';
@@ -2146,8 +2146,8 @@ const Settings = () => {
                           boxSizing: 'border-box'
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = '#FF8C00';
-                          e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                          e.target.style.borderColor = '#168CD6';
+                          e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                         }}
                         onBlur={(e) => {
                           e.target.style.borderColor = '#e2e8f0';
@@ -2177,8 +2177,8 @@ const Settings = () => {
                           boxSizing: 'border-box'
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = '#FF8C00';
-                          e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                          e.target.style.borderColor = '#168CD6';
+                          e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                         }}
                         onBlur={(e) => {
                           e.target.style.borderColor = '#e2e8f0';
@@ -2214,8 +2214,8 @@ const Settings = () => {
                           boxSizing: 'border-box'
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = '#FF8C00';
-                          e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                          e.target.style.borderColor = '#168CD6';
+                          e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                         }}
                         onBlur={(e) => {
                           e.target.style.borderColor = '#e2e8f0';
@@ -2246,8 +2246,8 @@ const Settings = () => {
                           boxSizing: 'border-box'
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = '#FF8C00';
-                          e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                          e.target.style.borderColor = '#168CD6';
+                          e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                         }}
                         onBlur={(e) => {
                           e.target.style.borderColor = '#e2e8f0';
@@ -2280,8 +2280,8 @@ const Settings = () => {
                           boxSizing: 'border-box'
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = '#FF8C00';
-                          e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                          e.target.style.borderColor = '#168CD6';
+                          e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                         }}
                         onBlur={(e) => {
                           e.target.style.borderColor = '#e2e8f0';
@@ -2315,8 +2315,8 @@ const Settings = () => {
                               boxSizing: 'border-box'
                             }}
                             onFocus={(e) => {
-                              e.target.style.borderColor = '#FF8C00';
-                              e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                              e.target.style.borderColor = '#168CD6';
+                              e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                             }}
                             onBlur={(e) => {
                               e.target.style.borderColor = '#e2e8f0';
@@ -2342,8 +2342,8 @@ const Settings = () => {
                               boxSizing: 'border-box'
                             }}
                             onFocus={(e) => {
-                              e.target.style.borderColor = '#FF8C00';
-                              e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                              e.target.style.borderColor = '#168CD6';
+                              e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
                             }}
                             onBlur={(e) => {
                               e.target.style.borderColor = '#e2e8f0';
@@ -3275,7 +3275,7 @@ const Settings = () => {
                           width: '24px',
                           height: '24px',
                           border: '2px solid #e2e8f0',
-                          borderTop: '2px solid #FF8C00',
+                          borderTop: '2px solid #168CD6',
                           borderRadius: '50%',
                           animation: 'spin 1s linear infinite',
                           marginBottom: '8px'

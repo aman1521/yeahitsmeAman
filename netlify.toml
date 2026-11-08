@@ -1,6 +1,11 @@
 [build]
   publish = "."
 
+[[redirects]]
+  from = "/ecommerce-dashboard/*"
+  to = "/ecommerce-dashboard/index.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]

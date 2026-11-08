@@ -583,7 +583,7 @@ const Layout = () => {
                             <button 
                               className="btn-link"
                               onClick={markAllRead}
-                              style={{ fontSize: '8px', padding: '2px 6px', fontWeight: '500', color: '#FF8C00' }}
+                              style={{ fontSize: '8px', padding: '2px 6px', fontWeight: '500', color: '#168CD6' }}
                             >
                               Mark all read
                             </button>

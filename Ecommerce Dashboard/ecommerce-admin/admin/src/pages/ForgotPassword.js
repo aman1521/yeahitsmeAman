@@ -61,7 +61,7 @@ const ForgotPassword = () => {
         {/* Header */}
         <div className="login-header" style={{ marginBottom: '32px' }}>
           <div className="logo" style={{ justifyContent: 'center', marginBottom: '24px' }}>
-            <h1 style={{ fontSize: '28px', fontWeight: '700', color: '#FF8C00', margin: 0 }}>
+            <h1 style={{ fontSize: '28px', fontWeight: '700', color: '#168CD6', margin: 0 }}>
               Peenakaa
             </h1>
           </div>
@@ -123,7 +123,7 @@ const ForgotPassword = () => {
                   padding: '14px',
                   fontSize: '16px',
                   fontWeight: '600',
-                  background: loading ? '#D1D5DB' : '#FF8C00',
+                  background: loading ? '#D1D5DB' : '#168CD6',
                   color: '#FFFFFF',
                   border: 'none',
                   borderRadius: '8px',

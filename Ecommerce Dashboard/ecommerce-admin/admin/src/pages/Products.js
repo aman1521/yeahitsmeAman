@@ -1111,7 +1111,7 @@ const filterPanelBorder = isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '2px 
                       setCountryModalOpen(false);
                       setCountrySearch('');
                     }}
-                    style={{ border: country.country_code === selectedCountry ? '2px solid rgba(248,181,0,0.45)' : undefined }}
+                    style={{ border: country.country_code === selectedCountry ? '2px solid rgba(22, 140, 214,0.45)' : undefined }}
                   >
                     <div>
                       <div className="pill-modal__option-title">{country.country_name}</div>
@@ -2086,7 +2086,7 @@ const filterPanelBorder = isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '2px 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                   <div>
                     <label style={{ fontSize: '8px', color: '#64748b', display: 'block', marginBottom: '3px' }}>Base Price</label>
-                    <div style={{ fontSize: '8px', fontWeight: '600', color: '#FF8C00' }}>
+                    <div style={{ fontSize: '8px', fontWeight: '600', color: '#168CD6' }}>
                       {viewingProduct.base_currency} {viewingProduct.base_price}
                     </div>
                   </div>

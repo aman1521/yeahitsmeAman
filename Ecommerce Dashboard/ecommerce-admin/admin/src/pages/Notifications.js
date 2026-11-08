@@ -272,24 +272,24 @@ const Notifications = () => {
               padding: '5px 10px',
               fontWeight: '600',
               fontSize: '9px',
-              background: 'linear-gradient(135deg, #FF8C00 0%, #ff9500 100%)',
+              background: 'linear-gradient(135deg, #168CD6 0%, #0F828A 100%)',
               color: 'white',
               border: 'none',
               minHeight: '24px',
               borderRadius: '6px',
-              boxShadow: '0 2px 4px rgba(255, 140, 0, 0.3)',
+              boxShadow: '0 2px 4px rgba(22, 140, 214, 0.3)',
               transition: 'all 0.2s ease'
             }}
             onMouseEnter={(e) => {
               if (!e.currentTarget.disabled) {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #ff9500 0%, #ffa500 100%)';
-                e.currentTarget.style.boxShadow = '0 3px 6px rgba(255, 140, 0, 0.4)';
+                e.currentTarget.style.background = 'linear-gradient(135deg, #0F828A 0%, #ffa500 100%)';
+                e.currentTarget.style.boxShadow = '0 3px 6px rgba(22, 140, 214, 0.4)';
                 e.currentTarget.style.transform = 'translateY(-1px)';
               }
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, #FF8C00 0%, #ff9500 100%)';
-              e.currentTarget.style.boxShadow = '0 2px 4px rgba(255, 140, 0, 0.3)';
+              e.currentTarget.style.background = 'linear-gradient(135deg, #168CD6 0%, #0F828A 100%)';
+              e.currentTarget.style.boxShadow = '0 2px 4px rgba(22, 140, 214, 0.3)';
               e.currentTarget.style.transform = 'translateY(0)';
             }}
             >
@@ -334,8 +334,8 @@ const Notifications = () => {
                 transition: 'all 0.2s ease'
               }}
               onFocus={(e) => {
-                e.target.style.border = '1px solid #FF8C00';
-                e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+                e.target.style.border = '1px solid #168CD6';
+                e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
               }}
               onBlur={(e) => {
                 e.target.style.border = `1px solid ${isDark ? '#334155' : '#e2e8f0'}`;
@@ -410,19 +410,19 @@ const Notifications = () => {
                 style={{
                   padding: '10px 12px',
                   borderBottom: `1px solid ${isDark ? '#334155' : '#f1f5f9'}`,
-                  borderLeft: `3px solid ${notification.unread ? '#FF8C00' : 'transparent'}`,
+                  borderLeft: `3px solid ${notification.unread ? '#168CD6' : 'transparent'}`,
                   display: 'flex',
                   alignItems: 'flex-start',
                   gap: '10px',
                   transition: 'all 0.2s ease',
-                  background: notification.unread ? (isDark ? 'rgba(255, 184, 0, 0.1)' : '#f0f9ff') : (isDark ? '#1e293b' : 'white'),
+                  background: notification.unread ? (isDark ? 'rgba(22, 140, 214, 0.1)' : '#f0f9ff') : (isDark ? '#1e293b' : 'white'),
                   cursor: 'pointer'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = isDark ? '#334155' : '#f8fafc';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = notification.unread ? (isDark ? 'rgba(255, 184, 0, 0.1)' : '#f0f9ff') : (isDark ? '#1e293b' : 'white');
+                  e.currentTarget.style.background = notification.unread ? (isDark ? 'rgba(22, 140, 214, 0.1)' : '#f0f9ff') : (isDark ? '#1e293b' : 'white');
                 }}
               >
                 <div style={{ marginTop: '2px', fontSize: '14px' }}>
@@ -439,7 +439,7 @@ const Notifications = () => {
                         width: '6px',
                         height: '6px',
                           borderRadius: '50%',
-                        background: '#FFB800',
+                        background: '#0F828A',
                         marginTop: '4px',
                         flexShrink: 0
                         }} />

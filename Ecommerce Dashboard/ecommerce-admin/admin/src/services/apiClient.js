@@ -179,9 +179,9 @@ apiClient.interceptors.response.use(
               toast.error(error.response?.data?.error || 'Session expired. Please login again.');
               localStorage.removeItem('token');
               localStorage.removeItem('sessionId');
-              // Small delay to ensure toast is visible
+              const loginUrl = (process.env.PUBLIC_URL || '') + '/login';
               setTimeout(() => {
-                window.location.href = '/login';
+                window.location.href = loginUrl;
               }, 500);
               return Promise.reject(error);
             }
@@ -204,7 +204,7 @@ apiClient.interceptors.response.use(
               toast.error('Session expired. Please login again.');
               localStorage.removeItem('token');
               localStorage.removeItem('sessionId');
-              window.location.href = '/login';
+              window.location.href = (process.env.PUBLIC_URL || '') + '/login';
             }
           }
         } else if (status === 423) {

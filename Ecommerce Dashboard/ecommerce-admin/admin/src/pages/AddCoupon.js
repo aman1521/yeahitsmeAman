@@ -234,7 +234,7 @@ const AddCoupon = () => {
                 onClick={() => setActiveSection(section.id)}
                 style={{
                   padding: '6px 12px',
-                  background: activeSection === section.id ? '#FF8C00' : 'transparent',
+                  background: activeSection === section.id ? '#168CD6' : 'transparent',
                   color: activeSection === section.id ? 'white' : '#64748b',
                   border: 'none',
                   borderRadius: '6px',
@@ -255,7 +255,7 @@ const AddCoupon = () => {
             {/* Basic Info Section */}
             {activeSection === 'basic' && (
               <div style={{ padding: '10px 12px', background: '#f8fafc', borderRadius: '6px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#FF8C00', lineHeight: '1.3' }}>📝 Coupon Details</h3>
+                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#168CD6', lineHeight: '1.3' }}>📝 Coupon Details</h3>
                 <div style={{ display: 'grid', gap: '8px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '9px', fontWeight: '600', marginBottom: '4px', color: textColor }}>Coupon Code <span style={{ color: '#ef4444' }}>*</span></label>
@@ -268,7 +268,7 @@ const AddCoupon = () => {
                         required
                         style={{ flex: 1, padding: '4px 8px', border: `1px solid ${errors.code ? '#ef4444' : borderColor}`, borderRadius: '5px', fontSize: '9px', background: inputBg, color: textColor, minHeight: '26px' }}
                       />
-                      <button type="button" onClick={generateCouponCode} style={{ padding: '4px 10px', background: '#FF8C00', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: '600', fontSize: '9px', display: 'flex', alignItems: 'center', gap: '4px', minHeight: '26px' }}>
+                      <button type="button" onClick={generateCouponCode} style={{ padding: '4px 10px', background: '#168CD6', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: '600', fontSize: '9px', display: 'flex', alignItems: 'center', gap: '4px', minHeight: '26px' }}>
                         <FiRefreshCw style={{ fontSize: '12px' }} /> Generate
                       </button>
                     </div>
@@ -516,7 +516,7 @@ const AddCoupon = () => {
             <button type="button" onClick={handleCancel} style={{ flex: 1, padding: '6px 12px', background: '#f1f5f9', color: '#64748b', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '10px', minHeight: '28px' }}>
               Cancel
             </button>
-            <button type="submit" disabled={loading} style={{ flex: 1, padding: '6px 12px', background: '#FF8C00', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', minHeight: '28px' }}>
+            <button type="submit" disabled={loading} style={{ flex: 1, padding: '6px 12px', background: '#168CD6', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600', fontSize: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', minHeight: '28px' }}>
               <FiSave style={{ fontSize: '12px' }} /> {loading ? 'Creating...' : 'Create Coupon'}
             </button>
           </div>

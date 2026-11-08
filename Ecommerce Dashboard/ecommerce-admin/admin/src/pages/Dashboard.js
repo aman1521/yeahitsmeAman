@@ -685,7 +685,7 @@ const Dashboard = () => {
                       marginBottom: '5px'
                     }}
                     itemStyle={{
-                      color: isDark ? '#FF8C00' : '#f97316',
+                      color: isDark ? '#168CD6' : '#f97316',
                       fontSize: '9px',
                       fontWeight: '600'
                     }}

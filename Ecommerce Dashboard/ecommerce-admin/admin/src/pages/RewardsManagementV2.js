@@ -437,7 +437,7 @@ const RewardsManagementV2 = () => {
       alignItems: 'center',
       gap: '8px',
       padding: '10px 20px',
-      background: '#FF8C00',
+      background: '#168CD6',
       border: 'none',
       borderRadius: '8px',
       cursor: 'pointer',
@@ -446,7 +446,7 @@ const RewardsManagementV2 = () => {
     },
     tabButton: (isActive) => ({
       padding: '12px 24px',
-      background: isActive ? '#FF8C00' : 'transparent',
+      background: isActive ? '#168CD6' : 'transparent',
       border: 'none',
       borderRadius: '8px',
       cursor: 'pointer',
@@ -546,22 +546,22 @@ const RewardsManagementV2 = () => {
               padding: '5px 10px',
               fontWeight: '600',
               fontSize: '9px',
-              background: 'linear-gradient(135deg, #FF8C00 0%, #ff9500 100%)',
+              background: 'linear-gradient(135deg, #168CD6 0%, #0F828A 100%)',
               color: 'white',
               border: 'none',
               minHeight: '24px',
               borderRadius: '6px',
-              boxShadow: '0 2px 4px rgba(255, 140, 0, 0.3)',
+              boxShadow: '0 2px 4px rgba(22, 140, 214, 0.3)',
               transition: 'all 0.2s ease'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, #ff9500 0%, #ffa500 100%)';
-              e.currentTarget.style.boxShadow = '0 3px 6px rgba(255, 140, 0, 0.4)';
+              e.currentTarget.style.background = 'linear-gradient(135deg, #0F828A 0%, #ffa500 100%)';
+              e.currentTarget.style.boxShadow = '0 3px 6px rgba(22, 140, 214, 0.4)';
               e.currentTarget.style.transform = 'translateY(-1px)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, #FF8C00 0%, #ff9500 100%)';
-              e.currentTarget.style.boxShadow = '0 2px 4px rgba(255, 140, 0, 0.3)';
+              e.currentTarget.style.background = 'linear-gradient(135deg, #168CD6 0%, #0F828A 100%)';
+              e.currentTarget.style.boxShadow = '0 2px 4px rgba(22, 140, 214, 0.3)';
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
@@ -587,7 +587,7 @@ const RewardsManagementV2 = () => {
               onClick={() => setActiveTab(tab)}
               style={{
                 padding: '5px 10px',
-                background: activeTab === tab ? 'linear-gradient(135deg, #FF8C00 0%, #ff9500 100%)' : 'transparent',
+                background: activeTab === tab ? 'linear-gradient(135deg, #168CD6 0%, #0F828A 100%)' : 'transparent',
                 border: 'none',
                 borderRadius: '6px',
                 cursor: 'pointer',
@@ -596,7 +596,7 @@ const RewardsManagementV2 = () => {
                 color: activeTab === tab ? 'white' : (isDark ? '#cbd5e1' : '#64748b'),
                 transition: 'all 0.2s ease',
                 minHeight: '24px',
-                boxShadow: activeTab === tab ? '0 2px 4px rgba(255, 140, 0, 0.3)' : 'none'
+                boxShadow: activeTab === tab ? '0 2px 4px rgba(22, 140, 214, 0.3)' : 'none'
               }}
               onMouseEnter={(e) => {
                 if (activeTab !== tab) {
@@ -625,7 +625,7 @@ const RewardsManagementV2 = () => {
             <StatCard 
               title="Total Points Issued"
               value={stats.totalIssued.toLocaleString()}
-              color="#FF8C00"
+              color="#168CD6"
               icon={<FiAward />}
               isDark={isDark}
             />
@@ -908,8 +908,8 @@ const UsersTab = ({ users, searchTerm, setSearchTerm, onViewDetails, isDark }) =
             onChange={(e) => setSearchTerm(e.target.value)}
             style={inputStyle}
             onFocus={(e) => {
-              e.target.style.border = '1px solid #FF8C00';
-              e.target.style.boxShadow = '0 0 0 3px rgba(255, 140, 0, 0.1)';
+              e.target.style.border = '1px solid #168CD6';
+              e.target.style.boxShadow = '0 0 0 3px rgba(22, 140, 214, 0.1)';
             }}
             onBlur={(e) => {
               e.target.style.border = `1px solid ${isDark ? '#334155' : '#e2e8f0'}`;
@@ -1010,7 +1010,7 @@ const UsersTab = ({ users, searchTerm, setSearchTerm, onViewDetails, isDark }) =
                     );
                   })()}
                 </td>
-                <td style={{ padding: '10px 12px', textAlign: 'right', fontWeight: '700', color: '#FF8C00', fontSize: '10px', lineHeight: '1.3' }}>
+                <td style={{ padding: '10px 12px', textAlign: 'right', fontWeight: '700', color: '#168CD6', fontSize: '10px', lineHeight: '1.3' }}>
                   {user.reward_points || 0}
                 </td>
                 <td style={{ padding: '10px 12px', textAlign: 'center' }}>
@@ -1021,23 +1021,23 @@ const UsersTab = ({ users, searchTerm, setSearchTerm, onViewDetails, isDark }) =
                       padding: '4px 10px',
                       fontSize: '8px',
                       fontWeight: '600',
-                      background: 'linear-gradient(135deg, #FF8C00 0%, #ff9500 100%)',
+                      background: 'linear-gradient(135deg, #168CD6 0%, #0F828A 100%)',
                       color: 'white',
                       border: 'none',
                       borderRadius: '5px',
                       cursor: 'pointer',
-                      boxShadow: '0 2px 4px rgba(255, 140, 0, 0.3)',
+                      boxShadow: '0 2px 4px rgba(22, 140, 214, 0.3)',
                       transition: 'all 0.2s ease',
                       minHeight: '22px'
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.background = 'linear-gradient(135deg, #ff9500 0%, #ffa500 100%)';
-                      e.currentTarget.style.boxShadow = '0 3px 6px rgba(255, 140, 0, 0.4)';
+                      e.currentTarget.style.background = 'linear-gradient(135deg, #0F828A 0%, #ffa500 100%)';
+                      e.currentTarget.style.boxShadow = '0 3px 6px rgba(22, 140, 214, 0.4)';
                       e.currentTarget.style.transform = 'translateY(-1px)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.background = 'linear-gradient(135deg, #FF8C00 0%, #ff9500 100%)';
-                      e.currentTarget.style.boxShadow = '0 2px 4px rgba(255, 140, 0, 0.3)';
+                      e.currentTarget.style.background = 'linear-gradient(135deg, #168CD6 0%, #0F828A 100%)';
+                      e.currentTarget.style.boxShadow = '0 2px 4px rgba(22, 140, 214, 0.3)';
                       e.currentTarget.style.transform = 'translateY(0)';
                     }}
                   >
@@ -1320,7 +1320,7 @@ const CampaignsTab = ({ campaigns, tiers, onRefresh, onEdit, onCreate, isDark })
             alignItems: 'center',
             gap: '4px',
             padding: '5px 10px',
-            background: '#FF8C00',
+            background: '#168CD6',
             color: 'white',
             border: 'none',
             borderRadius: '6px',
@@ -1328,17 +1328,17 @@ const CampaignsTab = ({ campaigns, tiers, onRefresh, onEdit, onCreate, isDark })
             fontWeight: '600',
             fontSize: '9px',
             minHeight: '24px',
-            boxShadow: '0 2px 4px rgba(255, 140, 0, 0.3)',
+            boxShadow: '0 2px 4px rgba(22, 140, 214, 0.3)',
             transition: 'all 0.2s ease'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = '#ff9500';
-            e.currentTarget.style.boxShadow = '0 3px 6px rgba(255, 140, 0, 0.4)';
+            e.currentTarget.style.background = '#0F828A';
+            e.currentTarget.style.boxShadow = '0 3px 6px rgba(22, 140, 214, 0.4)';
             e.currentTarget.style.transform = 'translateY(-1px)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = '#FF8C00';
-            e.currentTarget.style.boxShadow = '0 2px 4px rgba(255, 140, 0, 0.3)';
+            e.currentTarget.style.background = '#168CD6';
+            e.currentTarget.style.boxShadow = '0 2px 4px rgba(22, 140, 214, 0.3)';
             e.currentTarget.style.transform = 'translateY(0)';
           }}
         >
@@ -1657,7 +1657,7 @@ const CampaignsTab = ({ campaigns, tiers, onRefresh, onEdit, onCreate, isDark })
               <button
                 onClick={handleCreateCampaign}
                 disabled={creating || !formData.name || !formData.valid_from || !formData.valid_until}
-                style={{ flex: 1, padding: '10px', background: '#FF8C00', color: 'white', border: 'none', borderRadius: '8px', cursor: creating ? 'not-allowed' : 'pointer', fontWeight: '600', opacity: (!formData.name || !formData.valid_from || !formData.valid_until) ? 0.5 : 1 }}
+                style={{ flex: 1, padding: '10px', background: '#168CD6', color: 'white', border: 'none', borderRadius: '8px', cursor: creating ? 'not-allowed' : 'pointer', fontWeight: '600', opacity: (!formData.name || !formData.valid_from || !formData.valid_until) ? 0.5 : 1 }}
               >
                 {creating ? (editingCampaignId ? 'Saving...' : 'Creating...') : (editingCampaignId ? 'Save Changes' : 'Create Campaign')}
               </button>
@@ -1757,7 +1757,7 @@ const StackingInsightsTab = ({ isDark }) => {
           <StatCard 
             title="Avg Discount/Order"
             value={`₹${analytics.overview?.average_discount_per_order?.toFixed(2) || '0.00'}`}
-            color="#FF8C00"
+            color="#168CD6"
             icon={<FiDollarSign />}
             isDark={isDark}
           />
@@ -1836,7 +1836,7 @@ const StackingInsightsTab = ({ isDark }) => {
                     'paid': '#22c55e',
                     'completed': '#22c55e',
                     'pending': '#f59e0b',
-                    'processing': '#FF8C00',
+                    'processing': '#168CD6',
                     'shipped': '#8b5cf6',
                     'delivered': '#10b981',
                     'cancelled': '#ef4444',
@@ -1878,11 +1878,11 @@ const StackingInsightsTab = ({ isDark }) => {
                           background: trans.coupon_code && trans.coupon_code !== 'N/A' 
                             ? 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)' 
                             : (isDark ? '#334155' : '#f1f5f9'),
-                          color: trans.coupon_code && trans.coupon_code !== 'N/A' ? '#FF8C00' : (isDark ? '#94a3b8' : '#64748b'),
+                          color: trans.coupon_code && trans.coupon_code !== 'N/A' ? '#168CD6' : (isDark ? '#94a3b8' : '#64748b'),
                           borderRadius: '6px',
                           fontSize: '8px',
                           fontWeight: '700',
-                          boxShadow: trans.coupon_code && trans.coupon_code !== 'N/A' ? '0 1px 2px rgba(255, 140, 0, 0.2)' : 'none'
+                          boxShadow: trans.coupon_code && trans.coupon_code !== 'N/A' ? '0 1px 2px rgba(22, 140, 214, 0.2)' : 'none'
                         }}>
                           {trans.coupon_code || 'Manual Discount'}
                         </span>
@@ -1890,7 +1890,7 @@ const StackingInsightsTab = ({ isDark }) => {
                       <td style={{ ...tdStyle, textAlign: 'right', color: '#10b981', fontWeight: '700', fontSize: '10px' }}>
                         -₹{trans.coupon_discount ? trans.coupon_discount.toFixed(2) : '0.00'}
                       </td>
-                      <td style={{ ...tdStyle, textAlign: 'right', color: '#FF8C00', fontWeight: '700', fontSize: '10px' }}>
+                      <td style={{ ...tdStyle, textAlign: 'right', color: '#168CD6', fontWeight: '700', fontSize: '10px' }}>
                         {trans.reward_points_used || 0}
                       </td>
                       <td style={{ ...tdStyle, textAlign: 'right', color: '#f59e0b', fontWeight: '700', fontSize: '10px' }}>
@@ -1917,25 +1917,25 @@ const StackingInsightsTab = ({ isDark }) => {
                           onClick={() => setSelectedDetails(trans)}
                           style={{
                             padding: '4px 10px',
-                            background: 'linear-gradient(135deg, #FF8C00 0%, #ff9500 100%)',
+                            background: 'linear-gradient(135deg, #168CD6 0%, #0F828A 100%)',
                             color: 'white',
                             border: 'none',
                             borderRadius: '5px',
                             fontSize: '8px',
                             fontWeight: '600',
                             cursor: 'pointer',
-                            boxShadow: '0 2px 4px rgba(255, 140, 0, 0.3)',
+                            boxShadow: '0 2px 4px rgba(22, 140, 214, 0.3)',
                             transition: 'all 0.2s ease',
                             minHeight: '22px'
                           }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.background = 'linear-gradient(135deg, #ff9500 0%, #ffa500 100%)';
-                            e.currentTarget.style.boxShadow = '0 3px 6px rgba(255, 140, 0, 0.4)';
+                            e.currentTarget.style.background = 'linear-gradient(135deg, #0F828A 0%, #ffa500 100%)';
+                            e.currentTarget.style.boxShadow = '0 3px 6px rgba(22, 140, 214, 0.4)';
                             e.currentTarget.style.transform = 'translateY(-1px)';
                           }}
                           onMouseLeave={(e) => {
-                            e.currentTarget.style.background = 'linear-gradient(135deg, #FF8C00 0%, #ff9500 100%)';
-                            e.currentTarget.style.boxShadow = '0 2px 4px rgba(255, 140, 0, 0.3)';
+                            e.currentTarget.style.background = 'linear-gradient(135deg, #168CD6 0%, #0F828A 100%)';
+                            e.currentTarget.style.boxShadow = '0 2px 4px rgba(22, 140, 214, 0.3)';
                             e.currentTarget.style.transform = 'translateY(0)';
                           }}
                         >
@@ -1986,7 +1986,7 @@ const StackingInsightsTab = ({ isDark }) => {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px', background: isDark ? '#1e293b' : 'white', borderRadius: '8px' }}>
                   <span style={{ fontSize: '14px', color: isDark ? '#cbd5e1' : '#64748b' }}>Reward Points ({selectedDetails.reward_points_used || 0} pts)</span>
-                  <span style={{ fontSize: '16px', fontWeight: '700', color: '#FF8C00' }}>-₹{((selectedDetails.reward_points_used || 0) * 0.1).toFixed(2)}</span>
+                  <span style={{ fontSize: '16px', fontWeight: '700', color: '#168CD6' }}>-₹{((selectedDetails.reward_points_used || 0) * 0.1).toFixed(2)}</span>
                 </div>
                 <div style={{ borderTop: `2px solid ${isDark ? '#475569' : '#e2e8f0'}`, paddingTop: '12px', marginTop: '8px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -2099,7 +2099,7 @@ const ConfigSection = ({ title, config, setConfig, fields, isDark }) => {
                 outline: 'none'
               }}
               onFocus={(e) => {
-                e.target.style.border = '1px solid #FF8C00';
+                e.target.style.border = '1px solid #168CD6';
               }}
             />
           </div>
@@ -2198,7 +2198,7 @@ const ConfigModal = ({ config, setConfig, onClose, onSave, isDark }) => {
             style={{
               flex: 1,
               padding: '6px 12px',
-              background: '#FF8C00',
+              background: '#168CD6',
               color: 'white',
               border: 'none',
               borderRadius: '6px',
@@ -2307,7 +2307,7 @@ const UserDetailsModal = ({ user, userDetails, loading, onClose, onRefresh, onAd
               <SummaryCard 
                 title="Available Points"
                 value={userDetails.balance?.available_points || 0}
-                color="#FF8C00"
+                color="#168CD6"
               />
               <SummaryCard 
                 title="Points Earned"
@@ -2448,7 +2448,7 @@ const UserDetailsModal = ({ user, userDetails, loading, onClose, onRefresh, onAd
                 onClick={() => setShowAdjustForm(!showAdjustForm)}
                 style={{
                   padding: '10px 20px',
-                  background: '#FF8C00',
+                  background: '#168CD6',
                   color: 'white',
                   border: 'none',
                   borderRadius: '8px',
@@ -2511,7 +2511,7 @@ const UserDetailsModal = ({ user, userDetails, loading, onClose, onRefresh, onAd
                     disabled={!adjustForm.points_delta || !adjustForm.reason}
                     style={{
                       padding: '10px 20px',
-                      background: adjustForm.points_delta && adjustForm.reason ? '#FF8C00' : '#e2e8f0',
+                      background: adjustForm.points_delta && adjustForm.reason ? '#168CD6' : '#e2e8f0',
                       color: adjustForm.points_delta && adjustForm.reason ? 'white' : '#94a3b8',
                       border: 'none',
                       borderRadius: '8px',
@@ -2728,7 +2728,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
                 onClick={() => setActiveSection(section.id)}
                 style={{
                   padding: '6px 12px',
-                  background: activeSection === section.id ? '#FF8C00' : 'transparent',
+                  background: activeSection === section.id ? '#168CD6' : 'transparent',
                   color: activeSection === section.id ? 'white' : '#64748b',
                   border: 'none',
                   borderRadius: '6px',
@@ -2753,7 +2753,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
                 borderRadius: '8px',
                 border: `1px solid ${borderColor}`
               }}>
-                <h3 style={{ fontSize: '11px', fontWeight: '700', marginBottom: '10px', color: '#FF8C00' }}>📝 Tier Details</h3>
+                <h3 style={{ fontSize: '11px', fontWeight: '700', marginBottom: '10px', color: '#168CD6' }}>📝 Tier Details</h3>
                 <div style={{ display: 'grid', gap: '10px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '9px', fontWeight: '600', marginBottom: '6px', color: textColor }}>Tier Name <span style={{ color: '#ef4444' }}>*</span></label>
@@ -2843,7 +2843,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
                         placeholder="Add a perk (e.g., Free Shipping)"
                         style={{ flex: 1, padding: '12px 16px', border: `2px solid ${borderColor}`, borderRadius: '8px', fontSize: '14px', background: inputBg, color: textColor }}
                       />
-                      <button type="button" onClick={addPerk} style={{ padding: '12px 20px', background: '#FF8C00', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>
+                      <button type="button" onClick={addPerk} style={{ padding: '12px 20px', background: '#168CD6', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>
                         Add
                       </button>
                     </div>
@@ -2924,7 +2924,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
             <button type="button" onClick={onClose} style={{ flex: 1, padding: '12px', background: '#f1f5f9', color: '#64748b', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>
               Cancel
             </button>
-            <button type="submit" disabled={saving} style={{ flex: 1, padding: '12px', background: '#FF8C00', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+            <button type="submit" disabled={saving} style={{ flex: 1, padding: '12px', background: '#168CD6', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
               <FiSave /> {saving ? 'Saving...' : (tier ? 'Update Tier' : 'Create Tier')}
             </button>
           </div>
@@ -3040,7 +3040,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
                 onClick={() => setActiveSection(section.id)}
                 style={{
                   padding: '6px 12px',
-                  background: activeSection === section.id ? '#FF8C00' : 'transparent',
+                  background: activeSection === section.id ? '#168CD6' : 'transparent',
                   color: activeSection === section.id ? 'white' : '#64748b',
                   border: 'none',
                   borderRadius: '8px',
@@ -3060,7 +3060,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
           <div style={{ display: 'grid', gap: '24px' }}>
             {activeSection === 'basic' && (
               <div style={{ padding: '20px', background: '#ffffff', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#FF8C00' }}>📝 Campaign Details</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#168CD6' }}>📝 Campaign Details</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: textColor }}>Campaign Name <span style={{ color: '#ef4444' }}>*</span></label>
@@ -3192,8 +3192,8 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
                         {['bronze', 'silver', 'gold', 'platinum'].map(tier => {
                           const isSelected = formData.applicable_tiers.includes(tier);
                           return (
-                            <label key={tier} style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', padding: '12px 20px', borderRadius: '10px', background: '#ffffff', border: `2px solid ${isSelected ? '#FF8C00' : borderColor}`, textTransform: 'capitalize', fontWeight: isSelected ? '700' : '600' }}>
-                              <input type="checkbox" checked={isSelected} onChange={() => toggleTier(tier)} style={{ width: '18px', height: '18px', cursor: 'pointer', accentColor: '#FF8C00' }} />
+                            <label key={tier} style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', padding: '12px 20px', borderRadius: '10px', background: '#ffffff', border: `2px solid ${isSelected ? '#168CD6' : borderColor}`, textTransform: 'capitalize', fontWeight: isSelected ? '700' : '600' }}>
+                              <input type="checkbox" checked={isSelected} onChange={() => toggleTier(tier)} style={{ width: '18px', height: '18px', cursor: 'pointer', accentColor: '#168CD6' }} />
                               <span style={{ fontSize: '14px', color: textColor }}>{tier.charAt(0).toUpperCase() + tier.slice(1)}</span>
                             </label>
                           );
@@ -3249,8 +3249,8 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
                         <input type="checkbox" checked={formData.stackable} onChange={(e) => setFormData(prev => ({ ...prev, stackable: e.target.checked }))} style={{ width: '20px', height: '20px', cursor: 'pointer', accentColor: '#8b5cf6' }} />
                         <span style={{ fontSize: '14px', fontWeight: '600', color: textColor }}>Stackable (can combine with other campaigns)</span>
                       </label>
-                      <label style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', padding: '12px', borderRadius: '8px', background: '#ffffff', border: `1px solid ${formData.auto_apply ? '#FF8C00' : borderColor}` }}>
-                        <input type="checkbox" checked={formData.auto_apply} onChange={(e) => setFormData(prev => ({ ...prev, auto_apply: e.target.checked }))} style={{ width: '20px', height: '20px', cursor: 'pointer', accentColor: '#FF8C00' }} />
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', padding: '12px', borderRadius: '8px', background: '#ffffff', border: `1px solid ${formData.auto_apply ? '#168CD6' : borderColor}` }}>
+                        <input type="checkbox" checked={formData.auto_apply} onChange={(e) => setFormData(prev => ({ ...prev, auto_apply: e.target.checked }))} style={{ width: '20px', height: '20px', cursor: 'pointer', accentColor: '#168CD6' }} />
                         <span style={{ fontSize: '14px', fontWeight: '600', color: textColor }}>Auto-Apply (automatically applied when conditions are met)</span>
                       </label>
                     </div>
@@ -3264,7 +3264,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
             <button type="button" onClick={onClose} style={{ flex: 1, padding: '12px', background: '#f1f5f9', color: '#64748b', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>
               Cancel
             </button>
-            <button type="submit" disabled={saving} style={{ flex: 1, padding: '12px', background: '#FF8C00', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+            <button type="submit" disabled={saving} style={{ flex: 1, padding: '12px', background: '#168CD6', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
               <FiSave /> {saving ? 'Saving...' : (campaign ? 'Update Campaign' : 'Create Campaign')}
             </button>
           </div>
@@ -3769,7 +3769,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px' }}>
                 <div>
                   <span style={{ fontSize: '12px', color: '#64748b' }}>Available Points:</span>
-                  <div style={{ fontSize: '20px', fontWeight: '700', color: '#FF8C00' }}>{userDetails.balance.available_points}</div>
+                  <div style={{ fontSize: '20px', fontWeight: '700', color: '#168CD6' }}>{userDetails.balance.available_points}</div>
                 </div>
                 <div>
                   <span style={{ fontSize: '12px', color: '#64748b' }}>Points Value:</span>
@@ -4015,7 +4015,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
               style={{
                 width: '100%',
                 padding: '12px',
-                background: loading || !testCouponCode || parseInt(testRewardPoints) === 0 ? '#94a3b8' : '#FF8C00',
+                background: loading || !testCouponCode || parseInt(testRewardPoints) === 0 ? '#94a3b8' : '#168CD6',
                 color: 'white',
                 border: 'none',
                 borderRadius: '8px',
@@ -4293,7 +4293,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
                       </p>
                       {orderTestResult.points_granted > 0 && (
                         <>
-                          <p style={{ margin: '8px 0 0 0', color: '#FF8C00', fontWeight: '600', fontSize: '13px' }}>
+                          <p style={{ margin: '8px 0 0 0', color: '#168CD6', fontWeight: '600', fontSize: '13px' }}>
                             ✨ <strong>Reward Points Granted:</strong> {orderTestResult.points_granted} points
                           </p>
                           {orderTestResult.applied_campaigns && orderTestResult.applied_campaigns.length > 0 && (
@@ -4378,7 +4378,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
               </p>
             </div>
             <div>
-              <strong style={{ color: '#FF8C00' }}>4. Transaction Logging:</strong>
+              <strong style={{ color: '#168CD6' }}>4. Transaction Logging:</strong>
               <p style={{ marginTop: '4px', color: '#64748b' }}>
                 All reward transactions (earned, used, adjusted) are logged in the reward_transactions table
                 with complete details including reference order, points, balance after, and timestamp.
