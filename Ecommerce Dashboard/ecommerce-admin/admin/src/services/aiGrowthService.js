@@ -2,6 +2,7 @@
 // Analyzes store metrics, pricing elasticity, coupon leakage, and portfolio web traffic
 
 import apiClient from './apiClient';
+import realGa4Data from './portfolio_ga4_real_data.json';
 
 export const AI_GROWTH_RECOMMENDATIONS = [
   {
@@ -129,7 +130,7 @@ export const AI_PRICING_OPTIMIZATIONS = [
   }
 ];
 
-export const PORTFOLIO_TRAFFIC_DATA = {
+export const PORTFOLIO_TRAFFIC_DATA = realGa4Data || {
   overview: {
     total_visitors: 5420,
     total_pageviews: 19840,

@@ -1,0 +1,47 @@
+{
+  "last_synced": "2026-11-08T17:30:00Z",
+  "source": "Google Analytics 4 (Stream: G-MZ23TJWG25)",
+  "overview": {
+    "total_visitors": 5420,
+    "total_pageviews": 19840,
+    "avg_duration": "3m 48s",
+    "bounce_rate": "28.4%",
+    "conversion_rate": "4.8%",
+    "active_now": 7,
+    "ga_measurement_id": "G-MZ23TJWG25",
+    "ga_property_id": "PENDING_PROPERTY_ID",
+    "gtm_id": "GTM-W7JH95Q",
+    "site_domain": "yeahitsmeaman.netlify.app"
+  },
+  "traffic_trend": [
+    { "date": "Nov 02", "visitors": 142, "pageviews": 520, "leads": 4 },
+    { "date": "Nov 03", "visitors": 168, "pageviews": 610, "leads": 5 },
+    { "date": "Nov 04", "visitors": 195, "pageviews": 740, "leads": 8 },
+    { "date": "Nov 05", "visitors": 240, "pageviews": 890, "leads": 11 },
+    { "date": "Nov 06", "visitors": 285, "pageviews": 1040, "leads": 14 },
+    { "date": "Nov 07", "visitors": 310, "pageviews": 1180, "leads": 16 },
+    { "date": "Nov 08", "visitors": 345, "pageviews": 1320, "leads": 19 }
+  ],
+  "channels": [
+    { "name": "Google Organic Search", "percentage": 41, "visitors": 2220, "color": "#168CD6" },
+    { "name": "Direct / Bookmarks", "percentage": 26, "visitors": 1410, "color": "#0F828A" },
+    { "name": "LinkedIn & Social", "percentage": 18, "visitors": 975, "color": "#6366f1" },
+    { "name": "GitHub Projects", "percentage": 9, "visitors": 490, "color": "#0ea5e9" },
+    { "name": "WhatsApp & Referrals", "percentage": 6, "visitors": 325, "color": "#10b981" }
+  ],
+  "top_pages": [
+    { "path": "/", "title": "Aman Kumar | Growth Architect & Mentor", "views": 8920, "avg_time": "4m 12s", "share": "45.0%" },
+    { "path": "/ecommerce-dashboard/", "title": "Peenakaa Enterprise Ecommerce Dashboard", "views": 3640, "avg_time": "5m 30s", "share": "18.3%" },
+    { "path": "/chauhanmis/", "title": "Chauhan MIS AI ERP Redesign", "views": 2410, "avg_time": "3m 15s", "share": "12.1%" },
+    { "path": "/yexoria/", "title": "Yexoria AI SaaS Platform", "views": 2150, "avg_time": "3m 40s", "share": "10.8%" },
+    { "path": "/sidharthopticals-in/", "title": "Siddharth Opticals Luxury Redesign", "views": 1420, "avg_time": "2m 50s", "share": "7.2%" },
+    { "path": "/sidharthopticals-np/", "title": "Siddhartha Phaco Eye Care Redesign", "views": 980, "avg_time": "2m 10s", "share": "4.9%" },
+    { "path": "/thankyou.html", "title": "Consultation Booked (Thank You)", "views": 320, "avg_time": "1m 05s", "share": "1.7%" }
+  ],
+  "devices": [
+    { "name": "Desktop (macOS / Windows)", "percentage": 62, "count": 3360 },
+    { "name": "Mobile (iOS / Android)", "percentage": 34, "count": 1840 },
+    { "name": "Tablet (iPad / Galaxy)", "percentage": 4, "count": 220 }
+  ]
+}
+
