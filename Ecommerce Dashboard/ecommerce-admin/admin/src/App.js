@@ -7,6 +7,7 @@ import { GlobalCurrencyProvider } from './contexts/GlobalCurrencyContext';
 import enterpriseTracker from './utils/enterpriseSessionTracker';
 import SessionTracker from './utils/sessionTracker';
 import Layout from './components/Layout';
+import ErrorBoundary from './components/common/ErrorBoundary';
 import './App.css';
 import './Typography.css';
 
@@ -123,54 +124,56 @@ function App() {
             <RouteTracker />
             <div className="App">
               <Toaster position="top-right" />
-              <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route path="/reset-password" element={<ResetPassword />} />
-                <Route
-                  path="/"
-                  element={
-                    <ProtectedRoute>
-                      <Layout />
-                    </ProtectedRoute>
-                  }
-                >
-                  <Route index element={<Dashboard />} />
-                  <Route path="dashboard" element={<Dashboard />} />
-                  <Route path="analytics" element={<Analytics />} />
-                  <Route path="portfolio-traffic" element={<Analytics defaultTab="portfolio" />} />
-                  <Route path="revenue" element={<RevenueAnalytics />} />
-                  <Route path="revenue/analytics" element={<RevenueAnalytics />} />
-                  <Route path="revenue/reports" element={<RevenueReports />} />
-                  <Route path="revenue/settings" element={<RevenueSettings />} />
-                  <Route path="tenants" element={<TenantManagement />} />
-                  <Route path="products" element={<Products />} />
-                  <Route path="products/add" element={<AddProduct />} />
-                  <Route path="products/edit/:id" element={<EditProduct />} />
-                  <Route path="products/categories" element={<Categories />} />
-                  <Route path="products/packs" element={<ProductPacks />} />
-                  <Route path="products/colors" element={<Colors />} />
-                  <Route path="products/sizes" element={<Sizes />} />
-                  <Route path="orders" element={<Orders />} />
-                  <Route path="users" element={<Users />} />
-                  <Route path="coupons" element={<Coupons />} />
-                  <Route path="coupons/add" element={<AddCoupon />} />
-                  <Route path="coupons/edit/:id" element={<EditCoupon />} />
-                  <Route path="coupons/view" element={<Coupons />} />
-                  <Route path="customers" element={<Users />} />
-                  <Route path="invoices" element={<Invoices />} />
-                  <Route path="reports" element={<Analytics />} />
-                  <Route path="payment" element={<Payment />} />
-                  <Route path="settings" element={<Settings />} />
-                  <Route path="rewards" element={<RewardsManagement />} />
-                  <Route path="currency-management" element={<CurrencyManagement />} />
-                  <Route path="tax-management" element={<TaxManagement />} />
-                  <Route path="enterprise-pricing" element={<EnterprisePricing />} />
-                  <Route path="health-benefits" element={<HealthBenefits />} />
-                  <Route path="sessions" element={<UserSessions />} />
-                  <Route path="activity-log" element={<UserActions />} />
-                </Route>
-              </Routes>
+              <ErrorBoundary>
+                <Routes>
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/forgot-password" element={<ForgotPassword />} />
+                  <Route path="/reset-password" element={<ResetPassword />} />
+                  <Route
+                    path="/"
+                    element={
+                      <ProtectedRoute>
+                        <Layout />
+                      </ProtectedRoute>
+                    }
+                  >
+                    <Route index element={<Dashboard />} />
+                    <Route path="dashboard" element={<Dashboard />} />
+                    <Route path="analytics" element={<Analytics />} />
+                    <Route path="portfolio-traffic" element={<Analytics defaultTab="portfolio" />} />
+                    <Route path="revenue" element={<RevenueAnalytics />} />
+                    <Route path="revenue/analytics" element={<RevenueAnalytics />} />
+                    <Route path="revenue/reports" element={<RevenueReports />} />
+                    <Route path="revenue/settings" element={<RevenueSettings />} />
+                    <Route path="tenants" element={<TenantManagement />} />
+                    <Route path="products" element={<Products />} />
+                    <Route path="products/add" element={<AddProduct />} />
+                    <Route path="products/edit/:id" element={<EditProduct />} />
+                    <Route path="products/categories" element={<Categories />} />
+                    <Route path="products/packs" element={<ProductPacks />} />
+                    <Route path="products/colors" element={<Colors />} />
+                    <Route path="products/sizes" element={<Sizes />} />
+                    <Route path="orders" element={<Orders />} />
+                    <Route path="users" element={<Users />} />
+                    <Route path="coupons" element={<Coupons />} />
+                    <Route path="coupons/add" element={<AddCoupon />} />
+                    <Route path="coupons/edit/:id" element={<EditCoupon />} />
+                    <Route path="coupons/view" element={<Coupons />} />
+                    <Route path="customers" element={<Users />} />
+                    <Route path="invoices" element={<Invoices />} />
+                    <Route path="reports" element={<Analytics />} />
+                    <Route path="payment" element={<Payment />} />
+                    <Route path="settings" element={<Settings />} />
+                    <Route path="rewards" element={<RewardsManagement />} />
+                    <Route path="currency-management" element={<CurrencyManagement />} />
+                    <Route path="tax-management" element={<TaxManagement />} />
+                    <Route path="enterprise-pricing" element={<EnterprisePricing />} />
+                    <Route path="health-benefits" element={<HealthBenefits />} />
+                    <Route path="sessions" element={<UserSessions />} />
+                    <Route path="activity-log" element={<UserActions />} />
+                  </Route>
+                </Routes>
+              </ErrorBoundary>
             </div>
       </Router>
         </GlobalCurrencyProvider>

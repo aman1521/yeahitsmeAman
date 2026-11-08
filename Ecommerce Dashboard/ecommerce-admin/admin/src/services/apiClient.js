@@ -4,25 +4,13 @@
  */
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { ENV } from '../config/env';
 import resolveApiBaseUrl from '../utils/resolveApiBaseUrl';
 import { getDemoResponse } from './demoMockData';
 
 // Create centralized API client with proxy routing
-// Use resolved URL if configured, or /api for relative/proxy connection
-const getBaseURL = () => {
-  const envUrl = process.env.REACT_APP_API_URL || process.env.REACT_APP_API_BASE_URL;
-  if (envUrl && envUrl.trim() && !envUrl.includes('127.0.0.1') && !envUrl.includes('localhost')) {
-    return envUrl.trim().replace(/\/+$/, '');
-  }
-  // In browser, use /api as baseURL so requests go through proxy or Netlify redirects
-  if (typeof window !== 'undefined') {
-    return '/api';
-  }
-  return resolveApiBaseUrl();
-};
-
 const apiClient = axios.create({
-  baseURL: getBaseURL(),
+  baseURL: ENV.API_BASE_URL,
   headers: {
     'Content-Type': 'application/json'
   }
