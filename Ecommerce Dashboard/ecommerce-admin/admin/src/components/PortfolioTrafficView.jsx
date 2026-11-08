@@ -37,7 +37,7 @@ const PortfolioTrafficView = () => {
     total_visitors: data?.overview?.total_visitors || '',
     total_pageviews: data?.overview?.total_pageviews || '',
     avg_duration: data?.overview?.avg_duration || '',
-    ga_property_id: data?.overview?.ga_property_id || '',
+    ga_property_id: data?.overview?.ga_property_id || '255419479',
     service_account_json: ''
   });
 
@@ -111,7 +111,7 @@ const PortfolioTrafficView = () => {
               </span>
             </div>
             <div style={{ fontSize: '12px', color: '#64748B', marginTop: '2px' }}>
-              Linked Site: <strong style={{ color: '#0F172A' }}>{data.overview.site_domain}</strong> • Stream: <code style={{ color: '#168CD6' }}>{data.overview.ga_measurement_id}</code> • GTM: <code style={{ color: '#0F828A' }}>{data.overview.gtm_id}</code>
+              Linked Site: <strong style={{ color: '#0F172A' }}>{data.overview.site_domain}</strong> • GA4 Property: <code style={{ color: '#10B981', fontWeight: '700' }}>255419479</code> • Stream: <code style={{ color: '#168CD6' }}>{data.overview.ga_measurement_id}</code> • GTM: <code style={{ color: '#0F828A' }}>{data.overview.gtm_id}</code>
             </div>
           </div>
         </div>
