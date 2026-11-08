@@ -144,10 +144,10 @@ except Exception:
 
 # Initialize Extensions
 CORS(app, resources={
-    r"/api/*": {
+    r"/*": {
         "origins": "*",
         "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-        "allow_headers": ["Content-Type", "Authorization"],
+        "allow_headers": ["Content-Type", "Authorization", "site_id", "X-Requested-With"],
         "expose_headers": ["Content-Type", "Authorization"],
         "supports_credentials": True
     }
@@ -26042,7 +26042,43 @@ if __name__ == '__main__':
             print(f"[Reward History] Error: {str(e)}")
             return jsonify({'history': []}), 200
     
+    # ==================== PORTFOLIO LEADS ENDPOINT ====================
+    @app.route('/api/portfolio/leads', methods=['GET'])
+    @app.route('/portfolio/leads', methods=['GET'])
+    def get_portfolio_leads():
+        import sqlite3
+        try:
+            candidates = [
+                os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'leads.db'),
+                os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leads.db'),
+                'leads.db'
+            ]
+            for p in candidates:
+                if os.path.exists(p):
+                    conn = sqlite3.connect(p)
+                    cur = conn.cursor()
+                    cur.execute('SELECT id, name, email, url, phone, role, timestamp FROM leads ORDER BY id DESC')
+                    rows = cur.fetchall()
+                    conn.close()
+                    leads = [{
+                        'id': r[0],
+                        'name': r[1],
+                        'email': r[2],
+                        'url': r[3],
+                        'phone': r[4],
+                        'role': r[5],
+                        'created_at': r[6]
+                    } for r in rows]
+                    return jsonify({'success': True, 'leads': leads, 'total': len(leads)}), 200
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)}), 500
+        return jsonify({'success': True, 'leads': [], 'total': 0}), 200
+
     # ==================== END REWARDS PROGRAM ENDPOINTS ====================
-    
+
     # Run app
-    app.run(host='0.0.0.0', port=8800, debug=True)      
+    port = int(os.environ.get('PORT', os.environ.get('Flask_PORT', 8800)))
+    debug_mode = os.environ.get('FLASK_DEBUG', 'False').lower() in ('true', '1')
+    print(f"🚀 Starting Ecommerce Admin Server on port {port} (debug={debug_mode})")
+    app.run(host='0.0.0.0', port=port, debug=debug_mode)
+      

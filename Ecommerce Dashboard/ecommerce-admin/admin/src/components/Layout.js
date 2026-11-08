@@ -205,7 +205,7 @@ const Layout = () => {
         { name: 'Health Benefits', href: '/health-benefits' }
       ]
     },
-    { name: 'Customers', href: '/users', icon: FiUsers },
+    { name: 'Customers & Leads', href: '/users', icon: FiUsers },
     ...(user?.is_super_admin ? [
       { name: 'User Sessions', href: '/sessions', icon: FiActivity },
       { name: 'Activity Log', href: '/activity-log', icon: FiFileText }
