@@ -22,6 +22,7 @@ import {
 } from 'recharts';
 import toast from 'react-hot-toast';
 import { PORTFOLIO_TRAFFIC_DATA } from '../services/aiGrowthService';
+import { requestGoogleAnalyticsAccess, GA4_CONFIG } from '../services/ga4Service';
 
 const PortfolioTrafficView = () => {
   const [data, setData] = useState(() => {
@@ -33,6 +34,7 @@ const PortfolioTrafficView = () => {
   });
   const [chartMetric, setChartMetric] = useState('pageviews'); // 'visitors' or 'pageviews'
   const [showSyncModal, setShowSyncModal] = useState(false);
+  const [isAuthorizing, setIsAuthorizing] = useState(false);
   const [syncForm, setSyncForm] = useState({
     total_visitors: data?.overview?.total_visitors || '',
     total_pageviews: data?.overview?.total_pageviews || '',
@@ -40,6 +42,24 @@ const PortfolioTrafficView = () => {
     ga_property_id: data?.overview?.ga_property_id || '255419479',
     service_account_json: ''
   });
+
+  const handleGoogleOAuthSync = () => {
+    setIsAuthorizing(true);
+    requestGoogleAnalyticsAccess(
+      (liveData) => {
+        setIsAuthorizing(false);
+        setData(liveData);
+        localStorage.setItem('custom_ga4_real_data', JSON.stringify(liveData));
+        setShowSyncModal(false);
+        toast.success(`Connected to Google Analytics 4! Live data loaded for Property ${liveData.overview.ga_property_id}.`);
+      },
+      (errorMsg) => {
+        setIsAuthorizing(false);
+        console.error('[Google OAuth Error]', errorMsg);
+        toast.error(`Google Sign-In: ${errorMsg}`, { duration: 6000 });
+      }
+    );
+  };
 
   const handleSaveRealNumbers = (e) => {
     e?.preventDefault();
@@ -454,9 +474,58 @@ const PortfolioTrafficView = () => {
               </button>
             </div>
 
+            {/* Google OAuth Live Button */}
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(66, 133, 244, 0.08) 0%, rgba(52, 168, 83, 0.08) 100%)',
+              border: '1px solid rgba(66, 133, 244, 0.3)',
+              borderRadius: '12px',
+              padding: '16px',
+              marginBottom: '16px'
+            }}>
+              <div style={{ fontSize: '12px', fontWeight: '700', color: '#1E293B', marginBottom: '4px' }}>
+                ⚡ Option 1: 1-Click Live OAuth Sync (Google Account)
+              </div>
+              <p style={{ fontSize: '11px', color: '#64748B', margin: '0 0 12px 0' }}>
+                Sign in with the Google account managing GA4 Property <strong>255419479</strong> to stream live metrics directly from Google Analytics.
+              </p>
+              <button
+                type="button"
+                onClick={handleGoogleOAuthSync}
+                disabled={isAuthorizing}
+                style={{
+                  width: '100%',
+                  padding: '11px 16px',
+                  background: '#FFFFFF',
+                  color: '#1E293B',
+                  border: '1px solid #CBD5E1',
+                  borderRadius: '8px',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '10px',
+                  cursor: isAuthorizing ? 'wait' : 'pointer',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.06)'
+                }}
+              >
+                <svg width="18" height="18" viewBox="0 0 18 18">
+                  <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.616z"/>
+                  <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
+                  <path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.039l3.007-2.332z"/>
+                  <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.961L3.964 7.293C4.672 5.166 6.656 3.58 9 3.58z"/>
+                </svg>
+                {isAuthorizing ? 'Connecting to Google API...' : 'Authorize Live GA4 (Client ID: 611341975318)'}
+              </button>
+            </div>
+
+            <div style={{ textAlign: 'center', fontSize: '11px', color: '#94A3B8', fontWeight: '600', marginBottom: '14px' }}>
+              — OR OPTION 2: ENTER ACTUAL NUMBERS MANUALLY —
+            </div>
+
             <form onSubmit={handleSaveRealNumbers} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
               <div style={{ background: '#F8FAFC', padding: '12px 14px', borderRadius: '10px', border: '1px solid #E2E8F0', fontSize: '12px', color: '#475569' }}>
-                💡 <strong>Option A (Immediate):</strong> Enter your actual live figures from your GA4 dashboard to immediately update all dashboard charts and metrics.
+                💡 <strong>Instant Override:</strong> Type your actual live figures from your GA4 screen to immediately update all dashboard charts and metrics.
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
