@@ -1,0 +1,5 @@
+/admin           /ecommerce-dashboard/login        302
+/admin/          /ecommerce-dashboard/login        302
+/admin/*         /ecommerce-dashboard/index.html   200
+/ecommerce-dashboard/*    /ecommerce-dashboard/index.html   200
+

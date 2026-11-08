@@ -17,10 +17,14 @@ import { useGlobalCurrency } from '../contexts/GlobalCurrencyContext';
 import { useAuth } from '../contexts/AuthContext';
 import apiClient from '../services/apiClient';
 import AIGrowthBriefing from '../components/AIGrowthBriefing';
+import PortfolioTrafficView from '../components/PortfolioTrafficView';
+import { REAL_PORTFOLIO_LEADS } from '../services/customerService';
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const { isDark } = useTheme();
+  const { isDemoMode } = useAuth();
+  const currentDemoMode = isDemoMode !== undefined ? isDemoMode : localStorage.getItem('demo_mode') === 'true';
   const { formatAmount, selectedCurrency, currencySymbol } = useGlobalCurrency();
   // activeSiteId and siteVersion removed - multi-tenancy removed
   const [stats, setStats] = useState({
@@ -427,6 +431,98 @@ const Dashboard = () => {
   const chartSpanDays = rangeMeta?.range?.days ?? (rangeMode === 'custom' && customRange.start && customRange.end
     ? computedCustomSpan()
     : parseInt(salesChartPeriod, 10));
+
+  if (!currentDemoMode) {
+    return (
+      <div className="dashboard-page" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {/* GA4 Real Live Traffic Intelligence */}
+        <PortfolioTrafficView />
+
+        {/* Real Client Inquiries Table from leads.db */}
+        <div style={{
+          background: '#FFFFFF',
+          border: '1px solid #E2E8F0',
+          borderRadius: '14px',
+          padding: '20px',
+          boxShadow: '0 1px 3px rgba(15, 23, 42, 0.04)'
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <h3 style={{ fontSize: '15px', fontWeight: '700', color: '#0F172A', margin: 0 }}>
+                  Recent Client Inquiries &amp; Consultations
+                </h3>
+                <span style={{ fontSize: '11px', padding: '2px 8px', borderRadius: '12px', background: '#ECFDF5', color: '#065F46', fontWeight: '600' }}>
+                  Live SQLite leads.db
+                </span>
+              </div>
+              <p style={{ fontSize: '12px', color: '#64748B', margin: '3px 0 0 0' }}>
+                Verified inquiries received via your portfolio contact forms &amp; booking channels
+              </p>
+            </div>
+            <button
+              onClick={() => navigate('/users')}
+              style={{
+                padding: '6px 14px',
+                fontSize: '12px',
+                fontWeight: '600',
+                background: 'rgba(22, 140, 214, 0.08)',
+                color: '#168CD6',
+                border: '1px solid rgba(22, 140, 214, 0.3)',
+                borderRadius: '8px',
+                cursor: 'pointer'
+              }}
+            >
+              View All Inquiries →
+            </button>
+          </div>
+
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '12px' }}>
+              <thead>
+                <tr style={{ borderBottom: '1px solid #E2E8F0', color: '#64748B', fontSize: '11px', textTransform: 'uppercase' }}>
+                  <th style={{ padding: '10px 12px' }}>Client / Company</th>
+                  <th style={{ padding: '10px 12px' }}>Email</th>
+                  <th style={{ padding: '10px 12px' }}>Phone</th>
+                  <th style={{ padding: '10px 12px' }}>Project Scope</th>
+                  <th style={{ padding: '10px 12px' }}>Source / Dept</th>
+                  <th style={{ padding: '10px 12px' }}>Date</th>
+                  <th style={{ padding: '10px 12px' }}>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {REAL_PORTFOLIO_LEADS.slice(0, 5).map(lead => (
+                  <tr key={lead.id} style={{ borderBottom: '1px solid #F1F5F9' }}>
+                    <td style={{ padding: '12px', fontWeight: '600', color: '#0F172A' }}>{lead.name}</td>
+                    <td style={{ padding: '12px' }}>
+                      <a href={`mailto:${lead.email}`} style={{ color: '#168CD6', textDecoration: 'none' }}>{lead.email}</a>
+                    </td>
+                    <td style={{ padding: '12px', color: '#475569' }}>{lead.phone}</td>
+                    <td style={{ padding: '12px', color: '#0F172A', fontWeight: '500' }}>{lead.url}</td>
+                    <td style={{ padding: '12px', color: '#64748B' }}>{lead.role}</td>
+                    <td style={{ padding: '12px', color: '#64748B' }}>{lead.timestamp.split(' ')[0]}</td>
+                    <td style={{ padding: '12px' }}>
+                      <span style={{
+                        padding: '3px 8px',
+                        borderRadius: '12px',
+                        fontSize: '11px',
+                        fontWeight: '600',
+                        background: lead.status === 'High Priority' ? '#FEF2F2' : '#F0FDF4',
+                        color: lead.status === 'High Priority' ? '#DC2626' : '#16A34A',
+                        border: `1px solid ${lead.status === 'High Priority' ? '#FCA5A5' : '#BBF7D0'}`
+                      }}>
+                        {lead.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="dashboard-page">

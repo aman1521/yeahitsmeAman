@@ -14,13 +14,16 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import toast from 'react-hot-toast';
 import { useGlobalCurrency } from '../contexts/GlobalCurrencyContext';
 import { useTheme } from '../contexts/ThemeContext';
+import { useAuth } from '../contexts/AuthContext';
 import apiClient from '../services/apiClient';
 import PortfolioTrafficView from '../components/PortfolioTrafficView';
 
 const Analytics = ({ defaultTab = 'ecommerce' }) => {
+  const { isDemoMode } = useAuth();
+  const currentDemoMode = isDemoMode !== undefined ? isDemoMode : localStorage.getItem('demo_mode') === 'true';
   const { formatAmount, currencySymbol, currencyName, selectedCurrency } = useGlobalCurrency();
   const { isDark } = useTheme();
-  const [analyticsTab, setAnalyticsTab] = useState(defaultTab); // 'ecommerce' | 'portfolio'
+  const [analyticsTab, setAnalyticsTab] = useState(() => (!currentDemoMode ? 'portfolio' : defaultTab)); // 'ecommerce' | 'portfolio'
   const RADIAN = Math.PI / 180;
 
   // Custom label renderer for pie chart to prevent overlap - Compact version
@@ -416,6 +419,22 @@ const Analytics = ({ defaultTab = 'ecommerce' }) => {
       </div>
     </div>
   );
+
+  if (!currentDemoMode || analyticsTab === 'portfolio') {
+    return (
+      <div className="analytics-page">
+        <div className="page-header" style={{ marginBottom: '20px' }}>
+          <h1 className="page-title" style={{ fontSize: '18px', fontWeight: '700', color: '#0F172A', margin: 0 }}>
+            Portfolio Web Traffic &amp; GA4 Intelligence
+          </h1>
+          <p className="page-subtitle" style={{ fontSize: '12px', color: '#64748B', margin: '4px 0 0 0' }}>
+            Live Google Analytics 4 Stream (G-MZ23TJWG25) tracking portfolio visitors, channels, and conversion velocity
+          </p>
+        </div>
+        <PortfolioTrafficView />
+      </div>
+    );
+  }
 
   if (loading) {
     return (

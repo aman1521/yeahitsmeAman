@@ -12,15 +12,25 @@ import {
   FiSave,
   FiX,
   FiArrowDown,
-  FiList
+  FiList,
+  FiMail,
+  FiPhone,
+  FiCopy,
+  FiSearch
 } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import apiClient from '../services/apiClient';
 import ActionsDropdown from '../components/ActionsDropdown';
 import SearchBar from '../components/SearchBar';
+import { useAuth } from '../contexts/AuthContext';
+import { REAL_PORTFOLIO_LEADS } from '../services/customerService';
 
 const Users = () => {
   const location = useLocation();
+  const { isDemoMode } = useAuth();
+  const currentDemoMode = isDemoMode !== undefined ? isDemoMode : localStorage.getItem('demo_mode') === 'true';
+  const [leadSearch, setLeadSearch] = useState('');
+  const [leadStatusFilter, setLeadStatusFilter] = useState('all');
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -379,6 +389,265 @@ const Users = () => {
       </span>
     );
   };
+
+  if (!currentDemoMode) {
+    const filteredLeads = REAL_PORTFOLIO_LEADS.filter(lead => {
+      const matchesSearch = !leadSearch || 
+        lead.name.toLowerCase().includes(leadSearch.toLowerCase()) ||
+        lead.email.toLowerCase().includes(leadSearch.toLowerCase()) ||
+        lead.phone.toLowerCase().includes(leadSearch.toLowerCase()) ||
+        lead.url.toLowerCase().includes(leadSearch.toLowerCase());
+      const matchesStatus = leadStatusFilter === 'all' || lead.status.toLowerCase() === leadStatusFilter.toLowerCase();
+      return matchesSearch && matchesStatus;
+    });
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {/* Top Header */}
+        <div style={{
+          background: 'linear-gradient(135deg, rgba(22, 140, 214, 0.08) 0%, rgba(15, 130, 138, 0.1) 100%)',
+          border: '1px solid rgba(22, 140, 214, 0.25)',
+          borderRadius: '14px',
+          padding: '16px 20px',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <h2 style={{ fontSize: '18px', fontWeight: '700', color: '#0F172A', margin: 0 }}>
+                Client Inquiries &amp; Real Portfolio Leads
+              </h2>
+              <span style={{
+                fontSize: '11px',
+                fontWeight: '600',
+                padding: '2px 8px',
+                borderRadius: '12px',
+                background: '#ECFDF5',
+                color: '#065F46'
+              }}>
+                leads.db Live Synced
+              </span>
+            </div>
+            <p style={{ fontSize: '12px', color: '#64748B', margin: '4px 0 0 0' }}>
+              Direct consultation bookings, agency inquiries, and AI client requests from your live portfolio
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <span style={{ fontSize: '12px', color: '#475569', fontWeight: '600' }}>
+              Total Inquiries: <strong style={{ color: '#168CD6' }}>{REAL_PORTFOLIO_LEADS.length}</strong>
+            </span>
+          </div>
+        </div>
+
+        {/* 4 Summary Stat Cards */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
+          {[
+            { label: 'Total Inquiries', val: '6', sub: 'From portfolio forms', color: '#168CD6' },
+            { label: 'High Priority Enterprise', val: '1', sub: 'Chauhan AI Test Corp', color: '#DC2626' },
+            { label: 'Active In Discussion', val: '3', sub: 'Healthcare & Crating', color: '#0F828A' },
+            { label: 'Inquiry Qualification Rate', val: '100%', sub: 'All valid business contacts', color: '#10B981' }
+          ].map((c, i) => (
+            <div key={i} style={{ background: '#FFF', border: '1px solid #E2E8F0', borderRadius: '12px', padding: '16px', boxShadow: '0 1px 3px rgba(0,0,0,0.03)' }}>
+              <div style={{ fontSize: '11px', color: '#64748B', fontWeight: '500' }}>{c.label}</div>
+              <div style={{ fontSize: '22px', fontWeight: '800', color: c.color, margin: '4px 0' }}>{c.val}</div>
+              <div style={{ fontSize: '11px', color: '#94A3B8' }}>{c.sub}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Search and Filter Controls */}
+        <div style={{
+          background: '#FFF',
+          border: '1px solid #E2E8F0',
+          borderRadius: '12px',
+          padding: '14px 18px',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: '240px' }}>
+            <FiSearch style={{ color: '#94A3B8' }} />
+            <input
+              type="text"
+              placeholder="Search by client name, email, phone, or scope..."
+              value={leadSearch}
+              onChange={(e) => setLeadSearch(e.target.value)}
+              style={{
+                width: '100%',
+                border: 'none',
+                outline: 'none',
+                fontSize: '13px',
+                color: '#0F172A'
+              }}
+            />
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontSize: '12px', color: '#64748B', fontWeight: '500' }}>Filter Status:</span>
+            <select
+              value={leadStatusFilter}
+              onChange={(e) => setLeadStatusFilter(e.target.value)}
+              style={{
+                padding: '6px 12px',
+                fontSize: '12px',
+                border: '1px solid #CBD5E1',
+                borderRadius: '8px',
+                color: '#0F172A',
+                background: '#FFF',
+                outline: 'none'
+              }}
+            >
+              <option value="all">All Statuses ({REAL_PORTFOLIO_LEADS.length})</option>
+              <option value="High Priority">High Priority</option>
+              <option value="In Discussion">In Discussion</option>
+              <option value="Qualified">Qualified</option>
+              <option value="Contacted">Contacted</option>
+              <option value="Active Client">Active Client</option>
+              <option value="New Lead">New Lead</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Leads Table */}
+        <div style={{
+          background: '#FFF',
+          border: '1px solid #E2E8F0',
+          borderRadius: '12px',
+          overflow: 'hidden',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.03)'
+        }}>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '12px' }}>
+              <thead>
+                <tr style={{ background: '#F8FAFC', borderBottom: '1px solid #E2E8F0', color: '#64748B', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  <th style={{ padding: '12px 16px' }}>Client / Organization</th>
+                  <th style={{ padding: '12px 16px' }}>Email Address</th>
+                  <th style={{ padding: '12px 16px' }}>Phone Number</th>
+                  <th style={{ padding: '12px 16px' }}>Project Scope / Interest</th>
+                  <th style={{ padding: '12px 16px' }}>Category / Source</th>
+                  <th style={{ padding: '12px 16px' }}>Inquiry Date</th>
+                  <th style={{ padding: '12px 16px' }}>Status</th>
+                  <th style={{ padding: '12px 16px', textAlign: 'right' }}>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredLeads.map(lead => (
+                  <tr key={lead.id} style={{ borderBottom: '1px solid #F1F5F9' }}>
+                    <td style={{ padding: '14px 16px', fontWeight: '600', color: '#0F172A' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <div style={{
+                          width: '28px',
+                          height: '28px',
+                          borderRadius: '50%',
+                          background: 'rgba(22, 140, 214, 0.1)',
+                          color: '#168CD6',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontWeight: '700',
+                          fontSize: '11px'
+                        }}>
+                          {lead.name.charAt(0).toUpperCase()}
+                        </div>
+                        <div>
+                          <div>{lead.name}</div>
+                          {lead.notes && <div style={{ fontSize: '10px', color: '#94A3B8', fontWeight: '400', maxWidth: '180px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{lead.notes}</div>}
+                        </div>
+                      </div>
+                    </td>
+                    <td style={{ padding: '14px 16px' }}>
+                      <a href={`mailto:${lead.email}`} style={{ color: '#168CD6', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                        <FiMail size={12} /> {lead.email}
+                      </a>
+                    </td>
+                    <td style={{ padding: '14px 16px', color: '#475569' }}>
+                      <a href={`tel:${lead.phone}`} style={{ color: '#475569', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                        <FiPhone size={12} /> {lead.phone}
+                      </a>
+                    </td>
+                    <td style={{ padding: '14px 16px', color: '#0F172A', fontWeight: '500' }}>
+                      {lead.url}
+                    </td>
+                    <td style={{ padding: '14px 16px', color: '#64748B' }}>
+                      <span style={{ background: '#F1F5F9', padding: '2px 8px', borderRadius: '4px', fontSize: '11px' }}>
+                        {lead.role}
+                      </span>
+                    </td>
+                    <td style={{ padding: '14px 16px', color: '#64748B' }}>
+                      {lead.timestamp}
+                    </td>
+                    <td style={{ padding: '14px 16px' }}>
+                      <span style={{
+                        padding: '3px 8px',
+                        borderRadius: '12px',
+                        fontSize: '11px',
+                        fontWeight: '600',
+                        background: lead.status === 'High Priority' ? '#FEF2F2' : (lead.status === 'Active Client' ? '#F0FDF4' : '#EFF6FF'),
+                        color: lead.status === 'High Priority' ? '#DC2626' : (lead.status === 'Active Client' ? '#16A34A' : '#1D4ED8'),
+                        border: `1px solid ${lead.status === 'High Priority' ? '#FCA5A5' : (lead.status === 'Active Client' ? '#BBF7D0' : '#BFDBFE')}`
+                      }}>
+                        {lead.status}
+                      </span>
+                    </td>
+                    <td style={{ padding: '14px 16px', textAlign: 'right' }}>
+                      <div style={{ display: 'inline-flex', gap: '6px' }}>
+                        <a
+                          href={`mailto:${lead.email}?subject=Regarding your consultation inquiry`}
+                          title="Send Email"
+                          style={{
+                            padding: '4px 8px',
+                            background: '#F8FAFC',
+                            border: '1px solid #CBD5E1',
+                            borderRadius: '6px',
+                            color: '#168CD6',
+                            textDecoration: 'none',
+                            fontSize: '11px',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '3px'
+                          }}
+                        >
+                          <FiMail size={12} /> Email
+                        </a>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            navigator.clipboard.writeText(`${lead.name} | ${lead.email} | ${lead.phone} | ${lead.url}`);
+                            toast.success(`Copied contact details for ${lead.name}`);
+                          }}
+                          title="Copy Lead Details"
+                          style={{
+                            padding: '4px 8px',
+                            background: '#F8FAFC',
+                            border: '1px solid #CBD5E1',
+                            borderRadius: '6px',
+                            color: '#475569',
+                            cursor: 'pointer',
+                            fontSize: '11px',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '3px'
+                          }}
+                        >
+                          <FiCopy size={12} /> Copy
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (

@@ -34,9 +34,26 @@ const Layout = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState({});
-  const { user, logout } = useAuth();
+  const { user, logout, isDemoMode, switchToDemo, switchToPersonal } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const currentDemoMode = isDemoMode !== undefined ? isDemoMode : localStorage.getItem('demo_mode') === 'true';
+
+  const handleSwitchToDemo = () => {
+    if (switchToDemo) switchToDemo();
+    else {
+      localStorage.setItem('demo_mode', 'true');
+    }
+    navigate('/dashboard');
+  };
+
+  const handleSwitchToPersonal = () => {
+    if (switchToPersonal) switchToPersonal();
+    else {
+      localStorage.setItem('demo_mode', 'false');
+    }
+    navigate('/portfolio-traffic');
+  };
   const notificationRef = useRef(null);
   const collapsedMenuRef = useRef(null);
   const sidebarRef = useRef(null);
@@ -187,10 +204,16 @@ const Layout = () => {
     });
   };
 
-  const allNavigationItems = [
+  const portfolioAdminNavItems = [
+    { name: 'Website Traffic (GA4)', href: '/portfolio-traffic', icon: FiGlobe },
+    { name: 'Client Inquiries & Leads', href: '/users', icon: FiUsers },
+    { name: 'Growth Intelligence (AI)', href: '/growth-ai', icon: FiActivity },
+    { name: 'Portfolio Settings', href: '/settings', icon: FiSettings }
+  ];
+
+  const ecommerceDemoNavItems = [
     { name: 'Dashboard', href: '/dashboard', icon: FiHome },
     { name: 'Analytics', href: '/analytics', icon: FiBarChart2 },
-    { name: 'Portfolio Traffic (GA4)', href: '/portfolio-traffic', icon: FiGlobe },
     { name: 'Orders', href: '/orders', icon: FiShoppingCart },
     { 
       name: 'Products', 
@@ -205,13 +228,11 @@ const Layout = () => {
         { name: 'Health Benefits', href: '/health-benefits' }
       ]
     },
-    { name: 'Customers & Leads', href: '/users', icon: FiUsers },
+    { name: 'Customers', href: '/users', icon: FiUsers },
     ...(user?.is_super_admin ? [
       { name: 'User Sessions', href: '/sessions', icon: FiActivity },
       { name: 'Activity Log', href: '/activity-log', icon: FiFileText }
     ] : []),
-    ...(user?.is_super_admin ? [{ name: 'Tenant Management', href: '/tenants', icon: FiUsers }] : []),
-    ...(user?.is_tenant_admin ? [{ name: 'Role Management', href: '/role-management', icon: FiShield }] : []),
     { 
       name: 'Coupons', 
       href: '/coupons', 
@@ -258,8 +279,8 @@ const Layout = () => {
     },
   ];
 
-  // No RBAC filtering for now – show all navigation items
-  const navigation = allNavigationItems;
+  // Conditional navigation based on Personal Admin vs Demo Mode
+  const navigation = currentDemoMode ? ecommerceDemoNavItems : portfolioAdminNavItems;
 
   const isActive = (href, exactMatch = false) => {
     const path = location.pathname;
@@ -369,16 +390,16 @@ const Layout = () => {
         }}>
           {!sidebarCollapsed && (
             <div className="logo">
-              <div className="logo-icon">
-                <FiPackage />
+              <div className="logo-icon" style={{ background: currentDemoMode ? '#168CD6' : '#0F828A' }}>
+                {currentDemoMode ? <FiPackage /> : <FiGlobe />}
               </div>
-              <span>Peenakaa</span>
+              <span style={{ fontSize: '13px', fontWeight: 700 }}>{currentDemoMode ? 'Peenakaa' : 'Aman Kumar'}</span>
             </div>
           )}
           {sidebarCollapsed && (
             <div className="logo" style={{ justifyContent: 'center' }}>
-              <div className="logo-icon">
-                <FiPackage />
+              <div className="logo-icon" style={{ background: currentDemoMode ? '#168CD6' : '#0F828A' }}>
+                {currentDemoMode ? <FiPackage /> : <FiGlobe />}
               </div>
             </div>
           )}
@@ -526,11 +547,29 @@ const Layout = () => {
       >
         {/* Header */}
         <header className="header">
-          <div className="header-left">
+          <div className="header-left" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div>
-              <h1 style={{ margin: 0, fontSize: '7px', fontWeight: 600, color: 'var(--text-primary)' }}>
-                Welcome Back {user?.full_name || user?.username || 'System Administrator'}
-              </h1>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <h1 style={{ margin: 0, fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)' }}>
+                  {currentDemoMode ? '🛍️ Peenakaa Ecommerce Demo' : '🛡️ Portfolio Admin Workspace'}
+                </h1>
+                <span style={{
+                  fontSize: '10px',
+                  fontWeight: '600',
+                  padding: '2px 8px',
+                  borderRadius: '12px',
+                  background: currentDemoMode ? 'rgba(22, 140, 214, 0.1)' : 'rgba(15, 130, 138, 0.12)',
+                  color: currentDemoMode ? '#168CD6' : '#0F828A',
+                  border: `1px solid ${currentDemoMode ? 'rgba(22, 140, 214, 0.25)' : 'rgba(15, 130, 138, 0.25)'}`
+                }}>
+                  {currentDemoMode ? 'Demo Mode' : 'Aman Kumar (Admin)'}
+                </span>
+              </div>
+              <p style={{ margin: '2px 0 0 0', fontSize: '11px', color: 'var(--text-secondary)' }}>
+                {currentDemoMode 
+                  ? 'Showing full demo catalog, orders, and pricing optimizer' 
+                  : 'Live GA4 Traffic & Client Inquiries for Aman Kumar'}
+              </p>
             </div>
 
             <button
@@ -543,17 +582,63 @@ const Layout = () => {
           </div>
 
           <div className="header-right">
-            <div className="header-actions">
-              {/* Currency Switcher */}
-              <CurrencySwitcher />
+            <div className="header-actions" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              {/* Mode Switcher Pill */}
+              {currentDemoMode ? (
+                <button
+                  type="button"
+                  onClick={handleSwitchToPersonal}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '5px',
+                    padding: '5px 12px',
+                    fontSize: '11px',
+                    fontWeight: '600',
+                    background: 'rgba(15, 130, 138, 0.1)',
+                    border: '1px solid rgba(15, 130, 138, 0.35)',
+                    color: '#0F828A',
+                    borderRadius: '16px',
+                    cursor: 'pointer'
+                  }}
+                  title="Switch to your personal portfolio analytics view"
+                >
+                  🛡️ Switch to Portfolio Admin
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleSwitchToDemo}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '5px',
+                    padding: '5px 12px',
+                    fontSize: '11px',
+                    fontWeight: '600',
+                    background: 'rgba(22, 140, 214, 0.1)',
+                    border: '1px solid rgba(22, 140, 214, 0.35)',
+                    color: '#168CD6',
+                    borderRadius: '16px',
+                    cursor: 'pointer'
+                  }}
+                  title="Switch to Ecommerce Demo mode with products and orders"
+                >
+                  🛍️ Switch to Ecommerce Demo
+                </button>
+              )}
 
-              {/* Quick Login (switch account) */}
+              {/* Currency Switcher (Demo Mode Only) */}
+              {currentDemoMode && <CurrencySwitcher />}
+
+              {/* Quick Login / Logout */}
               <button
                 className="login-nav-btn"
                 onClick={() => logout()}
                 title="Go back to login screen"
+                style={{ fontSize: '11px', padding: '4px 10px' }}
               >
-                Login
+                Sign Out
               </button>
 
               {/* Notifications */}

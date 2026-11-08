@@ -30,6 +30,19 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const [isDemoMode, setIsDemoMode] = useState(() => localStorage.getItem('demo_mode') === 'true');
+
+  const switchToDemo = () => {
+    localStorage.setItem('demo_mode', 'true');
+    setIsDemoMode(true);
+    toast.success('Switched to Ecommerce Demo Mode');
+  };
+
+  const switchToPersonal = () => {
+    localStorage.setItem('demo_mode', 'false');
+    setIsDemoMode(false);
+    toast.success('Switched to Portfolio Admin Workspace');
+  };
 
   const fetchUser = async (preserveUserOnError = false) => {
     const token = localStorage.getItem('token');
@@ -138,9 +151,10 @@ export const AuthProvider = ({ children }) => {
     setIsLoggingIn(true);
 
     const cleanUsername = (username || '').trim().toLowerCase();
+    const isPersonalUser = cleanUsername === 'amanchouhan1217@gmail.com' || cleanUsername.includes('aman') || (!forceDemo && cleanUsername !== 'demo' && cleanUsername !== 'admin');
+    const isExplicitDemo = forceDemo || (cleanUsername === 'admin' && password === 'admin') || cleanUsername === 'demo';
 
-    const isDemoCreds = forceDemo || (cleanUsername === 'admin' && password === 'admin') || cleanUsername === 'demo';
-    if (isDemoCreds) {
+    if (isExplicitDemo && !isPersonalUser) {
       const demoUser = {
         id: 1,
         username: 'admin',
@@ -156,11 +170,12 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('sessionId', 'demo-session-12345');
       localStorage.setItem('userPayload', JSON.stringify(normalized));
       localStorage.setItem('demo_mode', 'true');
+      setIsDemoMode(true);
       setUser(normalized);
       setLoading(false);
       setIsLoggingIn(false);
-      toast.success('Welcome to Peenakaa Ecommerce Dashboard!');
-      return { success: true };
+      toast.success('Welcome to Peenakaa Ecommerce Demo!');
+      return { success: true, isDemo: true };
     }
 
     try {
@@ -180,7 +195,8 @@ export const AuthProvider = ({ children }) => {
         return { success: false };
       }
       
-      localStorage.removeItem('demo_mode');
+      localStorage.setItem('demo_mode', 'false');
+      setIsDemoMode(false);
       localStorage.setItem('token', access_token);
       
       // Store session_id from backend (for admin sessions)
@@ -193,40 +209,65 @@ export const AuthProvider = ({ children }) => {
       setUser(normalized);
       localStorage.setItem('userPayload', JSON.stringify(normalized));
       
-      // Set loading to false immediately after successful login
       setLoading(false);
+      setIsLoggingIn(false);
+      toast.success('Welcome back, Aman!');
       
-      toast.success('Login successful!');
-      
-      return { success: true };
+      return { success: true, isDemo: false };
     } catch (error) {
       console.error('Login error:', error);
       console.error('Error response:', error.response?.data);
 
-      // If backend is unreachable or not hosted, auto-fallback to demo mode
+      // If backend is unreachable or not hosted (static hosting), authenticate appropriately
       const isUnreachable = !error.response || error.code === 'ERR_NETWORK' || error.response?.status === 404;
       if (isUnreachable) {
-        console.warn('[AuthContext] Backend unreachable, launching Peenakaa Dashboard');
-        const fallbackUser = {
-          id: 1,
-          username: cleanUsername || 'amanchouhan1217@gmail.com',
-          full_name: cleanUsername === 'amanchouhan1217@gmail.com' ? 'Aman Chouhan' : (cleanUsername || 'Administrator'),
-          email: cleanUsername.includes('@') ? cleanUsername : `${cleanUsername || 'amanchouhan1217'}@gmail.com`,
-          role: 'super_admin',
-          is_super_admin: true,
-          is_tenant_admin: true,
-          preferred_currency: 'INR'
-        };
-        const normalized = normalizeUser(fallbackUser);
-        localStorage.setItem('token', 'peenakaa-demo-token');
-        localStorage.setItem('sessionId', 'demo-session-fallback');
-        localStorage.setItem('userPayload', JSON.stringify(normalized));
-        localStorage.setItem('demo_mode', 'true');
-        setUser(normalized);
-        setLoading(false);
-        setIsLoggingIn(false);
-        toast.success('Signed in to Peenakaa Ecommerce Dashboard');
-        return { success: true };
+        if (isPersonalUser) {
+          console.log('[AuthContext] Logging into Personal Portfolio Admin');
+          const personalUser = {
+            id: 1,
+            username: 'amanchouhan1217@gmail.com',
+            full_name: 'Aman Kumar',
+            email: 'amanchouhan1217@gmail.com',
+            role: 'super_admin',
+            is_super_admin: true,
+            is_tenant_admin: true,
+            preferred_currency: 'INR'
+          };
+          const normalized = normalizeUser(personalUser);
+          localStorage.setItem('token', 'aman-portfolio-admin-token');
+          localStorage.setItem('sessionId', 'aman-session-live');
+          localStorage.setItem('userPayload', JSON.stringify(normalized));
+          localStorage.setItem('demo_mode', 'false');
+          setIsDemoMode(false);
+          setUser(normalized);
+          setLoading(false);
+          setIsLoggingIn(false);
+          toast.success('Welcome to Portfolio Admin Workspace');
+          return { success: true, isDemo: false };
+        } else {
+          console.warn('[AuthContext] Backend unreachable, launching Peenakaa Demo');
+          const fallbackUser = {
+            id: 1,
+            username: 'admin',
+            full_name: 'Administrator',
+            email: 'admin@peenakaa.com',
+            role: 'super_admin',
+            is_super_admin: true,
+            is_tenant_admin: true,
+            preferred_currency: 'INR'
+          };
+          const normalized = normalizeUser(fallbackUser);
+          localStorage.setItem('token', 'peenakaa-demo-token');
+          localStorage.setItem('sessionId', 'demo-session-fallback');
+          localStorage.setItem('userPayload', JSON.stringify(normalized));
+          localStorage.setItem('demo_mode', 'true');
+          setIsDemoMode(true);
+          setUser(normalized);
+          setLoading(false);
+          setIsLoggingIn(false);
+          toast.success('Signed in to Peenakaa Ecommerce Demo');
+          return { success: true, isDemo: true };
+        }
       }
       
       // Handle account locked (423 status)
@@ -325,7 +366,11 @@ export const AuthProvider = ({ children }) => {
     logout,
     updateProfile,
     changePassword,
-    fetchUser  // Expose fetchUser so other contexts can refresh user data
+    fetchUser,  // Expose fetchUser so other contexts can refresh user data
+    isDemoMode,
+    setIsDemoMode,
+    switchToDemo,
+    switchToPersonal
   };
 
   return (

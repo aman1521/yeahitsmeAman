@@ -1,6 +1,23 @@
 [build]
   publish = "."
 
+# Admin route shortcuts for easy login
+[[redirects]]
+  from = "/admin"
+  to = "/ecommerce-dashboard/login"
+  status = 302
+
+[[redirects]]
+  from = "/admin/"
+  to = "/ecommerce-dashboard/login"
+  status = 302
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/ecommerce-dashboard/index.html"
+  status = 200
+
+# Ecommerce Dashboard SPA Rewrite
 [[redirects]]
   from = "/ecommerce-dashboard/*"
   to = "/ecommerce-dashboard/index.html"
@@ -12,3 +29,4 @@
     X-Frame-Options = "SAMEORIGIN"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
+

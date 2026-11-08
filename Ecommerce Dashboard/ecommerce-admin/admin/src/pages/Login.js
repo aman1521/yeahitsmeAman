@@ -14,18 +14,31 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [attemptCount, setAttemptCount] = useState(0);
 
-  // Redirect to dashboard if already logged in
+  // Auto-login for demo if ?demo=true in URL
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search || window.location.search);
+    if (searchParams.get('demo') === 'true') {
+      login('demo', 'demo', true).then(result => {
+        if (result.success) {
+          navigate('/dashboard', { replace: true });
+        }
+      });
+    }
+  }, [location.search]);
+
+  // Redirect to dashboard or portfolio-traffic if already logged in
   useEffect(() => {
     if (!authLoading && user) {
-      const from = location.state?.from?.pathname || '/dashboard';
-      navigate(from, { replace: true });
+      const isDemo = localStorage.getItem('demo_mode') === 'true';
+      const destination = isDemo ? '/dashboard' : '/portfolio-traffic';
+      navigate(destination, { replace: true });
     }
-  }, [user, authLoading, navigate, location]);
+  }, [user, authLoading, navigate]);
 
   const handleLogin = async (e, forceDemo = false) => {
     e?.preventDefault();
-    const userToLogin = forceDemo ? (username || 'amanchouhan1217@gmail.com') : username;
-    const passToLogin = forceDemo ? (password || 'Legend@15') : password;
+    const userToLogin = forceDemo ? 'demo' : username;
+    const passToLogin = forceDemo ? 'demo' : password;
     if (!userToLogin || !passToLogin) {
       toast.error('Please enter username and password');
       return;
@@ -37,9 +50,11 @@ const Login = () => {
         // Reset attempt count on successful login
         setAttemptCount(0);
         localStorage.removeItem('loginAttempts');
-        // Redirect to intended destination or dashboard
-        const from = location.state?.from?.pathname || '/dashboard';
-        navigate(from, { replace: true });
+        if (result.isDemo) {
+          navigate('/dashboard', { replace: true });
+        } else {
+          navigate('/portfolio-traffic', { replace: true });
+        }
       } else if (result.locked) {
         // Account is locked - message already shown by AuthContext
         // Clear password field on lockout
@@ -101,8 +116,8 @@ const Login = () => {
         {/* Logo and Header */}
         <div className="login-header" style={{ marginBottom: '20px' }}>
           <div className="logo" style={{ justifyContent: 'center', marginBottom: '8px' }}>
-            <h1 style={{ fontSize: '26px', fontWeight: '800', color: '#168CD6', margin: 0, letterSpacing: '-0.5px' }}>
-              Peenakaa
+            <h1 style={{ fontSize: '24px', fontWeight: '800', color: '#168CD6', margin: 0, letterSpacing: '-0.5px' }}>
+              Aman Kumar
             </h1>
           </div>
           <div style={{ textAlign: 'center', marginBottom: '10px' }}>
@@ -117,14 +132,14 @@ const Login = () => {
               background: 'rgba(22, 140, 214, 0.1)',
               color: '#168CD6'
             }}>
-              Ecommerce Dashboard
+              Portfolio &amp; Ecommerce Suite
             </span>
           </div>
-          <h2 style={{ fontSize: '18px', fontWeight: '600', color: '#1F2937', textAlign: 'center', margin: 0 }}>
-            Sign in to your account
+          <h2 style={{ fontSize: '17px', fontWeight: '600', color: '#1F2937', textAlign: 'center', margin: 0 }}>
+            Sign In to Admin Workspace
           </h2>
-          <p style={{ fontSize: '13px', color: '#6B7280', textAlign: 'center', marginTop: '6px' }}>
-            Enter your credentials to access the administrative dashboard
+          <p style={{ fontSize: '12px', color: '#6B7280', textAlign: 'center', marginTop: '6px' }}>
+            Enter your credentials to access Portfolio Web Traffic &amp; Client Inquiries
           </p>
         </div>
 
@@ -251,35 +266,38 @@ const Login = () => {
             }}
             style={{
               width: '100%',
-              padding: '10px 14px',
+              padding: '11px 14px',
               fontSize: '13px',
               fontWeight: '600',
-              background: 'transparent',
-              color: '#4B5563',
-              border: '1px dashed #D1D5DB',
+              background: 'rgba(22, 140, 214, 0.08)',
+              color: '#168CD6',
+              border: '1px solid rgba(22, 140, 214, 0.35)',
               borderRadius: '8px',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               gap: '6px',
-              marginTop: '10px',
+              marginTop: '12px',
               transition: 'all 0.2s'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = '#168CD6';
-              e.currentTarget.style.color = '#168CD6';
-              e.currentTarget.style.background = 'rgba(22, 140, 214, 0.04)';
+              e.currentTarget.style.background = 'rgba(22, 140, 214, 0.15)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = '#D1D5DB';
-              e.currentTarget.style.color = '#4B5563';
-              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.borderColor = 'rgba(22, 140, 214, 0.35)';
+              e.currentTarget.style.background = 'rgba(22, 140, 214, 0.08)';
             }}
           >
-            ⚡ Explore Dashboard (Demo Access)
+            🛍️ Launch Ecommerce Demo Mode (1-Click Instant Access)
           </button>
         </form>
+
+        {/* Quick hint for personal admin */}
+        <div style={{ marginTop: '12px', padding: '8px 12px', background: '#F8FAFC', borderRadius: '6px', border: '1px solid #E2E8F0', fontSize: '11px', color: '#64748B', textAlign: 'center' }}>
+          Personal Admin login hides all store inventory and loads live Google Analytics &amp; leads.
+        </div>
 
         {/* Footer */}
         <div style={{ marginTop: '16px', textAlign: 'center', fontSize: '11px', color: '#9CA3AF' }}>
