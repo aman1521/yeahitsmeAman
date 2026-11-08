@@ -1599,6 +1599,42 @@ export const getDemoResponse = (url) => {
       }
     };
   }
+  if (norm.includes('/auth/profile')) {
+    let saved = null;
+    try {
+      saved = JSON.parse(localStorage.getItem('userPayload'));
+    } catch (e) {}
+    const adminUser = saved || {
+      id: 1,
+      username: 'amanchouhan1217@gmail.com',
+      full_name: 'Aman Chouhan',
+      email: 'amanchouhan1217@gmail.com',
+      role: 'super_admin',
+      is_super_admin: true,
+      is_tenant_admin: true,
+      preferred_currency: 'INR'
+    };
+    return { data: { success: true, user: adminUser } };
+  }
+  if (norm.includes('/auth/login')) {
+    return {
+      data: {
+        success: true,
+        access_token: 'peenakaa-demo-token',
+        session_id: 'session-' + Date.now(),
+        user: {
+          id: 1,
+          username: 'amanchouhan1217@gmail.com',
+          full_name: 'Aman Chouhan',
+          email: 'amanchouhan1217@gmail.com',
+          role: 'super_admin',
+          is_super_admin: true,
+          is_tenant_admin: true,
+          preferred_currency: 'INR'
+        }
+      }
+    };
+  }
 
   // Generic fallback
   return { data: { success: true, message: 'Success' } };

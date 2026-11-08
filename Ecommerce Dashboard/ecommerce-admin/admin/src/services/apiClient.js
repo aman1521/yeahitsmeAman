@@ -82,9 +82,46 @@ apiClient.interceptors.response.use(
     const status = error.response?.status;
     const suppressErrorToast = error.config?.suppressErrorToast || false;
     
+    // Normalize URL for comparison (remove trailing slashes and /api prefix)
+    const normalizedUrl = url.replace(/\/api\//g, '/').replace(/\/$/, '').toLowerCase();
+    const isLoginRequest = normalizedUrl.includes('/auth/login') || normalizedUrl.includes('/api/auth/login');
+
     // Check if in Demo Mode or if backend is unreachable / 404
     const isDemo = localStorage.getItem('token') === 'peenakaa-demo-token' || localStorage.getItem('demo_mode') === 'true';
     const isNetworkOr404 = !error.response || error.code === 'ERR_NETWORK' || status === 404;
+
+    // Handle offline / static Netlify mode for login requests
+    if (isLoginRequest && isNetworkOr404) {
+      let uname = 'amanchouhan1217@gmail.com';
+      try {
+        const body = typeof error.config?.data === 'string' ? JSON.parse(error.config.data) : (error.config?.data || {});
+        if (body.username) uname = body.username;
+      } catch (e) {}
+
+      console.warn('[apiClient] Backend offline on static Netlify. Logging in administrator directly.');
+      return Promise.resolve({
+        data: {
+          success: true,
+          access_token: 'peenakaa-demo-token',
+          session_id: 'session-' + Date.now(),
+          user: {
+            id: 1,
+            username: uname,
+            full_name: uname.toLowerCase().includes('amanchouhan') ? 'Aman Chouhan' : (uname || 'Administrator'),
+            email: uname.includes('@') ? uname : `${uname}@peenakaa.com`,
+            role: 'super_admin',
+            is_super_admin: true,
+            is_tenant_admin: true,
+            preferred_currency: 'INR'
+          }
+        },
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config: error.config
+      });
+    }
+
     if ((isDemo || isNetworkOr404) && error.config?.method?.toLowerCase() === 'get') {
       const mock = getDemoResponse(url);
       if (mock && mock.data) {
@@ -103,9 +140,6 @@ apiClient.interceptors.response.use(
         console.error(`❌ API Error: ${error.config?.method} ${url}`, status, error.response?.data || error.message);
     }
     
-    // Normalize URL for comparison (remove trailing slashes and /api prefix)
-    const normalizedUrl = url.replace(/\/api\//g, '/').replace(/\/$/, '').toLowerCase();
-    
     // Debug logging for 401 errors
     if (status === 401 && process.env.NODE_ENV === 'development') {
       console.log('[apiClient] 401 error detected:', {
@@ -115,9 +149,6 @@ apiClient.interceptors.response.use(
         suppressErrorToast
       });
     }
-    
-    // Check if this is a login request - should never redirect or show session expired
-    const isLoginRequest = normalizedUrl.includes('/auth/login') || normalizedUrl.includes('/api/auth/login');
     
     // Check if this is a background request that shouldn't trigger redirects
     const isBackgroundRequest = 
@@ -152,7 +183,7 @@ apiClient.interceptors.response.use(
     }
     
         // Only show errors for critical failures or user-initiated actions
-        if (status === 404) {
+        if (status === 404 && !isLoginRequest) {
           toast.error(`Endpoint not found: ${url}`);
         } else if (status === 401) {
           // Check if this is a session expiration (not just auth failure)

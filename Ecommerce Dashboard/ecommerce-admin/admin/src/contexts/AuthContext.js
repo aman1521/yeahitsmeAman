@@ -149,7 +149,7 @@ export const AuthProvider = ({ children }) => {
         role: 'super_admin',
         is_super_admin: true,
         is_tenant_admin: true,
-        preferred_currency: 'USD'
+        preferred_currency: 'INR'
       };
       const normalized = normalizeUser(demoUser);
       localStorage.setItem('token', 'peenakaa-demo-token');
@@ -215,7 +215,7 @@ export const AuthProvider = ({ children }) => {
           role: 'super_admin',
           is_super_admin: true,
           is_tenant_admin: true,
-          preferred_currency: 'USD'
+          preferred_currency: 'INR'
         };
         const normalized = normalizeUser(fallbackUser);
         localStorage.setItem('token', 'peenakaa-demo-token');
