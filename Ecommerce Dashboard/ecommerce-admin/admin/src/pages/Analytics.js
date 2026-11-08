@@ -15,10 +15,12 @@ import toast from 'react-hot-toast';
 import { useGlobalCurrency } from '../contexts/GlobalCurrencyContext';
 import { useTheme } from '../contexts/ThemeContext';
 import apiClient from '../services/apiClient';
+import PortfolioTrafficView from '../components/PortfolioTrafficView';
 
-const Analytics = () => {
+const Analytics = ({ defaultTab = 'ecommerce' }) => {
   const { formatAmount, currencySymbol, currencyName, selectedCurrency } = useGlobalCurrency();
   const { isDark } = useTheme();
+  const [analyticsTab, setAnalyticsTab] = useState(defaultTab); // 'ecommerce' | 'portfolio'
   const RADIAN = Math.PI / 180;
 
   // Custom label renderer for pie chart to prevent overlap - Compact version
@@ -429,14 +431,67 @@ const Analytics = () => {
 
   return (
     <div className="analytics-page">
-      {/* Header */}
-      <div className="page-header">
+      {/* Header with View Switcher */}
+      <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
         <div className="page-header-text">
-          <h1 className="page-title">Analytics</h1>
-          <p className="page-subtitle">Track performance metrics, revenue trends, and customer insights</p>
+          <h1 className="page-title">Analytics &amp; Intelligence</h1>
+          <p className="page-subtitle">Real-time revenue metrics, customer acquisition, and live portfolio web traffic</p>
+        </div>
+
+        {/* View Switcher: Ecommerce vs Portfolio GA4 */}
+        <div style={{
+          display: 'flex',
+          background: '#F1F5F9',
+          padding: '4px',
+          borderRadius: '10px',
+          border: '1px solid #CBD5E1',
+          gap: '4px'
+        }}>
+          <button
+            onClick={() => setAnalyticsTab('ecommerce')}
+            style={{
+              padding: '6px 14px',
+              fontSize: '12px',
+              fontWeight: '600',
+              borderRadius: '8px',
+              border: 'none',
+              background: analyticsTab === 'ecommerce' ? '#168CD6' : 'transparent',
+              color: analyticsTab === 'ecommerce' ? '#FFFFFF' : '#475569',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              boxShadow: analyticsTab === 'ecommerce' ? '0 2px 4px rgba(22, 140, 214, 0.25)' : 'none'
+            }}
+          >
+            🛒 Store Revenue
+          </button>
+          <button
+            onClick={() => setAnalyticsTab('portfolio')}
+            style={{
+              padding: '6px 14px',
+              fontSize: '12px',
+              fontWeight: '600',
+              borderRadius: '8px',
+              border: 'none',
+              background: analyticsTab === 'portfolio' ? '#0F828A' : 'transparent',
+              color: analyticsTab === 'portfolio' ? '#FFFFFF' : '#475569',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              boxShadow: analyticsTab === 'portfolio' ? '0 2px 4px rgba(15, 130, 138, 0.25)' : 'none'
+            }}
+          >
+            🌐 Portfolio Web Traffic (GA4)
+          </button>
         </div>
       </div>
 
+      {analyticsTab === 'portfolio' ? (
+        <PortfolioTrafficView />
+      ) : (
+        <>
       {/* Stats Cards */}
       <div className="stats-grid">
         <StatCard
@@ -804,6 +859,8 @@ const Analytics = () => {
           </div>
         </div>
       </div>
+      </>
+      )}
     </div>
   );
 };

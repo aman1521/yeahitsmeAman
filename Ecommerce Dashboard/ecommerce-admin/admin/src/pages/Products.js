@@ -12,7 +12,8 @@ import {
   FiImage,
   FiX,
   FiDollarSign,
-  FiSearch
+  FiSearch,
+  FiZap
 } from 'react-icons/fi';
 import { useSelector, useDispatch } from 'react-redux';
 import { convertBatch } from '../services/currencyApi';
@@ -22,6 +23,7 @@ import apiClient from '../services/apiClient';
 import { useTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
 import SearchBar from '../components/SearchBar';
+import AIPriceOptimizerModal from '../components/AIPriceOptimizerModal';
 
 // Actions Menu Component
 const ActionsMenu = ({ productId, buttonRef, onClose, onViewDetails, onEdit, onRegionalTax, onDelete }) => {
@@ -345,6 +347,7 @@ const Products = () => {
   const { user } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const [showAiPriceModal, setShowAiPriceModal] = useState(false);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -1059,6 +1062,27 @@ const filterPanelBorder = isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '2px 
             </div>
           </button>
           <button 
+            type="button"
+            className="btn"
+            style={{
+              background: 'linear-gradient(135deg, #168CD6, #0F828A)',
+              color: '#FFFFFF',
+              border: 'none',
+              borderRadius: '8px',
+              padding: '6px 12px',
+              fontWeight: '600',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              boxShadow: '0 2px 8px rgba(22, 140, 214, 0.25)',
+              cursor: 'pointer'
+            }}
+            onClick={() => setShowAiPriceModal(true)}
+          >
+            <FiZap size={14} />
+            AI Price Optimizer
+          </button>
+          <button 
             className="btn btn-primary"
             onClick={() => navigate('/products/add')}
           >
@@ -1067,6 +1091,12 @@ const filterPanelBorder = isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '2px 
           </button>
         </div>
       </div>
+
+      <AIPriceOptimizerModal
+        isOpen={showAiPriceModal}
+        onClose={() => setShowAiPriceModal(false)}
+        onPriceUpdated={() => fetchProducts()}
+      />
 
       {countryModalOpen && (
         <div className="pill-modal" onClick={() => setCountryModalOpen(false)}>

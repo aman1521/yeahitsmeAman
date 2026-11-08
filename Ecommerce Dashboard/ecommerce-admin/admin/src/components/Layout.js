@@ -21,7 +21,8 @@ import {
   FiLogOut,
   FiUser,
   FiShield,
-  FiActivity
+  FiActivity,
+  FiGlobe
 } from 'react-icons/fi';
 import { useAuth } from '../contexts/AuthContext';
 import apiClient from '../services/apiClient';
@@ -189,6 +190,7 @@ const Layout = () => {
   const allNavigationItems = [
     { name: 'Dashboard', href: '/dashboard', icon: FiHome },
     { name: 'Analytics', href: '/analytics', icon: FiBarChart2 },
+    { name: 'Portfolio Traffic (GA4)', href: '/portfolio-traffic', icon: FiGlobe },
     { name: 'Orders', href: '/orders', icon: FiShoppingCart },
     { 
       name: 'Products', 

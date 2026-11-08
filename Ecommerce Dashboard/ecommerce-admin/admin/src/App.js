@@ -138,6 +138,7 @@ function App() {
                   <Route index element={<Dashboard />} />
                   <Route path="dashboard" element={<Dashboard />} />
                   <Route path="analytics" element={<Analytics />} />
+                  <Route path="portfolio-traffic" element={<Analytics defaultTab="portfolio" />} />
                   <Route path="revenue" element={<RevenueAnalytics />} />
                   <Route path="revenue/analytics" element={<RevenueAnalytics />} />
                   <Route path="revenue/reports" element={<RevenueReports />} />

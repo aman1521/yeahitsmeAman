@@ -124,26 +124,8 @@ const Login = () => {
             Sign in to your account
           </h2>
           <p style={{ fontSize: '13px', color: '#6B7280', textAlign: 'center', marginTop: '6px' }}>
-            Enter your credentials or try instant demo access below
+            Enter your credentials to access the administrative dashboard
           </p>
-        </div>
-
-        {/* Credentials Info Badge */}
-        <div style={{
-          background: 'rgba(22, 140, 214, 0.08)',
-          border: '1px solid rgba(22, 140, 214, 0.25)',
-          borderRadius: '8px',
-          padding: '10px 12px',
-          marginBottom: '16px',
-          fontSize: '12px',
-          color: '#374151',
-          lineHeight: 1.5
-        }}>
-          <div style={{ fontWeight: 600, color: '#D97706', marginBottom: '2px' }}>
-            🔑 Admin Credentials:
-          </div>
-          <div><strong>Email:</strong> <code style={{ color: '#1F2937' }}>amanchouhan1217@gmail.com</code></div>
-          <div><strong>Password:</strong> <code style={{ color: '#1F2937' }}>Legend@15</code></div>
         </div>
 
         {/* Login Form */}
@@ -158,7 +140,7 @@ const Login = () => {
               id="username"
               type="text"
               className="form-input"
-              placeholder="amanchouhan1217@gmail.com"
+              placeholder="admin@example.com"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               onKeyDown={handleKeyDown}
@@ -263,8 +245,8 @@ const Login = () => {
           <button
             type="button"
             onClick={() => {
-              setUsername('amanchouhan1217@gmail.com');
-              setPassword('Legend@15');
+              setUsername('demo');
+              setPassword('demo');
               handleLogin({ preventDefault: () => {} }, true);
             }}
             style={{
@@ -295,7 +277,7 @@ const Login = () => {
               e.currentTarget.style.background = 'transparent';
             }}
           >
-            ⚡ Quick Admin Login (amanchouhan1217@gmail.com)
+            ⚡ Explore Dashboard (Demo Access)
           </button>
         </form>
 

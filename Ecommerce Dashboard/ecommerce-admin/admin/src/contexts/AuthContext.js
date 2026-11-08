@@ -138,46 +138,14 @@ export const AuthProvider = ({ children }) => {
     setIsLoggingIn(true);
 
     const cleanUsername = (username || '').trim().toLowerCase();
-    const isTargetAdmin = cleanUsername === 'amanchouhan1217@gmail.com';
-
-    // Verify admin credentials for amanchouhan1217@gmail.com directly or via demo
-    if (isTargetAdmin) {
-      if (password !== 'Legend@15') {
-        setIsLoggingIn(false);
-        setLoading(false);
-        toast.error('Invalid password for amanchouhan1217@gmail.com');
-        return { success: false, error: 'Invalid password' };
-      }
-
-      const adminUser = {
-        id: 1,
-        username: 'amanchouhan1217@gmail.com',
-        full_name: 'Aman Chouhan',
-        email: 'amanchouhan1217@gmail.com',
-        role: 'super_admin',
-        is_super_admin: true,
-        is_tenant_admin: true,
-        preferred_currency: 'USD'
-      };
-      const normalized = normalizeUser(adminUser);
-      localStorage.setItem('token', 'peenakaa-admin-token-aman');
-      localStorage.setItem('sessionId', 'admin-session-aman-1217');
-      localStorage.setItem('userPayload', JSON.stringify(normalized));
-      localStorage.setItem('demo_mode', 'true');
-      setUser(normalized);
-      setLoading(false);
-      setIsLoggingIn(false);
-      toast.success('Welcome Aman Chouhan! Signed in as Super Admin.');
-      return { success: true };
-    }
 
     const isDemoCreds = forceDemo || (cleanUsername === 'admin' && password === 'admin') || cleanUsername === 'demo';
     if (isDemoCreds) {
       const demoUser = {
         id: 1,
-        username: 'amanchouhan1217@gmail.com',
-        full_name: 'Aman Chouhan',
-        email: 'amanchouhan1217@gmail.com',
+        username: 'admin',
+        full_name: 'Administrator',
+        email: 'admin@peenakaa.com',
         role: 'super_admin',
         is_super_admin: true,
         is_tenant_admin: true,

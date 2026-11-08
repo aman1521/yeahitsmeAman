@@ -16,6 +16,7 @@ import { useTheme } from '../contexts/ThemeContext';
 import { useGlobalCurrency } from '../contexts/GlobalCurrencyContext';
 import { useAuth } from '../contexts/AuthContext';
 import apiClient from '../services/apiClient';
+import AIGrowthBriefing from '../components/AIGrowthBriefing';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -429,6 +430,12 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-page">
+      {/* Functional AI Growth Diagnostic Copilot */}
+      <AIGrowthBriefing
+        onNavigateToProducts={() => navigate('/products')}
+        onNavigateToCoupons={() => navigate('/coupons')}
+      />
+
       {/* Stats Cards */}
       <div className="stats-grid">
         {statCards.map((stat, index) => (
