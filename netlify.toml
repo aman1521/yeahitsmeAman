@@ -12,6 +12,22 @@
   to = "/privacy-policy.html"
   status = 200
 
+# Terms and Conditions clean URLs
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms-of-service"
+  to = "/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms-and-conditions"
+  to = "/terms.html"
+  status = 200
+
 # Admin route shortcuts for easy login
 [[redirects]]
   from = "/admin"

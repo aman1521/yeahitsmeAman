@@ -303,8 +303,10 @@ const Login = () => {
         {/* Footer */}
         <div style={{ marginTop: '16px', textAlign: 'center', fontSize: '11px', color: '#9CA3AF' }}>
           <p>© 2026 Peenakaa Ecommerce Dashboard. All rights reserved.</p>
-          <p style={{ marginTop: '4px' }}>
+          <p style={{ marginTop: '4px', display: 'flex', justifyContent: 'center', gap: '8px', alignItems: 'center' }}>
             <a href="/privacy-policy.html" style={{ color: '#168CD6', textDecoration: 'none' }}>Privacy Policy</a>
+            <span>•</span>
+            <a href="/terms.html" style={{ color: '#168CD6', textDecoration: 'none' }}>Terms &amp; Conditions</a>
           </p>
         </div>
       </div>

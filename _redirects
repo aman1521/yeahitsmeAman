@@ -1,5 +1,8 @@
 /privacy         /privacy-policy.html              200
 /privacy-policy  /privacy-policy.html              200
+/terms           /terms.html                       200
+/terms-of-service /terms.html                      200
+/terms-and-conditions /terms.html                  200
 /admin           /ecommerce-dashboard/login        302
 /admin/          /ecommerce-dashboard/login        302
 /admin/*         /ecommerce-dashboard/index.html   200
