@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Aman Kumar - Growth Architect & Consultant</title>
+  <meta name="description" content="Privacy Policy for Aman Kumar's portfolio, consulting services, and applications. Learn how we handle personal data, telemetry, and Google API compliance.">
+  <link rel="canonical" href="https://yeahitsmeaman.netlify.app/privacy-policy.html">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --bg-card: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-muted2: #64748b;
+      --border: #e2e8f0;
+      --accent: #168cd6;
+      --accent-hover: #1170ab;
+      --accent2: #0f828a;
+      --accent2-hover: #0c6970;
+      --radius: 12px;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+      --max: 920px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-alt);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text);
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-decoration: none !important;
+    }
+
+    .btn:hover {
+      background: var(--bg-alt);
+      border-color: var(--text-muted2);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none;
+      color: #fff;
+    }
+
+    .btn.primary:hover {
+      opacity: 0.92;
+      color: #fff;
+    }
+
+    /* MAIN CONTENT */
+    .container {
+      max-width: var(--max);
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+
+    .policy-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 48px;
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 640px) {
+      .policy-card {
+        padding: 24px;
+      }
+    }
+
+    .policy-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+
+    .policy-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(22, 140, 214, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(22, 140, 214, 0.25);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .policy-header h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .meta-date {
+      color: var(--text-muted2);
+      font-size: 14px;
+    }
+
+    .policy-content h2 {
+      font-size: 22px;
+      margin: 36px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #0f172a;
+    }
+
+    .policy-content h3 {
+      font-size: 17px;
+      margin: 20px 0 8px;
+      color: #1e293b;
+    }
+
+    .policy-content p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .policy-content ul {
+      margin: 0 0 20px 24px;
+      color: var(--text-muted);
+    }
+
+    .policy-content li {
+      margin-bottom: 8px;
+    }
+
+    .callout {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-size: 15px;
+    }
+
+    .callout.info {
+      background: #f0f9ff;
+      border-color: #bae6fd;
+      border-left-color: var(--accent);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+      color: var(--text-muted2);
+      font-size: 14px;
+      background: #fff;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="brand">
+        <div class="brand-badge">A</div>
+        <span>Aman Kumar</span>
+      </a>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <a href="/" class="btn">← Back to Portfolio</a>
+        <a href="/#contact" class="btn primary">Contact Aman</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="container">
+    <article class="policy-card">
+      <header class="policy-header">
+        <span class="policy-badge">Legal &amp; Privacy Transparency</span>
+        <h1>Privacy Policy</h1>
+        <div class="meta-date">
+          <strong>Effective Date:</strong> November 9, 2026 &bull; <strong>Website:</strong> <a href="https://yeahitsmeaman.netlify.app/">https://yeahitsmeaman.netlify.app</a>
+        </div>
+      </header>
+
+      <div class="policy-content">
+        <p>
+          Welcome to the personal portfolio and consulting website of <strong>Aman Kumar</strong> (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;). We respect your personal privacy and are committed to protecting the information you share with us.
+        </p>
+        <p>
+          This Privacy Policy explains what data we collect, how it is used, your data privacy rights, and our strict adherence to international standards and Google API Services User Data Policies.
+        </p>
+
+        <h2>1. Information We Collect</h2>
+        <p>We collect information in the following ways:</p>
+        
+        <h3>A. Information You Voluntarily Provide</h3>
+        <ul>
+          <li><strong>Contact &amp; Consultation Inquiries:</strong> When you submit a project inquiry, booking request, or contact form on our website, we collect your name, email address, phone number, company/organization name, project requirements, and any notes you provide.</li>
+          <li><strong>Direct Communications:</strong> If you contact us directly via email (<a href="mailto:amanchouhan1217@gmail.com">amanchouhan1217@gmail.com</a>) or phone, we keep records of that correspondence to manage ongoing professional engagements.</li>
+        </ul>
+
+        <h3>B. Automatically Collected Telemetry &amp; Analytics Data</h3>
+        <ul>
+          <li><strong>Web Traffic Telemetry:</strong> To understand how visitors engage with our portfolio case studies, we record non-personally identifiable telemetry such as device category (Desktop, Mobile, Tablet), browser type, referring URLs, operating system, and pages viewed.</li>
+          <li><strong>Google Analytics 4 (GA4):</strong> We use Google Analytics (Measurement ID: <code>G-MZ23TJWG25</code>) to analyze aggregate site traffic. Google Analytics collects anonymized IP addresses and user engagement events.</li>
+        </ul>
+
+        <h2>2. Google API Services Compliance &amp; Limited Use Disclosure</h2>
+        <div class="callout info">
+          <div class="callout-title">
+            <span>🛡️</span> Google API Services User Data Policy Compliance
+          </div>
+          <p style="margin: 0; color: #0369a1; font-size: 14px;">
+            Aman Kumar&rsquo;s application and admin workspace use Google APIs (specifically the Google Analytics Data API / Google Identity Services) strictly to retrieve traffic metrics for our own portfolio domain.
+          </p>
+        </div>
+        <p>
+          Our use and transfer to any other app of information received from Google APIs will adhere to the <strong><a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a></strong>, including the <strong>Limited Use</strong> requirements:
+        </p>
+        <ul>
+          <li><strong>No Sale of Data:</strong> We never sell, license, or monetize any data obtained from Google API services under any circumstances.</li>
+          <li><strong>No Advertising Use:</strong> Data retrieved from Google APIs is never used for advertising, retargeting, profiling, or lead broker marketplaces.</li>
+          <li><strong>Internal Visualization Only:</strong> Google Analytics data is used exclusively within our private administrative portal to view site performance statistics (such as visitor velocity, pageviews, and session duration for <code>yeahitsmeaman.netlify.app</code>).</li>
+          <li><strong>No Human Inspection:</strong> No human reads user data from Google APIs unless required by law or explicitly authorized to troubleshoot technical issues.</li>
+        </ul>
+
+        <h2>3. How We Use Collected Information</h2>
+        <p>We use your information strictly for legitimate business and professional purposes:</p>
+        <ul>
+          <li>To review and respond to incoming client consultation inquiries and project proposals.</li>
+          <li>To deliver agreed-upon digital growth architecture, SEO audits, and AI automation consulting.</li>
+          <li>To operate, maintain, and optimize the security and loading speed of our website.</li>
+          <li>To prevent fraudulent automated bots, spam form submissions, and malicious activity.</li>
+        </ul>
+
+        <h2>4. Data Storage &amp; Security</h2>
+        <p>
+          We employ robust technical and organizational security controls to protect your data:
+        </p>
+        <ul>
+          <li><strong>Encryption in Transit:</strong> All communication between your browser and our website is protected via modern TLS/HTTPS encryption.</li>
+          <li><strong>Protected Access:</strong> Internal inquiry records and administrative tools are secured behind multi-layered authentication credentials and route guards. Only authorized administrative personnel have access.</li>
+          <li><strong>Data Minimization:</strong> We do not store sensitive payment card numbers or financial credentials on our servers.</li>
+        </ul>
+
+        <h2>5. Cookies &amp; Local Storage</h2>
+        <p>
+          We use functional cookies and browser <code>localStorage</code> strictly to maintain session preferences, such as:
+        </p>
+        <ul>
+          <li>Interactive Ecommerce Demo mode status (Peenakaa store simulation).</li>
+          <li>Selected currency preferences (e.g. INR, USD, SGD).</li>
+          <li>Dark/Light interface theme settings.</li>
+        </ul>
+        <p>You can adjust your browser settings to decline cookies at any time, though some interactive demo features may revert to default states.</p>
+
+        <h2>6. Third-Party Service Providers</h2>
+        <p>We partner with trusted third-party cloud infrastructure providers who adhere to strict data privacy safeguards:</p>
+        <ul>
+          <li><strong>Netlify:</strong> Static hosting, edge CDN caching, and form processing infrastructure.</li>
+          <li><strong>Google LLC:</strong> Web analytics (GA4) and Google Identity Services OAuth 2.0 authentication.</li>
+          <li><strong>GitHub:</strong> Source code version control and continuous deployment automation.</li>
+        </ul>
+
+        <h2>7. Your Data Protection Rights (GDPR &amp; CCPA)</h2>
+        <p>Depending on your jurisdiction, you have the following rights regarding your personal data:</p>
+        <ul>
+          <li><strong>Right of Access:</strong> You may request a copy of the personal information we hold about you.</li>
+          <li><strong>Right to Rectification:</strong> You may request that we correct any inaccurate or incomplete details.</li>
+          <li><strong>Right to Erasure (&ldquo;Right to be Forgotten&rdquo;):</strong> You may request that we permanently delete your contact inquiry records from our database.</li>
+          <li><strong>Right to Object or Restrict:</strong> You may opt out of future communications at any time.</li>
+        </ul>
+
+        <h2>8. Contact Us &amp; Privacy Requests</h2>
+        <p>
+          If you have any questions about this Privacy Policy, wish to exercise your data rights, or request the deletion of your consultation inquiry, please contact:
+        </p>
+        <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 18px 22px; margin-top: 16px;">
+          <p style="margin: 0 0 6px 0; font-weight: 700; color: #0f172a;">Aman Kumar</p>
+          <p style="margin: 0 0 6px 0; color: var(--text-muted);">Growth Architect, Full-Stack Consultant &amp; AI Marketer</p>
+          <p style="margin: 0 0 6px 0;"><strong>Email:</strong> <a href="mailto:amanchouhan1217@gmail.com">amanchouhan1217@gmail.com</a></p>
+          <p style="margin: 0 0 6px 0;"><strong>Portfolio URL:</strong> <a href="https://yeahitsmeaman.netlify.app/">https://yeahitsmeaman.netlify.app/</a></p>
+          <p style="margin: 0;"><strong>Location:</strong> India</p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>&copy; <span id="year">2026</span> Aman Kumar. All rights reserved.</div>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <a href="/privacy-policy.html" style="color: var(--accent); font-weight: 600;">Privacy Policy</a>
+        <span>&bull;</span>
+        <a href="/" style="color: var(--text-muted2);">Home</a>
+        <span>&bull;</span>
+        <a href="/#contact" style="color: var(--text-muted2);">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

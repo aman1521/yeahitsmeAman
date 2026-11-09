@@ -1,3 +1,5 @@
+/privacy         /privacy-policy.html              200
+/privacy-policy  /privacy-policy.html              200
 /admin           /ecommerce-dashboard/login        302
 /admin/          /ecommerce-dashboard/login        302
 /admin/*         /ecommerce-dashboard/index.html   200
