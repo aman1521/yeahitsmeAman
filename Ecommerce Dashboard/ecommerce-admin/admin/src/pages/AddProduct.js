@@ -653,7 +653,7 @@ const AddProduct = () => {
   }, []);
 
   useEffect(() => {
-    console.log('✓ Pricing Currency State Updated:', selectedPricingCurrency);
+    console.log(' Pricing Currency State Updated:', selectedPricingCurrency);
   }, [selectedPricingCurrency]);
 
   // Helper function to get standard tax rates for a country
@@ -868,7 +868,7 @@ const AddProduct = () => {
             symbol: currency.currency_symbol,
             name: currency.currency_name
           });
-          console.log(`✓ Pricing updated: ${country.country_name} → ${currency.currency_symbol} ${currency.currency_code}`);
+          console.log(` Pricing updated: ${country.country_name} → ${currency.currency_symbol} ${currency.currency_code}`);
         } else {
           // Currency not found in currencies list, fallback
           console.warn('Currency not in list, using fallback');
@@ -1038,7 +1038,7 @@ const AddProduct = () => {
         }
       }
       
-      console.log('✅ Form validation passed');
+      console.log('Form validation passed');
       console.log('Color data:', { color_name: formData.color_name, color_shade: formData.color_shade });
       
       // Transform form data to match backend API
@@ -1148,10 +1148,10 @@ const AddProduct = () => {
               
               try {
                 const packResponse = await apiClient.post('/product-packs', packData);
-                console.log(`✅ Successfully created pack for ${groupedProduct.name}:`, packResponse.data);
+                console.log(`Successfully created pack for ${groupedProduct.name}:`, packResponse.data);
               } catch (packErr) {
                 // Log the error but don't fail the whole product creation
-                console.error(`❌ Failed to create pack for ${groupedProduct.name}:`, packErr);
+                console.error(`Failed to create pack for ${groupedProduct.name}:`, packErr);
                 console.error('Pack creation error details:', packErr.response?.data || packErr.message);
                 console.error('Pack data that was sent:', packData);
                 // Show a warning but continue - don't block product creation
@@ -1371,28 +1371,28 @@ const AddProduct = () => {
               completed={!!(selectedMainCategoryId || selectedSubCategoryId)}
             />
             <SectionButton
-              icon="💰"
+              icon=""
               title="Pricing & Currency"
               description="Set base price, sale price, and currency conversion"
               onClick={() => setActiveModal('pricing')}
               completed={!!(formData.regular_price && selectedPricingCountry)}
             />
             <SectionButton
-              icon="📊"
+              icon=""
               title="Tax Settings"
               description="Configure product tax rates and regional overrides"
               onClick={() => setActiveModal('tax')}
               completed={formData.tax_rate !== null && formData.tax_rate !== undefined && formData.tax_rate !== ''}
             />
             <SectionButton
-              icon="🌍"
+              icon=""
               title="Regional Tax Rates"
               description="Set country-specific tax rate overrides"
               onClick={() => setActiveModal('regional-tax')}
               completed={Object.keys(formData.regional_tax_rates || {}).length > 0 && Object.values(formData.regional_tax_rates || {}).some(rate => rate !== null && rate !== undefined)}
             />
             <SectionButton
-              icon="🧪"
+              icon=""
               title={keyIngredientsConfig.displayLabel || keyIngredientsConfig.config?.display_label || 'Key Ingredients'}
               description={`Manage product ${(keyIngredientsConfig.displayLabel || keyIngredientsConfig.config?.display_label || 'ingredients').toLowerCase()} (${formData.key_ingredients.length} added)`}
               count={formData.key_ingredients.length}
@@ -1400,7 +1400,7 @@ const AddProduct = () => {
               completed={formData.key_ingredients.length > 0}
             />
             <SectionButton
-              icon="💊"
+              icon=""
               title={healthBenefitsConfig.displayLabel || 'Health Benefits'}
               description={`Select ${(healthBenefitsConfig.displayLabel || 'health benefits').toLowerCase()} for this product (${formData.health_benefits.length} selected)`}
               count={formData.health_benefits.length}
@@ -1408,7 +1408,7 @@ const AddProduct = () => {
               completed={formData.health_benefits.length > 0}
             />
             <SectionButton
-              icon="⭐"
+              icon=""
               title="Feature Cards"
               description={`Add product feature cards (${formData.feature_cards.length}/4)`}
               count={formData.feature_cards.length}
@@ -1423,14 +1423,14 @@ const AddProduct = () => {
               completed={!!(productImages.image1 || productImages.image2 || productImages.image3 || productImages.image4 || productImages.image5)}
             />
             <SectionButton
-              icon="🎨"
+              icon=""
               title="Product Color"
               description={formData.color_name || formData.color_shade ? `Color: ${formData.color_name || 'Custom'} (${formData.color_shade || 'N/A'})` : 'Set product color name and hex code'}
               onClick={() => setActiveModal('product-color')}
               completed={!!(formData.color_name || (formData.color_shade && formData.color_shade !== '#000000'))}
             />
             <SectionButton
-              icon="❓"
+              icon=""
               title="FAQs"
               description="Add frequently asked questions"
               onClick={() => setActiveModal('faqs')}
@@ -1673,7 +1673,7 @@ const AddProduct = () => {
                 {healthBenefitsFetchFailed.current ? (
                   <>
                     <p style={{ color: '#ef4444', fontStyle: 'italic', marginBottom: '15px', fontWeight: '500' }}>
-                      ⚠️ Unable to load {healthBenefitsConfig.displayLabel || healthBenefitsConfig.config?.display_label || 'health benefits'}. 
+                      Unable to load {healthBenefitsConfig.displayLabel || healthBenefitsConfig.config?.display_label || 'health benefits'}. 
                       This may be due to authentication. You can continue creating the product and add {healthBenefitsConfig.displayLabel || 'health benefits'} later.
                     </p>
                     <button
@@ -1697,7 +1697,7 @@ const AddProduct = () => {
                         gap: '6px'
                       }}
                     >
-                      🔄 Retry Loading
+                      Retry Loading
                     </button>
                   </>
                 ) : (
@@ -1726,7 +1726,7 @@ const AddProduct = () => {
                         gap: '6px'
                       }}
                     >
-                      🔄 Retry Loading
+                      Retry Loading
                     </button>
                   </>
                 )}
@@ -1815,7 +1815,7 @@ const AddProduct = () => {
                     gap: '10px',
                     marginTop: '20px'
                   }}>
-                    <span style={{ fontSize: '18px' }}>⚠️</span>
+                    <span style={{ fontSize: '18px' }}></span>
                     <span style={{ fontSize: '13px', color: isDark ? '#fbbf24' : '#92400e' }}>
                       You must select at least one {healthBenefitsConfig.displayLabel || healthBenefitsConfig.config?.display_label || 'health benefit'} to categorize this product properly.
                     </span>
@@ -2228,7 +2228,7 @@ const AddProduct = () => {
                 fontSize: '13px',
                 color: isDark ? '#6ee7b7' : '#065f46'
               }}>
-                💡 <strong>Note:</strong> This price ({selectedPricingCurrency.symbol}{formData.regular_price}) will be saved for {countries.find(c => c.country_code === selectedPricingCountry)?.country_name}. 
+                <strong>Note:</strong> This price ({selectedPricingCurrency.symbol}{formData.regular_price}) will be saved for {countries.find(c => c.country_code === selectedPricingCountry)?.country_name}. 
                 Other countries will see auto-converted prices based on current exchange rates.
               </div>
             )}
@@ -2308,7 +2308,7 @@ const AddProduct = () => {
               fontSize: '13px',
               color: isDark ? '#93c5fd' : '#1e40af'
             }}>
-              <strong>💡 Tax Priority:</strong> Regional Tax Override &gt; Product Tax Rate &gt; Country Default Tax
+              <strong>Tax Priority:</strong> Regional Tax Override &gt; Product Tax Rate &gt; Country Default Tax
             </div>
           </div>
         </Modal>
@@ -2405,7 +2405,7 @@ const AddProduct = () => {
               border: `1px solid ${isDark ? '#0ea5e9' : '#0ea5e9'}`
             }}>
               <div style={{ fontSize: '12px', color: isDark ? '#7dd3fc' : '#0369a1', fontWeight: '500' }}>
-                💡 Tip: Set specific tax rates for each region where you sell products. 
+                Tip: Set specific tax rates for each region where you sell products. 
                 This allows you to comply with local tax regulations and pricing strategies.
               </div>
             </div>

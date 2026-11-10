@@ -81,7 +81,7 @@ function EnterprisePricing() {
         <div className="page-container">
             <div className="page-header">
                 <div>
-                    <h2 style={{ fontSize: '18px' }}>💱 Enterprise Pricing Management</h2>
+                    <h2 style={{ fontSize: '18px' }}>Enterprise Pricing Management</h2>
                     <p style={{ color: isDark ? '#8b949e' : '#666', marginTop: 4, fontSize: '12px' }}>Manage currencies, regional taxes, and dynamic product pricing</p>
                 </div>
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>

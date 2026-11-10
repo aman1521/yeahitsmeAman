@@ -817,7 +817,7 @@ const Settings = () => {
           
           // Set preview to base64 string (data URIs work directly)
           setAvatarPreview(base64String);
-          console.log('[Avatar Upload] ✅ Avatar preview set and saved to server');
+          console.log('[Avatar Upload] Avatar preview set and saved to server');
           
           // Don't call updateProfile here - it causes 401 error and we already updated the avatar
           // The avatar is already saved via the /api/admin/profile/avatar endpoint
@@ -1154,7 +1154,7 @@ const Settings = () => {
             });
             if (saveResponse.data.success && saveResponse.data.preferences) {
               setNotifications(saveResponse.data.preferences);
-              console.log('[NOTIFICATIONS] ✅ Initialized and saved default preferences');
+              console.log('[NOTIFICATIONS] Initialized and saved default preferences');
             }
           } catch (saveError) {
             console.error('[NOTIFICATIONS] Error saving default preferences:', saveError);
@@ -1208,7 +1208,7 @@ const Settings = () => {
         // Update with server response to ensure consistency
         if (response.data.preferences) {
           setNotifications(response.data.preferences);
-          console.log('[NOTIFICATIONS] ✅ Preferences updated successfully');
+          console.log('[NOTIFICATIONS] Preferences updated successfully');
         }
         toast.success('Notification preference updated');
       } else {
@@ -1442,7 +1442,7 @@ const Settings = () => {
         console.log('[PAYMENT GATEWAYS] Setting gateways:', gateways);
         setPaymentGateways(gateways);
         if (gateways.length === 0) {
-          console.warn('[PAYMENT GATEWAYS] ⚠️ Response was successful but gateways array is empty');
+          console.warn('[PAYMENT GATEWAYS] Response was successful but gateways array is empty');
         }
       } else {
         console.warn('[PAYMENT GATEWAYS] Response success=false:', response.data);
@@ -1685,8 +1685,7 @@ const Settings = () => {
             toast.success(message, { duration: 5000 });
             // Show warnings separately
             setTimeout(() => {
-              toast(`⚠️ Format warnings: ${validation.warnings.join('; ')}`, {
-                icon: '⚠️',
+              toast(`Format warnings: ${validation.warnings.join('; ')}`, {
                 duration: 6000
               });
             }, 500);
@@ -1697,7 +1696,6 @@ const Settings = () => {
           if (response.data.note) {
             setTimeout(() => {
               toast(response.data.note, {
-                icon: '💡',
                 duration: 5000
               });
             }, 1000);
@@ -5614,7 +5612,7 @@ const Settings = () => {
                 <div style={{ padding: '20px', background: '#f0fdf4', borderRadius: '8px', marginBottom: '20px', border: '1px solid #86efac' }}>
                   <p style={{ margin: 0, fontWeight: '600', color: '#166534', marginBottom: '10px' }}>API Key Created Successfully!</p>
                   <p style={{ margin: 0, fontSize: '12px', color: '#166534', marginBottom: '15px' }}>
-                    ⚠️ Copy these keys now. You won't be able to see them again.
+                    Copy these keys now. You won't be able to see them again.
                   </p>
                   <div style={{ marginBottom: '15px' }}>
                     <label style={{ fontSize: '12px', fontWeight: '600', color: '#166534', marginBottom: '5px', display: 'block' }}>API Key:</label>
@@ -6320,7 +6318,7 @@ const Settings = () => {
                   marginTop: '10px' 
                 }}>
                   <p style={{ margin: 0, color: '#1e40af', fontSize: '13px', lineHeight: '1.6' }}>
-                    <strong>🔒 Security Note:</strong> Your secret keys will be encrypted before storage. Never share your secret keys with anyone.
+                    <strong>Security Note:</strong> Your secret keys will be encrypted before storage. Never share your secret keys with anyone.
                   </p>
                 </div>
                 

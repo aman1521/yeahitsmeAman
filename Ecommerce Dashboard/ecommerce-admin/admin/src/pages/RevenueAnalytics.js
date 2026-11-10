@@ -181,12 +181,12 @@ const RevenueAnalytics = () => {
       
       // Check if we actually got data
       if (!stats || Object.keys(stats).length === 0) {
-        console.warn('[Revenue Analytics] ⚠️ Stats response is empty!');
+        console.warn('[Revenue Analytics] Stats response is empty!');
         toast.error('No statistics data received from server. Please check backend connection.');
       }
       
       if (!chartData || chartData.length === 0) {
-        console.warn('[Revenue Analytics] ⚠️ Chart data is empty!');
+        console.warn('[Revenue Analytics] Chart data is empty!');
         // Don't show error toast for empty chart data - it might just mean no sales in the period
       }
       

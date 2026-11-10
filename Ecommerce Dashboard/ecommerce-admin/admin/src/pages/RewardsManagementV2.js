@@ -2353,7 +2353,7 @@ const UserDetailsModal = ({ user, userDetails, loading, onClose, onRefresh, onAd
                 fontSize: '13px',
                 color: '#1e40af'
               }}>
-                <strong>💡 Tier Criteria:</strong> Bronze (₹0) → Silver (₹5,000) → Gold (₹15,000) → Platinum (₹50,000)
+                <strong>Tier Criteria:</strong> Bronze (₹0) → Silver (₹5,000) → Gold (₹15,000) → Platinum (₹50,000)
               </div>
               
               {/* Update Lifetime Spend Button */}
@@ -2440,7 +2440,7 @@ const UserDetailsModal = ({ user, userDetails, loading, onClose, onRefresh, onAd
                   fontWeight: '600',
                   marginBottom: '16px'
                 }}>
-                  ⚠️ {userDetails.balance.expiring_soon_count} points expiring soon
+                  {userDetails.balance.expiring_soon_count} points expiring soon
                 </div>
               )}
               
@@ -2721,7 +2721,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
 
         <form onSubmit={handleSubmit} style={{ padding: '12px 14px', background: '#ffffff' }}>
           <div style={{ display: 'flex', gap: '6px', marginBottom: '12px', borderBottom: `2px solid ${borderColor}`, paddingBottom: '8px' }}>
-            {[{ id: 'basic', label: 'Basic Info', icon: '📝' }, { id: 'benefits', label: 'Benefits & Perks', icon: '🎁' }, { id: 'advanced', label: 'Advanced', icon: '⚙️' }].map(section => (
+            {[{ id: 'basic', label: 'Basic Info' }, { id: 'benefits', label: 'Benefits & Perks', icon: '' }, { id: 'advanced', label: 'Advanced' }].map(section => (
               <button
                 key={section.id}
                 type="button"
@@ -2753,7 +2753,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
                 borderRadius: '8px',
                 border: `1px solid ${borderColor}`
               }}>
-                <h3 style={{ fontSize: '11px', fontWeight: '700', marginBottom: '10px', color: '#168CD6' }}>📝 Tier Details</h3>
+                <h3 style={{ fontSize: '11px', fontWeight: '700', marginBottom: '10px', color: '#168CD6' }}> Tier Details</h3>
                 <div style={{ display: 'grid', gap: '10px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '9px', fontWeight: '600', marginBottom: '6px', color: textColor }}>Tier Name <span style={{ color: '#ef4444' }}>*</span></label>
@@ -2830,7 +2830,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
 
             {activeSection === 'benefits' && (
               <div style={{ padding: '20px', background: '#ffffff', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#8b5cf6' }}>🎁 Benefits & Perks</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#8b5cf6' }}> Benefits & Perks</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: textColor }}>Perks (JSON Array)</label>
@@ -2890,7 +2890,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
 
             {activeSection === 'advanced' && (
               <div style={{ padding: '20px', background: '#ffffff', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#10b981' }}>⚙️ Advanced Settings</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#10b981' }}> Advanced Settings</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div style={{ padding: '16px', background: '#ffffff', borderRadius: '8px', border: `1px solid ${borderColor}` }}>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
@@ -3033,7 +3033,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
 
         <form onSubmit={handleSubmit} style={{ padding: '12px 14px', background: '#ffffff' }}>
           <div style={{ display: 'flex', gap: '6px', marginBottom: '12px', borderBottom: `2px solid ${borderColor}`, paddingBottom: '8px' }}>
-            {[{ id: 'basic', label: 'Basic Info', icon: '📝' }, { id: 'targeting', label: 'Targeting & Rules', icon: '🎯' }, { id: 'advanced', label: 'Advanced', icon: '⚙️' }].map(section => (
+            {[{ id: 'basic', label: 'Basic Info' }, { id: 'targeting', label: 'Targeting & Rules' }, { id: 'advanced', label: 'Advanced' }].map(section => (
               <button
                 key={section.id}
                 type="button"
@@ -3060,7 +3060,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
           <div style={{ display: 'grid', gap: '24px' }}>
             {activeSection === 'basic' && (
               <div style={{ padding: '20px', background: '#ffffff', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#168CD6' }}>📝 Campaign Details</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#168CD6' }}> Campaign Details</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: textColor }}>Campaign Name <span style={{ color: '#ef4444' }}>*</span></label>
@@ -3169,7 +3169,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
 
             {activeSection === 'targeting' && (
               <div style={{ padding: '20px', background: '#ffffff', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#8b5cf6' }}>🎯 Targeting & Eligibility Rules</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#8b5cf6' }}> Targeting & Eligibility Rules</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: textColor }}>Minimum Purchase Amount (₹)</label>
@@ -3222,7 +3222,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
 
             {activeSection === 'advanced' && (
               <div style={{ padding: '20px', background: '#ffffff', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#10b981' }}>⚙️ Advanced Settings</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#10b981' }}> Advanced Settings</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: textColor }}>Priority</label>
@@ -3708,7 +3708,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
     <div style={{ padding: '24px', background: isDark ? '#0f172a' : '#f8fafc', minHeight: '100vh' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '24px', color: textColor }}>
-          🧪 Reward System Test Center
+          Reward System Test Center
         </h2>
         <p style={{ fontSize: '14px', color: '#64748b', marginBottom: '32px' }}>
           Test all reward functionality: automatic point granting, tier upgrades, and point-to-currency conversion
@@ -3724,11 +3724,11 @@ const TestTab = ({ users, onRefresh, isDark }) => {
           }}>
             {coupons.length === 0 ? (
               <p style={{ fontSize: '14px', color: '#92400e', margin: 0 }}>
-                ⚠️ <strong>Coupons not loaded:</strong> You can still test by entering coupon codes manually in the input fields. Click the "🔄 Refresh" button next to coupon fields to try loading again (requires login).
+                <strong>Coupons not loaded:</strong> You can still test by entering coupon codes manually in the input fields. Click the "Refresh" button next to coupon fields to try loading again (requires login).
               </p>
             ) : (
               <p style={{ fontSize: '14px', color: '#1e40af', margin: 0 }}>
-                ℹ️ <strong>Note:</strong> Some features require authentication. If you see errors, please ensure you're logged in.
+                 <strong>Note:</strong> Some features require authentication. If you see errors, please ensure you're logged in.
               </p>
             )}
           </div>
@@ -3790,7 +3790,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '24px' }}>
           <div style={{ background: cardBg, padding: '24px', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>💰 Test Order Payment</h3>
+            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>Test Order Payment</h3>
             <p style={{ fontSize: '12px', color: '#64748b', marginBottom: '16px' }}>
               Simulate order payment to test automatic reward point granting.<br />
               Formula: (Order Amount ÷ 1000) × 100 points
@@ -3839,7 +3839,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
           </div>
 
           <div style={{ background: cardBg, padding: '24px', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>💸 Test Points Usage</h3>
+            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>Test Points Usage</h3>
             <p style={{ fontSize: '12px', color: '#64748b', marginBottom: '16px' }}>
               Test converting reward points to currency and using them in an order.<br />
               Conversion Rate: 1 point = ₹{conversionRate}
@@ -3889,7 +3889,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
           </div>
 
           <div style={{ background: cardBg, padding: '24px', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>⭐ Test Tier Upgrade</h3>
+            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>Test Tier Upgrade</h3>
             <p style={{ fontSize: '12px', color: '#64748b', marginBottom: '16px' }}>
               Test automatic tier upgrade by updating lifetime spend.<br />
               Thresholds: Silver ₹5,000 | Gold ₹15,000 | Platinum ₹50,000
@@ -3914,7 +3914,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
           </div>
 
           <div style={{ background: cardBg, padding: '24px', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>🔗 Test Stacking (Coupon + Reward Points)</h3>
+            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>Test Stacking (Coupon + Reward Points)</h3>
             <p style={{ fontSize: '12px', color: '#64748b', marginBottom: '16px' }}>
               Test if a coupon can be combined with reward points.<br />
               Some coupons allow stacking, others don't.
@@ -3936,7 +3936,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
                     fontWeight: '600'
                   }}
                 >
-                  🔄 Refresh
+                  Refresh
                 </button>
               </div>
               {coupons.length > 0 ? (
@@ -3956,7 +3956,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
                   <option value="">-- Select Coupon --</option>
                   {coupons.filter(c => c.is_active && (!c.valid_until || new Date(c.valid_until) >= new Date())).map(coupon => (
                     <option key={coupon.id} value={coupon.code}>
-                      {coupon.code} {coupon.can_combine_with_reward_points ? '(✓ Can stack)' : '(✗ Cannot stack)'}
+                      {coupon.code} {coupon.can_combine_with_reward_points ? '(Can stack)' : '(Cannot stack)'}
                     </option>
                   ))}
                 </select>
@@ -3979,14 +3979,14 @@ const TestTab = ({ users, onRefresh, isDark }) => {
               )}
               {coupons.length === 0 && (
                 <p style={{ fontSize: '12px', color: '#f59e0b', marginTop: '4px' }}>
-                  ⚠️ Coupons not loaded. Enter coupon code manually or click Refresh to load from server.
+                  Coupons not loaded. Enter coupon code manually or click Refresh to load from server.
                 </p>
               )}
               {testCouponCode && coupons.find(c => c.code === testCouponCode) && (
                 <p style={{ fontSize: '12px', color: coupons.find(c => c.code === testCouponCode)?.can_combine_with_reward_points ? '#10b981' : '#ef4444', marginTop: '4px' }}>
                   {coupons.find(c => c.code === testCouponCode)?.can_combine_with_reward_points 
-                    ? '✓ This coupon allows stacking with reward points' 
-                    : '✗ This coupon does NOT allow stacking with reward points'}
+                    ? ' This coupon allows stacking with reward points' 
+                    : ' This coupon does NOT allow stacking with reward points'}
                 </p>
               )}
             </div>
@@ -4029,7 +4029,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
             {stackingTestResult && (
               <div style={{ marginTop: '16px', padding: '12px', background: stackingTestResult.can_stack ? '#d1fae5' : '#fee2e2', borderRadius: '8px', border: `1px solid ${stackingTestResult.can_stack ? '#10b981' : '#ef4444'}` }}>
                 <p style={{ fontSize: '14px', fontWeight: '600', color: stackingTestResult.can_stack ? '#065f46' : '#991b1b', margin: 0 }}>
-                  {stackingTestResult.can_stack ? '✅ Stacking Allowed' : '❌ Stacking Not Allowed'}
+                  {stackingTestResult.can_stack ? 'Stacking Allowed' : 'Stacking Not Allowed'}
                 </p>
                 <p style={{ fontSize: '12px', color: stackingTestResult.can_stack ? '#047857' : '#dc2626', marginTop: '4px', marginBottom: 0 }}>
                   {stackingTestResult.message || stackingTestResult.error}
@@ -4041,7 +4041,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
           <div style={{ background: cardBg, padding: '24px', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
               <div>
-                <h3 style={{ fontSize: '18px', fontWeight: '600', margin: 0, color: textColor }}>🎯 Active Campaigns</h3>
+                <h3 style={{ fontSize: '18px', fontWeight: '600', margin: 0, color: textColor }}> Active Campaigns</h3>
                 <p style={{ fontSize: '12px', color: '#64748b', marginTop: '4px', marginBottom: 0 }}>
                   View campaigns that would apply to orders. Campaigns are automatically applied during order processing.
                 </p>
@@ -4060,7 +4060,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
                   fontWeight: '600'
                 }}
               >
-                🔄 Refresh
+                Refresh
               </button>
             </div>
             {(() => {
@@ -4120,7 +4120,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
           </div>
 
           <div style={{ background: cardBg, padding: '24px', borderRadius: '12px', border: `1px solid ${borderColor}`, gridColumn: '1 / -1' }}>
-            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>🛒 Test Order Creation (Full Flow)</h3>
+            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>Test Order Creation (Full Flow)</h3>
             <p style={{ fontSize: '12px', color: '#64748b', marginBottom: '16px' }}>
               Create a test order with coupon and/or reward points. This will test the complete flow including stacking validation and campaign application.
             </p>
@@ -4163,7 +4163,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
                       fontWeight: '600'
                     }}
                   >
-                    🔄 Refresh
+                    Refresh
                   </button>
                 </div>
                 {coupons.length > 0 ? (
@@ -4183,7 +4183,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
                     <option value="">-- No Coupon --</option>
                     {coupons.filter(c => c.is_active && (!c.valid_until || new Date(c.valid_until) >= new Date())).map(coupon => (
                       <option key={coupon.id} value={coupon.code}>
-                        {coupon.code} - {coupon.can_combine_with_reward_points ? '✓ Can stack' : '✗ Cannot stack'}
+                        {coupon.code} - {coupon.can_combine_with_reward_points ? 'Can stack' : 'Cannot stack'}
                       </option>
                     ))}
                   </select>
@@ -4206,7 +4206,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
                 )}
                 {coupons.length === 0 && (
                   <p style={{ fontSize: '12px', color: '#f59e0b', marginTop: '4px' }}>
-                    ⚠️ Enter coupon code manually or click Refresh to load from server.
+                    Enter coupon code manually or click Refresh to load from server.
                   </p>
                 )}
               </div>
@@ -4241,7 +4241,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
             {testOrderData.couponCode && parseInt(testOrderData.rewardPointsToUse) > 0 && (
               <div style={{ marginBottom: '16px', padding: '12px', background: '#fef3c7', borderRadius: '8px', border: '1px solid #f59e0b' }}>
                 <p style={{ fontSize: '12px', color: '#92400e', margin: 0 }}>
-                  ⚠️ Testing stacking: Coupon "{testOrderData.couponCode}" + {testOrderData.rewardPointsToUse} reward points
+                  Testing stacking: Coupon "{testOrderData.couponCode}" + {testOrderData.rewardPointsToUse} reward points
                 </p>
               </div>
             )}
@@ -4269,7 +4269,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
                 {orderTestResult.success ? (
                   <>
                     <p style={{ fontSize: '14px', fontWeight: '600', color: '#065f46', margin: '0 0 8px 0' }}>
-                      ✅ Order Created Successfully!
+                      Order Created Successfully!
                     </p>
                     <div style={{ fontSize: '12px', color: '#047857' }}>
                       <p style={{ margin: '4px 0' }}><strong>Order Number:</strong> {orderTestResult.order_number}</p>
@@ -4294,7 +4294,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
                       {orderTestResult.points_granted > 0 && (
                         <>
                           <p style={{ margin: '8px 0 0 0', color: '#168CD6', fontWeight: '600', fontSize: '13px' }}>
-                            ✨ <strong>Reward Points Granted:</strong> {orderTestResult.points_granted} points
+                            <strong>Reward Points Granted:</strong> {orderTestResult.points_granted} points
                           </p>
                           {orderTestResult.applied_campaigns && orderTestResult.applied_campaigns.length > 0 && (
                             <div style={{ margin: '8px 0 0 0', padding: '8px', backgroundColor: '#fff7ed', borderRadius: '4px', fontSize: '12px' }}>
@@ -4317,7 +4317,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
                   </>
                 ) : (
                   <p style={{ fontSize: '14px', fontWeight: '600', color: '#991b1b', margin: 0 }}>
-                    ❌ {orderTestResult.error || 'Failed to create order'}
+                    {orderTestResult.error || 'Failed to create order'}
                   </p>
                 )}
               </div>
@@ -4327,7 +4327,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
 
         {testResults && (
           <div style={{ marginTop: '24px', background: cardBg, padding: '24px', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>📊 Test Results</h3>
+            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>Test Results</h3>
             <div style={{ display: 'grid', gap: '12px' }}>
               {testResults.orderAmount && (
                 <div style={{ padding: '12px', background: isDark ? '#334155' : '#f8fafc', borderRadius: '8px' }}>
@@ -4353,7 +4353,7 @@ const TestTab = ({ users, onRefresh, isDark }) => {
         )}
 
         <div style={{ marginTop: '32px', background: cardBg, padding: '24px', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-          <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>📖 How It Works</h3>
+          <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px', color: textColor }}>How It Works</h3>
           <div style={{ display: 'grid', gap: '16px', fontSize: '14px', color: textColor }}>
             <div>
               <strong style={{ color: '#10b981' }}>1. Automatic Reward Point Granting:</strong>

@@ -69,6 +69,56 @@ export const REAL_PORTFOLIO_LEADS = [
   }
 ];
 
+export const exportLeadsAsCSV = (leads = REAL_PORTFOLIO_LEADS) => {
+  const headers = ['ID', 'Client Name', 'Email', 'Phone', 'Project Scope / URL', 'Role / Department', 'Timestamp', 'Status', 'Notes'];
+  const rows = leads.map(l => [
+    l.id,
+    `"${(l.name || '').replace(/"/g, '""')}"`,
+    `"${(l.email || '').replace(/"/g, '""')}"`,
+    `"${(l.phone || '').replace(/"/g, '""')}"`,
+    `"${(l.url || '').replace(/"/g, '""')}"`,
+    `"${(l.role || '').replace(/"/g, '""')}"`,
+    `"${(l.timestamp || '').replace(/"/g, '""')}"`,
+    `"${(l.status || '').replace(/"/g, '""')}"`,
+    `"${(l.notes || '').replace(/"/g, '""')}"`
+  ]);
+  const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.setAttribute('href', url);
+  link.setAttribute('download', `portfolio_leads_${new Date().toISOString().slice(0, 10)}.csv`);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+};
+
+export const exportLeadsAsJSON = (leads = REAL_PORTFOLIO_LEADS) => {
+  const jsonContent = JSON.stringify(leads, null, 2);
+  const blob = new Blob([jsonContent], { type: 'application/json;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.setAttribute('href', url);
+  link.setAttribute('download', `portfolio_leads_${new Date().toISOString().slice(0, 10)}.json`);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+};
+
+export const downloadDatabaseFile = () => {
+  const publicPath = (process.env.PUBLIC_URL && process.env.PUBLIC_URL !== '') 
+    ? `${process.env.PUBLIC_URL}/leads.db` 
+    : '/ecommerce-dashboard/leads.db';
+  const link = document.createElement('a');
+  link.setAttribute('href', publicPath);
+  link.setAttribute('download', 'leads.db');
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
 export const customerService = {
   getCustomers: async (params = {}) => {
     try {

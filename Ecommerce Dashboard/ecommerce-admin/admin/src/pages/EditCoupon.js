@@ -85,7 +85,7 @@ const EditCoupon = () => {
       console.log(`[Edit Coupon] Checkbox state: can_combine_with_reward_points = ${formData.can_combine_with_reward_points}`);
       await apiClient.put(`/coupons/${id}`, payload);
 
-      toast.success('✓ Coupon updated successfully!');
+      toast.success(' Coupon updated successfully!');
       navigate('/coupons');
     } catch (error) {
       console.error('Error updating coupon:', error);
@@ -241,13 +241,13 @@ const EditCoupon = () => {
                     style={{ width: '14px', height: '14px', cursor: 'pointer', accentColor: '#3b82f6' }}
                   />
                   <span className="form-label" style={{ margin: 0, fontWeight: '600', fontSize: '10px' }}>
-                    ✓ Can be used with reward points
+                     Can be used with reward points
                   </span>
                 </label>
                 <p style={{ fontSize: '9px', color: '#64748b', marginTop: '4px', marginLeft: '22px', lineHeight: '1.3' }}>
                   {formData.can_combine_with_reward_points 
-                    ? '✅ Customers CAN use this coupon AND redeem reward points together'
-                    : '❌ Customers must choose: either use this coupon OR redeem points (not both)'}
+                    ? 'Customers CAN use this coupon AND redeem reward points together'
+                    : 'Customers must choose: either use this coupon OR redeem points (not both)'}
                 </p>
                 
                 {/* Points Multiplier */}
@@ -269,7 +269,7 @@ const EditCoupon = () => {
                   />
                   <p style={{ fontSize: '8px', color: '#94a3b8', marginTop: '4px', lineHeight: '1.3' }}>
                     • 1.0 = Normal points<br/>
-                    • 2.0 = DOUBLE points 🎉<br/>
+                    • 2.0 = DOUBLE points<br/>
                     • 1.5 = 50% more points
                   </p>
                 </div>

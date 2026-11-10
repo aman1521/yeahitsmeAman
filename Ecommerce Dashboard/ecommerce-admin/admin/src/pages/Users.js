@@ -16,14 +16,18 @@ import {
   FiMail,
   FiPhone,
   FiCopy,
-  FiSearch
+  FiSearch,
+  FiDatabase,
+  FiFileText,
+  FiCheckCircle,
+  FiXCircle
 } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import apiClient from '../services/apiClient';
 import ActionsDropdown from '../components/ActionsDropdown';
 import SearchBar from '../components/SearchBar';
 import { useAuth } from '../contexts/AuthContext';
-import { REAL_PORTFOLIO_LEADS } from '../services/customerService';
+import { REAL_PORTFOLIO_LEADS, exportLeadsAsCSV, exportLeadsAsJSON, downloadDatabaseFile } from '../services/customerService';
 
 const Users = () => {
   const location = useLocation();
@@ -436,10 +440,78 @@ const Users = () => {
             </p>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span style={{ fontSize: '12px', color: '#475569', fontWeight: '600' }}>
-              Total Inquiries: <strong style={{ color: '#168CD6' }}>{REAL_PORTFOLIO_LEADS.length}</strong>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '12px', color: '#475569', fontWeight: '600', marginRight: '6px' }}>
+              Total: <strong style={{ color: '#168CD6' }}>{REAL_PORTFOLIO_LEADS.length}</strong>
             </span>
+            <button
+              type="button"
+              onClick={downloadDatabaseFile}
+              title="Download full SQLite database file (leads.db)"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 12px',
+                fontSize: '12px',
+                fontWeight: '600',
+                background: '#0F828A',
+                color: '#FFFFFF',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                boxShadow: '0 2px 4px rgba(15, 130, 138, 0.25)',
+                transition: 'all 0.2s'
+              }}
+            >
+              <FiDatabase size={13} />
+              <span>Download DB (.db)</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => exportLeadsAsCSV(filteredLeads)}
+              title="Export filtered inquiries to CSV spreadsheet"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 12px',
+                fontSize: '12px',
+                fontWeight: '600',
+                background: '#168CD6',
+                color: '#FFFFFF',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                boxShadow: '0 2px 4px rgba(22, 140, 214, 0.25)',
+                transition: 'all 0.2s'
+              }}
+            >
+              <FiDownload size={13} />
+              <span>Export CSV</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => exportLeadsAsJSON(filteredLeads)}
+              title="Export leads to JSON format"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 12px',
+                fontSize: '12px',
+                fontWeight: '600',
+                background: '#F1F5F9',
+                color: '#334155',
+                border: '1px solid #CBD5E1',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                transition: 'all 0.2s'
+              }}
+            >
+              <FiFileText size={13} />
+              <span>JSON</span>
+            </button>
           </div>
         </div>
 
@@ -1264,9 +1336,13 @@ const Users = () => {
                   <label style={{ fontWeight: '600', color: '#64748b', fontSize: '8px' }}>EMAIL VERIFIED</label>
                   <p style={{ marginTop: '3px' }}>
                     {viewingUser.email_verified ? (
-                      <span style={{ color: '#10b981' }}>✓ Verified</span>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', color: '#10b981', fontSize: '9px', fontWeight: '600' }}>
+                        <FiCheckCircle size={11} /> Verified
+                      </span>
                     ) : (
-                      <span style={{ color: '#ef4444' }}>✗ Not Verified</span>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', color: '#ef4444', fontSize: '9px', fontWeight: '600' }}>
+                        <FiXCircle size={11} /> Not Verified
+                      </span>
                     )}
                   </p>
                 </div>

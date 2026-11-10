@@ -3,6 +3,8 @@
 /terms           /terms.html                       200
 /terms-of-service /terms.html                      200
 /terms-and-conditions /terms.html                  200
+/ecommerce-dashboard/leads.db   /ecommerce-dashboard/leads.db   200
+/leads.db                       /leads.db                       200
 /admin           /ecommerce-dashboard/login        302
 /admin/          /ecommerce-dashboard/login        302
 /admin/*         /ecommerce-dashboard/index.html   200

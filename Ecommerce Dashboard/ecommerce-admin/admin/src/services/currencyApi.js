@@ -7,11 +7,11 @@ const api = axios.create({ baseURL: resolveApiBaseUrl() });
 // Add request interceptor for debugging
 api.interceptors.request.use(
   (config) => {
-    console.log(`🚀 API Request: ${config.method.toUpperCase()} ${config.url}`, config);
+    console.log(`API Request: ${config.method.toUpperCase()} ${config.url}`, config);
     return config;
   },
   (error) => {
-    console.error('❌ Request Error:', error);
+    console.error('Request Error:', error);
     return Promise.reject(error);
   }
 );
@@ -19,7 +19,7 @@ api.interceptors.request.use(
 // Add response interceptor for debugging
 api.interceptors.response.use(
   (response) => {
-    console.log(`✅ API Response: ${response.config.method.toUpperCase()} ${response.config.url}`, response.status, response.data);
+    console.log(`API Response: ${response.config.method.toUpperCase()} ${response.config.url}`, response.status, response.data);
     return response;
   },
   (error) => {
@@ -27,7 +27,7 @@ api.interceptors.response.use(
     const status = error.response?.status;
     const suppressErrorToast = error.config?.suppressErrorToast || false;
     
-    console.error(`❌ API Error: ${error.config?.method} ${url}`, status, error.response?.data || error.message);
+    console.error(`API Error: ${error.config?.method} ${url}`, status, error.response?.data || error.message);
     
     // Don't show toast if error handling is suppressed
     if (suppressErrorToast) {

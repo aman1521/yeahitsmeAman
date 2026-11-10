@@ -355,7 +355,7 @@ const Products = () => {
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [selectedProducts, setSelectedProducts] = useState([]);
   // Don't use global Redux currency - use local country's currency instead
-  const [selectedCountry, setSelectedCountry] = useState('IND'); // ✅ Use 3-letter code for consistency
+  const [selectedCountry, setSelectedCountry] = useState('IND'); // Use 3-letter code for consistency
   const [countryModalOpen, setCountryModalOpen] = useState(false);
   const [countrySearch, setCountrySearch] = useState('');
   const [localCurrency, setLocalCurrency] = useState('INR'); // Local currency for Products page
@@ -485,7 +485,7 @@ const Products = () => {
   // Update backend search immediately when searchTerm changes (on Enter press)
   useEffect(() => {
     const trimmedSearch = searchTerm.trim();
-    console.log('🔍 Search trigger (Enter pressed):', trimmedSearch);
+    console.log(' Search trigger (Enter pressed):', trimmedSearch);
     setBackendSearch(trimmedSearch);
   }, [searchTerm]);
 
@@ -510,7 +510,7 @@ const Products = () => {
       setCountries(uniqueCountries);
       console.log(`[Products] Loaded ${uniqueCountries.length} unique countries`);
       
-      // ✅ Initialize local currency based on default country (IND/India) - try both 2-letter and 3-letter
+      // Initialize local currency based on default country (IND/India) - try both 2-letter and 3-letter
       const defaultCountry = uniqueCountries.find(c => 
         c.country_code?.toUpperCase() === 'IND' || c.country_code?.toUpperCase() === 'IN'
       );
@@ -527,10 +527,10 @@ const Products = () => {
     try {
       const response = await apiClient.get('/products/categories');
       const cats = response.data.categories || [];
-      console.log('✅ Categories loaded:', cats.length, cats.map(c => `${c.name} (ID: ${c.id}, Parent: ${c.parent_id})`));
+      console.log('Categories loaded:', cats.length, cats.map(c => `${c.name} (ID: ${c.id}, Parent: ${c.parent_id})`));
       setCategories(cats);
     } catch (error) {
-      console.error('❌ Error fetching categories:', error);
+      console.error('Error fetching categories:', error);
       console.error('Error details:', error.response?.data);
     }
   };
@@ -551,7 +551,7 @@ const Products = () => {
   const handleCountryChange = (countryCode) => {
     setSelectedCountry(countryCode);
     
-    // ✅ CRITICAL: Auto-select the country's currency (LOCAL to Products page, not global)
+    // CRITICAL: Auto-select the country's currency (LOCAL to Products page, not global)
     // Try exact match first, then try case-insensitive match
     const country = countries.find(c => 
       c.country_code === countryCode || 
@@ -560,9 +560,9 @@ const Products = () => {
     
     if (country && country.currency_code) {
       setLocalCurrency(country.currency_code);
-      console.log(`[Products] ✅ Country changed to ${countryCode}, currency set to: ${country.currency_code}`);
+      console.log(`[Products] Country changed to ${countryCode}, currency set to: ${country.currency_code}`);
     } else {
-      console.warn(`[Products] ⚠️  Country ${countryCode} not found or has no currency_code. Available countries:`, countries.map(c => `${c.country_code} (${c.currency_code})`));
+      console.warn(`[Products]  Country ${countryCode} not found or has no currency_code. Available countries:`, countries.map(c => `${c.country_code} (${c.currency_code})`));
       // Fallback: try to find currency from currencies list based on country code
       // This shouldn't happen if countries are loaded correctly, but handle it gracefully
     }
@@ -599,22 +599,22 @@ const Products = () => {
       if (selectedCategoryId && selectedCategoryId !== '' && selectedCategoryId !== '0') {
         // Filter by specific subcategory
         params.category_id = parseInt(selectedCategoryId); // Ensure it's an integer
-        console.log('🔍 Filtering by subcategory ID:', params.category_id);
+        console.log(' Filtering by subcategory ID:', params.category_id);
       } else if (selectedMainCategory && selectedMainCategory !== '' && selectedMainCategory !== '0') {
         // Filter by main category (will include all subcategories)
         params.category_id = parseInt(selectedMainCategory); // Ensure it's an integer
-        console.log('🔍 Filtering by main category ID:', params.category_id);
+        console.log(' Filtering by main category ID:', params.category_id);
       } else {
-        console.log('🔍 No category filter applied - showing all products');
+        console.log(' No category filter applied - showing all products');
       }
       if (selectedHealthBenefitIds.length > 0 && selectedHealthBenefitIds[0]) {
         // Use first health benefit for now (can be enhanced to support multiple)
         params.health_benefit = parseInt(selectedHealthBenefitIds[0]);
-        console.log('🔍 Filtering by health benefit ID:', params.health_benefit);
+        console.log(' Filtering by health benefit ID:', params.health_benefit);
       }
       if (backendSearch && backendSearch.trim() !== '') {
         params.search = backendSearch.trim();
-        console.log('🔍 Searching for:', params.search);
+        console.log(' Searching for:', params.search);
       } else {
         // Explicitly remove search param if empty to clear search
         delete params.search;
@@ -622,10 +622,10 @@ const Products = () => {
       if (backendSort) {
         params.sort = backendSort;
         params.sort_order = backendSortOrder;
-        console.log('🔍 Sorting by:', backendSort, backendSortOrder);
+        console.log(' Sorting by:', backendSort, backendSortOrder);
       }
       
-      console.log('📤 API Request params:', params);
+      console.log(' API Request params:', params);
 
       const response = await apiClient.get('/products/', { params });
       
@@ -636,7 +636,7 @@ const Products = () => {
       
       // Check if products exist in response
       if (!response.data || !response.data.products) {
-        console.error('❌ No products array in API response:', response.data);
+        console.error('No products array in API response:', response.data);
         toast.error('No products data received from server');
         setProducts([]);
         setLoading(false);
@@ -644,7 +644,7 @@ const Products = () => {
       }
       
       if (response.data.products.length === 0) {
-        console.warn('⚠️  Empty products array returned from API');
+        console.warn(' Empty products array returned from API');
         toast.info('No products found with current filters');
         setProducts([]);
         setLoading(false);
@@ -654,7 +654,7 @@ const Products = () => {
       // Transform the data to match the expected format
       const transformedProducts = response.data.products.map((product, index) => {
         if (index === 0) {
-          console.log('📦 Sample product from API:', {
+          console.log(' Sample product from API:', {
             id: product.id,
             name: product.name,
             category: product.category,
@@ -698,19 +698,19 @@ const Products = () => {
         }
         // Debug image URLs
         if (!product.image) {
-          console.warn(`⚠️ Product ${product.id} (${product.name}): No image URL found. Available fields:`, {
+          console.warn(`Product ${product.id} (${product.name}): No image URL found. Available fields:`, {
             image_url: product.image_url,
             thumbnail_url: product.thumbnail_url,
             image1: product.image1,
             image2: product.image2
           });
         } else {
-          console.log(`✅ Product ${product.id} (${product.name}): Image URL: ${product.image}`);
+          console.log(`Product ${product.id} (${product.name}): Image URL: ${product.image}`);
         }
       });
       
-      console.log(`✅ Successfully loaded ${transformedProducts.length} products`);
-      console.log('📦 First 3 products:', transformedProducts.slice(0, 3).map(p => ({
+      console.log(`Successfully loaded ${transformedProducts.length} products`);
+      console.log(' First 3 products:', transformedProducts.slice(0, 3).map(p => ({
         id: p.id,
         name: p.name,
         category: p.category,
@@ -718,7 +718,7 @@ const Products = () => {
       })));
       // Backend already converted prices based on localCurrency parameter
       // No need to convert again - use the prices directly!
-      console.log('✅ Using backend-converted prices for currency:', localCurrency);
+      console.log('Using backend-converted prices for currency:', localCurrency);
       
       // Add currency symbol to products
       const productsWithSymbol = transformedProducts.map(p => ({
@@ -780,12 +780,12 @@ const Products = () => {
             await apiClient.delete(`/products/${productId}`, {
               params: { force: true }
             });
-            toast.success('✓ Product and related order items deleted permanently.');
+            toast.success(' Product and related order items deleted permanently.');
           } else {
-            toast.success('✓ Product archived and hidden from storefront.');
+            toast.success(' Product archived and hidden from storefront.');
           }
         } else {
-          toast.success('✓ Product deleted successfully!');
+          toast.success(' Product deleted successfully!');
         }
         
         // Force refresh products list
@@ -873,7 +873,7 @@ const Products = () => {
     }
   };
 
-  // ✅ CRITICAL: Normalize country code to 3-letter format for consistency with backend
+  // CRITICAL: Normalize country code to 3-letter format for consistency with backend
   const normalizeCountryCode = (code) => {
     if (!code) return null;
     const codeMap = {
@@ -901,7 +901,7 @@ const Products = () => {
       const headers = { Authorization: `Bearer ${token}` };
       const product = showRegionalTaxModal;
 
-      // ✅ CRITICAL: Normalize country code to 3-letter format (IN -> IND)
+      // CRITICAL: Normalize country code to 3-letter format (IN -> IND)
       const normalizedCode = normalizeCountryCode(countryCode);
       console.log(`[Regional Tax Save] Normalizing ${countryCode} -> ${normalizedCode}, taxRate=${taxRate}`);
 
@@ -909,13 +909,13 @@ const Products = () => {
       const existing = regionalTaxData[countryCode] || regionalTaxData[normalizedCode];
 
       if (existing) {
-        // Update existing - ✅ CRITICAL: Also set use_country_default_tax to false when setting override
+        // Update existing - CRITICAL: Also set use_country_default_tax to false when setting override
         await apiClient.put(
           `/product-regional-overrides/${existing.id}`,
           { 
             tax_rate_override: taxRate,
-            use_country_default_tax: false,  // ✅ Ensure override is used, not country default
-            country_code: normalizedCode  // ✅ Ensure normalized code is sent
+            use_country_default_tax: false,  // Ensure override is used, not country default
+            country_code: normalizedCode  // Ensure normalized code is sent
           },
           { headers }
         );
@@ -927,7 +927,7 @@ const Products = () => {
           '/product-regional-overrides/',
           {
             product_id: product.id,
-            country_code: normalizedCode,  // ✅ Always use normalized code
+            country_code: normalizedCode,  // Always use normalized code
             currency_code: country?.currency_code || 'INR',
             tax_rate_override: taxRate,
             use_country_default_tax: false
@@ -1518,7 +1518,7 @@ const filterPanelBorder = isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '2px 
                 style={{ cursor: 'pointer', width: '12px', height: '12px', accentColor: '#f59e0b' }}
               />
               <label style={{ fontSize: '6px', fontWeight: '600', color: showArchivedProducts ? '#92400e' : '#475569', cursor: 'pointer', whiteSpace: 'nowrap', lineHeight: '1.2', letterSpacing: '-0.01em' }}>
-                📦 Archived Products Only
+                 Archived Products Only
               </label>
             </div>
             </div>
@@ -1676,7 +1676,7 @@ const filterPanelBorder = isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '2px 
               </tr>
             ) : (
               filteredProducts.map((product, index) => {
-                console.log('🟡 Rendering product row:', product.id, product.name);
+                console.log('[ProductRow] Rendering product row:', product.id, product.name);
                 const priceSummary = resolvePriceSummary(product);
                 const taxAmountDisplay = priceSummary.taxAmount != null ? Math.max(priceSummary.taxAmount, 0) : null;
                 // Get or create ref for this product's action button
@@ -2428,13 +2428,13 @@ const filterPanelBorder = isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '2px 
                 marginBottom: '24px'
               }}>
                 <p style={{ margin: 0, color: '#1e40af', fontSize: '9px' }}>
-                  <strong>💡 Tip:</strong> Set different tax rates for each country. If not set, the product will use the default tax rate configured in the product settings.
+                  <strong>Tip:</strong> Set different tax rates for each country. If not set, the product will use the default tax rate configured in the product settings.
                 </p>
               </div>
 
               <div style={{ display: 'grid', gap: '16px' }}>
                 {countries.map(country => {
-                  // ✅ CRITICAL: Normalize country code to find override (check both original and normalized)
+                  // CRITICAL: Normalize country code to find override (check both original and normalized)
                   const normalizedCode = normalizeCountryCode(country.country_code);
                   const override = regionalTaxData[country.country_code] || regionalTaxData[normalizedCode];
                   const templates = taxTemplates[country.country_code] || taxTemplates[normalizedCode] || [];
@@ -2468,7 +2468,7 @@ const filterPanelBorder = isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '2px 
                           {country.country_code} {normalizedCode !== country.country_code && `(${normalizedCode})`} • Currency: {country.currency_code}
                           {override && override.tax_rate_override !== null && override.tax_rate_override !== undefined && !override.use_country_default_tax && (
                             <span style={{ color: '#10b981', marginLeft: '8px' }}>
-                              ✓ Override: {override.tax_rate_override}%
+                               Override: {override.tax_rate_override}%
                             </span>
                           )}
                           {override && override.use_country_default_tax && (

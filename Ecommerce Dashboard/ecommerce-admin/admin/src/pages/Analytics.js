@@ -8,7 +8,10 @@ import {
   FiEye,
   FiDownload,
   FiFilter,
-  FiCalendar
+  FiCalendar,
+  FiShoppingBag,
+  FiGlobe,
+  FiPackage
 } from 'react-icons/fi';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
 import toast from 'react-hot-toast';
@@ -484,7 +487,8 @@ const Analytics = ({ defaultTab = 'ecommerce' }) => {
                 boxShadow: analyticsTab === 'ecommerce' ? '0 2px 4px rgba(22, 140, 214, 0.25)' : 'none'
               }}
             >
-              🛒 Store Revenue
+              <FiShoppingBag size={14} />
+              <span>Store Revenue</span>
             </button>
             <button
               onClick={() => setAnalyticsTab('portfolio')}
@@ -503,7 +507,8 @@ const Analytics = ({ defaultTab = 'ecommerce' }) => {
                 boxShadow: analyticsTab === 'portfolio' ? '0 2px 4px rgba(15, 130, 138, 0.25)' : 'none'
               }}
             >
-              🌐 Portfolio Web Traffic (GA4)
+              <FiGlobe size={14} />
+              <span>Portfolio Web Traffic (GA4)</span>
             </button>
           </div>
         )}
@@ -853,7 +858,7 @@ const Analytics = ({ defaultTab = 'ecommerce' }) => {
                           fontSize: '10px',
                           flexShrink: 0
                         }}>
-                          🌿
+                          <FiPackage size={11} color="#10b981" />
                         </div>
                         <span style={{ fontSize: '7px', lineHeight: '1.2' }}>{product.name}</span>
                       </div>

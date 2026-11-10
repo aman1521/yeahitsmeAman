@@ -1259,7 +1259,7 @@ useEffect(() => {
           }
         });
         
-        console.log('✅ Loaded regional tax overrides:', regionalTaxRates);
+        console.log('Loaded regional tax overrides:', regionalTaxRates);
       } catch (error) {
         console.error('Error fetching regional overrides:', error);
         // Continue even if overrides fail - not critical
@@ -1367,29 +1367,29 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('🔄 handleSubmit called - Starting product update...');
+    console.log('handleSubmit called - Starting product update...');
     setLoading(true);
 
     try {
       const token = localStorage.getItem('token');
-      console.log('🔑 Token check:', token ? 'Token exists' : 'No token found');
+      console.log(' Token check:', token ? 'Token exists' : 'No token found');
       
       // Validate required fields
       if (!formData.name || !formData.name.trim()) {
-        console.log('❌ Validation failed: Product name is required');
+        console.log('Validation failed: Product name is required');
         toast.error('Product name is required');
         setLoading(false);
         return;
       }
       
       if (!formData.regular_price || parseFloat(formData.regular_price) <= 0) {
-        console.log('❌ Validation failed: Valid regular price is required');
+        console.log('Validation failed: Valid regular price is required');
         toast.error('Valid regular price is required');
         setLoading(false);
         return;
       }
       
-      console.log('✅ Validation passed, proceeding with update...');
+      console.log('Validation passed, proceeding with update...');
       
       // Transform form data to match backend API
       const finalCategoryId = selectedSubCategoryId
@@ -1405,7 +1405,7 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
       }
 
       // Log current productImages state before building productData
-      console.log('📸 Current productImages state:', productImages);
+      console.log(' Current productImages state:', productImages);
       
       const productData = {
         name: formData.name.trim(),
@@ -1450,15 +1450,15 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
         image5: productImages.image5 && productImages.image5.trim() ? productImages.image5.trim() : null
       };
 
-      console.log('📤 Preparing to send product update...');
-      console.log('📸 Image data in productData:', {
+      console.log(' Preparing to send product update...');
+      console.log(' Image data in productData:', {
         image1: productData.image1 ? `${productData.image1.substring(0, 50)}... (${productData.image1.length} chars)` : 'null',
         image2: productData.image2 ? `${productData.image2.substring(0, 50)}... (${productData.image2.length} chars)` : 'null',
         image3: productData.image3 ? `${productData.image3.substring(0, 50)}... (${productData.image3.length} chars)` : 'null',
         image4: productData.image4 ? `${productData.image4.substring(0, 50)}... (${productData.image4.length} chars)` : 'null',
         image5: productData.image5 ? `${productData.image5.substring(0, 50)}... (${productData.image5.length} chars)` : 'null'
       });
-      console.log('📦 Full productData payload (first 500 chars of each image):', JSON.stringify({
+      console.log(' Full productData payload (first 500 chars of each image):', JSON.stringify({
         ...productData,
         image1: productData.image1 ? productData.image1.substring(0, 100) + '...' : null,
         image2: productData.image2 ? productData.image2.substring(0, 100) + '...' : null,
@@ -1467,9 +1467,9 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
         image5: productData.image5 ? productData.image5.substring(0, 100) + '...' : null
       }, null, 2));
 
-      console.log(`🚀 Making PUT request to /products/${id}...`);
+      console.log(`Making PUT request to /products/${id}...`);
       const response = await apiClient.put(`/products/${id}`, productData);
-      console.log('✅ PUT request completed successfully:', response.status);
+      console.log('PUT request completed successfully:', response.status);
 
       toast.success('Product updated successfully!');
       navigate('/products');
@@ -1569,7 +1569,7 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
                 style={{ width: '18px', height: '18px', cursor: 'pointer' }}
               />
               <div>
-                <div style={{ fontWeight: '600', fontSize: '14px' }}>📦 Grouped Product</div>
+                <div style={{ fontWeight: '600', fontSize: '14px' }}> Grouped Product</div>
                 <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px' }}>Show details page only</div>
               </div>
             </label>
@@ -1594,7 +1594,7 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
               />
               <div>
                 <div style={{ fontWeight: '600', fontSize: '14px', color: formData.featured ? '#92400e' : '#1e293b' }}>
-                  ⭐ Featured Product
+                  Featured Product
                 </div>
                 <div style={{ fontSize: '11px', color: formData.featured ? '#92400e' : '#64748b', marginTop: '2px' }}>
                   Show on homepage & featured sections
@@ -1615,32 +1615,32 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
               onClick={() => setActiveModal('categories')}
             />
             <SectionButton
-              icon="💰"
+              icon=""
               title="Pricing & Currency"
               description="Set base price, sale price, and currency conversion"
               onClick={() => setActiveModal('pricing')}
             />
             <SectionButton
-              icon="📊"
+              icon=""
               title="Tax Settings"
               description="Configure product tax rates and regional overrides"
               onClick={() => setActiveModal('tax')}
             />
             <SectionButton
-              icon="🌍"
+              icon=""
               title="Regional Tax Rates"
               description="Set country-specific tax rate overrides"
               onClick={() => setActiveModal('regional-tax')}
             />
             <SectionButton
-              icon="🧪"
+              icon=""
               title={keyIngredientsConfig.displayLabel || 'Key Ingredients'}
               description={`Manage product ${(keyIngredientsConfig.displayLabel || 'ingredients').toLowerCase()} (${formData.key_ingredients.length} added)`}
               count={formData.key_ingredients.length}
               onClick={() => setActiveModal('key-ingredients')}
             />
             <SectionButton
-              icon="💊"
+              icon=""
               title={healthBenefitsConfig.displayLabel || 'Health Benefits'}
               description={`Select ${(healthBenefitsConfig.displayLabel || 'health benefits').toLowerCase()} for this product (${formData.health_benefits.length} selected)`}
               count={formData.health_benefits.length}
@@ -1648,14 +1648,14 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
               completed={formData.health_benefits.length > 0}
             />
             <SectionButton
-              icon="⭐"
+              icon=""
               title="Feature Cards"
               description={`Add product feature cards (${formData.feature_cards.length}/4)`}
               count={formData.feature_cards.length}
               onClick={() => setActiveModal('feature-cards')}
             />
             <SectionButton
-              icon="🎨"
+              icon=""
               title="Product Color"
               description={formData.color_name || formData.color_shade ? `Color: ${formData.color_name || 'Custom'} (${formData.color_shade || 'N/A'})` : 'Set product color name and hex code'}
               onClick={() => setActiveModal('product-color')}
@@ -1667,7 +1667,7 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
               onClick={() => setActiveModal('images')}
             />
             <SectionButton
-              icon="❓"
+              icon=""
               title="FAQs"
               description="Add frequently asked questions"
               onClick={() => setActiveModal('faqs')}
@@ -1842,7 +1842,7 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
               )}
             </div>
             <div style={{ marginTop: '10px', fontSize: '12px', color: '#64748b' }}>
-              💡 These prices are automatically converted based on current exchange rates and regional settings.
+              These prices are automatically converted based on current exchange rates and regional settings.
             </div>
           </div>
           </div>
@@ -1912,7 +1912,7 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
             fontSize: '13px',
             color: '#1e40af'
           }}>
-            <strong>💡 Tax Priority:</strong> Regional Tax Override &gt; Product Tax Rate &gt; Country Default Tax
+            <strong>Tax Priority:</strong> Regional Tax Override &gt; Product Tax Rate &gt; Country Default Tax
           </div>
           </div>
         </Modal>
@@ -1988,7 +1988,7 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
             border: '1px solid var(--tip-border, #0ea5e9)'
           }}>
             <div style={{ fontSize: '12px', color: 'var(--tip-text, #0369a1)', fontWeight: '500' }}>
-              💡 Tip: Set specific tax rates for each region where you sell products. 
+              Tip: Set specific tax rates for each region where you sell products. 
               This allows you to comply with local tax regulations and pricing strategies.
             </div>
           </div>
@@ -2189,7 +2189,7 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
                     gap: '8px'
                   }}
                 >
-                  🔄 Retry Loading
+                  Retry Loading
                 </button>
                   </div>
             ) : (
@@ -2276,7 +2276,7 @@ const selectedMainCategory = mainCategories.find(cat => cat.id === Number(select
                     gap: '10px',
                     marginTop: '20px'
                   }}>
-                    <span style={{ fontSize: '18px' }}>⚠️</span>
+                    <span style={{ fontSize: '18px' }}></span>
                     <span style={{ fontSize: '13px', color: isDark ? '#fbbf24' : '#92400e' }}>
                       You must select at least one {healthBenefitsConfig.displayLabel || healthBenefitsConfig.config?.display_label || 'health benefit'} to categorize this product properly.
                     </span>

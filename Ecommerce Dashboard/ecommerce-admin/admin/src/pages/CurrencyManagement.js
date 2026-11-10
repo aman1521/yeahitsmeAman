@@ -311,13 +311,13 @@ const CurrencyManagement = () => {
   const fetchLiveRates = async () => {
     setFetchingRates(true);
     try {
-      console.log('🌐 Fetching live currency rates...');
+      console.log(' Fetching live currency rates...');
       const res = await apiClient.post('/currency/fetch-rates', {
         base_currency: 'INR',
         provider: 'exchangerate.host'
       });
       
-      console.log('📊 Fetch live rates response:', res.data);
+      console.log('Fetch live rates response:', res.data);
       
       if (res.data.success) {
         const { updated_count, unchanged_count, fetched_at, total_rates } = res.data.data || {};
@@ -331,19 +331,19 @@ const CurrencyManagement = () => {
         
         // Trigger price recalculation for all currencies
         try {
-          console.log('🔄 Triggering price recalculation...');
+          console.log('Triggering price recalculation...');
           await apiClient.post('/pricing/recalculate', {});
-          console.log('✅ Price recalculation triggered');
+          console.log('Price recalculation triggered');
           toast.success('Product prices are being recalculated automatically...');
         } catch (recalcError) {
-          console.error('⚠️ Error triggering price recalculation:', recalcError);
+          console.error('Error triggering price recalculation:', recalcError);
           // Don't show error as it's a background operation
         }
       } else {
         toast.error(res.data.message || 'Failed to fetch rates');
       }
     } catch (e) {
-      console.error('❌ Error fetching live rates:', e);
+      console.error('Error fetching live rates:', e);
       console.error('Error details:', e.response?.data);
       const errorMsg = e.response?.data?.message || e.message || 'Failed to fetch live rates';
       toast.error(errorMsg);
@@ -419,14 +419,14 @@ const CurrencyManagement = () => {
   
   const fetchAuditLogs = async () => {
     try {
-      console.log('📋 Fetching currency audit logs...');
+      console.log(' Fetching currency audit logs...');
       const res = await apiClient.get('/currency/audit-logs?limit=100');
-      console.log('📋 Audit logs response:', res.data);
+      console.log(' Audit logs response:', res.data);
       
       if (res.data.success) {
         const logs = res.data.data?.logs || res.data.logs || [];
         setAuditLogs(logs);
-        console.log(`✅ Loaded ${logs.length} audit log entries`);
+        console.log(`Loaded ${logs.length} audit log entries`);
       } else {
         console.error('Failed to fetch audit logs:', res.data.message);
         setAuditLogs([]);
@@ -441,7 +441,7 @@ const CurrencyManagement = () => {
   const recalculateAllPrices = async () => {
     setRecalculatingPrices(true);
     try {
-      console.log('🔄 Recalculating all product prices...');
+      console.log('Recalculating all product prices...');
       
       // Get all currencies and recalculate for each
       const allChanges = [];
@@ -490,19 +490,19 @@ const CurrencyManagement = () => {
       
       // Show summary
       toast.success(
-        `✅ Prices recalculated! ${totalSuccess} products updated across all countries.`,
+        `Prices recalculated! ${totalSuccess} products updated across all countries.`,
         { duration: 5000 }
       );
-      console.log('✅ Recalculation complete:', { totalSuccess, totalFailed, changes: allChanges.length });
+      console.log('Recalculation complete:', { totalSuccess, totalFailed, changes: allChanges.length });
       
       // Optionally show a simplified log (too many products to show all)
       if (allChanges.length > 0 && allChanges.length <= 50) {
         // Only show log if reasonable number of changes
         // For now, just log to console
-        console.log('📋 Price changes:', allChanges);
+        console.log(' Price changes:', allChanges);
       }
     } catch (e) {
-      console.error('❌ Error recalculating prices:', e);
+      console.error('Error recalculating prices:', e);
       toast.error(e.response?.data?.message || 'Failed to recalculate prices');
     } finally {
       setRecalculatingPrices(false);
@@ -949,7 +949,7 @@ const CurrencyManagement = () => {
                   padding: '20px 12px', 
                   color: '#64748b' 
                 }}>
-                  <div style={{ fontSize: '28px', marginBottom: '6px', opacity: 0.5 }}>📋</div>
+                  <div style={{ fontSize: '28px', marginBottom: '6px', opacity: 0.5 }}></div>
                   <p style={{ fontSize: '8px', fontWeight: '600', marginBottom: '3px' }}>
                     No audit logs available yet
                   </p>
@@ -1068,7 +1068,7 @@ const CurrencyManagement = () => {
                                 : '#86efac'}`,
                               lineHeight: '1.2'
                             }}>
-                              {log.type === 'fetch' ? '🔄 Rate Fetch' : '📊 Rate Change'}
+                              {log.type === 'fetch' ? 'Rate Fetch' : 'Rate Change'}
                             </span>
                           </td>
                           <td style={{ padding: '2px 5px' }}>
@@ -1096,7 +1096,7 @@ const CurrencyManagement = () => {
                                       fontWeight: '600',
                                       fontSize: '5px'
                                     }}>
-                                      ✓ {log.updated_count || 0}
+                                       {log.updated_count || 0}
                                     </span>
                                     <span style={{ 
                                       color: '#64748b',
@@ -1232,7 +1232,7 @@ const CurrencyManagement = () => {
                                   : '#fca5a5'}`,
                                 lineHeight: '1.2'
                               }}>
-                                {log.status === 'success' ? '✓ ' : '✗ '}{log.status}
+                                {log.status === 'success' ? ' ' : ' '}{log.status}
                               </span>
                             )}
                             {log.change_source && (

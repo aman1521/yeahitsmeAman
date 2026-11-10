@@ -124,14 +124,14 @@ const TaxManagement = () => {
       const res = await apiClient.get('/api/tax/rates');
       const taxes = res.data?.data?.taxes || res.data?.taxes || [];
       console.log('[TaxManagement] Fetched regional taxes:', taxes.length, 'rates');
-      // ✅ Log India's tax rate specifically for debugging
+      // Log India's tax rate specifically for debugging
       const indiaTax = taxes.find(t => (t.country_code === 'IND' || t.country_code === 'IN'));
       if (indiaTax) {
-        console.log('[TaxManagement] ✅ India tax rate from API:', indiaTax.tax_rate, '%, ID:', indiaTax.id, 'country_code:', indiaTax.country_code);
+        console.log('[TaxManagement] India tax rate from API:', indiaTax.tax_rate, '%, ID:', indiaTax.id, 'country_code:', indiaTax.country_code);
       } else {
-        console.log('[TaxManagement] ⚠️  India tax not found! Available codes:', taxes.map(t => `${t.country_code}:${t.tax_rate}%`));
+        console.log('[TaxManagement]  India tax not found! Available codes:', taxes.map(t => `${t.country_code}:${t.tax_rate}%`));
       }
-      // ✅ CRITICAL: Use functional setState to ensure we're setting the latest state
+      // CRITICAL: Use functional setState to ensure we're setting the latest state
       setRegionalTaxes(prev => {
         console.log('[TaxManagement] setRegionalTaxes called, prev length:', prev.length, 'new length:', taxes.length);
         return taxes; // Replace completely with new data
@@ -324,7 +324,7 @@ const TaxManagement = () => {
           console.error(`Error recalculating for ${country.country_code}:`, e);
         }
       }
-      toast.success(`✅ Recalculated prices for ${totalRecalculated} countries.`);
+      toast.success(`Recalculated prices for ${totalRecalculated} countries.`);
     } catch (e) {
       toast.error('Failed to recalculate all prices');
     } finally {
@@ -543,7 +543,7 @@ const TaxManagement = () => {
                   const normalizedCountryCode = normalizeCountryCode(country.country_code);
                   
                   // Find matching tax rate - try multiple matching strategies
-                  // ✅ CRITICAL: Use regionalTaxes from state (not closure) to ensure latest data
+                  // CRITICAL: Use regionalTaxes from state (not closure) to ensure latest data
                   const existingTax = regionalTaxes.find(t => {
                     if (!t || !t.country_code) return false;
                     const normalizedTaxCode = normalizeCountryCode(t.country_code);
@@ -561,10 +561,10 @@ const TaxManagement = () => {
                     return false;
                   });
                   
-                  // ✅ Calculate currentRate from the found tax OR fallback to country default
+                  // Calculate currentRate from the found tax OR fallback to country default
                   const currentRate = existingTax ? (existingTax.tax_rate || 0) : (country.default_tax_rate || 0);
                   
-                  // ✅ Debug logging for India specifically
+                  // Debug logging for India specifically
                   if (country.country_code === 'IND' || country.country_code === 'IN') {
                     console.log('[TaxManagement] India - existingTax:', existingTax, 'currentRate:', currentRate, 'regionalTaxes count:', regionalTaxes.length);
                   }
@@ -644,7 +644,7 @@ const TaxManagement = () => {
                               const apiCountryCode = normalizedCountryCode;
                               
                               let updateResponse;
-                              // ✅ CRITICAL FIX: Only try to UPDATE if existingTax.id exists and is a valid TaxCountry.id
+                              // CRITICAL FIX: Only try to UPDATE if existingTax.id exists and is a valid TaxCountry.id
                               // If id is None or doesn't exist in TaxCountry, CREATE instead
                               if (existingTax && existingTax.id) {
                                 // Update existing tax rate (existingTax.id must be a TaxCountry.id, not Country.id)
@@ -667,7 +667,7 @@ const TaxManagement = () => {
                                 });
                               }
                               
-                              // ✅ CRITICAL: Immediately update local state with response data
+                              // CRITICAL: Immediately update local state with response data
                               // Backend returns { success: true, data: { id, country_code, tax_rate, ... } }
                               console.log('[TaxManagement] Full update response:', JSON.stringify(updateResponse?.data, null, 2));
                               const updatedTaxData = updateResponse?.data?.data;
@@ -677,7 +677,7 @@ const TaxManagement = () => {
                                 console.log('[TaxManagement] Extracted updatedTax:', updatedTax, 'finalTaxRate:', finalTaxRate);
                                 
                                 setRegionalTaxes(prev => {
-                                  // ✅ Match by ID first, then by country_code (handling both 2-letter and 3-letter)
+                                  // Match by ID first, then by country_code (handling both 2-letter and 3-letter)
                                   const normalizedMatch = (code1, code2) => {
                                     if (code1 === code2) return true;
                                     const map = {'IN': 'IND', 'IND': 'IN', 'AU': 'AUS', 'AUS': 'AU', 'US': 'USA', 'USA': 'US'};
@@ -687,12 +687,12 @@ const TaxManagement = () => {
                                   const updated = prev.map(t => {
                                     // Match by ID (most reliable)
                                     if (t.id === updatedTax.id) {
-                                      console.log('[TaxManagement] ✅ Matched by ID:', t.id, 'updating tax_rate to:', finalTaxRate);
+                                      console.log('[TaxManagement] Matched by ID:', t.id, 'updating tax_rate to:', finalTaxRate);
                                       return { ...t, tax_rate: finalTaxRate };
                                     }
                                     // Match by country code (handling normalization)
                                     if (normalizedMatch((t.country_code || '').toUpperCase(), (updatedTax.country_code || '').toUpperCase())) {
-                                      console.log('[TaxManagement] ✅ Matched by country_code:', t.country_code, 'vs', updatedTax.country_code, 'updating tax_rate to:', finalTaxRate);
+                                      console.log('[TaxManagement] Matched by country_code:', t.country_code, 'vs', updatedTax.country_code, 'updating tax_rate to:', finalTaxRate);
                                       return { ...t, tax_rate: finalTaxRate };
                                     }
                                     return t;
@@ -704,16 +704,16 @@ const TaxManagement = () => {
                                     updated.push({ ...updatedTax, tax_rate: finalTaxRate });
                                   }
                                   
-                                  // ✅ Log India's tax rate after update for debugging
+                                  // Log India's tax rate after update for debugging
                                   const indiaTaxAfterUpdate = updated.find(t => normalizedMatch((t.country_code || '').toUpperCase(), 'IND'));
-                                  console.log('[TaxManagement] ✅ Updated regionalTaxes state. India tax_rate:', indiaTaxAfterUpdate?.tax_rate || 'NOT FOUND');
+                                  console.log('[TaxManagement] Updated regionalTaxes state. India tax_rate:', indiaTaxAfterUpdate?.tax_rate || 'NOT FOUND');
                                   
                                   return updated;
                                 });
                               } else {
                                 // If response doesn't have data, just update by ID from existingTax
                                 if (existingTax?.id) {
-                                  console.log('[TaxManagement] ⚠️  No data in response, updating by ID:', existingTax.id, 'to:', newRate);
+                                  console.log('[TaxManagement]  No data in response, updating by ID:', existingTax.id, 'to:', newRate);
                                   setRegionalTaxes(prev => prev.map(t => 
                                     t.id === existingTax.id ? { ...t, tax_rate: newRate } : t
                                   ));
@@ -722,7 +722,7 @@ const TaxManagement = () => {
                               
                               toast.success(`Tax rate updated for ${country.country_name}`);
                               
-                              // ✅ Refresh from server ONCE to ensure sync (don't over-fetch)
+                              // Refresh from server ONCE to ensure sync (don't over-fetch)
                               await fetchRegionalTaxes();
                               
                               // Refresh countries as well
@@ -808,7 +808,7 @@ const TaxManagement = () => {
                 alignItems: 'flex-start',
                 gap: '12px'
               }}>
-                <span style={{ fontSize: '20px' }}>💡</span>
+                <span style={{ fontSize: '20px' }}></span>
                 <div style={{ flex: 1 }}>
                   <div style={{ 
                     fontWeight: '600', 

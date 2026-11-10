@@ -22,7 +22,10 @@ import {
   FiUser,
   FiShield,
   FiActivity,
-  FiGlobe
+  FiGlobe,
+  FiShoppingBag,
+  FiLock,
+  FiEye
 } from 'react-icons/fi';
 import { useAuth } from '../contexts/AuthContext';
 import apiClient from '../services/apiClient';
@@ -32,6 +35,15 @@ import TimeAgo from './TimeAgo.jsx';
 const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => (typeof window !== 'undefined' ? window.innerWidth <= 768 : false));
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState({});
   const { user, logout, isDemoMode, isPersonalAdmin, switchToDemo } = useAuth();
@@ -360,8 +372,10 @@ const Layout = () => {
 
     if (item.href) {
       navigate(item.href);
+      setSidebarOpen(false);
     } else if (hasChildren && item.children[0]?.href) {
       navigate(item.children[0].href);
+      setSidebarOpen(false);
     }
   };
 
@@ -369,10 +383,32 @@ const Layout = () => {
 
   return (
     <div className="layout">
+      {/* Mobile Drawer Backdrop */}
+      {sidebarOpen && (
+        <div
+          className="mobile-sidebar-backdrop"
+          onClick={() => setSidebarOpen(false)}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(15, 23, 42, 0.5)',
+            backdropFilter: 'blur(3px)',
+            zIndex: 998
+          }}
+        />
+      )}
+
       {/* Sidebar */}
       <div
         className={`sidebar ${sidebarOpen ? 'open' : ''} ${sidebarCollapsed ? 'collapsed' : ''}`}
-        style={{ display: 'block', visibility: 'visible', width: `${sidebarWidth}px` }}
+        style={{
+          display: 'block',
+          visibility: 'visible',
+          width: isMobile ? '260px' : `${sidebarWidth}px`
+        }}
         ref={sidebarRef}
       >
         <div className="sidebar-header" style={{ 
@@ -536,8 +572,8 @@ const Layout = () => {
       <div
         className="main-content"
         style={{
-          marginLeft: `${sidebarWidth}px`,
-          width: `calc(100% - ${sidebarWidth}px)`
+          marginLeft: isMobile ? 0 : `${sidebarWidth}px`,
+          width: isMobile ? '100%' : `calc(100% - ${sidebarWidth}px)`
         }}
       >
         {/* Header */}
@@ -545,8 +581,18 @@ const Layout = () => {
           <div className="header-left" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <h1 style={{ margin: 0, fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)' }}>
-                  {isActuallyPersonalAdmin ? '🛡️ Portfolio Admin Workspace' : '🛍️ Peenakaa Ecommerce Demo'}
+                <h1 style={{ margin: 0, fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  {isActuallyPersonalAdmin ? (
+                    <>
+                      <FiShield size={14} style={{ color: '#0F828A' }} />
+                      <span>Portfolio Admin Workspace</span>
+                    </>
+                  ) : (
+                    <>
+                      <FiShoppingBag size={14} style={{ color: '#168CD6' }} />
+                      <span>Peenakaa Ecommerce Demo</span>
+                    </>
+                  )}
                 </h1>
                 <span style={{
                   fontSize: '10px',
@@ -570,9 +616,9 @@ const Layout = () => {
             <button
               className="mobile-menu-btn"
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              style={{ display: 'none' }}
+              aria-label="Toggle mobile navigation menu"
             >
-              {sidebarOpen ? <FiX /> : <FiMenu />}
+              {sidebarOpen ? <FiX size={18} /> : <FiMenu size={18} />}
             </button>
           </div>
 
@@ -586,7 +632,7 @@ const Layout = () => {
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '5px',
+                    gap: '6px',
                     padding: '5px 12px',
                     fontSize: '11px',
                     fontWeight: '600',
@@ -598,7 +644,8 @@ const Layout = () => {
                   }}
                   title="Preview Ecommerce Demo store"
                 >
-                  🛍️ Preview Store Demo
+                  <FiEye size={12} />
+                  <span>Preview Store Demo</span>
                 </button>
               ) : (
                 /* In Demo mode, visitors can ONLY sign in by entering personal admin credentials */
@@ -608,7 +655,7 @@ const Layout = () => {
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '5px',
+                    gap: '6px',
                     padding: '5px 12px',
                     fontSize: '11px',
                     fontWeight: '600',
@@ -620,7 +667,8 @@ const Layout = () => {
                   }}
                   title="Portfolio Admin requires personal login credentials"
                 >
-                  🔐 Portfolio Admin Login
+                  <FiLock size={12} />
+                  <span>Portfolio Admin Login</span>
                 </button>
               )}
 

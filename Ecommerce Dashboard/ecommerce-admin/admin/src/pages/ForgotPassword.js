@@ -160,7 +160,7 @@ const ForgotPassword = () => {
             marginBottom: '24px',
             textAlign: 'center'
           }}>
-            <div style={{ fontSize: '48px', marginBottom: '16px' }}>✉️</div>
+            <div style={{ fontSize: '48px', marginBottom: '16px' }}></div>
             <h3 style={{ margin: '0 0 8px 0', color: '#065f46', fontSize: '18px', fontWeight: '600' }}>
               Email Sent!
             </h3>

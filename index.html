@@ -1054,6 +1054,23 @@
       font-size: 20px;
     }
 
+    .mobile-menu-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 9998;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-menu-backdrop.open {
+      display: block;
+      opacity: 1;
+    }
+
     .mobile-side-menu {
       position: fixed;
       top: 0;
@@ -1256,13 +1273,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a class="btn" href="https://www.linkedin.com/in/aman-marketing-expert" rel="noreferrer" target="_blank">LinkedIn</a>
 <a class="btn primary" href="#contact">Hire Me</a>
 </div>
-<button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+<button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+</button>
 </div>
 </div>
 </div>
-<!-- MOBILE MENU -->
+<!-- MOBILE MENU & BACKDROP -->
+<div class="mobile-menu-backdrop" id="mobileMenuBackdrop" onclick="toggleMobileMenu()"></div>
 <div class="mobile-side-menu" id="mobileMenu">
-<button class="mobile-close-btn" onclick="toggleMobileMenu()">Close ✕</button>
+<button class="mobile-close-btn" onclick="toggleMobileMenu()" aria-label="Close menu" style="display:flex; align-items:center; gap:6px;">
+  <span>Close</span>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+</button>
 <a class="menu-item" href="#about" onclick="toggleMobileMenu()">About</a>
 <a class="menu-item" href="#services" onclick="toggleMobileMenu()">What I Do</a>
 <a class="menu-item" href="#results" onclick="toggleMobileMenu()">Results</a>
@@ -1273,7 +1296,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a class="menu-item" href="#articles" onclick="toggleMobileMenu()">Articles</a>
 <a class="menu-item" href="#contact" onclick="toggleMobileMenu()">Contact</a>
 <div style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
-<a class="btn" href="ecommerce-dashboard/?demo=true" target="_blank" style="border: 1px solid var(--accent); color: var(--accent); justify-content:center; font-weight: 600; background: rgba(22, 140, 214, 0.08);">🛍️ Live Ecommerce Demo ↗</a>
+<a class="btn" href="ecommerce-dashboard/?demo=true" target="_blank" style="border: 1px solid var(--accent); color: var(--accent); justify-content:center; font-weight: 600; background: rgba(22, 140, 214, 0.08); display:flex; align-items:center; gap:6px;">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+  <span>Live Ecommerce Demo ↗</span>
+</a>
 <a class="btn" href="https://www.linkedin.com/in/aman-marketing-expert" rel="noreferrer" style="border-bottom:none; justify-content:center;" target="_blank">LinkedIn</a>
 <a class="btn primary" href="#contact" onclick="toggleMobileMenu()" style="border-bottom:none; justify-content:center;">Hire Me</a>
 </div>
@@ -1521,7 +1547,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <img alt="Google Skillshop Certificate" loading="lazy" src="assets/cert-skillshop.jpg">
 <div class="cert-overlay">
 <span class="cert-chip">Click to Preview</span>
-<span class="cert-chip">✅ Verified</span>
+<span class="cert-chip" style="display:inline-flex; align-items:center; gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Verified</span>
 </div>
 </div>
 <div class="cert-meta">
@@ -1543,7 +1569,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <img alt="Google Badge" loading="lazy" src="assets/cert-googlebadge.jpg">
 <div class="cert-overlay">
 <span class="cert-chip">Click to Preview</span>
-<span class="cert-chip">🏅 Badge</span>
+<span class="cert-chip" style="display:inline-flex; align-items:center; gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg> Badge</span>
 </div>
 </div>
 <div class="cert-meta">
@@ -1870,7 +1896,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </tr>
 </thead>
 <tbody>
-<!-- ✅ FULL AUTO-GENERATED CONTENT (FROM YOUR EXCEL) -->
+<!-- FULL AUTO-GENERATED CONTENT (FROM YOUR EXCEL) -->
 <tr class="block-green">
 <td class="seo-site" rowspan="7"><a href="https://peacockrugcare.ca/" target="_blank">peacockrugcare.ca</a></td>
 <td>Canada</td>
@@ -2037,7 +2063,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <td>coding for kids club uk</td>
 <td class="seo-rank">6</td>
 </tr>
-<!-- ✅ IMPORTANT -->
+<!-- IMPORTANT -->
 <!-- Your table continues for ALL 36 website groups and 333 rows -->
 <!-- I trimmed this message to avoid lag/crash in chat -->
 </tbody>
@@ -2299,7 +2325,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 <div class="grid">
 <div class="card service reveal">
-<div class="icon">📄</div>
+<div class="icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
 <h3>WirelessPlace - Off Page Report</h3>
 <p>Daily off-page SEO work report and backlink activity tracking.</p>
 <div style="margin-top:12px;">
@@ -2307,7 +2333,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div>
 <div class="card service reveal">
-<div class="icon">📄</div>
+<div class="icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
 <h3>WirelessPlace - On Page Status</h3>
 <p>On-page SEO progress and page-level optimization status report.</p>
 <div style="margin-top:12px;">
@@ -2315,7 +2341,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div>
 <div class="card service reveal">
-<div class="icon">📄</div>
+<div class="icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
 <h3>Vitalist Food - Weekly SEO Report</h3>
 <p>Weekly SEO work report covering tasks, improvements and execution summary.</p>
 <div style="margin-top:12px;">
@@ -2323,7 +2349,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div>
 <div class="card service reveal">
-<div class="icon">📄</div>
+<div class="icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
 <h3>Face Yoga - Work Report</h3>
 <p>SEO work report and execution activity tracking across April to May.</p>
 <div style="margin-top:12px;">
@@ -2331,7 +2357,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div>
 <div class="card service reveal">
-<div class="icon">📄</div>
+<div class="icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
 <h3>BetterQA - Work Report</h3>
 <p>SEO work execution report with activities and performance tracking.</p>
 <div style="margin-top:12px;">
@@ -2339,7 +2365,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div>
 <div class="card service reveal">
-<div class="icon">📄</div>
+<div class="icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
 <h3>N Property Group - Off Page Work</h3>
 <p>Off-page SEO work report showing backlinking and submissions.</p>
 <div style="margin-top:12px;">
@@ -2347,7 +2373,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 </div>
 <div class="card service reveal">
-<div class="icon">📊</div>
+<div class="icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
 <h3>Womenscenter - Ranking Report</h3>
 <p>Combined ranking report showing keyword movements and visibility.</p>
 <div style="margin-top:12px;">
@@ -2611,7 +2637,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="lightbox-inner" onclick="event.stopPropagation()">
 <div class="lightbox-top">
 <div id="lightboxTitle">Preview</div>
-<button class="close-btn" onclick="closeLightbox()">Close ✕</button>
+<button class="close-btn" onclick="closeLightbox()" style="display:inline-flex; align-items:center; gap:6px;">
+  <span>Close</span>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+</button>
 </div>
 <img alt="Preview" class="lightbox-img" id="lightboxImg" loading="lazy" src>
 </div>
@@ -2673,7 +2702,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     function toggleMobileMenu() {
       const menu = document.getElementById("mobileMenu");
-      menu.classList.toggle("open");
+      const overlay = document.getElementById("mobileMenuBackdrop");
+      if (!menu) return;
+      const isOpen = menu.classList.toggle("open");
+      if (overlay) overlay.classList.toggle("open", isOpen);
+      document.body.style.overflow = isOpen ? "hidden" : "";
     }
 
     function handleLeadSubmit(event) {

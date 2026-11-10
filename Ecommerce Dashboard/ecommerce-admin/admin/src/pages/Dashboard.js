@@ -8,7 +8,10 @@ import {
   FiTrendingUp,
   FiTrendingDown,
   FiCalendar,
-  FiFilter
+  FiFilter,
+  FiDownload,
+  FiDatabase,
+  FiArrowRight
 } from 'react-icons/fi';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import toast from 'react-hot-toast';
@@ -18,7 +21,7 @@ import { useAuth } from '../contexts/AuthContext';
 import apiClient from '../services/apiClient';
 import AIGrowthBriefing from '../components/AIGrowthBriefing';
 import PortfolioTrafficView from '../components/PortfolioTrafficView';
-import { REAL_PORTFOLIO_LEADS } from '../services/customerService';
+import { REAL_PORTFOLIO_LEADS, exportLeadsAsCSV, downloadDatabaseFile } from '../services/customerService';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -460,21 +463,74 @@ const Dashboard = () => {
                 Verified inquiries received via your portfolio contact forms &amp; booking channels
               </p>
             </div>
-            <button
-              onClick={() => navigate('/users')}
-              style={{
-                padding: '6px 14px',
-                fontSize: '12px',
-                fontWeight: '600',
-                background: 'rgba(22, 140, 214, 0.08)',
-                color: '#168CD6',
-                border: '1px solid rgba(22, 140, 214, 0.3)',
-                borderRadius: '8px',
-                cursor: 'pointer'
-              }}
-            >
-              View All Inquiries →
-            </button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+              <button
+                type="button"
+                onClick={downloadDatabaseFile}
+                title="Download SQLite database file (leads.db)"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '6px 12px',
+                  fontSize: '12px',
+                  fontWeight: '600',
+                  background: '#0F828A',
+                  color: '#FFFFFF',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 4px rgba(15, 130, 138, 0.25)',
+                  transition: 'all 0.2s'
+                }}
+              >
+                <FiDatabase size={13} />
+                <span>Download DB (.db)</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => exportLeadsAsCSV()}
+                title="Export inquiries to CSV"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '6px 12px',
+                  fontSize: '12px',
+                  fontWeight: '600',
+                  background: '#168CD6',
+                  color: '#FFFFFF',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 4px rgba(22, 140, 214, 0.25)',
+                  transition: 'all 0.2s'
+                }}
+              >
+                <FiDownload size={13} />
+                <span>Export CSV</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => navigate('/users')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '6px 14px',
+                  fontSize: '12px',
+                  fontWeight: '600',
+                  background: 'rgba(22, 140, 214, 0.08)',
+                  color: '#168CD6',
+                  border: '1px solid rgba(22, 140, 214, 0.3)',
+                  borderRadius: '8px',
+                  cursor: 'pointer'
+                }}
+              >
+                <span>View All Inquiries</span>
+                <FiArrowRight size={13} />
+              </button>
+            </div>
           </div>
 
           <div style={{ overflowX: 'auto' }}>

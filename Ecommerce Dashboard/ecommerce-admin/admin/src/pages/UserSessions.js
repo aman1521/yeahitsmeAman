@@ -195,7 +195,7 @@ const UserSessions = () => {
           console.log(`[DEBUG] Force logout triggered for session ${sessionId}`);
           // react-hot-toast does not have a built-in 'warning' helper; use toast() with a custom style
           toast('Your session has been closed. Logging out...', {
-            icon: '⚠️'
+            
           });
           // Clear auth data immediately
           localStorage.removeItem('token');
@@ -225,7 +225,7 @@ const UserSessions = () => {
             match: isCurrentSession
           });
           toast('Your session has been closed. Logging out...', {
-            icon: '⚠️'
+            
           });
           localStorage.removeItem('token');
           localStorage.removeItem('sessionId');
@@ -259,7 +259,7 @@ const UserSessions = () => {
         if (error.response.data.force_logout || error.response.data.session_expired) {
           console.log(`[DEBUG] Force logout triggered for session ${sessionId}`);
           toast('Your session has been closed. Logging out...', {
-            icon: '⚠️'
+            
           });
           localStorage.removeItem('token');
           localStorage.removeItem('sessionId');
@@ -276,7 +276,7 @@ const UserSessions = () => {
       // If we get a 401 with session_expired, logout
       if (error.response?.status === 401 && error.response?.data?.session_expired) {
         toast('Your session has expired. Logging out...', {
-          icon: '⚠️'
+          
         });
         localStorage.removeItem('token');
         localStorage.removeItem('sessionId');

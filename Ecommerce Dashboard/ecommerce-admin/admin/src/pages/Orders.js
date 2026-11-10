@@ -349,7 +349,7 @@ const Orders = () => {
       // Generate PDF invoice
       generateOrderInvoicePDF(fullOrder);
       
-      toast.success(`✓ PDF Invoice downloaded for ${order.order_number}`);
+      toast.success(` PDF Invoice downloaded for ${order.order_number}`);
       setActionMenuOpen(null);
     } catch (error) {
       console.error('Error generating invoice:', error);

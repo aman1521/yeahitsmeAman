@@ -427,7 +427,7 @@ class EnterpriseSessionTracker {
         setInterval(() => this.flushQueue(), 30000); // Every 30 seconds
         
         this.isInitialized = true;
-        console.log('[EnterpriseTracker] ✓ Fully initialized');
+        console.log('[EnterpriseTracker]  Fully initialized');
         console.log('[EnterpriseTracker] Session ID:', this.sessionId);
         console.log('[EnterpriseTracker] Device:', this.getDeviceType(), '/', this.getBrowserName(), '/', this.getOSName());
     }

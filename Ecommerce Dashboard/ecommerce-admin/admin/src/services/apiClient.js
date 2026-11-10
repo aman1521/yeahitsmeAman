@@ -46,12 +46,12 @@ apiClient.interceptors.request.use(
 
     // Reduced logging for better performance - only log in development
     if (process.env.NODE_ENV === 'development') {
-        console.log(`🚀 API Request: ${config.method.toUpperCase()} ${config.url}`);
+        console.log(`API Request: ${config.method.toUpperCase()} ${config.url}`);
     }
     return config;
   },
   (error) => {
-    console.error('❌ Request Error:', error);
+    console.error('Request Error:', error);
     return Promise.reject(error);
   }
 );
@@ -61,7 +61,7 @@ apiClient.interceptors.response.use(
   (response) => {
     // Reduced logging for better performance
     if (process.env.NODE_ENV === 'development') {
-        console.log(`✅ API Response: ${response.config.method.toUpperCase()} ${response.config.url}`, response.status);
+        console.log(`API Response: ${response.config.method.toUpperCase()} ${response.config.url}`, response.status);
     }
     return response;
   },
@@ -125,7 +125,7 @@ apiClient.interceptors.response.use(
 
     // Only log errors in development to reduce console noise
     if (process.env.NODE_ENV === 'development') {
-        console.error(`❌ API Error: ${error.config?.method} ${url}`, status, error.response?.data || error.message);
+        console.error(`API Error: ${error.config?.method} ${url}`, status, error.response?.data || error.message);
     }
     
     // Debug logging for 401 errors

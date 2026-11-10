@@ -24,9 +24,7 @@ const AIPriceOptimizerModal = ({ isOpen, onClose, onPriceUpdated }) => {
   const handleApplySingle = (id) => {
     setItems(prev => prev.map(item => {
       if (item.id === id) {
-        toast.success(`Updated ${item.name} to $${item.recommended_price.toFixed(2)}!`, {
-          icon: '🏷️'
-        });
+        toast.success(`Updated ${item.name} to $${item.recommended_price.toFixed(2)}!`);
         if (onPriceUpdated) onPriceUpdated(item);
         return { ...item, applied: true, current_price: item.recommended_price };
       }
@@ -44,7 +42,6 @@ const AIPriceOptimizerModal = ({ isOpen, onClose, onPriceUpdated }) => {
       })));
       setApplyingAll(false);
       toast.success('All 4 SKUs updated with AI-optimized pricing! Total projected gain: +$3,565/mo', {
-        icon: '🚀',
         duration: 5000
       });
       if (onPriceUpdated) onPriceUpdated();

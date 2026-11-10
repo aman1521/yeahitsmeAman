@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { FiLock, FiUser, FiLogIn } from 'react-icons/fi';
+import { FiLock, FiUser, FiLogIn, FiEye, FiEyeOff, FiPlay } from 'react-icons/fi';
 import { useAuth } from '../contexts/AuthContext';
 import toast from 'react-hot-toast';
 
@@ -217,7 +217,7 @@ const Login = () => {
                   padding: '4px'
                 }}
               >
-                {showPassword ? '👁️' : '👁️‍🗨️'}
+                {showPassword ? <FiEyeOff size={16} /> : <FiEye size={16} />}
               </button>
             </div>
           </div>
@@ -291,7 +291,8 @@ const Login = () => {
               e.currentTarget.style.background = 'rgba(22, 140, 214, 0.08)';
             }}
           >
-            🛍️ Launch Ecommerce Demo Mode (1-Click Instant Access)
+            <FiPlay size={14} style={{ marginRight: '6px' }} />
+            Launch Ecommerce Demo Mode (1-Click Instant Access)
           </button>
         </form>
 

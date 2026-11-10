@@ -87,7 +87,7 @@ function ProtectedRoute({ children }) {
         background: 'var(--bg-primary, #f8fafc)'
       }}>
         <div style={{ textAlign: 'center' }}>
-          <div style={{ marginBottom: '12px', fontSize: '18px' }}>⏳</div>
+          <div style={{ width: '24px', height: '24px', border: '3px solid #E2E8F0', borderTop: '3px solid #168CD6', borderRadius: '50%', margin: '0 auto 12px', animation: 'spin 0.8s linear infinite' }} />
           <div>Loading...</div>
         </div>
       </div>

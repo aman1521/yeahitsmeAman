@@ -8,7 +8,8 @@ import {
   FiRefreshCw, 
   FiDollarSign, 
   FiShoppingBag,
-  FiShield
+  FiShield,
+  FiCheck
 } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import { AI_GROWTH_RECOMMENDATIONS } from '../services/aiGrowthService';
@@ -24,7 +25,6 @@ const AIGrowthBriefing = ({ onNavigateToProducts, onNavigateToCoupons }) => {
     setRecommendations(prev => prev.map(rec => {
       if (rec.id === id) {
         toast.success(`Action Executed: ${rec.title} is now active!`, {
-          icon: '🚀',
           duration: 4000
         });
         return { ...rec, applied: true };
@@ -37,9 +37,7 @@ const AIGrowthBriefing = ({ onNavigateToProducts, onNavigateToCoupons }) => {
     setRefreshing(true);
     setTimeout(() => {
       setRefreshing(false);
-      toast.success('AI Audit completed: Store metrics and elasticity recalculated.', {
-        icon: '🧠'
-      });
+      toast.success('AI Audit completed: Store metrics and elasticity recalculated.');
     }, 800);
   };
 
@@ -146,8 +144,9 @@ const AIGrowthBriefing = ({ onNavigateToProducts, onNavigateToCoupons }) => {
           </button>
         ))}
         {appliedCount > 0 && (
-          <span style={{ marginLeft: 'auto', fontSize: '11px', color: '#0F828A', fontWeight: '600', alignSelf: 'center' }}>
-            ✓ {appliedCount} of {recommendations.length} Recommendations Executed
+          <span style={{ marginLeft: 'auto', fontSize: '11px', color: '#0F828A', fontWeight: '600', alignSelf: 'center', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+            <FiCheck size={12} />
+            <span>{appliedCount} of {recommendations.length} Recommendations Executed</span>
           </span>
         )}
       </div>

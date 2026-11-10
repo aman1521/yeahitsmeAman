@@ -27,7 +27,7 @@ export const GlobalCurrencyProvider = ({ children }) => {
     
     // Skip if we've already loaded initial currency (unless it's a manual change completing)
     if (hasLoadedInitialCurrency.current && !isManualChange.current) {
-      console.log('[Global Currency] ⏭️ Skipping - already loaded, not a manual change');
+      console.log('[Global Currency] Skipping - already loaded, not a manual change');
       return;
     }
     
@@ -35,15 +35,15 @@ export const GlobalCurrencyProvider = ({ children }) => {
     isManualChange.current = false;
     
     if (user && user.preferred_currency) {
-      console.log('[Global Currency] ✓ Loading preferred_currency:', user.preferred_currency);
+      console.log('[Global Currency]  Loading preferred_currency:', user.preferred_currency);
       loadCurrency(user.preferred_currency);
       hasLoadedInitialCurrency.current = true;
     } else if (user) {
-      console.log('[Global Currency] ⚠ User loaded but NO preferred_currency, defaulting to INR');
+      console.log('[Global Currency] User loaded but NO preferred_currency, defaulting to INR');
       loadCurrency('INR');
       hasLoadedInitialCurrency.current = true;
     } else {
-      console.log('[Global Currency] ⏳ Waiting for user data...');
+      console.log('[Global Currency] Waiting for user data...');
     }
   }, [user]);
 
@@ -116,7 +116,7 @@ export const GlobalCurrencyProvider = ({ children }) => {
         return;
       }
 
-      console.log('[Global Currency] 🔄 Manual currency change to:', currencyCode);
+      console.log('[Global Currency] Manual currency change to:', currencyCode);
 
       // Mark this as a manual change (prevent useEffect from reverting)
       isManualChange.current = true;
@@ -125,26 +125,25 @@ export const GlobalCurrencyProvider = ({ children }) => {
       await loadCurrency(currencyCode);
       setSelectedCurrency(currencyCode);
       
-      console.log('[Global Currency] ✓ UI updated to:', currencyCode);
+      console.log('[Global Currency]  UI updated to:', currencyCode);
       
       // Step 2: Save to backend (DON'T call fetchUser - it causes revert!)
       try {
         const updateResponse = await apiClient.put('/auth/update-currency', { currency_code: currencyCode });
         
-        console.log('[Global Currency] ✓ Saved to backend:', updateResponse.data);
+        console.log('[Global Currency]  Saved to backend:', updateResponse.data);
         
         // DON'T call fetchUser() here - it would trigger useEffect and revert!
         // The backend has saved it, and on next login it will load correctly
         
-        toast.success(`✓ Currency changed to ${currencyCode}!`, {
-          duration: 2000,
-          icon: '💱'
+        toast.success(`Currency changed to ${currencyCode}!`, {
+          duration: 2000
         });
         
         // Reset manual change flag
         isManualChange.current = false;
         
-        console.log('[Global Currency] ✅ Complete! Currency is now', currencyCode);
+        console.log('[Global Currency] Complete! Currency is now', currencyCode);
         
       } catch (error) {
         console.error('[Global Currency] Backend save failed:', error);

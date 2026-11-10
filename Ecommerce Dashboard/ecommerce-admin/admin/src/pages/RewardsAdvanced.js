@@ -593,7 +593,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
 
         <form onSubmit={handleSubmit} style={{ padding: '24px', background: '#ffffff' }}>
           <div style={{ display: 'flex', gap: '8px', marginBottom: '24px', borderBottom: `2px solid ${borderColor}`, paddingBottom: '12px' }}>
-            {[{ id: 'basic', label: 'Basic Info', icon: '📝' }, { id: 'benefits', label: 'Benefits & Perks', icon: '🎁' }, { id: 'advanced', label: 'Advanced', icon: '⚙️' }].map(section => (
+            {[{ id: 'basic', label: 'Basic Info' }, { id: 'benefits', label: 'Benefits & Perks', icon: '' }, { id: 'advanced', label: 'Advanced' }].map(section => (
               <button
                 key={section.id}
                 type="button"
@@ -625,7 +625,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
                 borderRadius: '12px',
                 border: `1px solid ${borderColor}`
               }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#168CD6' }}>📝 Tier Details</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#168CD6' }}> Tier Details</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: textColor }}>Tier Name <span style={{ color: '#ef4444' }}>*</span></label>
@@ -702,7 +702,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
 
             {activeSection === 'benefits' && (
               <div style={{ padding: '20px', background: '#ffffff', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#8b5cf6' }}>🎁 Benefits & Perks</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#8b5cf6' }}> Benefits & Perks</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: textColor }}>Perks (JSON Array)</label>
@@ -762,7 +762,7 @@ const TierModal = ({ tier, onClose, onSave, isDark }) => {
 
             {activeSection === 'advanced' && (
               <div style={{ padding: '20px', background: '#ffffff', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#10b981' }}>⚙️ Advanced Settings</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#10b981' }}> Advanced Settings</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div style={{ padding: '16px', background: '#ffffff', borderRadius: '8px', border: `1px solid ${borderColor}` }}>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
@@ -905,7 +905,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
 
         <form onSubmit={handleSubmit} style={{ padding: '12px 14px', background: '#ffffff' }}>
           <div style={{ display: 'flex', gap: '6px', marginBottom: '12px', borderBottom: `2px solid ${borderColor}`, paddingBottom: '8px' }}>
-            {[{ id: 'basic', label: 'Basic Info', icon: '📝' }, { id: 'targeting', label: 'Targeting & Rules', icon: '🎯' }, { id: 'advanced', label: 'Advanced', icon: '⚙️' }].map(section => (
+            {[{ id: 'basic', label: 'Basic Info' }, { id: 'targeting', label: 'Targeting & Rules' }, { id: 'advanced', label: 'Advanced' }].map(section => (
               <button
                 key={section.id}
                 type="button"
@@ -932,7 +932,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
           <div style={{ display: 'grid', gap: '24px' }}>
             {activeSection === 'basic' && (
               <div style={{ padding: '20px', background: '#ffffff', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#168CD6' }}>📝 Campaign Details</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#168CD6' }}> Campaign Details</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: textColor }}>Campaign Name <span style={{ color: '#ef4444' }}>*</span></label>
@@ -1041,7 +1041,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
 
             {activeSection === 'targeting' && (
               <div style={{ padding: '20px', background: '#ffffff', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#8b5cf6' }}>🎯 Targeting & Eligibility Rules</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#8b5cf6' }}> Targeting & Eligibility Rules</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: textColor }}>Minimum Purchase Amount (₹)</label>
@@ -1094,7 +1094,7 @@ const CampaignModal = ({ campaign, tiers, onClose, onSave, isDark }) => {
 
             {activeSection === 'advanced' && (
               <div style={{ padding: '20px', background: '#ffffff', borderRadius: '12px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#10b981' }}>⚙️ Advanced Settings</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', color: '#10b981' }}> Advanced Settings</h3>
                 <div style={{ display: 'grid', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: textColor }}>Priority</label>

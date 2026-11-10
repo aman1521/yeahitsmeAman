@@ -14,7 +14,9 @@ import {
   FiRefreshCw,
   FiX,
   FiKey,
-  FiSave
+  FiSave,
+  FiZap,
+  FiInfo
 } from 'react-icons/fi';
 import { 
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
@@ -482,8 +484,9 @@ const PortfolioTrafficView = () => {
               padding: '16px',
               marginBottom: '16px'
             }}>
-              <div style={{ fontSize: '12px', fontWeight: '700', color: '#1E293B', marginBottom: '4px' }}>
-                ⚡ Option 1: 1-Click Live OAuth Sync (Google Account)
+              <div style={{ fontSize: '12px', fontWeight: '700', color: '#1E293B', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <FiZap size={14} style={{ color: '#F59E0B' }} />
+                <span>Option 1: 1-Click Live OAuth Sync (Google Account)</span>
               </div>
               <p style={{ fontSize: '11px', color: '#64748B', margin: '0 0 12px 0' }}>
                 Sign in with the Google account managing GA4 Property <strong>255419479</strong> to stream live metrics directly from Google Analytics.
@@ -517,6 +520,21 @@ const PortfolioTrafficView = () => {
                 </svg>
                 {isAuthorizing ? 'Connecting to Google API...' : 'Authorize Live GA4 (Client ID: 611341975318)'}
               </button>
+
+              <div style={{ marginTop: '10px', padding: '10px 12px', background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.25)', borderRadius: '8px', fontSize: '11px', color: '#92400E', lineHeight: 1.5 }}>
+                <strong style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <FiInfo size={13} />
+                  <span>Fixing Google OAuth "Error 400: origin_mismatch":</span>
+                </strong>
+                <ol style={{ margin: '6px 0 0 16px', padding: 0 }}>
+                  <li>Go to Google Cloud Console &rarr; <strong>APIs &amp; Services &rarr; Credentials</strong></li>
+                  <li>Click your OAuth 2.0 Web Client ID (<code>611341975318-...</code>)</li>
+                  <li>Under <strong>Authorized JavaScript origins</strong>, click <strong>+ ADD URI</strong> and paste: <code>https://yeahitsmeaman.netlify.app</code></li>
+                  <li>Under <strong>Authorized redirect URIs</strong>, add: <code>https://yeahitsmeaman.netlify.app/admin</code></li>
+                  <li>Under <strong>OAuth consent screen &rarr; Test users</strong>, add <code>anroide36t5@gmail.com</code> &amp; <code>amanchouhan1217@gmail.com</code></li>
+                  <li>Click <strong>Save</strong>. Google will authorize instantly without errors.</li>
+                </ol>
+              </div>
             </div>
 
             <div style={{ textAlign: 'center', fontSize: '11px', color: '#94A3B8', fontWeight: '600', marginBottom: '14px' }}>
@@ -524,8 +542,9 @@ const PortfolioTrafficView = () => {
             </div>
 
             <form onSubmit={handleSaveRealNumbers} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <div style={{ background: '#F8FAFC', padding: '12px 14px', borderRadius: '10px', border: '1px solid #E2E8F0', fontSize: '12px', color: '#475569' }}>
-                💡 <strong>Instant Override:</strong> Type your actual live figures from your GA4 screen to immediately update all dashboard charts and metrics.
+              <div style={{ background: '#F8FAFC', padding: '12px 14px', borderRadius: '10px', border: '1px solid #E2E8F0', fontSize: '12px', color: '#475569', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                <FiInfo size={16} style={{ color: '#168CD6', flexShrink: 0, marginTop: '2px' }} />
+                <span><strong>Instant Override:</strong> Type your actual live figures from your GA4 screen to immediately update all dashboard charts and metrics.</span>
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
@@ -583,8 +602,9 @@ const PortfolioTrafficView = () => {
               </div>
 
               <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '12px', marginTop: '4px' }}>
-                <div style={{ fontSize: '12px', fontWeight: '600', color: '#0F172A', marginBottom: '6px' }}>
-                  🔑 <strong>Option B (Live Automated API Sync via Google Cloud):</strong>
+                <div style={{ fontSize: '12px', fontWeight: '600', color: '#0F172A', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <FiKey size={14} style={{ color: '#0F828A' }} />
+                  <span><strong>Option B (Live Automated API Sync via Google Cloud):</strong></span>
                 </div>
                 <p style={{ fontSize: '11px', color: '#64748B', margin: '0 0 10px 0', lineHeight: 1.5 }}>
                   To query live data automatically from Google: create a Service Account in Google Cloud, enable the <em>Google Analytics Data API</em>, and add the Service Account email as Viewer in Google Analytics (Admin → Property Access Management).

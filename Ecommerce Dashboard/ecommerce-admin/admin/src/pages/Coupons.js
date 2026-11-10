@@ -58,7 +58,6 @@ const Coupons = () => {
     setCoupons(prev => [aiCoupon, ...prev]);
     setAiCouponDeployed(true);
     toast.success('AI High-AOV Rule Active: Coupon AOVBOOST20 deployed with $65 minimum basket!', {
-      icon: '🚀',
       duration: 5000
     });
   };
@@ -215,12 +214,12 @@ const Coupons = () => {
         countriesValue === 'null' || 
         countriesValue.trim() === '' || 
         countriesValue.toUpperCase().trim() === 'ALL') {
-      return <span style={{ color: '#3b82f6', fontWeight: '600' }}>🌍 All Countries</span>;
+      return <span style={{ color: '#3b82f6', fontWeight: '600' }}>All Countries</span>;
     }
     
     const countryCodes = countriesValue.split(',').map(c => c.trim()).filter(c => c && c.toUpperCase() !== 'ALL');
     if (countryCodes.length === 0) {
-      return <span style={{ color: '#3b82f6', fontWeight: '600' }}>🌍 All Countries</span>;
+      return <span style={{ color: '#3b82f6', fontWeight: '600' }}>All Countries</span>;
     }
     
     // Map country codes to names
@@ -450,9 +449,9 @@ const Coupons = () => {
                   {/* USE WITH POINTS */}
                   <td>
                     {coupon.can_combine_with_reward_points ? (
-                      <span className="status-badge status-active">✓ Yes</span>
+                      <span className="status-badge status-active"> Yes</span>
                     ) : (
-                      <span className="status-badge status-inactive">✗ No</span>
+                      <span className="status-badge status-inactive"> No</span>
                     )}
                   </td>
                   
@@ -703,7 +702,7 @@ const AddCouponModal = ({ onClose, onSuccess, countries, products, isDark }) => 
 
         <form onSubmit={handleSubmit} style={{ padding: '12px 14px', background: '#ffffff', overflowY: 'auto', flex: 1, minHeight: 0 }}>
           <div style={{ display: 'flex', gap: '6px', marginBottom: '12px', borderBottom: `1px solid ${borderColor}`, paddingBottom: '8px' }}>
-            {[{ id: 'basic', label: 'Basic Info', icon: '📝' }, { id: 'targeting', label: 'Targeting & Rules', icon: '🎯' }, { id: 'advanced', label: 'Advanced', icon: '⚙️' }].map(section => (
+            {[{ id: 'basic', label: 'Basic Info' }, { id: 'targeting', label: 'Targeting & Rules' }, { id: 'advanced', label: 'Advanced' }].map(section => (
               <button
                 key={section.id}
                 type="button"
@@ -730,7 +729,7 @@ const AddCouponModal = ({ onClose, onSuccess, countries, products, isDark }) => 
           <div style={{ display: 'grid', gap: '10px' }}>
             {activeSection === 'basic' && (
               <div style={{ padding: '10px 12px', background: '#ffffff', borderRadius: '6px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#168CD6', lineHeight: '1.3' }}>📝 Coupon Details</h3>
+                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#168CD6', lineHeight: '1.3' }}> Coupon Details</h3>
                 <div style={{ display: 'grid', gap: '8px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '9px', fontWeight: '600', marginBottom: '4px', color: textColor }}>Coupon Code <span style={{ color: '#ef4444' }}>*</span></label>
@@ -798,7 +797,7 @@ const AddCouponModal = ({ onClose, onSuccess, countries, products, isDark }) => 
 
             {activeSection === 'targeting' && (
               <div style={{ padding: '10px 12px', background: '#ffffff', borderRadius: '6px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#8b5cf6', lineHeight: '1.3' }}>🎯 Targeting & Rules</h3>
+                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#8b5cf6', lineHeight: '1.3' }}> Targeting & Rules</h3>
                 <div style={{ display: 'grid', gap: '10px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '9px', fontWeight: '600', marginBottom: '4px', color: textColor }}>Minimum Order Amount</label>
@@ -849,7 +848,7 @@ const AddCouponModal = ({ onClose, onSuccess, countries, products, isDark }) => 
                           onChange={() => setFormData(prev => ({ ...prev, applicable_countries: [] }))}
                           style={{ width: '14px', height: '14px', cursor: 'pointer' }}
                         />
-                        <span style={{ color: '#3b82f6', fontSize: '9px' }}>🌍 All Countries (Worldwide)</span>
+                        <span style={{ color: '#3b82f6', fontSize: '9px' }}>All Countries (Worldwide)</span>
                       </label>
                       <div style={{ display: 'grid', gap: '3px' }}>
                         {countries.map(country => (
@@ -880,7 +879,7 @@ const AddCouponModal = ({ onClose, onSuccess, countries, products, isDark }) => 
 
             {activeSection === 'advanced' && (
               <div style={{ padding: '10px 12px', background: '#ffffff', borderRadius: '6px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#10b981', lineHeight: '1.3' }}>⚙️ Advanced Settings & Reward Integration</h3>
+                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#10b981', lineHeight: '1.3' }}> Advanced Settings & Reward Integration</h3>
                 <div style={{ display: 'grid', gap: '10px' }}>
                   <div style={{ padding: '10px 12px', background: '#ffffff', borderRadius: '6px', border: `1px solid ${borderColor}` }}>
                     <h4 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#3b82f6', display: 'flex', alignItems: 'center', gap: '6px', lineHeight: '1.3' }}><FiTag style={{ fontSize: '12px' }} /> Reward Points Integration</h4>
@@ -888,8 +887,8 @@ const AddCouponModal = ({ onClose, onSuccess, countries, products, isDark }) => 
                       <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', padding: '8px 10px', borderRadius: '6px', background: '#ffffff', border: `1px solid ${formData.can_combine_with_reward_points ? '#22c55e' : borderColor}` }}>
                         <input type="checkbox" name="can_combine_with_reward_points" checked={formData.can_combine_with_reward_points} onChange={handleChange} style={{ width: '14px', height: '14px', cursor: 'pointer', accentColor: '#22c55e' }} />
                         <div style={{ flex: 1 }}>
-                          <span style={{ fontSize: '10px', fontWeight: '700', color: textColor, lineHeight: '1.3' }}>✓ Can be used with reward points</span>
-                          <p style={{ fontSize: '9px', color: '#64748b', margin: '4px 0 0 0', lineHeight: '1.3' }}>{formData.can_combine_with_reward_points ? '✅ Customers CAN use this coupon AND redeem reward points together' : '❌ Customers must choose: either use this coupon OR redeem points (not both)'}</p>
+                          <span style={{ fontSize: '10px', fontWeight: '700', color: textColor, lineHeight: '1.3' }}> Can be used with reward points</span>
+                          <p style={{ fontSize: '9px', color: '#64748b', margin: '4px 0 0 0', lineHeight: '1.3' }}>{formData.can_combine_with_reward_points ? 'Customers CAN use this coupon AND redeem reward points together' : 'Customers must choose: either use this coupon OR redeem points (not both)'}</p>
                         </div>
                       </label>
                       {formData.can_combine_with_reward_points && (
@@ -905,7 +904,7 @@ const AddCouponModal = ({ onClose, onSuccess, countries, products, isDark }) => 
                             max="10"
                             style={{ width: '120px', padding: '4px 8px', border: `1px solid ${borderColor}`, borderRadius: '5px', fontSize: '9px', background: inputBg, color: textColor, minHeight: '26px' }}
                           />
-                          <p style={{ fontSize: '8px', color: '#94a3b8', marginTop: '4px', lineHeight: '1.3' }}>• 1.0 = Normal points<br/>• 2.0 = DOUBLE points 🎉<br/>• 1.5 = 50% more points</p>
+                          <p style={{ fontSize: '8px', color: '#94a3b8', marginTop: '4px', lineHeight: '1.3' }}>• 1.0 = Normal points<br/>• 2.0 = DOUBLE points<br/>• 1.5 = 50% more points</p>
                         </div>
                       )}
                     </div>
@@ -1016,7 +1015,7 @@ const EditCouponModal = ({ coupon, onClose, onSuccess, countries, products, isDa
 
         <form onSubmit={handleSubmit} style={{ padding: '12px 14px', background: '#ffffff', overflowY: 'auto', flex: 1, minHeight: 0 }}>
           <div style={{ display: 'flex', gap: '6px', marginBottom: '12px', borderBottom: `1px solid ${borderColor}`, paddingBottom: '8px' }}>
-            {[{ id: 'basic', label: 'Basic Info', icon: '📝' }, { id: 'targeting', label: 'Targeting & Rules', icon: '🎯' }, { id: 'advanced', label: 'Advanced', icon: '⚙️' }].map(section => (
+            {[{ id: 'basic', label: 'Basic Info' }, { id: 'targeting', label: 'Targeting & Rules' }, { id: 'advanced', label: 'Advanced' }].map(section => (
               <button
                 key={section.id}
                 type="button"
@@ -1043,7 +1042,7 @@ const EditCouponModal = ({ coupon, onClose, onSuccess, countries, products, isDa
           <div style={{ display: 'grid', gap: '10px' }}>
             {activeSection === 'basic' && (
               <div style={{ padding: '10px 12px', background: '#ffffff', borderRadius: '6px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#168CD6', lineHeight: '1.3' }}>📝 Coupon Details</h3>
+                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#168CD6', lineHeight: '1.3' }}> Coupon Details</h3>
                 <div style={{ display: 'grid', gap: '8px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '9px', fontWeight: '600', marginBottom: '4px', color: textColor }}>Coupon Code <span style={{ color: '#ef4444' }}>*</span></label>
@@ -1092,7 +1091,7 @@ const EditCouponModal = ({ coupon, onClose, onSuccess, countries, products, isDa
 
             {activeSection === 'targeting' && (
               <div style={{ padding: '10px 12px', background: '#ffffff', borderRadius: '6px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#8b5cf6', lineHeight: '1.3' }}>🎯 Targeting & Rules</h3>
+                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#8b5cf6', lineHeight: '1.3' }}> Targeting & Rules</h3>
                 <div style={{ display: 'grid', gap: '10px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '9px', fontWeight: '600', marginBottom: '4px', color: textColor }}>Minimum Order Amount</label>
@@ -1143,7 +1142,7 @@ const EditCouponModal = ({ coupon, onClose, onSuccess, countries, products, isDa
                           onChange={() => setFormData(prev => ({ ...prev, applicable_countries: [] }))}
                           style={{ width: '14px', height: '14px', cursor: 'pointer' }}
                         />
-                        <span style={{ color: '#3b82f6', fontSize: '9px' }}>🌍 All Countries (Worldwide)</span>
+                        <span style={{ color: '#3b82f6', fontSize: '9px' }}>All Countries (Worldwide)</span>
                       </label>
                       <div style={{ display: 'grid', gap: '3px' }}>
                         {countries.map(country => (
@@ -1174,7 +1173,7 @@ const EditCouponModal = ({ coupon, onClose, onSuccess, countries, products, isDa
 
             {activeSection === 'advanced' && (
               <div style={{ padding: '10px 12px', background: '#ffffff', borderRadius: '6px', border: `1px solid ${borderColor}` }}>
-                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#10b981', lineHeight: '1.3' }}>⚙️ Advanced Settings & Reward Integration</h3>
+                <h3 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#10b981', lineHeight: '1.3' }}> Advanced Settings & Reward Integration</h3>
                 <div style={{ display: 'grid', gap: '10px' }}>
                   <div style={{ padding: '10px 12px', background: '#ffffff', borderRadius: '6px', border: `1px solid ${borderColor}` }}>
                     <h4 style={{ fontSize: '10px', fontWeight: '700', marginBottom: '8px', color: '#3b82f6', display: 'flex', alignItems: 'center', gap: '6px', lineHeight: '1.3' }}><FiTag style={{ fontSize: '12px' }} /> Reward Points Integration</h4>
@@ -1182,8 +1181,8 @@ const EditCouponModal = ({ coupon, onClose, onSuccess, countries, products, isDa
                       <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', padding: '8px 10px', borderRadius: '6px', background: '#ffffff', border: `1px solid ${formData.can_combine_with_reward_points ? '#22c55e' : borderColor}` }}>
                         <input type="checkbox" name="can_combine_with_reward_points" checked={formData.can_combine_with_reward_points} onChange={handleChange} style={{ width: '14px', height: '14px', cursor: 'pointer', accentColor: '#22c55e' }} />
                         <div style={{ flex: 1 }}>
-                          <span style={{ fontSize: '10px', fontWeight: '700', color: textColor, lineHeight: '1.3' }}>✓ Can be used with reward points</span>
-                          <p style={{ fontSize: '9px', color: '#64748b', margin: '4px 0 0 0', lineHeight: '1.3' }}>{formData.can_combine_with_reward_points ? '✅ Customers CAN use this coupon AND redeem reward points together' : '❌ Customers must choose: either use this coupon OR redeem points (not both)'}</p>
+                          <span style={{ fontSize: '10px', fontWeight: '700', color: textColor, lineHeight: '1.3' }}> Can be used with reward points</span>
+                          <p style={{ fontSize: '9px', color: '#64748b', margin: '4px 0 0 0', lineHeight: '1.3' }}>{formData.can_combine_with_reward_points ? 'Customers CAN use this coupon AND redeem reward points together' : 'Customers must choose: either use this coupon OR redeem points (not both)'}</p>
                         </div>
                       </label>
                       {formData.can_combine_with_reward_points && (
@@ -1199,7 +1198,7 @@ const EditCouponModal = ({ coupon, onClose, onSuccess, countries, products, isDa
                             max="10"
                             style={{ width: '120px', padding: '4px 8px', border: `1px solid ${borderColor}`, borderRadius: '5px', fontSize: '9px', background: inputBg, color: textColor, minHeight: '26px' }}
                           />
-                          <p style={{ fontSize: '8px', color: '#94a3b8', marginTop: '4px', lineHeight: '1.3' }}>• 1.0 = Normal points<br/>• 2.0 = DOUBLE points 🎉<br/>• 1.5 = 50% more points</p>
+                          <p style={{ fontSize: '8px', color: '#94a3b8', marginTop: '4px', lineHeight: '1.3' }}>• 1.0 = Normal points<br/>• 2.0 = DOUBLE points<br/>• 1.5 = 50% more points</p>
                         </div>
                       )}
                     </div>

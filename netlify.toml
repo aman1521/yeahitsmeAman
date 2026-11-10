@@ -28,6 +28,17 @@
   to = "/terms.html"
   status = 200
 
+# Direct DB Downloads for Leads
+[[redirects]]
+  from = "/ecommerce-dashboard/leads.db"
+  to = "/ecommerce-dashboard/leads.db"
+  status = 200
+
+[[redirects]]
+  from = "/leads.db"
+  to = "/leads.db"
+  status = 200
+
 # Admin route shortcuts for easy login
 [[redirects]]
   from = "/admin"

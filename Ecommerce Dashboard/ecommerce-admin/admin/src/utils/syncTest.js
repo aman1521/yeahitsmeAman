@@ -10,10 +10,10 @@ export async function verifySync() {
     const response = await api.get('/sync/verify', {
       headers: { Authorization: `Bearer ${token}` }
     });
-    console.log('✅ Sync Verification:', response.data);
+    console.log('Sync Verification:', response.data);
     return response.data;
   } catch (error) {
-    console.error('❌ Sync Verification Failed:', error);
+    console.error('Sync Verification Failed:', error);
     throw error;
   }
 }
@@ -24,10 +24,10 @@ export async function testSync() {
     const response = await api.post('/sync/test', {}, {
       headers: { Authorization: `Bearer ${token}` }
     });
-    console.log('✅ Sync Test:', response.data);
+    console.log('Sync Test:', response.data);
     return response.data;
   } catch (error) {
-    console.error('❌ Sync Test Failed:', error);
+    console.error('Sync Test Failed:', error);
     throw error;
   }
 }
@@ -36,6 +36,6 @@ export async function testSync() {
 if (typeof window !== 'undefined') {
   window.testSync = testSync;
   window.verifySync = verifySync;
-  console.log('💡 Sync utilities available: window.testSync(), window.verifySync()');
+  console.log('Sync utilities available: window.testSync(), window.verifySync()');
 }
 
