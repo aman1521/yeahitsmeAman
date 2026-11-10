@@ -551,7 +551,7 @@ const Analytics = ({ defaultTab = 'ecommerce' }) => {
       </div>
 
       {/* Charts Row */}
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '13px', marginBottom: '0' }}>
+      <div className="charts-row-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '13px', marginBottom: '0' }}>
         {/* Revenue Chart */}
         <div className="chart-container">
           <div className="chart-header" style={{ padding: '6px 8px 4px 8px', marginBottom: '0' }}>
@@ -759,7 +759,7 @@ const Analytics = ({ defaultTab = 'ecommerce' }) => {
       </div>
 
       {/* Bottom Row */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '13px', marginBottom: '0' }}>
+      <div className="charts-row-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '13px', marginBottom: '0' }}>
         {/* Customer Distribution */}
         <div className="chart-container">
           <div className="chart-header" style={{ padding: '6px 8px 4px 8px', marginBottom: '0' }}>

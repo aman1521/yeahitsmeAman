@@ -204,7 +204,7 @@ const PortfolioTrafficView = () => {
       </div>
 
       {/* 4 Top KPI Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '14px' }}>
         {[
           { title: 'Total Unique Visitors', value: data.overview.total_visitors.toLocaleString(), change: '+24.8%', icon: FiUsers, color: '#168CD6' },
           { title: 'Total Pageviews', value: data.overview.total_pageviews.toLocaleString(), change: '+31.2%', icon: FiEye, color: '#0F828A' },
@@ -247,7 +247,7 @@ const PortfolioTrafficView = () => {
       </div>
 
       {/* Traffic Trend Chart + Channels */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '16px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '16px' }}>
         {/* Trend Line Chart */}
         <div style={{
           background: '#FFFFFF',

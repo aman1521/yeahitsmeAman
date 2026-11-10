@@ -52,14 +52,17 @@ const AIGrowthBriefing = ({ onNavigateToProducts, onNavigateToCoupons }) => {
       background: 'linear-gradient(135deg, rgba(22, 140, 214, 0.05) 0%, rgba(15, 130, 138, 0.08) 100%)',
       border: '1px solid rgba(22, 140, 214, 0.25)',
       borderRadius: '14px',
-      padding: '20px',
+      padding: '16px',
       marginBottom: '24px',
-      boxShadow: '0 4px 20px rgba(15, 23, 42, 0.04)'
+      boxShadow: '0 4px 20px rgba(15, 23, 42, 0.04)',
+      boxSizing: 'border-box',
+      width: '100%',
+      maxWidth: '100%'
     }}>
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
             <div style={{
               background: 'linear-gradient(135deg, #168CD6, #0F828A)',
               color: '#fff',
@@ -69,11 +72,12 @@ const AIGrowthBriefing = ({ onNavigateToProducts, onNavigateToCoupons }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 2px 8px rgba(22, 140, 214, 0.3)'
+              boxShadow: '0 2px 8px rgba(22, 140, 214, 0.3)',
+              flexShrink: 0
             }}>
               <FiZap size={16} />
             </div>
-            <h2 style={{ fontSize: '16px', fontWeight: '700', color: '#0F172A', margin: 0 }}>
+            <h2 style={{ fontSize: '15px', fontWeight: '700', color: '#0F172A', margin: 0 }}>
               AI Growth & Revenue Diagnostic Copilot
             </h2>
             <span style={{
@@ -83,12 +87,13 @@ const AIGrowthBriefing = ({ onNavigateToProducts, onNavigateToCoupons }) => {
               fontWeight: '600',
               padding: '2px 8px',
               borderRadius: '12px',
-              letterSpacing: '0.3px'
+              letterSpacing: '0.3px',
+              whiteSpace: 'nowrap'
             }}>
               Autonomous Heuristics Active
             </span>
           </div>
-          <p style={{ fontSize: '13px', color: '#475569', margin: '4px 0 0 36px' }}>
+          <p style={{ fontSize: '12px', color: '#475569', margin: '6px 0 0 0', lineHeight: 1.4 }}>
             Continuously analyzing orders, margin elasticity, and customer churn signals to maximize revenue.
           </p>
         </div>
@@ -118,7 +123,7 @@ const AIGrowthBriefing = ({ onNavigateToProducts, onNavigateToCoupons }) => {
       </div>
 
       {/* Tabs */}
-      <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', borderBottom: '1px solid rgba(226, 232, 240, 0.8)', paddingBottom: '8px' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '16px', borderBottom: '1px solid rgba(226, 232, 240, 0.8)', paddingBottom: '8px' }}>
         {[
           { key: 'all', label: `All Opportunities (${recommendations.length})` },
           { key: 'pricing', label: 'Dynamic Pricing' },
@@ -131,13 +136,14 @@ const AIGrowthBriefing = ({ onNavigateToProducts, onNavigateToCoupons }) => {
             onClick={() => setActiveTab(tab.key)}
             style={{
               padding: '4px 10px',
-              fontSize: '12px',
+              fontSize: '11px',
               fontWeight: activeTab === tab.key ? '600' : '500',
               color: activeTab === tab.key ? '#168CD6' : '#64748B',
               background: activeTab === tab.key ? '#FFFFFF' : 'transparent',
               border: activeTab === tab.key ? '1px solid #E2E8F0' : '1px solid transparent',
               borderRadius: '6px',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              whiteSpace: 'nowrap'
             }}
           >
             {tab.label}
@@ -152,7 +158,7 @@ const AIGrowthBriefing = ({ onNavigateToProducts, onNavigateToCoupons }) => {
       </div>
 
       {/* Recommendations Cards Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '14px' }}>
         {filtered.map(rec => (
           <div
             key={rec.id}

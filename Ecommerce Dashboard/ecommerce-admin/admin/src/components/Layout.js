@@ -570,17 +570,42 @@ const Layout = () => {
 
       {/* Main Content */}
       <div
-        className="main-content"
+        className={`main-content ${sidebarCollapsed ? 'collapsed' : ''} ${isMobile ? 'mobile-view' : ''}`}
         style={{
           marginLeft: isMobile ? 0 : `${sidebarWidth}px`,
-          width: isMobile ? '100%' : `calc(100% - ${sidebarWidth}px)`
+          width: isMobile ? '100%' : `calc(100% - ${sidebarWidth}px)`,
+          minWidth: 0,
+          maxWidth: '100%',
+          boxSizing: 'border-box'
         }}
       >
         {/* Header */}
         <header className="header">
-          <div className="header-left" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div className="header-left" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <button
+              className="mobile-menu-btn"
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              aria-label="Toggle mobile navigation menu"
+              style={{
+                display: isMobile ? 'inline-flex' : 'none',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '32px',
+                height: '32px',
+                minWidth: '32px',
+                borderRadius: '8px',
+                border: '1px solid #CBD5E1',
+                background: '#FFFFFF',
+                color: '#1E293B',
+                cursor: 'pointer',
+                flexShrink: 0
+              }}
+            >
+              {sidebarOpen ? <FiX size={18} /> : <FiMenu size={18} />}
+            </button>
+
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '6px' }}>
                 <h1 style={{ margin: 0, fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                   {isActuallyPersonalAdmin ? (
                     <>
@@ -601,29 +626,22 @@ const Layout = () => {
                   borderRadius: '12px',
                   background: isActuallyPersonalAdmin ? 'rgba(15, 130, 138, 0.12)' : 'rgba(22, 140, 214, 0.1)',
                   color: isActuallyPersonalAdmin ? '#0F828A' : '#168CD6',
-                  border: `1px solid ${isActuallyPersonalAdmin ? 'rgba(15, 130, 138, 0.25)' : 'rgba(22, 140, 214, 0.25)'}`
+                  border: `1px solid ${isActuallyPersonalAdmin ? 'rgba(15, 130, 138, 0.25)' : 'rgba(22, 140, 214, 0.25)'}`,
+                  whiteSpace: 'nowrap'
                 }}>
                   {isActuallyPersonalAdmin ? 'Aman Kumar (Admin)' : 'Visitor Demo Mode'}
                 </span>
               </div>
-              <p style={{ margin: '2px 0 0 0', fontSize: '11px', color: 'var(--text-secondary)' }}>
+              <p style={{ margin: '2px 0 0 0', fontSize: '11px', color: 'var(--text-secondary)', lineHeight: 1.3 }}>
                 {isActuallyPersonalAdmin 
                   ? 'Private GA4 Traffic & Client Leads for Aman Kumar' 
                   : 'Showing public demo catalog, orders, and pricing optimizer'}
               </p>
             </div>
-
-            <button
-              className="mobile-menu-btn"
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              aria-label="Toggle mobile navigation menu"
-            >
-              {sidebarOpen ? <FiX size={18} /> : <FiMenu size={18} />}
-            </button>
           </div>
 
           <div className="header-right">
-            <div className="header-actions" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div className="header-actions" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
               {/* Only personal admin gets the option to preview the store demo */}
               {isActuallyPersonalAdmin ? (
                 <button

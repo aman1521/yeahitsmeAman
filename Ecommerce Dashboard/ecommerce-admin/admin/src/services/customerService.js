@@ -108,11 +108,8 @@ export const exportLeadsAsJSON = (leads = REAL_PORTFOLIO_LEADS) => {
 };
 
 export const downloadDatabaseFile = () => {
-  const publicPath = (process.env.PUBLIC_URL && process.env.PUBLIC_URL !== '') 
-    ? `${process.env.PUBLIC_URL}/leads.db` 
-    : '/ecommerce-dashboard/leads.db';
   const link = document.createElement('a');
-  link.setAttribute('href', publicPath);
+  link.setAttribute('href', '/ecommerce-dashboard/leads.db');
   link.setAttribute('download', 'leads.db');
   document.body.appendChild(link);
   link.click();
